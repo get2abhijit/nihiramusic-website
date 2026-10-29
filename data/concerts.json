@@ -12,14 +12,32 @@
       "subtitle": "Musically Speaking @ Rule34",
       "playlistUrl": "https://www.youtube.com/playlist?list=PLQ_rmkCpHU8pkzQgcMaU1IGiteN9PcljQ",
       "videos": [
-        { "videoId": "r7FUOmo7630", "title": "Mujhe Jaan Na Kaho" },
-        { "videoId": "v1fiI8H6CSQ", "title": "Rock N Roll Medley" },
-        { "videoId": "Vh1a5ZgjJYs", "title": "Ranjish Hi Sahi (Cover)" },
-        { "videoId": "TxIo1Vp-lkQ", "title": "Mai Mai" },
-        { "videoId": "Zc9Lqpgp4HU", "title": "" }
+        {
+          "videoId": "r7FUOmo7630",
+          "title": "Mujhe Jaan Na Kaho"
+        },
+        {
+          "videoId": "v1fiI8H6CSQ",
+          "title": "Rock N Roll Medley"
+        },
+        {
+          "videoId": "Vh1a5ZgjJYs",
+          "title": "Ranjish Hi Sahi (Cover)"
+        },
+        {
+          "videoId": "TxIo1Vp-lkQ",
+          "title": "Mai Mai"
+        },
+        {
+          "videoId": "Zc9Lqpgp4HU",
+          "title": "",
+          "youtubeTitle": "Mai Mai -Part 2 [Live Concert]"
+        }
       ],
       "source": "https://nihiramusic.in/concerts",
-      "_sources": ["https://artist.link/nihira"],
+      "_sources": [
+        "https://artist.link/nihira"
+      ],
       "_todo": "Date, venue and city not published. Title of video Zc9Lqpgp4HU unknown."
     },
     {
@@ -28,11 +46,31 @@
       "year": 2023,
       "city": "London",
       "videos": [
-        { "videoId": "Y00tQMwUE3E", "title": "" },
-        { "videoId": "gMqcUxwB6uk", "title": "" },
-        { "videoId": "3-wWQadVPw0", "title": "" },
-        { "videoId": "dBq27cvCIbY", "title": "" },
-        { "videoId": "NXSVoSZrCDU", "title": "" }
+        {
+          "videoId": "Y00tQMwUE3E",
+          "title": "",
+          "youtubeTitle": "Aaj Jane ki zid na karo| Live at London"
+        },
+        {
+          "videoId": "gMqcUxwB6uk",
+          "title": "",
+          "youtubeTitle": "Kisi Ranjish ko hawa do|  Live in London| Jagjit Singh| Chitra Singh | Fakir Sudarshan"
+        },
+        {
+          "videoId": "3-wWQadVPw0",
+          "title": "",
+          "youtubeTitle": "Nirmohiya| Live at London| Original song"
+        },
+        {
+          "videoId": "dBq27cvCIbY",
+          "title": "",
+          "youtubeTitle": "Trishna Samarpan Ki|  Live from LONDON|"
+        },
+        {
+          "videoId": "NXSVoSZrCDU",
+          "title": "",
+          "youtubeTitle": "Trishna Antarman Ki| Live version| UK Concert"
+        }
       ],
       "source": "https://nihiramusic.in/concerts",
       "_todo": "Venue/date not on the old site (possibly 'Musically Speaking' at The Bhavan, London; see events.json). Video titles unknown."

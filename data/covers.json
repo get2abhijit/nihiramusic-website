@@ -4,17 +4,116 @@
   "intro": "",
   "emptyText": "Cover songs will appear here soon.",
   "items": [
-    { "id": "cover-nurmhdy0hv0", "title": "", "category": "Hindi Covers", "videoId": "nuRMhdy0hV0", "source": "https://nihiramusic.in/covers", "_todo": "Title not shown on the old site." },
-    { "id": "jahaan-me-aisa-kaun-hai", "title": "Jahaan Me Aisa Kaun Hai", "category": "Hindi Covers", "videoId": "oLQIvcD57pM", "source": "https://nihiramusic.in/covers", "_sources": ["https://artist.link/nihira"] },
-    { "id": "cover-ggowse2cyoi", "title": "", "category": "Hindi Covers", "videoId": "GGOWse2CYOI", "source": "https://nihiramusic.in/covers", "_todo": "Title not shown on the old site." },
-    { "id": "aye-ri-pavan-revisited", "title": "Aye Ri Pavan Revisited", "category": "Hindi Covers", "videoId": "_o8WK8i-Ea0", "source": "https://nihiramusic.in/covers", "_sources": ["https://artist.link/nihira"] },
-    { "id": "laagi-karejwa-kataar", "title": "Laagi Karejwa Kataar", "category": "Hindi Covers", "videoId": "630ZVz5XC98", "source": "https://nihiramusic.in/covers", "_sources": ["https://artist.link/nihira"] },
-    { "id": "cover-lyyrvce-k9y", "title": "", "category": "Hindi Covers", "videoId": "lYYRVCE-k9Y", "source": "https://nihiramusic.in/covers", "_todo": "Title not shown on the old site." },
-    { "id": "cover-l2wyfd153b0", "title": "", "category": "Marathi Covers", "videoId": "L2wyFD153B0", "source": "https://nihiramusic.in/covers", "_todo": "Title not shown on the old site." },
-    { "id": "cover-3yd4ipt-vbs", "title": "", "category": "Marathi Covers", "videoId": "3Yd4ipT-VBs", "source": "https://nihiramusic.in/covers", "_todo": "Title not shown on the old site." },
-    { "id": "cover-ar5hjbafe1u", "title": "", "category": "Unplugged", "videoId": "aR5HjBafe1U", "source": "https://nihiramusic.in/covers", "_todo": "Title not shown on the old site." },
-    { "id": "cover-tswzzbjaenc", "title": "", "category": "Unplugged", "videoId": "TsWZZBjAEnc", "source": "https://nihiramusic.in/covers", "_todo": "Title not shown on the old site." },
-    { "id": "cover-4dcfqbmuegm", "title": "", "category": "Unplugged", "videoId": "4dCfQbMUeGM", "source": "https://nihiramusic.in/covers", "_todo": "Title not shown on the old site." },
-    { "id": "dil-e-nadaan", "title": "Dil-e-Nadaan", "originalArtist": "Mehdi Hassan", "category": "More covers", "videoId": "qr3rR9tsHXE", "source": "https://artist.link/nihira", "_todo": "Listed on artist.link but not on the old Covers page; confirm category." }
+    {
+      "id": "cover-nurmhdy0hv0",
+      "title": "",
+      "category": "Hindi Covers",
+      "videoId": "nuRMhdy0hV0",
+      "source": "https://nihiramusic.in/covers",
+      "_todo": "Title not shown on the old site.",
+      "youtubeTitle": "Aaj Jane Ki Zid Na Karo | Nihira Joshi | Vidushi Gupta"
+    },
+    {
+      "id": "jahaan-me-aisa-kaun-hai",
+      "title": "Jahaan Me Aisa Kaun Hai",
+      "category": "Hindi Covers",
+      "videoId": "oLQIvcD57pM",
+      "source": "https://nihiramusic.in/covers",
+      "_sources": [
+        "https://artist.link/nihira"
+      ]
+    },
+    {
+      "id": "cover-ggowse2cyoi",
+      "title": "",
+      "category": "Hindi Covers",
+      "videoId": "GGOWse2CYOI",
+      "source": "https://nihiramusic.in/covers",
+      "_todo": "Title not shown on the old site.",
+      "youtubeTitle": "Tumhe Ho Na Ho| Cover| Nihira Joshi| Vidushi Gupta"
+    },
+    {
+      "id": "aye-ri-pavan-revisited",
+      "title": "Aye Ri Pavan Revisited",
+      "category": "Hindi Covers",
+      "videoId": "_o8WK8i-Ea0",
+      "source": "https://nihiramusic.in/covers",
+      "_sources": [
+        "https://artist.link/nihira"
+      ]
+    },
+    {
+      "id": "laagi-karejwa-kataar",
+      "title": "Laagi Karejwa Kataar",
+      "category": "Hindi Covers",
+      "videoId": "630ZVz5XC98",
+      "source": "https://nihiramusic.in/covers",
+      "_sources": [
+        "https://artist.link/nihira"
+      ]
+    },
+    {
+      "id": "cover-lyyrvce-k9y",
+      "title": "",
+      "category": "Hindi Covers",
+      "videoId": "lYYRVCE-k9Y",
+      "source": "https://nihiramusic.in/covers",
+      "_todo": "Title not shown on the old site.",
+      "youtubeTitle": "Kasamh Se Serial | Full Title Song | Nihira Joshi Deshpande | Hindi Serial Song"
+    },
+    {
+      "id": "cover-l2wyfd153b0",
+      "title": "",
+      "category": "Marathi Covers",
+      "videoId": "L2wyFD153B0",
+      "source": "https://nihiramusic.in/covers",
+      "_todo": "Title not shown on the old site.",
+      "youtubeTitle": "Julun Yeti Reshimgathi Full Title Track | जुळून येती रेशीमगाठी शीर्षकगीत"
+    },
+    {
+      "id": "cover-3yd4ipt-vbs",
+      "title": "",
+      "category": "Marathi Covers",
+      "videoId": "3Yd4ipT-VBs",
+      "source": "https://nihiramusic.in/covers",
+      "_todo": "Title not shown on the old site.",
+      "youtubeTitle": "Tujvin Sakhya Re | तुजवीण सख्या रे"
+    },
+    {
+      "id": "cover-ar5hjbafe1u",
+      "title": "",
+      "category": "Unplugged",
+      "videoId": "aR5HjBafe1U",
+      "source": "https://nihiramusic.in/covers",
+      "_todo": "Title not shown on the old site.",
+      "youtubeTitle": "Saang Na re Mana | Piano | Vocals"
+    },
+    {
+      "id": "cover-tswzzbjaenc",
+      "title": "",
+      "category": "Unplugged",
+      "videoId": "TsWZZBjAEnc",
+      "source": "https://nihiramusic.in/covers",
+      "_todo": "Title not shown on the old site.",
+      "youtubeTitle": "Bhaya Ithale sampat nahi"
+    },
+    {
+      "id": "cover-4dcfqbmuegm",
+      "title": "",
+      "category": "Unplugged",
+      "videoId": "4dCfQbMUeGM",
+      "source": "https://nihiramusic.in/covers",
+      "_todo": "Title not shown on the old site.",
+      "youtubeTitle": "Ye javali ghe javali | Nihira Joshi| Meena Mangeshkar"
+    },
+    {
+      "id": "dil-e-nadaan",
+      "title": "Dil-e-Nadaan",
+      "originalArtist": "Mehdi Hassan",
+      "category": "More covers",
+      "videoId": "qr3rR9tsHXE",
+      "source": "https://artist.link/nihira",
+      "_todo": "Listed on artist.link but not on the old Covers page; confirm category."
+    }
   ]
 }
