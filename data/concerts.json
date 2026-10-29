@@ -1,0 +1,41 @@
+{
+  "_help": "Concerts and live performances (past shows with videos). Fields: id (unique), title, date (YYYY-MM-DD, optional), year (optional), venue, city, country, description, image (optional photo URL), imageAlt, photos (optional list of {src, alt}), playlistUrl (optional YouTube playlist), videos (list of {videoId, title}), source. Upcoming shows go in events.json instead.",
+  "pageTitle": "Concerts",
+  "intro": "",
+  "bannerImage": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/Yan9WOlbvqczrXzV/1678727470306---copy-AQEp0QB091sB5qeE.JPG",
+  "bannerImageAlt": "Nihira Joshi-Deshpande performing live",
+  "emptyText": "Concert videos will appear here soon.",
+  "items": [
+    {
+      "id": "rule-34",
+      "title": "Rule 34",
+      "subtitle": "Musically Speaking @ Rule34",
+      "playlistUrl": "https://www.youtube.com/playlist?list=PLQ_rmkCpHU8pkzQgcMaU1IGiteN9PcljQ",
+      "videos": [
+        { "videoId": "r7FUOmo7630", "title": "Mujhe Jaan Na Kaho" },
+        { "videoId": "v1fiI8H6CSQ", "title": "Rock N Roll Medley" },
+        { "videoId": "Vh1a5ZgjJYs", "title": "Ranjish Hi Sahi (Cover)" },
+        { "videoId": "TxIo1Vp-lkQ", "title": "Mai Mai" },
+        { "videoId": "Zc9Lqpgp4HU", "title": "" }
+      ],
+      "source": "https://nihiramusic.in/concerts",
+      "_sources": ["https://artist.link/nihira"],
+      "_todo": "Date, venue and city not published. Title of video Zc9Lqpgp4HU unknown."
+    },
+    {
+      "id": "live-in-london-2023",
+      "title": "Live In London - 2023",
+      "year": 2023,
+      "city": "London",
+      "videos": [
+        { "videoId": "Y00tQMwUE3E", "title": "" },
+        { "videoId": "gMqcUxwB6uk", "title": "" },
+        { "videoId": "3-wWQadVPw0", "title": "" },
+        { "videoId": "dBq27cvCIbY", "title": "" },
+        { "videoId": "NXSVoSZrCDU", "title": "" }
+      ],
+      "source": "https://nihiramusic.in/concerts",
+      "_todo": "Venue/date not on the old site (possibly 'Musically Speaking' at The Bhavan, London; see events.json). Video titles unknown."
+    }
+  ]
+}

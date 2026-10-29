@@ -1,0 +1,23 @@
+{
+  "_help": "Events calendar. Events move from 'Upcoming' to 'Past' automatically after their date. Fields: id (unique), title, date (YYYY-MM-DD), endDate (optional, multi-day), startTime / endTime (optional, 24h 'HH:MM', local time at the venue), timezone (e.g. 'Europe/Berlin', 'Europe/London', 'Asia/Kolkata'), venue, address (optional), city, country, status ('scheduled', 'cancelled' or 'sold-out'), ticketUrl (optional), description, image (optional), source.",
+  "pageTitle": "Events",
+  "intro": "",
+  "emptyText": "New events will be announced soon.",
+  "items": [
+    {
+      "id": "musically-speaking-london-2023",
+      "title": "Krybaby presents Nihira Joshi Live: Musically Speaking",
+      "date": "2023-04-22",
+      "startTime": "18:00",
+      "endTime": "21:00",
+      "timezone": "Europe/London",
+      "venue": "The Bhavan",
+      "city": "London",
+      "country": "United Kingdom",
+      "status": "scheduled",
+      "description": "A set of semi-classical music, with Madhusoodanan on flute and Narendra Panchal on percussion.",
+      "source": "https://bhavan.net/bhavan50landing",
+      "_todo": "Year inferred: listing says 'Sat, 22 April' (22 April was a Saturday in 2023) and matches the old site's 'Live In London - 2023'. Confirm."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "_help": "Original songs and albums. Newest first is automatic (by 'date' YYYY-MM-DD, else 'year'). Fields: id (unique, lowercase-with-dashes), title, type (Single / Album / EP), year (number, optional), date (optional), videoId (the part after v= in a YouTube link), image (optional cover art URL), imageAlt, credits (short line), description (text; **bold** and [link](url) allowed), listenUrl (song.link / album.link), spotifyUrl, soundcloudUrl, featured (true pins it to the top), tracks (albums only: list of {title, videoId, spotifyUrl, soundcloudUrl, listenUrl}), source (where the info came from). Leave a field out if you don't know it. Fields starting with _ are notes and never shown.",
+  "pageTitle": "Original Compositions",
+  "intro": "",
+  "emptyText": "New original music is on its way.",
+  "items": [
+    {
+      "id": "trishna",
+      "title": "Trishna",
+      "type": "EP",
+      "year": 2022,
+      "videoId": "_R-iXCWgsK8",
+      "image": "https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/fc/80/5a/fc805a90-2831-655f-01d6-aec789c7ed76/197187411412.jpg/512x512bb.jpg",
+      "imageAlt": "Trishna EP cover art",
+      "credits": "Composed and sung by Nihira Joshi-Deshpande",
+      "description": "“Trishna” is a bouquet of four songs, that tells Radha’s story and her human longing and divine love for Lord Krishna in different ways. Each ‘Trishna’ is a different chapter in this story.\nEach of the four melodies, which were composed and sung by me, are Raga-based. Apoorva Kulkarni, Tejas Ranade and Shashi Sharma have penned the lyrics. Artists from India (Mayukh Sarkar, Saurabh Bhalerao) as well as [Latin Grammy](https://www.latingrammy.com/en) nominated artists from Spain ([Carlos Cano](https://open.spotify.com/artist/2NeSRO4dOnMYN6pU1IkP9N), [Hernán Milla](https://www.hernanmilla.com/)) have arranged and produced the tracks.\nThe album opens with a poem written by Tejas Ranade and recited by Girija Oak Godbole.\nAll tracks have been recorded at [Audio Garage Studio](https://www.mumbaimusicinstitute.in/audio-garage/) by Amey Londhe, who has also mixed three of the songs while Dipesh Sharma Batalvi has mixed [Trishna Spandan Ki](https://song.link/TrishnaSpandanKi).\nAlbum artwork has been done by Barun Roy, and the promos and videos have been edited by Siddhesh Sawant.",
+      "listenUrl": "https://album.link/trishna",
+      "featured": true,
+      "tracks": [
+        { "title": "Trishna Spandan Ki", "videoId": "B-uKdwFca0U", "spotifyUrl": "https://open.spotify.com/track/1t7KoTEDITW64XVtgdjYL2", "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/trishna-spandan-ki-feat-mayukh", "listenUrl": "https://song.link/TrishnaSpandanKi" },
+        { "title": "Trishna Antarman Ki", "videoId": "iGBytb6zsEk", "spotifyUrl": "https://open.spotify.com/track/4cAZ5YwJ0BWbkOPv74vgMd", "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/trishna-antarman-ki-feat", "listenUrl": "https://song.link/trishnaantarmanki" },
+        { "title": "Trishna Bandhan Ki" },
+        { "title": "Trishna Samarpan Ki" }
+      ],
+      "source": "https://nihiramusic.in/original-compositions",
+      "_sources": ["https://album.link/trishna", "https://artist.link/nihira", "https://www.musicunplugged.in/news/trade_news_info/2580/0"],
+      "_todo": "Year 2022 from press (EP released December 2022). Add links for Trishna Bandhan Ki and Samarpan Ki."
+    },
+    {
+      "id": "tumi",
+      "title": "Tumi",
+      "type": "Single",
+      "videoId": "KSXkwZMxM2g",
+      "credits": "A soulful Bengali love song. With Santanu Ghatak and Ashwin Srinivasan",
+      "listenUrl": "https://song.link/tumi_original",
+      "source": "https://song.link/tumi_original",
+      "_todo": "Release year unknown."
+    },
+    {
+      "id": "toote-chhaate",
+      "title": "Toote Chhaate",
+      "type": "Single",
+      "videoId": "I29C7FmZ2UI",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/57/ba/d6/57bad6ef-649c-18f2-1a63-abce5cc74f65/5059801477264.jpg/512x512bb.jpg",
+      "imageAlt": "Toote Chhaate cover art",
+      "credits": "Nihira Joshi Deshpande, Rhythm Shaw and Alok Ranjan Srivastava",
+      "listenUrl": "https://song.link/tootechhaate",
+      "source": "https://song.link/tootechhaate",
+      "_todo": "Release year unknown."
+    },
+    {
+      "id": "ishq-manayein-kya",
+      "title": "Ishq Manayein Kya?",
+      "type": "Single",
+      "videoId": "ZaM9T6ftHzI",
+      "credits": "feat. Orquesta Son Diamantes",
+      "listenUrl": "https://song.link/ishqmanayeinkya",
+      "spotifyUrl": "https://open.spotify.com/track/3Sfa7YAD1QqtJDXhEHVMdz",
+      "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/ishq-manayein-kya-feat",
+      "source": "https://artist.link/nihira",
+      "_todo": "Release year unknown."
+    },
+    {
+      "id": "ishq-manayein-kya-swing",
+      "title": "Ishq Manayein Kya (Swing version)",
+      "type": "Single",
+      "videoId": "FBaxVScgS7E",
+      "credits": "With Manoj Yadav and Tanmay Pawar",
+      "listenUrl": "https://song.link/imkswing",
+      "source": "https://song.link/imkswing",
+      "_todo": "Release year unknown."
+    },
+    {
+      "id": "nirmohiya",
+      "title": "Nirmohiya",
+      "type": "Single",
+      "videoId": "ZC90JEMIvpw",
+      "image": "https://is3-ssl.mzstatic.com/image/thumb/Music128/v4/82/c6/b4/82c6b4a4-1450-43ee-489a-6b54cc2a5962/source/512x512bb.jpg",
+      "imageAlt": "Nirmohiya cover art",
+      "credits": "feat. Rhythm Shaw. Nihira Joshi Deshpande, Rhythm Shaw and Manoj Yadav",
+      "listenUrl": "https://song.link/nirmohiya",
+      "spotifyUrl": "https://open.spotify.com/track/2K13WkHriHnCNXlwICiPUt",
+      "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/nirmohiya-feat-rhythm-shaw",
+      "source": "https://song.link/nirmohiya",
+      "_todo": "Release year unknown (nominated at the Independent Music Awards in 2020). artist.link uses a different YouTube video (rofugU8NIEg); the old site uses ZC90JEMIvpw."
+    },
+    {
+      "id": "na-chedo-hamein",
+      "title": "Na Chedo Hamein",
+      "type": "Single",
+      "videoId": "Z49Tmzx5pzQ",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/4e/de/ef/4edeef0a-6bea-3538-0e4c-86a19568f56c/source/512x512bb.jpg",
+      "imageAlt": "Na Chedo Hamein cover art",
+      "listenUrl": "https://song.link/nachedohamein",
+      "spotifyUrl": "https://open.spotify.com/track/14xSeh9oaEnI3tbEALeUCo",
+      "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/na-chedo-hamein",
+      "source": "https://song.link/nachedohamein",
+      "_todo": "Release year unknown. artist.link uses a different YouTube video (hZ080Z1WN2Y); the old site uses Z49Tmzx5pzQ."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "_help": "Awards, grouped by year automatically (newest first). Fields: id (unique), year (number; leave out if unknown), award (name of the award), category (optional), work (song/album), status ('Won', 'Nominated' or 'Finalist'), organisation, link (optional proof/article), image (optional), highlight (true = shown on Home), source.",
+  "pageTitle": "Awards",
+  "intro": "",
+  "emptyText": "Awards and recognition will be listed here.",
+  "items": [
+    {
+      "id": "clef-2023-hindustani-classical",
+      "year": 2023,
+      "award": "Clef Music Awards 2023",
+      "category": "Best Artist, Hindustani Classical",
+      "work": "Trishna",
+      "status": "Won",
+      "organisation": "Radioandmusic.com and Indiantelevision.com",
+      "link": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023",
+      "highlight": true,
+      "source": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023"
+    },
+    {
+      "id": "clef-2023-album-of-the-year",
+      "year": 2023,
+      "award": "Clef Music Awards 2023",
+      "category": "Album of the Year",
+      "work": "Trishna",
+      "status": "Won",
+      "organisation": "Radioandmusic.com and Indiantelevision.com",
+      "link": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023",
+      "highlight": false,
+      "source": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023",
+      "_todo": "Press release lists 'Album Of The Year, Nihira Joshi-Deshpande Trishna' in a run-on paragraph; confirm wording before highlighting."
+    },
+    {
+      "id": "ima-2020-nirmohiya",
+      "year": 2020,
+      "award": "Independent Music Awards",
+      "category": "Adult Contemporary Song (Judges' Choice)",
+      "work": "Nirmohiya (feat. Rhythm Shaw)",
+      "status": "Nominated",
+      "organisation": "The Independent Music Awards (Music Resource Group), USA",
+      "highlight": true,
+      "source": "https://bhavan.net/bhavan50landing",
+      "_sources": ["https://dailyrindblog.com/?p=60520", "https://nihiramusic.in/"],
+      "_todo": "Old site calls this the 'American Independent Award Nomination'. Edition number not verified."
+    },
+    {
+      "id": "state-award-whats-up-lagna",
+      "award": "State Award",
+      "work": "Whats Up Lagna",
+      "status": "Nominated",
+      "highlight": true,
+      "source": "https://nihiramusic.in/",
+      "_todo": "Year, category and organisation not verified (likely Maharashtra State Film Awards; the Marathi film is from 2018). Add once confirmed."
+    }
+  ]
+}

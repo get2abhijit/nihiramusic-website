@@ -1,0 +1,36 @@
+{
+  "_help": "News, newest first (automatic, by date). Fields: id (unique, used in the shareable link #id), date (YYYY-MM-DD), title, summary (1-2 sentences), body (optional longer text; blank line = new paragraph; **bold**, *italic*, [link](url) and '- ' lists allowed), image (optional), imageAlt, link (optional 'read more' URL), linkLabel (optional), source. Only add verified news.",
+  "pageTitle": "News",
+  "intro": "",
+  "emptyText": "News will be posted here soon.",
+  "pageSize": 10,
+  "items": [
+    {
+      "id": "clef-music-awards-2023",
+      "date": "2023-07-11",
+      "title": "Trishna honoured at the Clef Music Awards 2023",
+      "summary": "At the third edition of the Clef Music Awards, Nihira Joshi-Deshpande was named Best Artist in the Hindustani Classical category for Trishna.",
+      "link": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023",
+      "linkLabel": "Read the winners list (Lokmat Times)",
+      "source": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023"
+    },
+    {
+      "id": "trishna-ep-press",
+      "date": "2023-01-25",
+      "title": "Music Unplugged features the Trishna EP",
+      "summary": "Music Unplugged reported on Trishna, Nihira's first EP, released in December 2022: four songs about Radha's longing and love for Krishna, composed and sung by Nihira.",
+      "link": "https://www.musicunplugged.in/news/trade_news_info/2580/0",
+      "linkLabel": "Read the article (Music Unplugged)",
+      "source": "https://www.musicunplugged.in/news/trade_news_info/2580/0"
+    },
+    {
+      "id": "rolling-stone-india-trishna",
+      "date": "2023-01-12",
+      "title": "Rolling Stone India picks Trishna",
+      "summary": "Rolling Stone India included the Trishna EP in its round-up of new releases to tune in to.",
+      "link": "https://rollingstoneindia.com/?p=117777",
+      "linkLabel": "Read on Rolling Stone India",
+      "source": "https://rollingstoneindia.com/?p=117777"
+    }
+  ]
+}

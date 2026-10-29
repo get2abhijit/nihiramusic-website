@@ -1,0 +1,12 @@
+{
+  "_help": "Poetic Treasures. Only Nihira's own published poetry or her recitations. Fields per poem: id (unique), title, lang ('mr' Marathi, 'hi' Hindi, 'en' English), author, date (optional YYYY-MM-DD), text (use \\n for a new line, blank line \\n\\n between stanzas), videoId (optional recitation video), source. Never paste song lyrics or other people's copyrighted poems.",
+  "pageTitle": "Poetic Treasures",
+  "subtitle": "Poetic Treasures: A Journey Through My Favorite Verses",
+  "intro": "Poetry is something very close to Nihira's heart. Watch out for the series \"Poetic Treasures\" on Youtube, where Nihira will recite a few of her favorite poems in her soulful voice.",
+  "introSource": "https://nihiramusic.in/poetic-treasures (meta description)",
+  "youtubeUrl": "https://www.youtube.com/@Nihiramusic",
+  "emptyText": "New recitations are on their way. Follow the series on YouTube.",
+  "items": [],
+  "source": "https://nihiramusic.in/poetic-treasures",
+  "_todo": "The old page only shows its headings; no poems or videos could be read automatically. Add poems/recitation video IDs here."
+}
