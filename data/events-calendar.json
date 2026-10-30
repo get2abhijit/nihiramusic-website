@@ -1,4 +1,16 @@
 {
   "_help": "Written automatically by .github/workflows/calendar-sync.yml (tools/sync_calendar.py) from the linked Google/Outlook calendar. Do not edit by hand: change the event in the calendar instead, or add it to events.json (events.json wins when both list the same show). Same fields as events.json.",
-  "items": []
+  "items": [
+    {
+      "id": "cal-c9baf46440",
+      "title": "Show - V Shantaram Theme",
+      "date": "2026-10-30",
+      "startTime": "20:00",
+      "endTime": "23:30",
+      "timezone": "Asia/Kolkata",
+      "venue": "Master Deenanath Mangeshkar Natyagriha, 4R2V+6W6, Natvarya Datta Bhat Rd, Agarwal Market, Vile Parle East, Vile Parle, Mumbai, Maharashtra 400057, India",
+      "status": "scheduled",
+      "source": "calendar"
+    }
+  ]
 }

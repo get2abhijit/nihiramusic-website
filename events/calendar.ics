@@ -30,4 +30,15 @@ DESCRIPTION:An evening of Hindi and Marathi songs\, ghazals\, Bollywood cla
  , vocal arrangement)\, Pooja Majumder (bass) and Sapna (percussion).
 URL:https://nihiramusic.in/events/#songversations-nmacc-2025
 END:VEVENT
+BEGIN:VEVENT
+UID:cal-c9baf46440@nihiramusic.in
+DTSTAMP:20261030T000000Z
+DTSTART:20261030T143000Z
+DTEND:20261030T180000Z
+SUMMARY:Show - V Shantaram Theme
+LOCATION:Master Deenanath Mangeshkar Natyagriha\, 4R2V+6W6\, Natvarya Datta
+  Bhat Rd\, Agarwal Market\, Vile Parle East\, Vile Parle\, Mumbai\, Mahara
+ shtra 400057\, India
+URL:https://nihiramusic.in/events/#cal-c9baf46440
+END:VEVENT
 END:VCALENDAR
