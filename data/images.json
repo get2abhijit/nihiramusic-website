@@ -1,4 +1,198 @@
 {
-  "_help": "Written by tools/localize_assets.py. Width, height and smaller versions (srcset) of local images, so pages load fast without layout jumps. Do not edit by hand; run the script again after adding images.",
-  "images": {}
+  "_help": "Written by tools/localize_assets.py (and the YouTube sync for video thumbnails). Width, height and smaller versions (srcset) of local images, so pages load fast without layout jumps. Do not edit by hand; run the script again after adding images.",
+  "images": {
+    "assets/img/yt/04lq9P_EQwc.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/3-wWQadVPw0.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/3Yd4ipT-VBs.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/44MRWtoBeCg.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/4dCfQbMUeGM.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/630ZVz5XC98.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/B-uKdwFca0U.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/BKrjHQREAxI.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/CcMquscablo.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/Cjozg33TXio.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/FBaxVScgS7E.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/GGOWse2CYOI.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/I29C7FmZ2UI.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/KSXkwZMxM2g.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/L2wyFD153B0.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/MJ_CNkdFe4Y.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/NXSVoSZrCDU.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/RP1B-RYn4gw.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/TsWZZBjAEnc.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/TxIo1Vp-lkQ.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/V9JQ6qCpOco.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/Vh1a5ZgjJYs.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/W827QZf9PyU.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/Y00tQMwUE3E.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/Y2Rgovheb44.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/Z49Tmzx5pzQ.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/ZC90JEMIvpw.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/ZaM9T6ftHzI.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/Zc9Lqpgp4HU.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/_R-iXCWgsK8.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/_cYFg-9mYf8.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/_o8WK8i-Ea0.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/aR5HjBafe1U.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/cIUE689lwIU.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/dBq27cvCIbY.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/e6K49l_6b08.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/e6K49l_6b08/hqdefault.jpg"
+    },
+    "assets/img/yt/fpP3as4NFY4.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/gMqcUxwB6uk.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/iGBytb6zsEk.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/lYYRVCE-k9Y.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/nuRMhdy0hV0.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/o9eWEdElfk0.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/oLQIvcD57pM.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/qr3rR9tsHXE.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/r7FUOmo7630.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/v1fiI8H6CSQ.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/vAzuLtM1Ei8.jpg": {
+      "width": 480,
+      "height": 360
+    },
+    "assets/img/yt/x7prW7at-Mg.jpg": {
+      "width": 480,
+      "height": 360
+    }
+  }
 }

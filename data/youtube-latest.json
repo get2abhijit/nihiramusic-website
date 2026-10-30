@@ -1,8 +1,179 @@
 {
   "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for filling in concert dates; the concert itself may have been earlier).",
   "channelId": "UC46dtN9KIZspJ8__89BeSXw",
-  "updated": "",
-  "videos": [],
-  "titles": {},
-  "dates": {}
+  "updated": "2026-10-30T10:49:39Z",
+  "videos": [
+    {
+      "videoId": "44MRWtoBeCg",
+      "title": "Sajna hai mujhe (Live )",
+      "published": "2026-10-28",
+      "thumbnail": "https://i1.ytimg.com/vi/44MRWtoBeCg/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/44MRWtoBeCg.jpg"
+    },
+    {
+      "videoId": "vAzuLtM1Ei8",
+      "title": "The experience of recording Shaan dada for Ishq Manayein Kya!!!",
+      "published": "2026-10-27",
+      "thumbnail": "https://i3.ytimg.com/vi/vAzuLtM1Ei8/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/vAzuLtM1Ei8.jpg"
+    },
+    {
+      "videoId": "cIUE689lwIU",
+      "title": "The story behind the duet version of IMK!!!",
+      "published": "2026-10-14",
+      "thumbnail": "https://i4.ytimg.com/vi/cIUE689lwIU/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/cIUE689lwIU.jpg"
+    },
+    {
+      "videoId": "04lq9P_EQwc",
+      "title": "Ishq Manayein Kya (Duet version)  Nihira Joshi | Shaan | Manoj Yadav| Tanmay Pawar|",
+      "published": "2026-10-09",
+      "thumbnail": "https://i1.ytimg.com/vi/04lq9P_EQwc/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/04lq9P_EQwc.jpg"
+    },
+    {
+      "videoId": "x7prW7at-Mg",
+      "title": "Shaan dada talking about our forthcoming song: Ishq Manayein Kya!!!",
+      "published": "2026-10-06",
+      "thumbnail": "https://i1.ytimg.com/vi/x7prW7at-Mg/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/x7prW7at-Mg.jpg"
+    },
+    {
+      "videoId": "CcMquscablo",
+      "title": "Ranjishi hi sahi (Nihira Joshi ft. Pulse Parindey)",
+      "published": "2026-09-29",
+      "thumbnail": "https://i4.ytimg.com/vi/CcMquscablo/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/CcMquscablo.jpg"
+    },
+    {
+      "videoId": "W827QZf9PyU",
+      "title": "Nadiya Kinare Mora Gaon (Cover)",
+      "published": "2026-09-22",
+      "thumbnail": "https://i4.ytimg.com/vi/W827QZf9PyU/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/W827QZf9PyU.jpg"
+    },
+    {
+      "videoId": "BKrjHQREAxI",
+      "title": "Tuch Shwas Moraya| Ganpati Bappa| New release",
+      "published": "2026-09-15",
+      "thumbnail": "https://i3.ytimg.com/vi/BKrjHQREAxI/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/BKrjHQREAxI.jpg"
+    },
+    {
+      "videoId": "fpP3as4NFY4",
+      "title": "Tajmahal me aa jana (Live at Khazana Festival)",
+      "published": "2026-09-08",
+      "thumbnail": "https://i3.ytimg.com/vi/fpP3as4NFY4/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/fpP3as4NFY4.jpg"
+    },
+    {
+      "videoId": "Cjozg33TXio",
+      "title": "Sajde (live) Ft. Pulse Parindey",
+      "published": "2026-09-01",
+      "thumbnail": "https://i4.ytimg.com/vi/Cjozg33TXio/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/Cjozg33TXio.jpg"
+    },
+    {
+      "videoId": "_cYFg-9mYf8",
+      "title": "Phir Dekhiye",
+      "published": "2026-08-25",
+      "thumbnail": "https://i4.ytimg.com/vi/_cYFg-9mYf8/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/_cYFg-9mYf8.jpg"
+    },
+    {
+      "videoId": "V9JQ6qCpOco",
+      "title": "Na jane Kyun | Keys and Conversations| Nihira Joshi| Manan Mehta",
+      "published": "2026-08-18",
+      "thumbnail": "https://i3.ytimg.com/vi/V9JQ6qCpOco/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/V9JQ6qCpOco.jpg"
+    },
+    {
+      "videoId": "MJ_CNkdFe4Y",
+      "title": "Ab ke saawan (live ) ft. Pulse Parindey | Shubha Mudgal",
+      "published": "2026-08-11",
+      "thumbnail": "https://i2.ytimg.com/vi/MJ_CNkdFe4Y/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/MJ_CNkdFe4Y.jpg"
+    },
+    {
+      "videoId": "Y2Rgovheb44",
+      "title": "Yun unki bazm me | live performance at Khazana festival | peenaz masani | Madhurani",
+      "published": "2026-07-28",
+      "thumbnail": "https://i2.ytimg.com/vi/Y2Rgovheb44/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/Y2Rgovheb44.jpg"
+    },
+    {
+      "videoId": "o9eWEdElfk0",
+      "title": "Mora saiyyan mose bole na | Cover song Fuzon | Nihira Joshi ft. PULSE PARINDEY",
+      "published": "2026-07-24",
+      "thumbnail": "https://i4.ytimg.com/vi/o9eWEdElfk0/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/o9eWEdElfk0.jpg"
+    }
+  ],
+  "titles": {
+    "04lq9P_EQwc": "Ishq Manayein Kya (Duet version)  Nihira Joshi | Shaan | Manoj Yadav| Tanmay Pawar|",
+    "3-wWQadVPw0": "Nirmohiya| Live at London| Original song",
+    "3Yd4ipT-VBs": "Tujvin Sakhya Re | तुजवीण सख्या रे",
+    "44MRWtoBeCg": "Sajna hai mujhe (Live )",
+    "4dCfQbMUeGM": "Ye javali ghe javali | Nihira Joshi| Meena Mangeshkar",
+    "630ZVz5XC98": "Laagi Karejwa Kataar - Nihira Joshi Deshpande and Vishwajeet Borwankar",
+    "B-uKdwFca0U": "Trishna Spandan Ki |Nihira Joshi | Mayukh Sarkar |Shashi Sharma",
+    "BKrjHQREAxI": "Tuch Shwas Moraya| Ganpati Bappa| New release",
+    "CcMquscablo": "Ranjishi hi sahi (Nihira Joshi ft. Pulse Parindey)",
+    "Cjozg33TXio": "Sajde (live) Ft. Pulse Parindey",
+    "FBaxVScgS7E": "Ishq Manayein Kya| Swing version| Nihira Joshi| Manoj Yadav| Tanmay Pawar| Original",
+    "GGOWse2CYOI": "Tumhe Ho Na Ho| Cover| Nihira Joshi| Vidushi Gupta",
+    "I29C7FmZ2UI": "Toote Chhaate|Nihira Joshi-Deshpande | Rhythm Shaw |Alok Ranjan Srivastava",
+    "KSXkwZMxM2g": "Tumi | A Soulful Bengali Love Song | Nihira Joshi | Santanu Ghatak | Ashwin Srinivasan | Original",
+    "L2wyFD153B0": "Julun Yeti Reshimgathi Full Title Track | जुळून येती रेशीमगाठी शीर्षकगीत",
+    "MJ_CNkdFe4Y": "Ab ke saawan (live ) ft. Pulse Parindey | Shubha Mudgal",
+    "NXSVoSZrCDU": "Trishna Antarman Ki| Live version| UK Concert",
+    "RP1B-RYn4gw": "Trishna Samarpan Ki | Nihira Joshi|  Saurabh Bhalerao |Apoorva Kulkarni",
+    "TsWZZBjAEnc": "Bhaya Ithale sampat nahi",
+    "TxIo1Vp-lkQ": "Mai Mai Part 1 [Live Concert]",
+    "V9JQ6qCpOco": "Na jane Kyun | Keys and Conversations| Nihira Joshi| Manan Mehta",
+    "Vh1a5ZgjJYs": "[Live Concert] Ranjish Hi Sahi (Cover)",
+    "W827QZf9PyU": "Nadiya Kinare Mora Gaon (Cover)",
+    "Y00tQMwUE3E": "Aaj Jane ki zid na karo| Live at London",
+    "Y2Rgovheb44": "Yun unki bazm me | live performance at Khazana festival | peenaz masani | Madhurani",
+    "Z49Tmzx5pzQ": "Na Chedo Hamein | Full Video Song| Khalil Abhyankar|| Nihira Joshi  | Mithilesh Patankar",
+    "ZC90JEMIvpw": "Nirmohiya: Nihira ft. Rhythm Shaw|| Manoj Yadav [Nominated for 18th IMA Awards 2020]",
+    "ZaM9T6ftHzI": "Ishq Manayein Kya? Nihira ft. Orquesta Son Diamantes || Manoj Yadav || RMM Productions [Original]",
+    "Zc9Lqpgp4HU": "Mai Mai -Part 2 [Live Concert]",
+    "_R-iXCWgsK8": "Trishna EP | Jukebox | Nihira Joshi| Original music",
+    "_cYFg-9mYf8": "Phir Dekhiye",
+    "_o8WK8i-Ea0": "Aye Ri Pavan Revisited: Nihira Joshi-Deshpande feat. Abhishek Borkar [HD]",
+    "aR5HjBafe1U": "Saang Na re Mana | Piano | Vocals",
+    "cIUE689lwIU": "The story behind the duet version of IMK!!!",
+    "dBq27cvCIbY": "Trishna Samarpan Ki|  Live from LONDON|",
+    "e6K49l_6b08": "Trishna Bandhan Ki | Nihira Joshi |Mayukh Sarkar |Tejas Ranade",
+    "fpP3as4NFY4": "Tajmahal me aa jana (Live at Khazana Festival)",
+    "gMqcUxwB6uk": "Kisi Ranjish ko hawa do|  Live in London| Jagjit Singh| Chitra Singh | Fakir Sudarshan",
+    "iGBytb6zsEk": "Trishna Antarman Ki | Nihira Joshi| Carlos Cano |  Hernán Milla | Apoorva Kulkarni",
+    "lYYRVCE-k9Y": "Kasamh Se Serial | Full Title Song | Nihira Joshi Deshpande | Hindi Serial Song",
+    "nuRMhdy0hV0": "Aaj Jane Ki Zid Na Karo | Nihira Joshi | Vidushi Gupta",
+    "o9eWEdElfk0": "Mora saiyyan mose bole na | Cover song Fuzon | Nihira Joshi ft. PULSE PARINDEY",
+    "oLQIvcD57pM": "Jahaan Mein Aisa Kaun Hai | Forgotten Gem | Asha Bhosle Cover | Hum Dono 1961 | Nihira & Saurabh",
+    "qr3rR9tsHXE": "Dil-e-Nadaan by Mehdi Hassan Saab",
+    "r7FUOmo7630": "Meri Jaan Mujhe Jaan Na Kaho [Live Concert]",
+    "v1fiI8H6CSQ": "Rock N Roll Medley| Live concert",
+    "vAzuLtM1Ei8": "The experience of recording Shaan dada for Ishq Manayein Kya!!!",
+    "x7prW7at-Mg": "Shaan dada talking about our forthcoming song: Ishq Manayein Kya!!!"
+  },
+  "dates": {
+    "04lq9P_EQwc": "2026-10-09",
+    "44MRWtoBeCg": "2026-10-28",
+    "BKrjHQREAxI": "2026-09-15",
+    "CcMquscablo": "2026-09-29",
+    "Cjozg33TXio": "2026-09-01",
+    "MJ_CNkdFe4Y": "2026-08-11",
+    "V9JQ6qCpOco": "2026-08-18",
+    "W827QZf9PyU": "2026-09-22",
+    "Y2Rgovheb44": "2026-07-28",
+    "_cYFg-9mYf8": "2026-08-25",
+    "cIUE689lwIU": "2026-10-14",
+    "fpP3as4NFY4": "2026-09-08",
+    "o9eWEdElfk0": "2026-07-24",
+    "vAzuLtM1Ei8": "2026-10-27",
+    "x7prW7at-Mg": "2026-10-06"
+  }
 }
