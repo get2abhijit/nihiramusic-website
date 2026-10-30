@@ -11,6 +11,96 @@
       "venue": "Master Deenanath Mangeshkar Natyagriha, 4R2V+6W6, Natvarya Datta Bhat Rd, Agarwal Market, Vile Parle East, Vile Parle, Mumbai, Maharashtra 400057, India",
       "status": "scheduled",
       "source": "calendar"
+    },
+    {
+      "id": "cal-32ede16610",
+      "title": "Diwali Pahaat Mumbai",
+      "date": "2026-11-08",
+      "startTime": "04:30",
+      "endTime": "05:30",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
+    },
+    {
+      "id": "cal-927634ea57",
+      "title": "Diwali Pahaat Baroda",
+      "date": "2026-11-10",
+      "startTime": "05:00",
+      "endTime": "05:30",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
+    },
+    {
+      "id": "cal-826d3dee9e",
+      "title": "Jivalaga Ratnagiri",
+      "date": "2026-11-24",
+      "startTime": "17:00",
+      "endTime": "18:00",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
+    },
+    {
+      "id": "cal-5191a0b7c4",
+      "title": "Abhivyakti music festival Ahemedabad 'KahaNI' ( All original music set)",
+      "date": "2026-12-07",
+      "startTime": "21:00",
+      "endTime": "22:00",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
+    },
+    {
+      "id": "cal-92d3d29749",
+      "title": "Abhivyakti music festival Ahemedabad 'KahaNI' (All original music set)",
+      "date": "2026-12-08",
+      "startTime": "19:00",
+      "endTime": "20:00",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
+    },
+    {
+      "id": "cal-b7d0062917",
+      "title": "Abhivyakti music festival Ahemedabad 'KahaNI' (All original music set)",
+      "date": "2026-12-09",
+      "startTime": "19:00",
+      "endTime": "20:00",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
+    },
+    {
+      "id": "cal-32c7ef226e",
+      "title": "Jivalaga Thane",
+      "date": "2026-12-12",
+      "startTime": "20:00",
+      "endTime": "21:00",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
+    },
+    {
+      "id": "cal-b921938ed1",
+      "title": "Jivalaga Borivali",
+      "date": "2026-12-13",
+      "startTime": "20:30",
+      "endTime": "21:30",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
+    },
+    {
+      "id": "cal-9dd644459c",
+      "title": "Jivalaga Pune",
+      "date": "2026-12-19",
+      "startTime": "20:00",
+      "endTime": "21:00",
+      "timezone": "Asia/Kolkata",
+      "status": "scheduled",
+      "source": "calendar"
     }
   ]
 }
