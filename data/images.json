@@ -1,4 +1,240 @@
 {
-  "_help": "Written by tools/localize_assets.py. Width, height and smaller versions (srcset) of local images, so pages load fast without layout jumps. Do not edit by hand; run the script again after adding images.",
-  "images": {}
+  "_help": "Written by tools/localize_assets.py (and the YouTube sync for video thumbnails). Width, height and smaller versions (srcset) of local images, so pages load fast without layout jumps. Do not edit by hand; run the script again after adding images.",
+  "images": {
+    "assets/img/yt/04lq9P_EQwc.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/04lq9P_EQwc/hqdefault.jpg"
+    },
+    "assets/img/yt/3-wWQadVPw0.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/3-wWQadVPw0/hqdefault.jpg"
+    },
+    "assets/img/yt/3Yd4ipT-VBs.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/3Yd4ipT-VBs/hqdefault.jpg"
+    },
+    "assets/img/yt/44MRWtoBeCg.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/44MRWtoBeCg/hqdefault.jpg"
+    },
+    "assets/img/yt/4dCfQbMUeGM.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/4dCfQbMUeGM/hqdefault.jpg"
+    },
+    "assets/img/yt/630ZVz5XC98.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/630ZVz5XC98/hqdefault.jpg"
+    },
+    "assets/img/yt/B-uKdwFca0U.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/B-uKdwFca0U/hqdefault.jpg"
+    },
+    "assets/img/yt/BKrjHQREAxI.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/BKrjHQREAxI/hqdefault.jpg"
+    },
+    "assets/img/yt/CcMquscablo.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/CcMquscablo/hqdefault.jpg"
+    },
+    "assets/img/yt/Cjozg33TXio.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/Cjozg33TXio/hqdefault.jpg"
+    },
+    "assets/img/yt/FBaxVScgS7E.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/FBaxVScgS7E/hqdefault.jpg"
+    },
+    "assets/img/yt/GGOWse2CYOI.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/GGOWse2CYOI/hqdefault.jpg"
+    },
+    "assets/img/yt/I29C7FmZ2UI.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/I29C7FmZ2UI/hqdefault.jpg"
+    },
+    "assets/img/yt/KSXkwZMxM2g.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/KSXkwZMxM2g/hqdefault.jpg"
+    },
+    "assets/img/yt/L2wyFD153B0.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/L2wyFD153B0/hqdefault.jpg"
+    },
+    "assets/img/yt/MJ_CNkdFe4Y.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/MJ_CNkdFe4Y/hqdefault.jpg"
+    },
+    "assets/img/yt/NXSVoSZrCDU.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/NXSVoSZrCDU/hqdefault.jpg"
+    },
+    "assets/img/yt/RP1B-RYn4gw.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/RP1B-RYn4gw/hqdefault.jpg"
+    },
+    "assets/img/yt/TsWZZBjAEnc.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/TsWZZBjAEnc/hqdefault.jpg"
+    },
+    "assets/img/yt/TxIo1Vp-lkQ.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/TxIo1Vp-lkQ/hqdefault.jpg"
+    },
+    "assets/img/yt/V9JQ6qCpOco.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/V9JQ6qCpOco/hqdefault.jpg"
+    },
+    "assets/img/yt/Vh1a5ZgjJYs.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/Vh1a5ZgjJYs/hqdefault.jpg"
+    },
+    "assets/img/yt/W827QZf9PyU.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/W827QZf9PyU/hqdefault.jpg"
+    },
+    "assets/img/yt/Y00tQMwUE3E.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/Y00tQMwUE3E/hqdefault.jpg"
+    },
+    "assets/img/yt/Y2Rgovheb44.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/Y2Rgovheb44/hqdefault.jpg"
+    },
+    "assets/img/yt/Z49Tmzx5pzQ.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/Z49Tmzx5pzQ/hqdefault.jpg"
+    },
+    "assets/img/yt/ZC90JEMIvpw.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/ZC90JEMIvpw/hqdefault.jpg"
+    },
+    "assets/img/yt/ZaM9T6ftHzI.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/ZaM9T6ftHzI/hqdefault.jpg"
+    },
+    "assets/img/yt/Zc9Lqpgp4HU.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/Zc9Lqpgp4HU/hqdefault.jpg"
+    },
+    "assets/img/yt/_R-iXCWgsK8.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/_R-iXCWgsK8/hqdefault.jpg"
+    },
+    "assets/img/yt/_cYFg-9mYf8.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/_cYFg-9mYf8/hqdefault.jpg"
+    },
+    "assets/img/yt/_o8WK8i-Ea0.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/_o8WK8i-Ea0/hqdefault.jpg"
+    },
+    "assets/img/yt/aR5HjBafe1U.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/aR5HjBafe1U/hqdefault.jpg"
+    },
+    "assets/img/yt/cIUE689lwIU.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/cIUE689lwIU/hqdefault.jpg"
+    },
+    "assets/img/yt/dBq27cvCIbY.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/dBq27cvCIbY/hqdefault.jpg"
+    },
+    "assets/img/yt/fpP3as4NFY4.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/fpP3as4NFY4/hqdefault.jpg"
+    },
+    "assets/img/yt/gMqcUxwB6uk.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/gMqcUxwB6uk/hqdefault.jpg"
+    },
+    "assets/img/yt/iGBytb6zsEk.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/iGBytb6zsEk/hqdefault.jpg"
+    },
+    "assets/img/yt/lYYRVCE-k9Y.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/lYYRVCE-k9Y/hqdefault.jpg"
+    },
+    "assets/img/yt/nuRMhdy0hV0.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/nuRMhdy0hV0/hqdefault.jpg"
+    },
+    "assets/img/yt/o9eWEdElfk0.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/o9eWEdElfk0/hqdefault.jpg"
+    },
+    "assets/img/yt/oLQIvcD57pM.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/oLQIvcD57pM/hqdefault.jpg"
+    },
+    "assets/img/yt/qr3rR9tsHXE.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/qr3rR9tsHXE/hqdefault.jpg"
+    },
+    "assets/img/yt/r7FUOmo7630.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/r7FUOmo7630/hqdefault.jpg"
+    },
+    "assets/img/yt/v1fiI8H6CSQ.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/v1fiI8H6CSQ/hqdefault.jpg"
+    },
+    "assets/img/yt/vAzuLtM1Ei8.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/vAzuLtM1Ei8/hqdefault.jpg"
+    },
+    "assets/img/yt/x7prW7at-Mg.jpg": {
+      "width": 480,
+      "height": 360,
+      "original": "https://i.ytimg.com/vi/x7prW7at-Mg/hqdefault.jpg"
+    }
+  }
 }
