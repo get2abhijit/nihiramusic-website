@@ -41,6 +41,7 @@
 - Recommendation: legal review before M5.
 
 ## Known issues / technical notes
+- M2 fix: first version of pages.yml forced `ref: main` and failed at checkout when the repository's branch had another name. Now no ref is forced and push triggers on main or master.
 - Pages now deploys via **GitHub Actions** (Settings → Pages → Source: GitHub Actions). The "Deploy site" workflow runs after each YouTube sync, which fixes the M1 question whether bot commits republish the site.
 - `tools/localize_assets.py` must be run once locally **before cancelling Hostinger**. Until then photos load from zyrosite.com/mzstatic.com.
 - After localisation, og:image points to `https://nihiramusic.in/assets/img/...`, which only resolves after the M5 domain cutover. Share previews from the github.io test address will show no image until then.

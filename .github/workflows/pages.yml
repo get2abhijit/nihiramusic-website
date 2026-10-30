@@ -1,11 +1,12 @@
 # Publishes the site to GitHub Pages.
-# Runs on every change to the main branch, after each "YouTube sync", and by hand (Actions > Deploy site > Run workflow).
+# Runs on every change to the default branch (main or master), after each "YouTube sync", and by hand
+# (Actions > Deploy site > Run workflow).
 # Needs: Settings > Pages > Build and deployment > Source = "GitHub Actions".
 name: Deploy site
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   workflow_dispatch:
   workflow_run:
     workflows: ["YouTube sync"]
@@ -27,9 +28,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # No "ref:" on purpose: GitHub checks out the branch that started the run (the default branch for the daily sync).
       - uses: actions/checkout@v4
-        with:
-          ref: main
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
