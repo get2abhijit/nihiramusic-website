@@ -1,5 +1,6 @@
 // Home: hero, about, releases, videos, recognition, news, events, contact.
-import { loadJSON, h, link, url, fmtDate, newestFirst, videoFacade, socialList } from './core.js';
+import { loadJSON, h, link, url, fmtDate, newestFirst, socialList, img } from './core.js';
+import { videoCard } from './concerts.js';
 import { workCard } from './works.js';
 import { awardItem } from './awards.js';
 import { newsSorted } from './news.js';
@@ -23,10 +24,10 @@ export default async function ({ app, site }) {
   // Hero
   const hero = home.hero || {};
   app.append(h('section', { class: 'hero', 'aria-labelledby': 'hero-title' },
-    hero.image ? h('img', { class: 'hero__img', src: url(hero.image), alt: hero.imageAlt || '', fetchpriority: 'high', decoding: 'async' }) : null,
+    hero.image ? img(hero.image, { alt: hero.imageAlt || '', cls: 'hero__img', priority: true }) : null,
     h('div', { class: 'hero__strings', 'aria-hidden': 'true' }, [0, 1, 2, 3].map((i) => h('span', { style: `--i:${i}` }))),
     h('div', { class: 'hero__inner wrap' },
-      h('p', { class: 'hero__name', text: site.siteName }),
+      h('p', { class: 'hero__name', text: site.artistName || site.siteName }),
       h('h1', { class: 'hero__title', id: 'hero-title', text: hero.headline || site.siteName }),
       hero.tagline ? h('p', { class: 'hero__tagline', text: hero.tagline }) : null,
       h('p', { class: 'hero__cta' },
@@ -38,7 +39,7 @@ export default async function ({ app, site }) {
   if (about.paragraphs && about.paragraphs.length) {
     app.append(h('section', { class: 'section about', 'aria-labelledby': 'about-title' },
       h('div', { class: 'wrap about__grid' },
-        about.image ? h('figure', { class: 'about__fig' }, h('img', { src: url(about.image), alt: about.imageAlt || '', loading: 'lazy', decoding: 'async' })) : null,
+        about.image ? h('figure', { class: 'about__fig' }, img(about.image, { alt: about.imageAlt || '', sizes: '(min-width: 56rem) 40vw, 100vw' })) : null,
         h('div', { class: 'about__text' },
           h('h2', { id: 'about-title', text: about.heading || 'About' }),
           h('div', { class: 'prose' }, about.paragraphs.map((p, i) => h('p', { class: i === 0 ? 'lede' : null, text: p })))))));
@@ -57,10 +58,8 @@ export default async function ({ app, site }) {
   if (on('videos') && vids.length) {
     const inner = h('div', { class: 'wrap' }, sectionHead(S.videos.heading, null));
     {
-      inner.append(h('ul', { class: 'videos' }, vids.map((v) => h('li', { class: 'video' },
-        videoFacade(v.videoId, v.title || 'Video', { thumbnail: v.localThumbnail }),
-        h('p', { class: 'video__title', text: v.title || '' }),
-        v.published ? h('p', { class: 'video__date' }, h('time', { datetime: v.published.slice(0, 10) }, fmtDate(v.published.slice(0, 10)))) : null))));
+      inner.append(h('ul', { class: 'videos' }, vids.map((v) =>
+        videoCard(v.videoId, v.title || 'Video', { thumbnail: v.localThumbnail, date: (v.published || '').slice(0, 10) }))));
     }
     inner.append(h('p', { class: 'section-foot' },
       link(site.social?.find((s) => s.icon === 'youtube')?.url || site.subscribeUrl, 'More videos on YouTube', { class: 'pill' })));

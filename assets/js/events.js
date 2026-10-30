@@ -1,5 +1,5 @@
 // Events calendar: upcoming list, month grid, past events, .ics + Google Calendar links.
-import { loadJSON, h, link, pageHead, emptyState, fmtDate, parseDate, todayISO, icon, md, url } from './core.js';
+import { loadJSON, h, link, pageHead, emptyState, fmtDate, parseDate, todayISO, icon, md, url, img } from './core.js';
 
 const pad = (n) => String(n).padStart(2, '0');
 const iso = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
@@ -77,7 +77,7 @@ export function eventCard(e, { site, past = false, headingLevel = 3 } = {}) {
       h('p', { class: 'event__when' }, h('time', { datetime: e.date }, fmtDate(e.date, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })),
         e.endDate ? ` to ${fmtDate(e.endDate)}` : '', time ? `, ${time}` : ''),
       where(e) ? h('p', { class: 'event__where', text: where(e) }) : null,
-      e.image ? h('img', { class: 'event__img', src: url(e.image), alt: e.imageAlt || '', loading: 'lazy' }) : null,
+      e.image ? img(e.image, { alt: e.imageAlt || '', cls: 'event__img', sizes: '(min-width: 48rem) 60vw, 100vw' }) : null,
       e.description ? h('div', { class: 'prose' }, md(e.description)) : null,
       !past ? h('p', { class: 'event__actions' },
         e.ticketUrl && !cancelled && st !== 'Sold out' ? link(e.ticketUrl, 'Tickets', { class: 'btn btn--small' }) : null,

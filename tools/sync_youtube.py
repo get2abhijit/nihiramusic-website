@@ -1,46 +1,33 @@
 #!/usr/bin/env python3
-"""Fetch the YouTube channel RSS feed and write data/youtube-latest.json.
+"""Daily YouTube sync, run by .github/workflows/youtube-sync.yml (and on demand).
 
-Run by .github/workflows/youtube-sync.yml every day (and on demand).
-Python standard library only. Usage:
-    python3 tools/sync_youtube.py                # update latest videos
-    python3 tools/sync_youtube.py --fill-titles  # also fill missing video titles
-The file is only rewritten when the list of videos actually changed.
-
---fill-titles: for entries in originals/covers/concerts that have a videoId but an
-empty "title", look up the YouTube title (oEmbed, no API key) and store it in
-"youtubeTitle". Hand-written "title" fields are never touched.
+1. Reads the channel RSS feed and writes the latest uploads to data/youtube-latest.json (Home "Latest videos").
+2. Collects the YouTube title of every videoId used in data/*.json into youtube-latest.json "titles".
+   Pages show it wherever you left a title empty. Your own data files are never changed.
+3. Downloads each needed thumbnail once to assets/img/yt/<videoId>.jpg, so visitors' browsers
+   never contact YouTube before they press play.
+Files are only rewritten when something changed. Python standard library only.
+    python3 tools/sync_youtube.py
+(--fill-titles is accepted for compatibility; titles are always collected now.)
 """
 import json
 import sys
 import urllib.parse
-import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from localize_assets import fetch, load_json, save_json, load_manifest, youtube_thumb, MANIFEST  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 OUT = DATA / "youtube-latest.json"
 NS = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015",
       "media": "http://search.yahoo.com/mrss/"}
-UA = {"User-Agent": "Mozilla/5.0 (nihiramusic site sync)"}
-HELP = ("Written automatically every day by .github/workflows/youtube-sync.yml "
-        "(tools/sync_youtube.py). Do not edit by hand; changes are overwritten.")
-
-
-def get(url, timeout=30):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
-
-
-def channel_id():
-    site = json.loads((DATA / "site.json").read_text(encoding="utf-8"))
-    cid = site.get("youtubeChannelId", "").strip()
-    if not cid:
-        sys.exit("site.json has no youtubeChannelId")
-    return cid
+HELP = ("Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; "
+        "changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used "
+        "in data/*.json, shown wherever you left a title empty.")
 
 
 def parse_feed(xml_bytes, limit=15):
@@ -60,74 +47,84 @@ def parse_feed(xml_bytes, limit=15):
     return videos
 
 
-def load(path):
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (FileNotFoundError, json.JSONDecodeError):
-        return {}
+def used_video_ids():
+    ids = set()
 
-
-def save(path, data):
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
-
-def sync_latest():
-    cid = channel_id()
-    feed = f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}"
-    videos = parse_feed(get(feed))
-    if not videos:
-        print("Feed returned no videos; leaving the file unchanged.")
-        return False
-    old = load(OUT)
-    if old.get("videos") == videos and old.get("channelId") == cid:
-        print("No new videos.")
-        return False
-    save(OUT, {"_help": HELP, "channelId": cid,
-               "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "videos": videos})
-    print(f"Wrote {len(videos)} videos to {OUT.relative_to(ROOT)}")
-    return True
+    def walk(o):
+        if isinstance(o, dict):
+            if isinstance(o.get("videoId"), str) and o["videoId"]:
+                ids.add(o["videoId"])
+            for k, v in o.items():
+                if not k.startswith("_"):
+                    walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    for p in DATA.glob("*.json"):
+        if p.name not in ("youtube-latest.json", "images.json"):
+            walk(load_json(p, {}))
+    return ids
 
 
 def oembed_title(video_id):
     u = "https://www.youtube.com/oembed?format=json&url=" + urllib.parse.quote(
         f"https://www.youtube.com/watch?v={video_id}", safe="")
     try:
-        return json.loads(get(u, timeout=20)).get("title", "").strip()
+        return json.loads(fetch(u, timeout=20)[0]).get("title", "").strip()
     except Exception as exc:  # private/removed video, network error
         print(f"  could not read title for {video_id}: {exc}")
         return ""
 
 
-def fill_titles():
-    changed_any = False
-    for name in ("originals", "covers", "concerts"):
-        path = DATA / f"{name}.json"
-        data = load(path)
-        if not data:
-            continue
-        targets = []
-        for item in data.get("items", []):
-            targets.append(item)
-            targets.extend(v for v in item.get("videos", []) if isinstance(v, dict))
-        changed = False
-        for t in targets:
-            vid = t.get("videoId")
-            if vid and not t.get("title") and not t.get("youtubeTitle"):
-                title = oembed_title(vid)
-                if title:
-                    t["youtubeTitle"] = title
-                    changed = True
-                    print(f"  {name}: {vid} -> {title}")
-        if changed:
-            save(path, data)
-            changed_any = True
-    return changed_any
+def main():
+    site = load_json(DATA / "site.json", {}) or {}
+    cid = (site.get("youtubeChannelId") or "").strip()
+    old = load_json(OUT, {}) or {}
+    out = {"_help": HELP, "channelId": cid, "updated": old.get("updated", ""),
+           "videos": old.get("videos", []), "titles": dict(old.get("titles", {}))}
+    manifest = load_manifest()
+    before_manifest = json.dumps(manifest, sort_keys=True)
+
+    if cid:
+        try:
+            videos = parse_feed(fetch(f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}")[0])
+            if videos:
+                out["videos"] = videos
+            else:
+                print("Feed returned no videos; keeping the previous list.")
+        except Exception as exc:
+            print(f"Could not read the channel feed: {exc}")
+    else:
+        print("site.json has no youtubeChannelId; skipping latest videos.")
+
+    for v in out["videos"]:
+        out["titles"].setdefault(v["videoId"], v.get("title", ""))
+    for vid in sorted(used_video_ids()):
+        if not out["titles"].get(vid):
+            t = oembed_title(vid)
+            if t:
+                out["titles"][vid] = t
+                print(f"  title {vid} -> {t}")
+
+    for vid in sorted(set(used_video_ids()) | {v["videoId"] for v in out["videos"]}):
+        youtube_thumb(vid, manifest)
+    for v in out["videos"]:
+        p = f"assets/img/yt/{v['videoId']}.jpg"
+        if (ROOT / p).exists():
+            v["localThumbnail"] = p
+
+    out["titles"] = dict(sorted((k, v) for k, v in out["titles"].items() if v))
+    comparable = lambda d: json.dumps({k: d.get(k) for k in ("channelId", "videos", "titles")}, sort_keys=True)
+    if comparable(out) != comparable(old):
+        out["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        save_json(OUT, out)
+        print(f"Updated {OUT.relative_to(ROOT)}: {len(out['videos'])} latest videos, {len(out['titles'])} titles.")
+    else:
+        print("No new videos or titles.")
+    if json.dumps(manifest, sort_keys=True) != before_manifest:
+        save_json(MANIFEST, manifest)
+        print("Updated data/images.json (new thumbnails).")
 
 
 if __name__ == "__main__":
-    try:
-        sync_latest()
-    except Exception as exc:
-        print(f"Could not update latest videos: {exc}")
-    if "--fill-titles" in sys.argv:
-        fill_titles()
+    main()

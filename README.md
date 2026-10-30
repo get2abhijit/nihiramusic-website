@@ -1,6 +1,6 @@
 # nihiramusic.in: website guide
 
-This is the website of Nihira Joshi-Deshpande. It is a plain static site: no build step, no database.
+This is the website "The Sound of (Nihira)Music" for Nihira Joshi. It is a plain static site: no build step, no database.
 **All text, songs, events, news and awards live in the `data/` folder.** You never need to touch the code to update content.
 
 ## 1. Look at the site on your own computer
@@ -14,17 +14,36 @@ This is the website of Nihira Joshi-Deshpande. It is a plain static site: no bui
 
 Opening `index.html` by double-clicking does **not** work (browsers block loading the data files that way).
 
-## 2. Put the site online with GitHub Pages (one-time)
+## 2. Put the site online with GitHub Pages
 
-1. Create a free account at github.com and click **New repository**. Name it e.g. `nihiramusic`, set it to **Public**, and create it.
-2. Click **uploading an existing file**, drag in **everything inside** this folder (including the hidden `.github` folder and `.nojekyll`), and click **Commit changes**.
-   - Tip: hidden folders are easy to miss when dragging. If `.github` is missing afterwards, use GitHub Desktop (desktop.github.com) instead.
-3. Go to **Settings → Pages**. Under *Build and deployment* choose **Deploy from a branch**, branch **main**, folder **/ (root)**, then **Save**.
-4. Go to **Settings → Actions → General → Workflow permissions**, choose **Read and write permissions**, and **Save**.
-5. After 1–2 minutes the site is live at `https://<your-username>.github.io/<repository-name>/`.
-6. Go to **Actions → YouTube sync → Run workflow** once. This fills "Latest videos" on the home page and adds missing video titles. After that it runs by itself every day.
+**First time:**
+1. Create a free account at github.com and click **New repository**. Name it e.g. `nihiramusic-website`, set it to **Public**, and create it.
+2. Click **uploading an existing file**, drag in **everything inside** this folder (including the hidden `.github` folder), and click **Commit changes**.
+   - Hidden folders are easy to miss when dragging. If `.github` is missing afterwards, use GitHub Desktop (desktop.github.com).
+3. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
+4. **Settings → Actions → General → Workflow permissions → Read and write permissions → Save.**
+5. **Actions → Deploy site → Run workflow.** After 1–2 minutes the site is live at `https://<your-username>.github.io/<repository-name>/`.
+6. **Actions → YouTube sync → Run workflow** once. It fills "Latest videos", collects missing video titles and copies thumbnails. Afterwards it runs every day, and the site republishes itself after each run.
+
+**Updating from Milestone 1 (site already online):**
+1. Upload all files of the new ZIP over the old ones (same steps as above; GitHub replaces changed files).
+2. Change **Settings → Pages → Source** from "Deploy from a branch" to **GitHub Actions**.
+3. Run **Actions → Deploy site**, then **Actions → YouTube sync**.
 
 Do **not** add a `CNAME` file yet; switching the real domain is Milestone 5.
+
+## 2b. Copy the images off Hostinger (once, before the Hostinger plan ends)
+
+The photos still live on the old Hostinger site. Copy them into this website:
+1. On your computer, open a terminal in this folder (it needs internet) and run:
+   ```
+   python3 tools/localize_assets.py --dry-run   # shows what it will do
+   python3 tools/localize_assets.py             # downloads and rewrites
+   ```
+2. It saves the images in `assets/img/` (photos also in smaller sizes for phones), changes the paths in `data/`,
+   writes sizes to `data/images.json` and points the share image of every page at the local copy.
+3. Check the site locally (section 1), then upload the changed files: `assets/img/`, `data/`, and all `index.html` files.
+It prints a list of anything it could not download; just run it again later. Running it twice is safe.
 
 ## 3. Updating content
 
@@ -40,6 +59,8 @@ Rules that keep things working:
 - Leave a field out if you don't know it. Never guess facts.
 - Fields starting with `_` (like `_todo`) are private notes and never shown.
 - Upcoming events automatically move to "Past events" the day after they happen.
+- Leave `title` empty (`""`) for a YouTube video and the site shows its YouTube title (collected daily).
+- Website name, accent colour: `data/site.json` → `siteName` (text in brackets is shown in the accent colour) and `theme.accent` / `theme.accentDark` (e.g. `"#9C1C3F"`; keep it dark enough for white button text).
 
 ### Check before saving
 
@@ -154,12 +175,13 @@ Set `"featured": true` on one release to pin it to the top.
 
 ## 5. What runs automatically
 
-- `.github/workflows/youtube-sync.yml` runs daily: it updates `data/youtube-latest.json` (home page "Latest videos") and, where a video has no title, adds the YouTube title as `youtubeTitle`. Your own `title` fields are never changed. It only saves when something changed.
+- **YouTube sync** (`.github/workflows/youtube-sync.yml`, daily): updates `data/youtube-latest.json` (Home "Latest videos" and video titles) and copies thumbnails to `assets/img/yt/`. It never changes your other data files and only saves when something changed.
+- **Deploy site** (`.github/workflows/pages.yml`): publishes the site after every change and after each YouTube sync. If the site doesn't update, open **Actions** and look for a red ✗; **Run workflow** on "Deploy site" retries.
 
 ## 6. Privacy notes
 
 - No cookies, no analytics, no forms.
-- YouTube videos only load after a visitor clicks play, from `youtube-nocookie.com`. Video thumbnails load from YouTube's image server (no cookies) until images are copied locally in Milestone 2.
-- Fonts currently load from Google Fonts. Self-hosting them (recommended in Germany) is planned for Milestone 2.
+- Fonts are stored in `assets/fonts/` (no request to Google).
+- YouTube videos only load after a visitor clicks play, from `youtube-nocookie.com`. Thumbnails come from `assets/img/yt/` once the sync or `localize_assets.py` has copied them; until then from YouTube's image server (no cookies).
 
-More background and open questions: `docs/ROADMAP.md`.
+More background and open questions: `docs/ROADMAP.md`. Changes per milestone: `docs/CHANGELOG.md`.

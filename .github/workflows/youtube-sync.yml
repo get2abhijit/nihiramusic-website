@@ -1,6 +1,7 @@
-# Updates data/youtube-latest.json from the YouTube channel feed once a day.
+# Daily: latest videos + video titles + local thumbnails (tools/sync_youtube.py).
 # Run it by hand: GitHub > Actions > "YouTube sync" > Run workflow.
 # Needs: Settings > Actions > General > Workflow permissions = "Read and write permissions".
+# After it finishes, "Deploy site" publishes the result automatically.
 name: YouTube sync
 
 on:
@@ -21,17 +22,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch latest videos and fill missing titles
-        run: python3 tools/sync_youtube.py --fill-titles
+      - name: Fetch latest videos, titles and thumbnails
+        run: python3 tools/sync_youtube.py
 
       - name: Commit only if something changed
         run: |
-          if git diff --quiet -- data/; then
+          git add data/ assets/img/yt/ 2>/dev/null || true
+          if git diff --cached --quiet; then
             echo "No changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/
           git commit -m "Update YouTube videos (automatic)"
           git push

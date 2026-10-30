@@ -1,10 +1,17 @@
 // Concerts: past shows with videos.
-import { loadJSON, h, md, link, pageHead, emptyState, newestFirst, fmtDate, yearOf, videoFacade, url } from './core.js';
+import { loadJSON, h, md, link, pageHead, emptyState, newestFirst, fmtDate, yearOf, videoFacade, img, ytTitle } from './core.js';
+
+export function videoCard(videoId, title, { thumbnail, date } = {}) {
+  return h('li', { class: 'video' }, videoFacade(videoId, title, { thumbnail }),
+    h('div', { class: 'video__text' },
+      h('p', { class: 'video__title', text: title }),
+      date ? h('p', { class: 'video__date' }, h('time', { datetime: date }, fmtDate(date))) : null));
+}
 
 export default async function ({ app }) {
   const data = await loadJSON('concerts');
   if (data.bannerImage) {
-    app.append(h('figure', { class: 'banner' }, h('img', { src: url(data.bannerImage), alt: data.bannerImageAlt || '', decoding: 'async', fetchpriority: 'high' })));
+    app.append(h('figure', { class: 'banner' }, img(data.bannerImage, { alt: data.bannerImageAlt || '', priority: true })));
   }
   app.append(pageHead(data.pageTitle, data.intro));
   const items = newestFirst(Array.isArray(data.items) ? data.items : [], { pinFeatured: false });
@@ -22,17 +29,14 @@ export default async function ({ app }) {
         c.subtitle ? h('p', { class: 'concert__sub', text: c.subtitle }) : null,
         (when || where) ? h('p', { class: 'concert__meta' },
           when ? h('span', {}, c.date ? h('time', { datetime: c.date }, when) : when) : null,
-          when && where ? h('span', { 'aria-hidden': 'true', class: 'sep', text: ' / ' }) : null,
+          when && where ? ', ' : null,
           where ? h('span', { text: where }) : null) : null,
-        c.description ? h('div', { class: 'prose' }, md(c.description)) : null,
-        c.playlistUrl ? h('p', {}, link(c.playlistUrl, 'Watch the full playlist on YouTube', { class: 'pill' })) : null),
-      c.image ? h('img', { class: 'concert__img', src: url(c.image), alt: c.imageAlt || '', loading: 'lazy' }) : null,
+        c.playlistUrl ? h('p', { class: 'concert__actions' }, link(c.playlistUrl, 'Full playlist on YouTube', { class: 'pill' })) : null),
+      c.description ? h('div', { class: 'prose', style: 'margin-bottom:1.75rem' }, md(c.description)) : null,
+      c.image ? img(c.image, { alt: c.imageAlt || '', cls: 'concert__img' }) : null,
       Array.isArray(c.photos) && c.photos.length ? h('ul', { class: 'photos' }, c.photos.map((p) =>
-        h('li', {}, h('img', { src: url(p.src || p), alt: p.alt || '', loading: 'lazy', decoding: 'async' })))) : null,
-      videos.length ? h('ul', { class: 'videos' }, videos.map((v, i) => {
-        const title = v.title || v.youtubeTitle || `${c.title}, video ${i + 1}`;
-        return h('li', { class: 'video' }, videoFacade(v.videoId, title, { thumbnail: v.thumbnail }),
-          h('p', { class: 'video__title', text: title }));
-      })) : null));
+        h('li', {}, img(p.src || p, { alt: p.alt || '', sizes: '(min-width: 40rem) 25vw, 50vw' })))) : null,
+      videos.length ? h('ul', { class: 'videos' }, videos.map((v, i) =>
+        videoCard(v.videoId, v.title || v.youtubeTitle || ytTitle(v.videoId) || `${c.title}, video ${i + 1}`, { thumbnail: v.thumbnail }))) : null));
   }
 }

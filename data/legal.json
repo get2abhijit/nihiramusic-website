@@ -162,8 +162,9 @@
       "Imprint name 'Nihira Deshpande' differs from the site name 'Nihira Joshi-Deshpande'.",
       "Two contact emails are used: nihiramusic@gmail.com (privacy text) and contact@nihiramusic.in (imprint).",
       "Policy mentions newsletter, forms, registration, payment, orders and cookies. The new site has none of these (no forms, no cookies, no analytics).",
-      "Policy does not mention: GitHub Pages hosting (server logs/IP), YouTube embeds (loaded only after a click, via youtube-nocookie.com), Google Fonts (loaded from Google servers; consider self-hosting, see ROADMAP).",
-      "Policy refers to https://www.nihiramusic.in (with www)."
+      "Policy refers to https://www.nihiramusic.in (with www).",
+      "Owner confirmed (M2): the legal entity is NihiraMusic Entertainment LLP, the legal person is Nihira Deshpande. The policy's first paragraph names 'Nihira Joshi-Deshpande' as owner/data controller; align it with the confirmed entity.",
+      "Policy does not mention: GitHub Pages hosting (server logs/IP) and YouTube embeds (loaded only after a click, via youtube-nocookie.com). Fonts are self-hosted since M2 (no Google request)."
     ]
   },
   "terms": {
@@ -369,7 +370,7 @@
     ],
     "source": "https://nihiramusic.in/terms-and-conditions",
     "_review": [
-      "Names 'NihiraMusic Entertainment LLP' as owner; the privacy policy names Nihira Joshi-Deshpande personally. Confirm the correct legal entity.",
+      "Owner confirmed (M2): NihiraMusic Entertainment LLP is correct. The text still says 'Do not continue to use Nihira Joshi-Deshpande' (template wording).",
       "Mentions user comments/posting; the site has no comment function.",
       "Cookie section is outdated: the new site sets no cookies (YouTube only after a click).",
       "'paragraph 2 above' and similar wording come from a generic template."

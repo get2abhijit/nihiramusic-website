@@ -1,12 +1,16 @@
-// Originals and Covers: card grid, filters, click-to-play.
-import { loadJSON, h, md, link, pageHead, emptyState, newestFirst, yearOf, videoFacade, ytWatch, url } from './core.js';
+// Originals and Covers: aligned cards, filters, click-to-play.
+import { loadJSON, h, md, link, pageHead, emptyState, newestFirst, yearOf, videoFacade, ytWatch, img, ytTitle } from './core.js';
 
 function displayTitle(item) {
-  if (item.title || item.youtubeTitle) return item.title || item.youtubeTitle;
+  const t = item.title || item.youtubeTitle || ytTitle(item.videoId);
+  if (t) return t;
   let c = String(item.category || 'Video').replace(/^more\s+/i, '').replace(/s$/i, '');
   if (!/cover|video/i.test(c)) c += ' cover';
-  return c.charAt(0).toUpperCase() + c.slice(1).toLowerCase().replace(/^(\w+) cover$/, (m, w) => `${w} cover`);
+  return c.charAt(0).toUpperCase() + c.slice(1).toLowerCase();
 }
+
+/** Descriptions often use one line break per paragraph; give each line its own paragraph unless it is a list. */
+const paras = (t) => (/^\s*[-*] /m.test(t) ? t : String(t).replace(/\n+/g, '\n\n'));
 
 function links(item) {
   const out = [];
@@ -14,33 +18,43 @@ function links(item) {
   if (item.spotifyUrl) out.push(link(item.spotifyUrl, 'Spotify', { class: 'pill' }));
   if (item.videoId) out.push(link(ytWatch(item.videoId), 'YouTube', { class: 'pill' }));
   if (item.soundcloudUrl) out.push(link(item.soundcloudUrl, 'SoundCloud', { class: 'pill' }));
+  if (item.deezerUrl) out.push(link(item.deezerUrl, 'Deezer', { class: 'pill' }));
   return out.length ? h('p', { class: 'work__links' }, out) : null;
+}
+
+function tracksList(item) {
+  if (!Array.isArray(item.tracks) || !item.tracks.length) return null;
+  return h('div', { class: 'tracks' }, h('h4', { class: 'tracks__title', text: 'Tracks' }),
+    h('ol', { class: 'tracks__list' }, item.tracks.map((t) => h('li', {},
+      h('span', { class: 'tracks__name', text: t.title }),
+      t.listenUrl ? link(t.listenUrl, 'Listen', { class: 'tracks__link' }) : null,
+      t.videoId ? link(ytWatch(t.videoId), 'YouTube', { class: 'tracks__link' }) : null,
+      t.spotifyUrl ? link(t.spotifyUrl, 'Spotify', { class: 'tracks__link' }) : null))));
 }
 
 export function workCard(item, { compact = false } = {}) {
   const title = displayTitle(item);
+  const featured = item.featured && !compact;
   const media = item.videoId
     ? videoFacade(item.videoId, title, { thumbnail: item.thumbnail })
-    : item.image ? h('img', { class: 'work__img', src: url(item.image), alt: item.imageAlt || '', loading: 'lazy', decoding: 'async' }) : null;
+    : item.image ? img(item.image, { alt: item.imageAlt || '', cls: 'work__img', sizes: '(min-width: 62rem) 33vw, 100vw' }) : null;
   const meta = [item.type, yearOf(item), item.category && !item.type ? item.category : null].filter(Boolean).join(', ');
-  const tracks = !compact && Array.isArray(item.tracks) && item.tracks.length
-    ? h('div', { class: 'tracks' }, h('h4', { class: 'tracks__title', text: 'Tracks' }),
-      h('ol', { class: 'tracks__list' }, item.tracks.map((t) => h('li', {},
-        h('span', { class: 'tracks__name', text: t.title }),
-        t.listenUrl ? link(t.listenUrl, 'Listen', { class: 'tracks__link' }) : null,
-        t.videoId ? link(ytWatch(t.videoId), 'YouTube', { class: 'tracks__link' }) : null,
-        t.spotifyUrl ? link(t.spotifyUrl, 'Spotify', { class: 'tracks__link' }) : null))))
-    : null;
-  return h('article', { class: `work${item.featured && !compact ? ' work--featured' : ''}`, id: item.id || null },
-    media ? h('div', { class: 'work__media' }, media) : null,
-    h('div', { class: 'work__body' },
-      h('h3', { class: 'work__title', text: title }),
-      meta ? h('p', { class: 'work__meta', text: meta }) : null,
-      item.originalArtist ? h('p', { class: 'work__credits', text: `Originally by ${item.originalArtist}` }) : null,
-      item.credits ? h('p', { class: 'work__credits', text: item.credits }) : null,
-      !compact && item.description ? h('div', { class: 'work__desc prose' }, md(item.description)) : null,
-      tracks,
-      links(item)));
+  const head = h('div', { class: 'work__head' },
+    h('h3', { class: 'work__title', text: title }),
+    meta ? h('p', { class: 'work__meta', text: meta }) : null,
+    item.originalArtist ? h('p', { class: 'work__credits', text: `Originally by ${item.originalArtist}` }) : null,
+    item.credits ? h('p', { class: 'work__credits', text: item.credits }) : null);
+  const foot = h('div', { class: 'work__foot' },
+    !compact && item.description ? h('div', { class: 'work__desc prose' }, md(paras(item.description))) : null,
+    links(item));
+
+  if (featured) {
+    return h('article', { class: 'work work--featured', id: item.id || null },
+      h('div', { class: 'work__aside' }, media ? h('div', { class: 'work__media' }, media) : null, tracksList(item)),
+      h('div', { class: 'work__text' }, head, foot));
+  }
+  return h('article', { class: 'work', id: item.id || null },
+    h('div', { class: 'work__media' }, media), head, foot);
 }
 
 export default async function ({ app, page }) {

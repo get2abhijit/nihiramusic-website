@@ -1,5 +1,5 @@
 // Imprint / privacy policy and terms, rendered verbatim from data/legal.json.
-import { loadJSON, h, md } from './core.js';
+import { loadJSON, h, md, pageHead } from './core.js';
 
 export default async function ({ app, page }) {
   const data = await loadJSON('legal');
@@ -12,5 +12,5 @@ export default async function ({ app, page }) {
     else if (b.type === 'ul') body.append(h('ul', lang, (b.items || []).map((i) => h('li', {}, md(i).firstChild?.childNodes ? [...md(i).firstChild.childNodes] : i))));
     else { const p = h('div', lang); p.append(md(b.text)); body.append(...p.childNodes); if (b.lang) body.lastChild?.setAttribute?.('lang', b.lang); }
   }
-  app.append(h('header', { class: 'page-head wrap' }, h('h1', { text: doc.title })), h('div', { class: 'wrap section section--tight' }, body));
+  app.append(pageHead(doc.title), h('div', { class: 'wrap section section--tight' }, body));
 }

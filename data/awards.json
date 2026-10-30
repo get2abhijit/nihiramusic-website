@@ -14,7 +14,10 @@
       "organisation": "Radioandmusic.com and Indiantelevision.com",
       "link": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023",
       "highlight": true,
-      "source": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023"
+      "source": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023",
+      "_sources": [
+        "https://livdemy.com/nihirajoshi"
+      ]
     },
     {
       "id": "clef-2023-album-of-the-year",
@@ -25,9 +28,12 @@
       "status": "Won",
       "organisation": "Radioandmusic.com and Indiantelevision.com",
       "link": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023",
-      "highlight": false,
+      "highlight": true,
       "source": "https://www.lokmattimes.com/business/sonu-nigam-wins-three-awards-for-hanuman-chalisa-song-at-the-clef-music-awards-2023",
-      "_todo": "Press release lists 'Album Of The Year, Nihira Joshi-Deshpande Trishna' in a run-on paragraph; confirm wording before highlighting."
+      "_sources": [
+        "https://livdemy.com/nihirajoshi"
+      ],
+      "_note": "Win confirmed by the site owner (M2)."
     },
     {
       "id": "ima-2020-nirmohiya",
@@ -39,17 +45,27 @@
       "organisation": "The Independent Music Awards (Music Resource Group), USA",
       "highlight": true,
       "source": "https://bhavan.net/bhavan50landing",
-      "_sources": ["https://dailyrindblog.com/?p=60520", "https://nihiramusic.in/"],
-      "_todo": "Old site calls this the 'American Independent Award Nomination'. Edition number not verified."
+      "_sources": [
+        "https://dailyrindblog.com/?p=60520",
+        "https://nihiramusic.in/",
+        "https://harrowarts.com/whats-on/event/nihira-joshi-1",
+        "https://livdemy.com/nihirajoshi"
+      ],
+      "_todo": "Old site and some event pages say 'American Independent (Music) Award'; the awarding body is The Independent Music Awards (USA). Confirm preferred wording."
     },
     {
-      "id": "state-award-whats-up-lagna",
-      "award": "State Award",
+      "id": "maharashtra-state-award-2022-whats-up-lagna",
+      "year": 2022,
+      "award": "Maharashtra State Award",
       "work": "Whats Up Lagna",
       "status": "Nominated",
+      "organisation": "Maharashtra State",
       "highlight": true,
       "source": "https://nihiramusic.in/",
-      "_todo": "Year, category and organisation not verified (likely Maharashtra State Film Awards; the Marathi film is from 2018). Add once confirmed."
+      "_sources": [
+        "https://livdemy.com/nihirajoshi"
+      ],
+      "_note": "Year and organisation confirmed by the site owner (M2). Category not published."
     }
   ]
 }

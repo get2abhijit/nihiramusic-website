@@ -1,10 +1,12 @@
 {
-  "_help": "Global settings. nav = main menu (one line per item; 'path' is relative to the site root, '' = home, always end folders with /). footerLinks = small links in the footer. social = icons in the footer and on Home; 'icon' must be one of: youtube, instagram, facebook, x, spotify, soundcloud, link. siteUrl = final public address (used for canonical/share links). Images: any http(s) image URL here is downloaded by tools/localize_assets.py in Milestone 2.",
-  "siteName": "Nihira Joshi-Deshpande",
+  "_help": "Global settings. siteName = website title shown in the header, browser tab and share previews (text in brackets is shown in the accent colour). artistName = how Nihira is named on the page. nav = main menu (one line per item; 'path' is relative to the site root, '' = home, always end folders with /). footerLinks = small links in the footer. social = icons in the footer and on Home; 'icon' must be one of: youtube, instagram, facebook, x, spotify, soundcloud, link. siteUrl = final public address (used for canonical/share links). theme.accent / theme.accentDark = optional accent colours (#RRGGBB) for light and dark mode; leave empty to keep the built-in colours. Images: run tools/localize_assets.py once to copy every external image into assets/img/.",
+  "siteName": "The Sound of (Nihira)Music",
+  "siteNameSource": "https://artist.link/nihira",
   "shortName": "Nihira",
+  "artistName": "Nihira Joshi",
   "siteUrl": "https://nihiramusic.in/",
   "email": "contact@nihiramusic.in",
-  "copyrightName": "Nihira Joshi-Deshpande",
+  "copyrightName": "NihiraMusic Entertainment LLP",
   "listenUrl": "https://artist.link/nihira",
   "listenLabel": "Listen now",
   "subscribeUrl": "https://www.youtube.com/@nihiramusic?sub_confirmation=1",
@@ -13,27 +15,101 @@
   "logo": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=630,fit=crop,f=jpeg/Yan9WOlbvqczrXzV/nihirafinal-logo-3-Yyv7Bqb4jbIo1LP0.jpg",
   "ogImage": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=630,fit=crop,f=jpeg/Yan9WOlbvqczrXzV/nihirafinal-logo-3-Yyv7Bqb4jbIo1LP0.jpg",
   "nav": [
-    { "id": "home", "label": "Home", "path": "" },
-    { "id": "originals", "label": "Originals", "path": "original-compositions/" },
-    { "id": "covers", "label": "Covers", "path": "covers/" },
-    { "id": "concerts", "label": "Concerts", "path": "concerts/" },
-    { "id": "poems", "label": "Poetic Treasures", "path": "poetic-treasures/" },
-    { "id": "news", "label": "News", "path": "news/" },
-    { "id": "events", "label": "Events", "path": "events/" },
-    { "id": "awards", "label": "Awards", "path": "awards/" }
+    {
+      "id": "home",
+      "label": "Home",
+      "path": ""
+    },
+    {
+      "id": "originals",
+      "label": "Originals",
+      "path": "original-compositions/"
+    },
+    {
+      "id": "covers",
+      "label": "Covers",
+      "path": "covers/"
+    },
+    {
+      "id": "concerts",
+      "label": "Concerts",
+      "path": "concerts/"
+    },
+    {
+      "id": "poems",
+      "label": "Poetic Treasures",
+      "path": "poetic-treasures/"
+    },
+    {
+      "id": "news",
+      "label": "News",
+      "path": "news/"
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "path": "events/"
+    },
+    {
+      "id": "awards",
+      "label": "Awards",
+      "path": "awards/"
+    }
   ],
   "footerLinks": [
-    { "label": "Imprint", "path": "privacy-policy/" },
-    { "label": "Terms & Conditions", "path": "terms-and-conditions/" }
+    {
+      "label": "Imprint",
+      "path": "privacy-policy/"
+    },
+    {
+      "label": "Terms & Conditions",
+      "path": "terms-and-conditions/"
+    }
   ],
   "social": [
-    { "name": "YouTube", "icon": "youtube", "url": "https://www.youtube.com/@Nihiramusic" },
-    { "name": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/nihiramusic/" },
-    { "name": "Spotify", "icon": "spotify", "url": "https://open.spotify.com/artist/4cSJs8KQW0qPqIEOyXsWix" },
-    { "name": "Facebook", "icon": "facebook", "url": "https://www.facebook.com/singernihirajoshi/" },
-    { "name": "X (Twitter)", "icon": "x", "url": "https://x.com/get2nihira" },
-    { "name": "SoundCloud", "icon": "soundcloud", "url": "https://soundcloud.com/nihirajoshideshpande" },
-    { "name": "All links (artist.link)", "icon": "link", "url": "https://artist.link/nihira" }
+    {
+      "name": "YouTube",
+      "icon": "youtube",
+      "url": "https://www.youtube.com/@Nihiramusic"
+    },
+    {
+      "name": "Instagram",
+      "icon": "instagram",
+      "url": "https://www.instagram.com/nihiramusic/"
+    },
+    {
+      "name": "Spotify",
+      "icon": "spotify",
+      "url": "https://open.spotify.com/artist/4cSJs8KQW0qPqIEOyXsWix"
+    },
+    {
+      "name": "Facebook",
+      "icon": "facebook",
+      "url": "https://www.facebook.com/singernihirajoshi/"
+    },
+    {
+      "name": "X (Twitter)",
+      "icon": "x",
+      "url": "https://x.com/get2nihira"
+    },
+    {
+      "name": "SoundCloud",
+      "icon": "soundcloud",
+      "url": "https://soundcloud.com/nihirajoshideshpande"
+    },
+    {
+      "name": "All links (artist.link)",
+      "icon": "link",
+      "url": "https://artist.link/nihira"
+    }
   ],
-  "source": "https://nihiramusic.in/"
+  "source": "https://nihiramusic.in/",
+  "theme": {
+    "accent": "",
+    "accentDark": ""
+  },
+  "_notes": [
+    "M2: site title changed from 'Nihira Joshi-Deshpande' at the owner's request; 'The Sound of (Nihira)Music' is the title Nihira already uses on artist.link/nihira.",
+    "Owner confirmed (M2): legal entity NihiraMusic Entertainment LLP, legal person Nihira Deshpande, screen name Nihira Joshi."
+  ]
 }

@@ -1,5 +1,5 @@
 // News: newest first, "Load more" after pageSize items, shareable #anchors.
-import { loadJSON, h, md, link, pageHead, emptyState, fmtDate, url } from './core.js';
+import { loadJSON, h, md, link, pageHead, emptyState, fmtDate, url, img } from './core.js';
 
 export function newsSorted(data) {
   return (Array.isArray(data.items) ? data.items : []).filter((n) => n && n.title)
@@ -18,7 +18,7 @@ function article(n) {
     n.date ? h('p', { class: 'news-item__date' }, h('time', { datetime: n.date }, fmtDate(n.date))) : null,
     h('div', { class: 'news-item__body' },
       h('h2', { class: 'news-item__title' }, n.id ? h('a', { href: `#${n.id}` }, n.title) : n.title),
-      n.image ? h('img', { class: 'news-item__img', src: url(n.image), alt: n.imageAlt || '', loading: 'lazy', decoding: 'async' }) : null,
+      n.image ? img(n.image, { alt: n.imageAlt || '', cls: 'news-item__img', sizes: '(min-width: 48rem) 60vw, 100vw' }) : null,
       n.summary ? h('p', { class: 'news-item__summary', text: n.summary }) : null,
       n.body ? h('div', { class: 'prose' }, md(n.body)) : null,
       h('p', { class: 'news-item__actions' },

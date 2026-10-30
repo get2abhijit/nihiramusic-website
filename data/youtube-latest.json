@@ -1,6 +1,7 @@
 {
-  "_help": "Written automatically every day by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten.",
+  "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty.",
   "channelId": "UC46dtN9KIZspJ8__89BeSXw",
   "updated": "",
-  "videos": []
+  "videos": [],
+  "titles": {}
 }

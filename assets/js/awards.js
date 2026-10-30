@@ -1,5 +1,5 @@
 // Awards grouped by year.
-import { loadJSON, h, link, pageHead, emptyState, url } from './core.js';
+import { loadJSON, h, link, pageHead, emptyState, url, img } from './core.js';
 
 const STATUS = { won: 'Won', winner: 'Won', nominated: 'Nominated', nominee: 'Nominated', finalist: 'Finalist' };
 export const statusLabel = (s) => STATUS[String(s || '').toLowerCase()] || s || '';
@@ -12,7 +12,7 @@ export function awardItem(a, { headingLevel = 3 } = {}) {
     a.category ? h('p', { class: 'award__cat', text: a.category }) : null,
     a.work ? h('p', { class: 'award__work' }, 'For ', h('cite', { text: a.work })) : null,
     a.organisation ? h('p', { class: 'award__org', text: a.organisation }) : null,
-    a.image ? h('img', { class: 'award__img', src: url(a.image), alt: a.imageAlt || '', loading: 'lazy' }) : null,
+    a.image ? img(a.image, { alt: a.imageAlt || '', cls: 'award__img', sizes: '10rem' }) : null,
     a.link ? h('p', {}, link(a.link, 'Source')) : null);
 }
 

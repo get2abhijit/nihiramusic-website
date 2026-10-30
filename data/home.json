@@ -5,7 +5,7 @@
     "tagline": "Music isn’t just what I do, it’s how I share my heart with the world.",
     "taglineSource": "https://www.youtube.com/@Nihiramusic",
     "image": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/Yan9WOlbvqczrXzV/dsc2295-YKbr0xv9X8i2Zz9b.jpg",
-    "imageAlt": "Nihira Joshi-Deshpande",
+    "imageAlt": "Nihira Joshi",
     "source": "https://nihiramusic.in/"
   },
   "about": {
@@ -16,16 +16,37 @@
       "Her accolades, including the Clef Awards for ‘Trishna’, the State Award Nomination for ‘Whats Up Lagna’, and the American Independent Award Nomination for ‘Nirmohiya’, serve as a testament to her exceptional contributions to the music industry. These recognitions are a testament to her ability to touch the hearts of her listeners and her skill in bringing out the true essence of words through her music.",
       "Nihira’s ‘word-centric’ and ’emotion-centric’ approach to music sets her apart, allowing her compositions to resonate deeply with those who have the pleasure of experiencing them. With her impressive background and continued dedication to her craft, it’s clear that Nihira will continue to make significant strides in the realm of light music for years to come and ears to come."
     ],
-    "image": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1224,h=584,fit=crop/Yan9WOlbvqczrXzV/dsc2458-m7VKyjZVjzfl8Zj7.jpg",
+    "image": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1224/Yan9WOlbvqczrXzV/dsc2458-m7VKyjZVjzfl8Zj7.jpg",
     "imageAlt": "Nihira - A remarkable talent",
-    "source": "https://nihiramusic.in/"
+    "source": "https://nihiramusic.in/",
+    "_note": "M2: same photo as the old site, requested without the old site's 1224x584 crop so the portrait layout shows the full picture."
   },
   "sections": {
-    "releases": { "show": true, "heading": "Latest releases", "count": 3 },
-    "videos": { "show": true, "heading": "Latest videos", "count": 6 },
-    "awards": { "show": true, "heading": "Recognition", "count": 3 },
-    "news": { "show": true, "heading": "News", "count": 3 },
-    "events": { "show": true, "heading": "Upcoming events", "count": 3 }
+    "releases": {
+      "show": true,
+      "heading": "Latest releases",
+      "count": 3
+    },
+    "videos": {
+      "show": true,
+      "heading": "Latest videos",
+      "count": 6
+    },
+    "awards": {
+      "show": true,
+      "heading": "Recognition",
+      "count": 4
+    },
+    "news": {
+      "show": true,
+      "heading": "News",
+      "count": 3
+    },
+    "events": {
+      "show": true,
+      "heading": "Upcoming events",
+      "count": 3
+    }
   },
   "contact": {
     "heading": "Bookings and collaborations",

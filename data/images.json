@@ -1,0 +1,4 @@
+{
+  "_help": "Written by tools/localize_assets.py. Width, height and smaller versions (srcset) of local images, so pages load fast without layout jumps. Do not edit by hand; run the script again after adding images.",
+  "images": {}
+}

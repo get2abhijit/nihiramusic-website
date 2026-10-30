@@ -1,5 +1,5 @@
 {
-  "_help": "Original songs and albums. Newest first is automatic (by 'date' YYYY-MM-DD, else 'year'). Fields: id (unique, lowercase-with-dashes), title, type (Single / Album / EP), year (number, optional), date (optional), videoId (the part after v= in a YouTube link), image (optional cover art URL), imageAlt, credits (short line), description (text; **bold** and [link](url) allowed), listenUrl (song.link / album.link), spotifyUrl, soundcloudUrl, featured (true pins it to the top), tracks (albums only: list of {title, videoId, spotifyUrl, soundcloudUrl, listenUrl}), source (where the info came from). Leave a field out if you don't know it. Fields starting with _ are notes and never shown.",
+  "_help": "Original songs and albums. Newest first is automatic (by 'date' YYYY-MM-DD, else 'year'). Fields: id (unique, lowercase-with-dashes), title, type (Single / Album / EP), year (number, optional), date (optional), videoId (the part after v= in a YouTube link), image (optional cover art URL), imageAlt, credits (short line), description (text; **bold** and [link](url) allowed), listenUrl (song.link / album.link), spotifyUrl, soundcloudUrl, deezerUrl, featured (true pins it to the top), tracks (albums only: list of {title, videoId, spotifyUrl, soundcloudUrl, listenUrl}), source (where the info came from). Leave a field out if you don't know it. Fields starting with _ are notes and never shown.",
   "pageTitle": "Original Compositions",
   "intro": "",
   "emptyText": "New original music is on its way.",
@@ -17,14 +17,41 @@
       "listenUrl": "https://album.link/trishna",
       "featured": true,
       "tracks": [
-        { "title": "Trishna Spandan Ki", "videoId": "B-uKdwFca0U", "spotifyUrl": "https://open.spotify.com/track/1t7KoTEDITW64XVtgdjYL2", "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/trishna-spandan-ki-feat-mayukh", "listenUrl": "https://song.link/TrishnaSpandanKi" },
-        { "title": "Trishna Antarman Ki", "videoId": "iGBytb6zsEk", "spotifyUrl": "https://open.spotify.com/track/4cAZ5YwJ0BWbkOPv74vgMd", "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/trishna-antarman-ki-feat", "listenUrl": "https://song.link/trishnaantarmanki" },
-        { "title": "Trishna Bandhan Ki" },
-        { "title": "Trishna Samarpan Ki" }
+        {
+          "title": "Trishna Antarman Ki",
+          "videoId": "iGBytb6zsEk",
+          "spotifyUrl": "https://open.spotify.com/track/4cAZ5YwJ0BWbkOPv74vgMd",
+          "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/trishna-antarman-ki-feat",
+          "listenUrl": "https://song.link/trishnaantarmanki"
+        },
+        {
+          "title": "Trishna Spandan Ki",
+          "videoId": "B-uKdwFca0U",
+          "spotifyUrl": "https://open.spotify.com/track/1t7KoTEDITW64XVtgdjYL2",
+          "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/trishna-spandan-ki-feat-mayukh",
+          "listenUrl": "https://song.link/TrishnaSpandanKi"
+        },
+        {
+          "title": "Trishna Bandhan Ki"
+        },
+        {
+          "title": "Trishna Samarpan Ki",
+          "videoId": "RP1B-RYn4gw",
+          "_source": "https://www.youtube.com/watch?v=RP1B-RYn4gw"
+        }
       ],
       "source": "https://nihiramusic.in/original-compositions",
-      "_sources": ["https://album.link/trishna", "https://artist.link/nihira", "https://www.musicunplugged.in/news/trade_news_info/2580/0"],
-      "_todo": "Year 2022 from press (EP released December 2022). Add links for Trishna Bandhan Ki and Samarpan Ki."
+      "_sources": [
+        "https://album.link/trishna",
+        "https://artist.link/nihira",
+        "https://www.musicunplugged.in/news/trade_news_info/2580/0",
+        "https://www.deezer.com/en/album/373627127",
+        "https://www.qobuz.com/ca-en/album/trishna-nihira-joshi/lyoxti4sk7qv9"
+      ],
+      "_todo": "Add YouTube/Spotify links for 'Trishna Bandhan Ki'.",
+      "date": "2022-12-10",
+      "deezerUrl": "https://www.deezer.com/en/album/373627127",
+      "_note": "Release date 2022-12-10 and track order from Deezer/Qobuz."
     },
     {
       "id": "tumi",
@@ -34,7 +61,11 @@
       "credits": "A soulful Bengali love song. With Santanu Ghatak and Ashwin Srinivasan",
       "listenUrl": "https://song.link/tumi_original",
       "source": "https://song.link/tumi_original",
-      "_todo": "Release year unknown."
+      "year": 2024,
+      "_sources": [
+        "https://planetbollywood.com/wp/?p=25695",
+        "https://rollingstoneindia.com/new-music-till-apes-arunaja-nihira-joshi-deshpande-earth-below-songs"
+      ]
     },
     {
       "id": "toote-chhaate",
@@ -46,7 +77,11 @@
       "credits": "Nihira Joshi Deshpande, Rhythm Shaw and Alok Ranjan Srivastava",
       "listenUrl": "https://song.link/tootechhaate",
       "source": "https://song.link/tootechhaate",
-      "_todo": "Release year unknown."
+      "year": 2023,
+      "_sources": [
+        "https://musicunplugged.in/news/trade_news_info/2705/380",
+        "https://planetbollywood.com/wp/?p=23840"
+      ]
     },
     {
       "id": "ishq-manayein-kya",
@@ -58,7 +93,11 @@
       "spotifyUrl": "https://open.spotify.com/track/3Sfa7YAD1QqtJDXhEHVMdz",
       "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/ishq-manayein-kya-feat",
       "source": "https://artist.link/nihira",
-      "_todo": "Release year unknown."
+      "year": 2021,
+      "_sources": [
+        "https://planetbollywood.com/wp/?p=26330",
+        "https://asianlite.com/2021/lite-blogs/nihira-composes-fuses-hindi-lyrics-with-authentic-cuban-music"
+      ]
     },
     {
       "id": "ishq-manayein-kya-swing",
@@ -68,7 +107,11 @@
       "credits": "With Manoj Yadav and Tanmay Pawar",
       "listenUrl": "https://song.link/imkswing",
       "source": "https://song.link/imkswing",
-      "_todo": "Release year unknown."
+      "year": 2024,
+      "_sources": [
+        "https://planetbollywood.com/wp/?p=26330"
+      ],
+      "_note": "Year from the Planet Bollywood feature of 2024-07-30."
     },
     {
       "id": "nirmohiya",
@@ -82,7 +125,11 @@
       "spotifyUrl": "https://open.spotify.com/track/2K13WkHriHnCNXlwICiPUt",
       "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/nirmohiya-feat-rhythm-shaw",
       "source": "https://song.link/nirmohiya",
-      "_todo": "Release year unknown (nominated at the Independent Music Awards in 2020). artist.link uses a different YouTube video (rofugU8NIEg); the old site uses ZC90JEMIvpw."
+      "_todo": "artist.link uses a different YouTube video (rofugU8NIEg); the old site uses ZC90JEMIvpw.",
+      "year": 2018,
+      "_sources": [
+        "https://milliblog.com/?p=17714"
+      ]
     },
     {
       "id": "na-chedo-hamein",

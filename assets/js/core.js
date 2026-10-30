@@ -22,6 +22,31 @@ export function loadJSON(name) {
   return cache.get(name);
 }
 
+/* ---------- Shared state filled by main.js (both optional) ---------- */
+const state = { images: {}, ytTitles: {} };
+/** data/images.json (written by tools/localize_assets.py): width, height, srcset of local images. */
+export function setImageManifest(m) { state.images = (m && m.images) || {}; }
+/** Titles collected by the YouTube sync, used when a title is left empty in the data files. */
+export function setVideoTitles(t) { state.ytTitles = t || {}; }
+export const ytTitle = (id) => (id && state.ytTitles[id]) || '';
+
+/** <img> with width/height/srcset from the manifest when the image is local. */
+export function img(src, { alt = '', cls, sizes = '100vw', loading = 'lazy', priority = false, style } = {}) {
+  const key = String(src || '').replace(/^\.?\//, '');
+  const meta = state.images[key];
+  const props = { src: url(src), alt, class: cls, decoding: 'async', style };
+  if (priority) props.fetchpriority = 'high'; else props.loading = loading;
+  if (meta) {
+    if (meta.width && meta.height) { props.width = meta.width; props.height = meta.height; }
+    if (Array.isArray(meta.srcset) && meta.srcset.length > 1) {
+      props.srcset = meta.srcset.map((v) => `${url(v.src)} ${v.width}w`).join(', ');
+      props.sizes = sizes;
+    }
+  }
+  if (!/^https?:/i.test(src)) return h('img', props);
+  return h('img', { ...props, referrerpolicy: 'no-referrer' });
+}
+
 /** Tiny DOM builder: h('a', {href, class, text}, child, child…). Text is never parsed as HTML. */
 export function h(tag, props = {}, ...kids) {
   const el = document.createElement(tag);
@@ -151,10 +176,10 @@ export function socialList(site, cls = 'social') {
 }
 
 export function pageHead(title, intro, sub) {
-  return h('header', { class: 'page-head wrap' },
+  return h('div', { class: 'page-head-band' }, h('header', { class: 'page-head wrap' },
     h('h1', { text: title }),
     sub ? h('p', { class: 'page-head__sub', text: sub }) : null,
-    intro ? h('div', { class: 'page-head__intro' }, md(intro)) : null);
+    intro ? h('div', { class: 'page-head__intro' }, md(intro)) : null));
 }
 
 export function emptyState(text, action) {
@@ -172,9 +197,12 @@ export function showError(container, err) {
 /** YouTube click-to-play facade: nothing from YouTube loads until the visitor clicks. */
 export function videoFacade(videoId, title, { thumbnail } = {}) {
   const wrap = h('div', { class: 'yt' });
-  const thumb = thumbnail ? url(thumbnail) : `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;
+  const local = `assets/img/yt/${videoId}.jpg`;
+  const thumb = thumbnail || (state.images[local] ? local : `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`);
+  const pic = img(thumb, { sizes: '(min-width: 62rem) 33vw, (min-width: 40rem) 50vw, 100vw' });
+  if (!pic.hasAttribute('width')) { pic.setAttribute('width', '480'); pic.setAttribute('height', '360'); }
   const btn = h('button', { type: 'button', class: 'yt__btn', 'aria-label': `Play video: ${title}` },
-    h('img', { src: thumb, alt: '', loading: 'lazy', decoding: 'async', width: '480', height: '360', referrerpolicy: 'no-referrer' }),
+    pic,
     h('span', { class: 'yt__play' }, icon('play')));
   btn.addEventListener('click', () => {
     const frame = h('iframe', {
@@ -191,31 +219,67 @@ export function videoFacade(videoId, title, { thumbnail } = {}) {
 export const ytWatch = (id) => `https://www.youtube.com/watch?v=${encodeURIComponent(id)}`;
 
 /* ---------- Layout: header, nav, footer ---------- */
+/** "The Sound of (Nihira)Music": text in brackets gets the accent colour. */
+export function brandName(name) {
+  const frag = document.createDocumentFragment();
+  String(name || '').split(/(\([^)]*\))/).forEach((part) => {
+    if (!part) return;
+    frag.append(/^\(.*\)$/.test(part) ? h('span', { class: 'brand__accent' }, part) : part);
+  });
+  return frag;
+}
+
+function applyTheme(theme) {
+  const ok = (c) => /^#[0-9a-f]{6}$/i.test(String(c || '').trim());
+  if (!theme) return;
+  if (ok(theme.accent)) document.documentElement.style.setProperty('--theme-accent', theme.accent.trim());
+  if (ok(theme.accentDark)) document.documentElement.style.setProperty('--theme-accent-dark', theme.accentDark.trim());
+}
+
 export function renderLayout(site, pageId) {
+  applyTheme(site.theme);
   const header = document.getElementById('site-header');
   const footer = document.getElementById('site-footer');
   if (header) {
-    const listId = 'site-nav-list';
-    const toggle = h('button', { type: 'button', class: 'nav-toggle', 'aria-expanded': 'false', 'aria-controls': listId },
-      h('span', { class: 'nav-toggle__bars', 'aria-hidden': 'true' }), h('span', { text: 'Menu' }));
-    const list = h('ul', { id: listId, class: 'nav__list' }, (site.nav || []).map((item) =>
+    const panelId = 'site-nav-panel';
+    const mobile = window.matchMedia('(max-width: 62rem)');
+    const toggle = h('button', { type: 'button', class: 'nav-toggle', 'aria-expanded': 'false', 'aria-controls': panelId },
+      h('span', { class: 'nav-toggle__bars', 'aria-hidden': 'true' }), h('span', { class: 'nav-toggle__label', text: 'Menu' }));
+    const list = h('ul', { class: 'nav__list' }, (site.nav || []).map((item) =>
       h('li', {}, h('a', { href: url(item.path), ...(item.id === pageId ? { 'aria-current': 'page' } : {}) }, item.label))));
-    const close = () => { toggle.setAttribute('aria-expanded', 'false'); header.classList.remove('is-open'); };
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') !== 'true';
+    const panel = h('div', { id: panelId, class: 'nav__panel' }, list, socialList(site, 'social nav__social'));
+    const outside = () => [document.getElementById('main'), document.getElementById('site-footer'), header.querySelector('.brand')];
+    const setOpen = (open) => {
       toggle.setAttribute('aria-expanded', String(open));
+      toggle.querySelector('.nav-toggle__label').textContent = open ? 'Close' : 'Menu';
       header.classList.toggle('is-open', open);
+      document.body.classList.toggle('nav-open', open);
+      outside().forEach((el) => { if (el) el.inert = open; });
+      if (open) list.querySelector('a')?.focus();
+    };
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    panel.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', (e) => {
+      if (!header.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { setOpen(false); toggle.focus(); return; }
+      if (e.key === 'Tab') { // keep focus inside the open menu
+        const f = [toggle, ...panel.querySelectorAll('a')];
+        const i = f.indexOf(document.activeElement);
+        if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+      }
     });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && header.classList.contains('is-open')) { close(); toggle.focus(); } });
+    mobile.addEventListener?.('change', () => { if (!mobile.matches && header.classList.contains('is-open')) setOpen(false); });
     header.replaceChildren(h('div', { class: 'site-header__inner wrap' },
-      h('a', { class: 'brand', href: url('') }, site.siteName),
-      h('nav', { class: 'nav', 'aria-label': 'Main' }, toggle, list)));
+      h('a', { class: 'brand', href: url('') }, brandName(site.siteName)),
+      h('nav', { class: 'nav', 'aria-label': 'Main' }, toggle, panel)));
   }
   if (footer) {
     const year = new Date().getFullYear();
     footer.replaceChildren(h('div', { class: 'site-footer__inner wrap' },
       h('div', { class: 'site-footer__brand' },
-        h('p', { class: 'site-footer__name', text: site.siteName }),
+        h('p', { class: 'site-footer__name' }, brandName(site.siteName)),
+        site.artistName ? h('p', { class: 'muted', text: site.artistName }) : null,
         site.email ? h('p', {}, h('a', { href: `mailto:${site.email}` }, site.email)) : null),
       h('div', { class: 'site-footer__follow' },
         socialList(site),
