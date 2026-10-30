@@ -1,0 +1,4 @@
+{
+  "_help": "Written automatically by .github/workflows/calendar-sync.yml (tools/sync_calendar.py) from the linked Google/Outlook calendar. Do not edit by hand: change the event in the calendar instead, or add it to events.json (events.json wins when both list the same show). Same fields as events.json.",
+  "items": []
+}

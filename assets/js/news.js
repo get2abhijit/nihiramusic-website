@@ -1,5 +1,5 @@
 // News: newest first, "Load more" after pageSize items, shareable #anchors.
-import { loadJSON, h, md, link, pageHead, emptyState, fmtDate, url, img } from './core.js';
+import { loadJSON, h, md, link, pageHead, emptyState, fmtDate, url, img, icon } from './core.js';
 
 export function newsSorted(data) {
   return (Array.isArray(data.items) ? data.items : []).filter((n) => n && n.title)
@@ -31,6 +31,8 @@ export default async function ({ app }) {
   const wrap = h('div', { class: 'wrap section section--tight' });
   app.append(wrap);
   const items = newsSorted(data);
+  wrap.append(h('p', { class: 'feed-link' }, h('a', { href: url('news/feed.xml'), class: 'listen-btn', type: 'application/rss+xml' },
+    icon('rss'), h('span', { text: 'Follow the news by RSS' }))));
   if (!items.length) { wrap.append(emptyState(data.emptyText || 'News will be posted here soon.')); return; }
   const size = Number(data.pageSize) > 0 ? Number(data.pageSize) : 10;
   const target = decodeURIComponent(location.hash.slice(1));

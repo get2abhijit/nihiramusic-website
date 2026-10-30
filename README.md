@@ -25,6 +25,11 @@ Opening `index.html` by double-clicking does **not** work (browsers block loadin
 5. **Actions → Deploy site → Run workflow.** After 1–2 minutes the site is live at `https://<your-username>.github.io/<repository-name>/`.
 6. **Actions → YouTube sync → Run workflow** once. It fills "Latest videos", collects missing video titles and copies thumbnails. Afterwards it runs every day, and the site republishes itself after each run.
 
+**Updating from Milestone 2 (site already online):**
+1. Upload all files of the new ZIP over the old ones (including `.github/workflows/`, which has two new files).
+2. Run **Actions → Deploy site**, then **Actions → SEO files** once. Nothing else changes in the settings.
+3. Optional: link a Google or Outlook calendar (section 5b).
+
 **Updating from Milestone 1 (site already online):**
 1. Upload all files of the new ZIP over the old ones (same steps as above; GitHub replaces changed files).
 2. Change **Settings → Pages → Source** from "Deploy from a branch" to **GitHub Actions**.
@@ -178,10 +183,40 @@ Set `"featured": true` on one release to pin it to the top.
 - **YouTube sync** (`.github/workflows/youtube-sync.yml`, daily): updates `data/youtube-latest.json` (Home "Latest videos" and video titles) and copies thumbnails to `assets/img/yt/`. It never changes your other data files and only saves when something changed.
 - **Deploy site** (`.github/workflows/pages.yml`): publishes the site after every change and after each YouTube sync. If the site doesn't update, open **Actions** and look for a red ✗; **Run workflow** on "Deploy site" retries.
 
+- **SEO files** (`.github/workflows/seo-build.yml`, after each data change and daily): rewrites `sitemap.xml`, `robots.txt`, the news RSS feed `news/feed.xml`, the subscribable calendar `events/calendar.ics`, the structured data (JSON-LD) in the page heads and the short no-JavaScript overview on Home. Script: `tools/build_seo.py`. Never edit those files by hand; change `data/` instead. "Deploy site" runs the same script before publishing, so the live site is right even if this workflow has not finished.
+- **Calendar sync** (`.github/workflows/calendar-sync.yml`, every 6 hours): copies events from a linked Google/Outlook calendar into `data/events-calendar.json`. Does nothing until you link one (section 5b).
+
+Everything also works by hand: `python3 tools/build_seo.py` (add `--check` to only see what would change).
+
+## 5b. Link a Google or Outlook calendar (optional)
+
+Then concerts you put in that calendar appear on the website by themselves (Events page and Home), at most 6 hours later. You can still type events into `data/events.json`; if both list the same show (same date and title), `events.json` wins.
+
+1. Use a **separate calendar just for public concerts** (everything in it becomes public).
+2. Get its **public iCal address** (ends in `.ics`):
+   - **Google Calendar** (web): Settings → *Settings for my calendars* → choose the calendar → *Access permissions for events* → tick **Make available to public** → scroll to *Integrate calendar* → copy **Public address in iCal format**.
+   - **Outlook.com / Microsoft 365** (web): Settings → Calendar → *Shared calendars* → *Publish a calendar* → choose the calendar, *Can view all details* → **Publish** → copy the **ICS** link.
+   (Menu names change from time to time; search the help for "public iCal address" or "publish calendar" if they differ.)
+3. On github.com: **Settings → Secrets and variables → Actions → New repository secret**. Name: `CALENDAR_ICS_URL`, value: the address. (A secret keeps the address out of the public files. Putting it in `data/site.json` → `calendar.icsUrl` also works.)
+4. **Actions → Calendar sync → Run workflow.** After it and "Deploy site" finish, the events are online.
+
+How calendar entries are read: the event title becomes the title, *Location* becomes the venue, the description is shown as text, a link in the event's URL field becomes the **Tickets** button, a cancelled event shows "Cancelled". Private events are skipped. A repeating event shows only its first date.
+Optional, in `data/site.json` → `calendar`: `publicUrl` (link "Open the calendar" on the Events page), `showSubscribe: false` hides the subscribe box.
+
+**Visitors can subscribe too:** the Events page has "Never miss a concert" buttons (Apple/Outlook, Google Calendar, copy address). They subscribe to `events/calendar.ics`, which contains every event on the website and refreshes in their calendar app automatically (Google refreshes it only every few hours).
+
+## 5c. Search engines and sharing
+
+- Page titles and descriptions are in each page's `index.html` (`<title>` and `<meta name="description">`). The rest is automatic from `data/site.json`: `siteUrl` (canonical links, sitemap, feed), `ogImage` (share picture, 1200 × 630 px), `artistName` / `artistAlternateName` (structured data for Google).
+- Check the structured data: https://search.google.com/test/rich-results (enter a page address once the site runs on nihiramusic.in) or https://validator.schema.org (paste the page's source).
+- RSS feed for news readers: `news/feed.xml` (linked on the News page).
+- The sitemap is submitted to Google Search Console after the domain move (Milestone 5).
+
 ## 6. Privacy notes
 
 - No cookies, no analytics, no forms.
 - Fonts are stored in `assets/fonts/` (no request to Google).
+- The calendar buttons contact Google/Apple/Microsoft only when a visitor clicks them.
 - YouTube videos only load after a visitor clicks play, from `youtube-nocookie.com`. Thumbnails come from `assets/img/yt/` once the sync or `localize_assets.py` has copied them; until then from YouTube's image server (no cookies).
 
 More background and open questions: `docs/ROADMAP.md`. Changes per milestone: `docs/CHANGELOG.md`.

@@ -1,5 +1,5 @@
 {
-  "_help": "Events calendar. Events move from 'Upcoming' to 'Past' automatically after their date. Fields: id (unique), title, date (YYYY-MM-DD), endDate (optional, multi-day), startTime / endTime (optional, 24h 'HH:MM', local time at the venue), timezone (e.g. 'Europe/Berlin', 'Europe/London', 'Asia/Kolkata'), venue, address (optional), city, country, status ('scheduled', 'cancelled' or 'sold-out'), ticketUrl (optional), description, image (optional), source.",
+  "_help": "Events calendar. Events move from 'Upcoming' to 'Past' automatically after their date. Fields: id (unique), title, date (YYYY-MM-DD), endDate (optional, multi-day), startTime / endTime (optional, 24h 'HH:MM', local time at the venue), timezone (e.g. 'Europe/Berlin', 'Europe/London', 'Asia/Kolkata'), venue, address (optional), city, country, status ('scheduled', 'cancelled' or 'sold-out'), ticketUrl (optional), description, image (optional), source. Events from a linked Google/Outlook calendar are added automatically (data/events-calendar.json, see README); an event typed here wins if both list the same show.",
   "pageTitle": "Events",
   "intro": "",
   "emptyText": "New events will be announced soon.",
@@ -17,7 +17,22 @@
       "status": "scheduled",
       "description": "A set of semi-classical music, with Madhusoodanan on flute and Narendra Panchal on percussion.",
       "source": "https://bhavan.net/bhavan50landing",
-      "_todo": "Year inferred: listing says 'Sat, 22 April' (a Saturday in 2023) and matches the old site's 'Live In London - 2023'. Still to confirm. A second Krybaby show ('A tribute to the Mangeshkar sisters', Harrow Arts Centre) exists but has no published date: https://harrowarts.com/whats-on/event/nihira-joshi-1"
+      "_note": "Date 2023-04-22 confirmed by the site owner (M3). Second Krybaby show ('A tribute to the Mangeshkar sisters', Harrow Arts Centre, https://harrowarts.com/whats-on/event/nihira-joshi-1) still has no confirmed date; not listed."
+    },
+    {
+      "id": "songversations-nmacc-2025",
+      "title": "SongVersations with Nihira Joshi Deshpande",
+      "date": "2025-03-09",
+      "startTime": "19:30",
+      "endTime": "21:00",
+      "timezone": "Asia/Kolkata",
+      "venue": "The Cube, Nita Mukesh Ambani Cultural Centre",
+      "city": "Mumbai",
+      "country": "India",
+      "status": "scheduled",
+      "description": "An evening of Hindi and Marathi songs, ghazals, Bollywood classics and originals in a 'SongVersations' format of music and conversation, with an all-women ensemble: Shruti Bhave (violin), Darshana Jog (keys, vocal arrangement), Pooja Majumder (bass) and Sapna (percussion).",
+      "source": "https://nmacc.com/performing-arts/songversations-with-nihira-joshi-deshpande",
+      "_note": "Found by web search (M3). Duration 1 h 30 min per the listing, so endTime 21:00. Venue's full name inferred from nmacc.com."
     }
   ]
 }

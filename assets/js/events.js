@@ -16,6 +16,42 @@ const statusOf = (e) => STATUS[String(e.status || '').toLowerCase()] || '';
 const where = (e) => [e.venue, e.city, e.country].filter(Boolean).join(', ');
 
 export function isPast(e, today = todayISO()) { return (e.endDate || e.date) < today; }
+
+/** events.json plus events copied from the linked Google/Outlook calendar (data/events-calendar.json, optional).
+ *  events.json wins when both list the same show (same id, or same date and title). */
+export async function loadEvents() {
+  const data = await loadJSON('events');
+  let synced = [];
+  try { synced = (await loadJSON('events-calendar')).items || []; } catch { /* no calendar linked: fine */ }
+  const manual = Array.isArray(data.items) ? data.items : [];
+  const key = (e) => `${e.date}|${String(e.title || '').trim().toLowerCase()}`;
+  const ids = new Set(manual.map((e) => e.id));
+  const keys = new Set(manual.map(key));
+  return { ...data, items: [...manual, ...synced.filter((e) => e && !ids.has(e.id) && !keys.has(key(e)))] };
+}
+
+/** "Subscribe to all events": the site's own calendar feed (events/calendar.ics, written by tools/build_seo.py). */
+function subscribeBox(site) {
+  const cal = site.calendar || {};
+  if (cal.showSubscribe === false) return null;
+  const feed = new URL(url('events/calendar.ics'), location.href).href;
+  const webcal = feed.replace(/^https?:/, 'webcal:');
+  const status = h('span', { class: 'subscribe__status', role: 'status' });
+  const copy = h('button', { type: 'button', class: 'listen-btn' }, icon('copy'), h('span', { text: 'Copy calendar address' }));
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(feed); status.textContent = 'Address copied.'; }
+    catch { status.textContent = feed; }
+  });
+  return h('aside', { class: 'subscribe', 'aria-labelledby': 'subscribe-title' },
+    h('h2', { id: 'subscribe-title', class: 'subscribe__title', text: 'Never miss a concert' }),
+    h('p', { class: 'subscribe__text', text: 'Subscribe once and new dates appear in your own calendar automatically.' }),
+    h('p', { class: 'subscribe__actions' },
+      h('a', { class: 'listen-btn listen-btn--main', href: webcal }, icon('calendar'), h('span', { text: 'Apple / Outlook' })),
+      link(`https://calendar.google.com/calendar/render?cid=${encodeURIComponent(webcal)}`, [icon('calendar'), h('span', { text: 'Google Calendar' })], { class: 'listen-btn' }),
+      copy,
+      cal.publicUrl ? link(cal.publicUrl, [icon('link'), h('span', { text: 'Open the calendar' })], { class: 'listen-btn' }) : null),
+    status);
+}
 export function upcomingEvents(data) {
   const today = todayISO();
   return (data.items || []).filter((e) => parseDate(e.date) && !isPast(e, today))
@@ -145,7 +181,7 @@ function calendar(events, site, startMonth) {
 }
 
 export default async function ({ app, site }) {
-  const data = await loadJSON('events');
+  const data = await loadEvents();
   app.append(pageHead(data.pageTitle, data.intro));
   const wrap = h('div', { class: 'wrap section section--tight' });
   app.append(wrap);
@@ -172,4 +208,6 @@ export default async function ({ app, site }) {
       h('summary', {}, `Past events (${past.length})`),
       h('div', { class: 'events' }, past.map((e) => eventCard(e, { site, past: true })))));
   }
+  const sub = subscribeBox(site);
+  if (sub) wrap.append(sub);
 }

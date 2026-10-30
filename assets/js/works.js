@@ -1,5 +1,5 @@
 // Originals and Covers: aligned cards, filters, click-to-play.
-import { loadJSON, h, md, link, pageHead, emptyState, newestFirst, yearOf, videoFacade, ytWatch, img, ytTitle } from './core.js';
+import { loadJSON, h, md, link, pageHead, emptyState, newestFirst, yearOf, videoFacade, ytWatch, img, ytTitle, icon } from './core.js';
 
 function displayTitle(item) {
   const t = item.title || item.youtubeTitle || ytTitle(item.videoId);
@@ -12,24 +12,34 @@ function displayTitle(item) {
 /** Descriptions often use one line break per paragraph; give each line its own paragraph unless it is a list. */
 const paras = (t) => (/^\s*[-*] /m.test(t) ? t : String(t).replace(/\n+/g, '\n\n'));
 
+/** Streaming links as rounded buttons with icons. "Listen now" (all services) is the filled main button. */
+const SERVICES = [
+  ['listenUrl', 'Listen now', 'listen'],
+  ['spotifyUrl', 'Spotify', 'spotify'],
+  ['videoId', 'YouTube', 'youtube'],
+  ['soundcloudUrl', 'SoundCloud', 'soundcloud'],
+  ['deezerUrl', 'Deezer', 'deezer'],
+];
+const hrefOf = (item, key) => (key === 'videoId' ? ytWatch(item.videoId) : item[key]);
+
 function links(item) {
-  const out = [];
-  if (item.listenUrl) out.push(link(item.listenUrl, 'Listen now', { class: 'pill pill--accent' }));
-  if (item.spotifyUrl) out.push(link(item.spotifyUrl, 'Spotify', { class: 'pill' }));
-  if (item.videoId) out.push(link(ytWatch(item.videoId), 'YouTube', { class: 'pill' }));
-  if (item.soundcloudUrl) out.push(link(item.soundcloudUrl, 'SoundCloud', { class: 'pill' }));
-  if (item.deezerUrl) out.push(link(item.deezerUrl, 'Deezer', { class: 'pill' }));
+  const out = SERVICES.filter(([k]) => item[k]).map(([k, label, ic]) =>
+    link(hrefOf(item, k), [icon(ic), h('span', { text: label })], { class: `listen-btn${k === 'listenUrl' ? ' listen-btn--main' : ''}` }));
   return out.length ? h('p', { class: 'work__links' }, out) : null;
 }
 
+/** Album tracks: each service as a small round icon button with a full text label for screen readers. */
 function tracksList(item) {
   if (!Array.isArray(item.tracks) || !item.tracks.length) return null;
   return h('div', { class: 'tracks' }, h('h4', { class: 'tracks__title', text: 'Tracks' }),
-    h('ol', { class: 'tracks__list' }, item.tracks.map((t) => h('li', {},
-      h('span', { class: 'tracks__name', text: t.title }),
-      t.listenUrl ? link(t.listenUrl, 'Listen', { class: 'tracks__link' }) : null,
-      t.videoId ? link(ytWatch(t.videoId), 'YouTube', { class: 'tracks__link' }) : null,
-      t.spotifyUrl ? link(t.spotifyUrl, 'Spotify', { class: 'tracks__link' }) : null))));
+    h('ol', { class: 'tracks__list', role: 'list' }, item.tracks.map((t) => {
+      const btns = SERVICES.filter(([k]) => t[k]).map(([k, label, ic]) => {
+        const name = k === 'listenUrl' ? 'all streaming services' : label;
+        return link(hrefOf(t, k), icon(ic), { class: 'track-btn', title: `${t.title}: ${name}`, 'aria-label': `${t.title} on ${name} (opens in a new tab)` });
+      });
+      return h('li', {}, h('span', { class: 'tracks__name', text: t.title }),
+        btns.length ? h('span', { class: 'tracks__links' }, btns) : null);
+    })));
 }
 
 export function workCard(item, { compact = false } = {}) {

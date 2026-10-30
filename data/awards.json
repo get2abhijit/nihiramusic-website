@@ -38,7 +38,7 @@
     {
       "id": "ima-2020-nirmohiya",
       "year": 2020,
-      "award": "Independent Music Awards",
+      "award": "Independent Music Awards, USA",
       "category": "Adult Contemporary Song (Judges' Choice)",
       "work": "Nirmohiya (feat. Rhythm Shaw)",
       "status": "Nominated",
@@ -51,7 +51,7 @@
         "https://harrowarts.com/whats-on/event/nihira-joshi-1",
         "https://livdemy.com/nihirajoshi"
       ],
-      "_todo": "Old site and some event pages say 'American Independent (Music) Award'; the awarding body is The Independent Music Awards (USA). Confirm preferred wording."
+      "_note": "Wording chosen by the site owner (M3). The Home bio (copied from the old site) still says 'American Independent Award'."
     },
     {
       "id": "maharashtra-state-award-2022-whats-up-lagna",

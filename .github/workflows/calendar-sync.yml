@@ -1,0 +1,43 @@
+# Copies events from a public Google or Outlook calendar into data/events-calendar.json (tools/sync_calendar.py).
+# Every 6 hours and by hand (Actions > Calendar sync > Run workflow). Does nothing until a calendar is linked:
+#   Settings > Secrets and variables > Actions > New repository secret
+#   Name: CALENDAR_ICS_URL   Value: the calendar's .ics address (see README, "Link a Google or Outlook calendar").
+# Needs: Settings > Actions > General > Workflow permissions = "Read and write permissions".
+# After it finishes, "Deploy site" publishes the result automatically.
+name: Calendar sync
+
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read the linked calendar
+        env:
+          CALENDAR_ICS_URL: ${{ secrets.CALENDAR_ICS_URL }}
+        run: python3 tools/sync_calendar.py
+      - name: Regenerate SEO files
+        run: python3 tools/build_seo.py
+      - name: Commit only if something changed
+        run: |
+          git add -A data/ sitemap.xml robots.txt news/feed.xml events/calendar.ics index.html 404.html '*/index.html'
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update events from the linked calendar (automatic)"
+          git pull --rebase
+          git push

@@ -37,7 +37,11 @@
       "_sources": [
         "https://artist.link/nihira"
       ],
-      "_todo": "Date, venue and city not published. Title of video Zc9Lqpgp4HU unknown."
+      "_todo": "Concert date not published on the web; the owner says it is in the YouTube video descriptions. Add it as \"date\": \"YYYY-MM-DD\". Title of video Zc9Lqpgp4HU unknown (the YouTube title is shown automatically).",
+      "venue": "Rule34",
+      "city": "Goregaon, Mumbai",
+      "country": "India",
+      "_note": "Venue and area confirmed by the site owner (M3)."
     },
     {
       "id": "live-in-london-2023",

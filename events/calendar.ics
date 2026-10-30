@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//nihiramusic//events feed//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Nihira Joshi events
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:musically-speaking-london-2023@nihiramusic.in
+DTSTAMP:20230422T000000Z
+DTSTART:20230422T170000Z
+DTEND:20230422T200000Z
+SUMMARY:Krybaby presents Nihira Joshi Live: Musically Speaking
+LOCATION:The Bhavan\, London\, United Kingdom
+DESCRIPTION:A set of semi-classical music\, with Madhusoodanan on flute and
+  Narendra Panchal on percussion.
+URL:https://nihiramusic.in/events/#musically-speaking-london-2023
+END:VEVENT
+BEGIN:VEVENT
+UID:songversations-nmacc-2025@nihiramusic.in
+DTSTAMP:20250309T000000Z
+DTSTART:20250309T140000Z
+DTEND:20250309T153000Z
+SUMMARY:SongVersations with Nihira Joshi Deshpande
+LOCATION:The Cube\, Nita Mukesh Ambani Cultural Centre\, Mumbai\, India
+DESCRIPTION:An evening of Hindi and Marathi songs\, ghazals\, Bollywood cla
+ ssics and originals in a 'SongVersations' format of music and conversation
+ \, with an all-women ensemble: Shruti Bhave (violin)\, Darshana Jog (keys\
+ , vocal arrangement)\, Pooja Majumder (bass) and Sapna (percussion).
+URL:https://nihiramusic.in/events/#songversations-nmacc-2025
+END:VEVENT
+END:VCALENDAR

@@ -1,9 +1,10 @@
 {
-  "_help": "Global settings. siteName = website title shown in the header, browser tab and share previews (text in brackets is shown in the accent colour). artistName = how Nihira is named on the page. nav = main menu (one line per item; 'path' is relative to the site root, '' = home, always end folders with /). footerLinks = small links in the footer. social = icons in the footer and on Home; 'icon' must be one of: youtube, instagram, facebook, x, spotify, soundcloud, link. siteUrl = final public address (used for canonical/share links). theme.accent / theme.accentDark = optional accent colours (#RRGGBB) for light and dark mode; leave empty to keep the built-in colours. Images: run tools/localize_assets.py once to copy every external image into assets/img/.",
+  "_help": "Global settings. siteName = website title shown in the header, browser tab and share previews (text in brackets is shown in the accent colour). artistName = how Nihira is named on the page. nav = main menu (one line per item; 'path' is relative to the site root, '' = home, always end folders with /). footerLinks = small links in the footer. social = icons in the footer and on Home; 'icon' must be one of: youtube, instagram, facebook, x, spotify, soundcloud, link. siteUrl = final public address (used for canonical/share links). theme.accent / theme.accentDark = optional accent colours (#RRGGBB) for light and dark mode; leave empty to keep the built-in colours. Images: run tools/localize_assets.py once to copy every external image into assets/img/. artistAlternateName = other name used in search-engine data (structured data). calendar.icsUrl = optional public iCal (.ics) address of a Google or Outlook calendar; its events are copied into the Events page every 6 hours (better: store it as the repository secret CALENDAR_ICS_URL, see README). calendar.publicUrl = optional link to that calendar's public web page. calendar.showSubscribe = show the 'Subscribe to all events' buttons on the Events page. After changing siteUrl or ogImage, the 'SEO files' workflow updates canonical links, share tags, sitemap and feed automatically.",
   "siteName": "The Sound of (Nihira)Music",
   "siteNameSource": "https://artist.link/nihira",
   "shortName": "Nihira",
   "artistName": "Nihira Joshi",
+  "artistAlternateName": "Nihira Joshi-Deshpande",
   "siteUrl": "https://nihiramusic.in/",
   "email": "contact@nihiramusic.in",
   "copyrightName": "NihiraMusic Entertainment LLP",
@@ -14,6 +15,7 @@
   "youtubeChannelId": "UC46dtN9KIZspJ8__89BeSXw",
   "logo": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=630,fit=crop,f=jpeg/Yan9WOlbvqczrXzV/nihirafinal-logo-3-Yyv7Bqb4jbIo1LP0.jpg",
   "ogImage": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=630,fit=crop,f=jpeg/Yan9WOlbvqczrXzV/nihirafinal-logo-3-Yyv7Bqb4jbIo1LP0.jpg",
+  "ogImageAlt": "The Sound of (Nihira)Music logo",
   "nav": [
     {
       "id": "home",
@@ -111,5 +113,10 @@
   "_notes": [
     "M2: site title changed from 'Nihira Joshi-Deshpande' at the owner's request; 'The Sound of (Nihira)Music' is the title Nihira already uses on artist.link/nihira.",
     "Owner confirmed (M2): legal entity NihiraMusic Entertainment LLP, legal person Nihira Deshpande, screen name Nihira Joshi."
-  ]
+  ],
+  "calendar": {
+    "icsUrl": "https://calendar.google.com/calendar/ical/53d9e82a42ef937148a0ca3dbeb1bf76dc4a9395ab5a38dfb3f639c49aca373a%40group.calendar.google.com/public/basic.ics",
+    "publicUrl": "https://calendar.google.com/calendar/embed?src=53d9e82a42ef937148a0ca3dbeb1bf76dc4a9395ab5a38dfb3f639c49aca373a%40group.calendar.google.com&ctz=Asia%2FKolkata",
+    "showSubscribe": true
+  }
 }

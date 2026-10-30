@@ -1,5 +1,5 @@
 {
-  "_help": "Original songs and albums. Newest first is automatic (by 'date' YYYY-MM-DD, else 'year'). Fields: id (unique, lowercase-with-dashes), title, type (Single / Album / EP), year (number, optional), date (optional), videoId (the part after v= in a YouTube link), image (optional cover art URL), imageAlt, credits (short line), description (text; **bold** and [link](url) allowed), listenUrl (song.link / album.link), spotifyUrl, soundcloudUrl, deezerUrl, featured (true pins it to the top), tracks (albums only: list of {title, videoId, spotifyUrl, soundcloudUrl, listenUrl}), source (where the info came from). Leave a field out if you don't know it. Fields starting with _ are notes and never shown.",
+  "_help": "Original songs and albums. Newest first is automatic (by 'date' YYYY-MM-DD, else 'year'). Fields: id (unique, lowercase-with-dashes), title, type (Single / Album / EP), year (number, optional), date (optional), videoId (the part after v= in a YouTube link), image (optional cover art URL), imageAlt, credits (short line), description (text; **bold** and [link](url) allowed), listenUrl (song.link / album.link), spotifyUrl, soundcloudUrl, deezerUrl, featured (true pins it to the top), tracks (albums only: list of {title, videoId, spotifyUrl, soundcloudUrl, deezerUrl, listenUrl}), source (where the info came from). Leave a field out if you don't know it. Fields starting with _ are notes and never shown.",
   "pageTitle": "Original Compositions",
   "intro": "",
   "emptyText": "New original music is on its way.",
@@ -32,7 +32,12 @@
           "listenUrl": "https://song.link/TrishnaSpandanKi"
         },
         {
-          "title": "Trishna Bandhan Ki"
+          "title": "Trishna Bandhan Ki",
+          "videoId": "e6K49l_6b08",
+          "deezerUrl": "https://www.deezer.com/track/2006351547",
+          "listenUrl": "https://song.link/trishnabandhanki",
+          "_source": "https://song.link/trishnabandhanki",
+          "_note": "song.link lists no Spotify link for this track."
         },
         {
           "title": "Trishna Samarpan Ki",
@@ -46,9 +51,9 @@
         "https://artist.link/nihira",
         "https://www.musicunplugged.in/news/trade_news_info/2580/0",
         "https://www.deezer.com/en/album/373627127",
-        "https://www.qobuz.com/ca-en/album/trishna-nihira-joshi/lyoxti4sk7qv9"
+        "https://www.qobuz.com/ca-en/album/trishna-nihira-joshi/lyoxti4sk7qv9",
+        "https://song.link/trishnabandhanki"
       ],
-      "_todo": "Add YouTube/Spotify links for 'Trishna Bandhan Ki'.",
       "date": "2022-12-10",
       "deezerUrl": "https://www.deezer.com/en/album/373627127",
       "_note": "Release date 2022-12-10 and track order from Deezer/Qobuz."

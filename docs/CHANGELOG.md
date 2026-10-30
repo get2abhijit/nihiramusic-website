@@ -1,5 +1,13 @@
 # Changelog
 
+## M3 (2026-10-30): SEO, structured data, feeds, performance
+- New `tools/build_seo.py`: sitemap.xml, robots.txt, news/feed.xml (RSS), events/calendar.ics, JSON-LD (MusicGroup + Person + WebSite on Home, MusicEvent on Events, MusicRecording/MusicAlbum on Originals), canonical/og:url/og:image from site.json, static no-JavaScript overview on Home, module + hero-image preloads.
+- New workflows: "SEO files" (on data change + daily) and "Calendar sync" (Google/Outlook .ics, every 6 h). "Deploy site" regenerates SEO files before publishing and also runs after "Calendar sync". YouTube sync also stores upload dates.
+- Originals: streaming links are now rounded buttons with service icons; album tracks get round icon buttons.
+- Events: Google/Outlook calendar entries merged in; "Never miss a concert" subscribe box. News: RSS link.
+- Accessibility: buttons and form fields get borders with 3:1 contrast; numbered track list keeps list semantics.
+- Content: Trishna Bandhan Ki links; Rule34 venue; London date confirmed; Nirmohiya award wording; past NMACC show (2025-03-09); news item on "Chal Re Mana Jaau" (2025-07-18).
+
 ## M2 (2026-10-30): Refresh, localise images, polish
 - Title "The Sound of (Nihira)Music" (Nihira's own artist.link title); name "Nihira Joshi"; © NihiraMusic Entertainment LLP.
 - Content: confirmed awards (Clef Album of the Year, Maharashtra State Award 2022), release years for six releases, Trishna date/track order/Samarpan Ki video, two cover titles, four news items.

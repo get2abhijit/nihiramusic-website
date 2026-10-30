@@ -1,6 +1,9 @@
 # Publishes the site to GitHub Pages.
-# Runs on every change to the default branch (main or master), after each "YouTube sync", and by hand
-# (Actions > Deploy site > Run workflow).
+# Runs on every change to the default branch (main or master), after each "YouTube sync" and
+# "Calendar sync", and by hand (Actions > Deploy site > Run workflow).
+# Before uploading it regenerates sitemap, RSS feed, calendar feed, structured data and the Home
+# <noscript> overview (tools/build_seo.py), so the live site is always up to date even before the
+# "SEO files" workflow has committed the same files to the repository.
 # Needs: Settings > Pages > Build and deployment > Source = "GitHub Actions".
 name: Deploy site
 
@@ -9,7 +12,7 @@ on:
     branches: [main, master]
   workflow_dispatch:
   workflow_run:
-    workflows: ["YouTube sync"]
+    workflows: ["YouTube sync", "Calendar sync"]
     types: [completed]
 
 permissions:
@@ -28,8 +31,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # No "ref:" on purpose: GitHub checks out the branch that started the run (the default branch for the daily sync).
+      # No "ref:" on purpose: GitHub checks out the branch that started the run (the default branch for the syncs).
       - uses: actions/checkout@v4
+      - name: Regenerate SEO files (sitemap, feeds, structured data)
+        run: python3 tools/build_seo.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

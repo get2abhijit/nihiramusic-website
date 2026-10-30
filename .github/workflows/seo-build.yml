@@ -1,0 +1,46 @@
+# Keeps sitemap.xml, robots.txt, news/feed.xml, events/calendar.ics, the structured data in the page
+# heads and the Home <noscript> overview in the repository in step with data/*.json (tools/build_seo.py).
+# Runs when data, pages or the script change, once a day (so finished events leave the "upcoming" lists),
+# and by hand (Actions > SEO files > Run workflow).
+# Needs: Settings > Actions > General > Workflow permissions = "Read and write permissions".
+# The live site does not wait for this: "Deploy site" runs the same script before publishing.
+name: SEO files
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "data/**"
+      - "tools/build_seo.py"
+      - "**/index.html"
+      - "404.html"
+  schedule:
+    - cron: "41 4 * * *"   # every day at 04:41 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Regenerate
+        run: python3 tools/build_seo.py
+      - name: Commit only if something changed
+        run: |
+          git add -A sitemap.xml robots.txt news/feed.xml events/calendar.ics index.html 404.html '*/index.html'
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update sitemap, feeds and structured data (automatic)"
+          git pull --rebase
+          git push

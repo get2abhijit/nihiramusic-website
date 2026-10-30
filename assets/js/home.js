@@ -4,7 +4,7 @@ import { videoCard } from './concerts.js';
 import { workCard } from './works.js';
 import { awardItem } from './awards.js';
 import { newsSorted } from './news.js';
-import { upcomingEvents, eventCard } from './events.js';
+import { upcomingEvents, eventCard, loadEvents } from './events.js';
 
 const safe = async (name) => { try { return await loadJSON(name); } catch (e) { console.warn(e); return null; } };
 
@@ -15,8 +15,9 @@ function sectionHead(title, moreHref, moreLabel) {
 
 export default async function ({ app, site }) {
   const home = await loadJSON('home');
-  const [originals, yt, awards, news, events] = await Promise.all(
-    ['originals', 'youtube-latest', 'awards', 'news', 'events'].map(safe));
+  const [originals, yt, awards, news] = await Promise.all(
+    ['originals', 'youtube-latest', 'awards', 'news'].map(safe));
+  const events = await loadEvents().catch((e) => { console.warn(e); return null; });
   const S = home.sections || {};
   const on = (k) => S[k] && S[k].show !== false;
   const n = (k, d) => Number(S[k] && S[k].count) || d;
