@@ -41,4 +41,79 @@ LOCATION:Master Deenanath Mangeshkar Natyagriha\, 4R2V+6W6\, Natvarya Datta
  shtra 400057\, India
 URL:https://nihiramusic.in/events/#cal-c9baf46440
 END:VEVENT
+BEGIN:VEVENT
+UID:cal-32ede16610@nihiramusic.in
+DTSTAMP:20261108T000000Z
+DTSTART:20261107T230000Z
+DTEND:20261108T000000Z
+SUMMARY:Diwali Pahaat Mumbai
+URL:https://nihiramusic.in/events/#cal-32ede16610
+END:VEVENT
+BEGIN:VEVENT
+UID:cal-927634ea57@nihiramusic.in
+DTSTAMP:20261110T000000Z
+DTSTART:20261109T233000Z
+DTEND:20261110T000000Z
+SUMMARY:Diwali Pahaat Baroda
+URL:https://nihiramusic.in/events/#cal-927634ea57
+END:VEVENT
+BEGIN:VEVENT
+UID:cal-826d3dee9e@nihiramusic.in
+DTSTAMP:20261124T000000Z
+DTSTART:20261124T113000Z
+DTEND:20261124T123000Z
+SUMMARY:Jivalaga Ratnagiri
+URL:https://nihiramusic.in/events/#cal-826d3dee9e
+END:VEVENT
+BEGIN:VEVENT
+UID:cal-5191a0b7c4@nihiramusic.in
+DTSTAMP:20261207T000000Z
+DTSTART:20261207T153000Z
+DTEND:20261207T163000Z
+SUMMARY:Abhivyakti music festival Ahemedabad 'KahaNI' ( All original music 
+ set)
+URL:https://nihiramusic.in/events/#cal-5191a0b7c4
+END:VEVENT
+BEGIN:VEVENT
+UID:cal-92d3d29749@nihiramusic.in
+DTSTAMP:20261208T000000Z
+DTSTART:20261208T133000Z
+DTEND:20261208T143000Z
+SUMMARY:Abhivyakti music festival Ahemedabad 'KahaNI' (All original music s
+ et)
+URL:https://nihiramusic.in/events/#cal-92d3d29749
+END:VEVENT
+BEGIN:VEVENT
+UID:cal-b7d0062917@nihiramusic.in
+DTSTAMP:20261209T000000Z
+DTSTART:20261209T133000Z
+DTEND:20261209T143000Z
+SUMMARY:Abhivyakti music festival Ahemedabad 'KahaNI' (All original music s
+ et)
+URL:https://nihiramusic.in/events/#cal-b7d0062917
+END:VEVENT
+BEGIN:VEVENT
+UID:cal-32c7ef226e@nihiramusic.in
+DTSTAMP:20261212T000000Z
+DTSTART:20261212T143000Z
+DTEND:20261212T153000Z
+SUMMARY:Jivalaga Thane
+URL:https://nihiramusic.in/events/#cal-32c7ef226e
+END:VEVENT
+BEGIN:VEVENT
+UID:cal-b921938ed1@nihiramusic.in
+DTSTAMP:20261213T000000Z
+DTSTART:20261213T150000Z
+DTEND:20261213T160000Z
+SUMMARY:Jivalaga Borivali
+URL:https://nihiramusic.in/events/#cal-b921938ed1
+END:VEVENT
+BEGIN:VEVENT
+UID:cal-9dd644459c@nihiramusic.in
+DTSTAMP:20261219T000000Z
+DTSTART:20261219T143000Z
+DTEND:20261219T153000Z
+SUMMARY:Jivalaga Pune
+URL:https://nihiramusic.in/events/#cal-9dd644459c
+END:VEVENT
 END:VCALENDAR
