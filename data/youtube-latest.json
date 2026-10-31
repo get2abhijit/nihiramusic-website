@@ -1,7 +1,7 @@
 {
-  "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty.",
+  "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for filling in concert dates; the concert itself may have been earlier). playlists = videos of each playlist named by a 'playlistId' in data/*.json (Poetic Treasures).",
   "channelId": "UC46dtN9KIZspJ8__89BeSXw",
-  "updated": "2026-10-30T08:19:50Z",
+  "updated": "2026-10-31T12:30:13Z",
   "videos": [
     {
       "videoId": "44MRWtoBeCg",
@@ -111,23 +111,32 @@
   ],
   "titles": {
     "04lq9P_EQwc": "Ishq Manayein Kya (Duet version)  Nihira Joshi | Shaan | Manoj Yadav| Tanmay Pawar|",
+    "1nFsfdmOAxI": "That's how I wish to go| Nihira Joshi| Aahna Anaya| Poetic Thursdays",
     "3-wWQadVPw0": "Nirmohiya| Live at London| Original song",
+    "3VGJ3PPako0": "Poetic Thursdays| One day in Spring|  Rabindranath Tagore",
     "3Yd4ipT-VBs": "Tujvin Sakhya Re | तुजवीण सख्या रे",
     "44MRWtoBeCg": "Sajna hai mujhe (Live )",
     "4dCfQbMUeGM": "Ye javali ghe javali | Nihira Joshi| Meena Mangeshkar",
     "630ZVz5XC98": "Laagi Karejwa Kataar - Nihira Joshi Deshpande and Vishwajeet Borwankar",
+    "ACYC6EXMP70": "Poetic Thursdays| Milind Joshi",
     "B-uKdwFca0U": "Trishna Spandan Ki |Nihira Joshi | Mayukh Sarkar |Shashi Sharma",
     "BKrjHQREAxI": "Tuch Shwas Moraya| Ganpati Bappa| New release",
     "CcMquscablo": "Ranjishi hi sahi (Nihira Joshi ft. Pulse Parindey)",
     "Cjozg33TXio": "Sajde (live) Ft. Pulse Parindey",
+    "Csw3FB_5HNw": "Poetic Thursdays| We have not long to love|Tennessee Williams",
     "FBaxVScgS7E": "Ishq Manayein Kya| Swing version| Nihira Joshi| Manoj Yadav| Tanmay Pawar| Original",
     "GGOWse2CYOI": "Tumhe Ho Na Ho| Cover| Nihira Joshi| Vidushi Gupta",
+    "GzuRFbqFsbo": "Poetic Thursdays| Rumi | Amrita Pritam",
     "I29C7FmZ2UI": "Toote Chhaate|Nihira Joshi-Deshpande | Rhythm Shaw |Alok Ranjan Srivastava",
+    "Jxe2-Muf2bY": "Poetic Thursdays |'Sitambar|  Alok Ranjan Srivastava",
     "KSXkwZMxM2g": "Tumi | A Soulful Bengali Love Song | Nihira Joshi | Santanu Ghatak | Ashwin Srinivasan | Original",
+    "KfyyHsikgjM": "Poetic Thursdays| Fear| Khalil Gibran",
     "L2wyFD153B0": "Julun Yeti Reshimgathi Full Title Track | जुळून येती रेशीमगाठी शीर्षकगीत",
     "MJ_CNkdFe4Y": "Ab ke saawan (live ) ft. Pulse Parindey | Shubha Mudgal",
     "NXSVoSZrCDU": "Trishna Antarman Ki| Live version| UK Concert",
+    "PO4egGXw30E": "Poetic Thursdays | Smita and I | Deepti Naval",
     "RP1B-RYn4gw": "Trishna Samarpan Ki | Nihira Joshi|  Saurabh Bhalerao |Apoorva Kulkarni",
+    "R_GP3uwr9H8": "Poetic Thursday|  Ramdhari Singh Dinkar",
     "TsWZZBjAEnc": "Bhaya Ithale sampat nahi",
     "TxIo1Vp-lkQ": "Mai Mai Part 1 [Live Concert]",
     "V9JQ6qCpOco": "Na jane Kyun | Keys and Conversations| Nihira Joshi| Manan Mehta",
@@ -137,17 +146,22 @@
     "Y2Rgovheb44": "Yun unki bazm me | live performance at Khazana festival | peenaz masani | Madhurani",
     "Z49Tmzx5pzQ": "Na Chedo Hamein | Full Video Song| Khalil Abhyankar|| Nihira Joshi  | Mithilesh Patankar",
     "ZC90JEMIvpw": "Nirmohiya: Nihira ft. Rhythm Shaw|| Manoj Yadav [Nominated for 18th IMA Awards 2020]",
+    "ZU15ojYRNig": "Poetic Thursdays | Hatasha se ek vyakti baith Gaya tha| Vinod Kumar 'Shukla'|",
     "ZaM9T6ftHzI": "Ishq Manayein Kya? Nihira ft. Orquesta Son Diamantes || Manoj Yadav || RMM Productions [Original]",
     "Zc9Lqpgp4HU": "Mai Mai -Part 2 [Live Concert]",
     "_R-iXCWgsK8": "Trishna EP | Jukebox | Nihira Joshi| Original music",
     "_cYFg-9mYf8": "Phir Dekhiye",
     "_o8WK8i-Ea0": "Aye Ri Pavan Revisited: Nihira Joshi-Deshpande feat. Abhishek Borkar [HD]",
     "aR5HjBafe1U": "Saang Na re Mana | Piano | Vocals",
+    "c8-PhXey9v4": "Poetic Thursdays| Dust if you must |Rose Milligan",
     "cIUE689lwIU": "The story behind the duet version of IMK!!!",
     "dBq27cvCIbY": "Trishna Samarpan Ki|  Live from LONDON|",
+    "e6K49l_6b08": "Trishna Bandhan Ki | Nihira Joshi |Mayukh Sarkar |Tejas Ranade",
+    "eT8txGBAZ9I": "Poetic Thursdays!  Penned by @milind.joshi.1 , it is called ' पण '",
     "fpP3as4NFY4": "Tajmahal me aa jana (Live at Khazana Festival)",
     "gMqcUxwB6uk": "Kisi Ranjish ko hawa do|  Live in London| Jagjit Singh| Chitra Singh | Fakir Sudarshan",
     "iGBytb6zsEk": "Trishna Antarman Ki | Nihira Joshi| Carlos Cano |  Hernán Milla | Apoorva Kulkarni",
+    "jzMOB0H24S4": "Poetic Thursdays| Kahlil Gibran | Khalil Gibran | Children",
     "lYYRVCE-k9Y": "Kasamh Se Serial | Full Title Song | Nihira Joshi Deshpande | Hindi Serial Song",
     "nuRMhdy0hV0": "Aaj Jane Ki Zid Na Karo | Nihira Joshi | Vidushi Gupta",
     "o9eWEdElfk0": "Mora saiyyan mose bole na | Cover song Fuzon | Nihira Joshi ft. PULSE PARINDEY",
@@ -157,5 +171,122 @@
     "v1fiI8H6CSQ": "Rock N Roll Medley| Live concert",
     "vAzuLtM1Ei8": "The experience of recording Shaan dada for Ishq Manayein Kya!!!",
     "x7prW7at-Mg": "Shaan dada talking about our forthcoming song: Ishq Manayein Kya!!!"
+  },
+  "dates": {
+    "04lq9P_EQwc": "2026-10-09",
+    "1nFsfdmOAxI": "2024-04-26",
+    "3VGJ3PPako0": "2024-06-06",
+    "44MRWtoBeCg": "2026-10-28",
+    "ACYC6EXMP70": "2024-03-21",
+    "BKrjHQREAxI": "2026-09-15",
+    "CcMquscablo": "2026-09-29",
+    "Cjozg33TXio": "2026-09-01",
+    "Csw3FB_5HNw": "2024-04-18",
+    "GzuRFbqFsbo": "2024-03-28",
+    "Jxe2-Muf2bY": "2024-03-07",
+    "KfyyHsikgjM": "2024-02-08",
+    "MJ_CNkdFe4Y": "2026-08-11",
+    "PO4egGXw30E": "2024-02-15",
+    "R_GP3uwr9H8": "2024-04-10",
+    "V9JQ6qCpOco": "2026-08-18",
+    "W827QZf9PyU": "2026-09-22",
+    "Y2Rgovheb44": "2026-07-28",
+    "ZU15ojYRNig": "2024-02-22",
+    "_cYFg-9mYf8": "2026-08-25",
+    "c8-PhXey9v4": "2024-04-04",
+    "cIUE689lwIU": "2026-10-14",
+    "fpP3as4NFY4": "2026-09-08",
+    "jzMOB0H24S4": "2024-03-14",
+    "o9eWEdElfk0": "2026-07-24",
+    "vAzuLtM1Ei8": "2026-10-27",
+    "x7prW7at-Mg": "2026-10-06"
+  },
+  "playlists": {
+    "PLQ_rmkCpHU8o418EPqbPcQE5V5WsH8Mjj": [
+      {
+        "videoId": "1nFsfdmOAxI",
+        "title": "That's how I wish to go| Nihira Joshi| Aahna Anaya| Poetic Thursdays",
+        "published": "2024-04-26",
+        "thumbnail": "https://i2.ytimg.com/vi/1nFsfdmOAxI/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/1nFsfdmOAxI.jpg"
+      },
+      {
+        "videoId": "3VGJ3PPako0",
+        "title": "Poetic Thursdays| One day in Spring|  Rabindranath Tagore",
+        "published": "2024-06-06",
+        "thumbnail": "https://i4.ytimg.com/vi/3VGJ3PPako0/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/3VGJ3PPako0.jpg"
+      },
+      {
+        "videoId": "Csw3FB_5HNw",
+        "title": "Poetic Thursdays| We have not long to love|Tennessee Williams",
+        "published": "2024-04-18",
+        "thumbnail": "https://i4.ytimg.com/vi/Csw3FB_5HNw/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/Csw3FB_5HNw.jpg"
+      },
+      {
+        "videoId": "R_GP3uwr9H8",
+        "title": "Poetic Thursday|  Ramdhari Singh Dinkar",
+        "published": "2024-04-10",
+        "thumbnail": "https://i3.ytimg.com/vi/R_GP3uwr9H8/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/R_GP3uwr9H8.jpg"
+      },
+      {
+        "videoId": "c8-PhXey9v4",
+        "title": "Poetic Thursdays| Dust if you must |Rose Milligan",
+        "published": "2024-04-04",
+        "thumbnail": "https://i4.ytimg.com/vi/c8-PhXey9v4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/c8-PhXey9v4.jpg"
+      },
+      {
+        "videoId": "GzuRFbqFsbo",
+        "title": "Poetic Thursdays| Rumi | Amrita Pritam",
+        "published": "2024-03-28",
+        "thumbnail": "https://i4.ytimg.com/vi/GzuRFbqFsbo/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/GzuRFbqFsbo.jpg"
+      },
+      {
+        "videoId": "ACYC6EXMP70",
+        "title": "Poetic Thursdays| Milind Joshi",
+        "published": "2024-03-21",
+        "thumbnail": "https://i2.ytimg.com/vi/ACYC6EXMP70/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/ACYC6EXMP70.jpg"
+      },
+      {
+        "videoId": "jzMOB0H24S4",
+        "title": "Poetic Thursdays| Kahlil Gibran | Khalil Gibran | Children",
+        "published": "2024-03-14",
+        "thumbnail": "https://i3.ytimg.com/vi/jzMOB0H24S4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/jzMOB0H24S4.jpg"
+      },
+      {
+        "videoId": "Jxe2-Muf2bY",
+        "title": "Poetic Thursdays |'Sitambar|  Alok Ranjan Srivastava",
+        "published": "2024-03-07",
+        "thumbnail": "https://i3.ytimg.com/vi/Jxe2-Muf2bY/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/Jxe2-Muf2bY.jpg"
+      },
+      {
+        "videoId": "ZU15ojYRNig",
+        "title": "Poetic Thursdays | Hatasha se ek vyakti baith Gaya tha| Vinod Kumar 'Shukla'|",
+        "published": "2024-02-22",
+        "thumbnail": "https://i3.ytimg.com/vi/ZU15ojYRNig/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/ZU15ojYRNig.jpg"
+      },
+      {
+        "videoId": "PO4egGXw30E",
+        "title": "Poetic Thursdays | Smita and I | Deepti Naval",
+        "published": "2024-02-15",
+        "thumbnail": "https://i1.ytimg.com/vi/PO4egGXw30E/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/PO4egGXw30E.jpg"
+      },
+      {
+        "videoId": "KfyyHsikgjM",
+        "title": "Poetic Thursdays| Fear| Khalil Gibran",
+        "published": "2024-02-08",
+        "thumbnail": "https://i4.ytimg.com/vi/KfyyHsikgjM/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/KfyyHsikgjM.jpg"
+      }
+    ]
   }
 }
