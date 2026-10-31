@@ -13,8 +13,8 @@
   "subscribeUrl": "https://www.youtube.com/@nihiramusic?sub_confirmation=1",
   "subscribeLabel": "Subscribe on YouTube",
   "youtubeChannelId": "UC46dtN9KIZspJ8__89BeSXw",
-  "logo": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=630,fit=crop,f=jpeg/Yan9WOlbvqczrXzV/nihirafinal-logo-3-Yyv7Bqb4jbIo1LP0.jpg",
-  "ogImage": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=630,fit=crop,f=jpeg/Yan9WOlbvqczrXzV/nihirafinal-logo-3-Yyv7Bqb4jbIo1LP0.jpg",
+  "logo": "assets/img/nihirafinal-logo-3-yyv7bqb4jbio1lp0-3fe366-1200.jpg",
+  "ogImage": "assets/img/nihirafinal-logo-3-yyv7bqb4jbio1lp0-3fe366-1200.jpg",
   "ogImageAlt": "The Sound of (Nihira)Music logo",
   "nav": [
     {

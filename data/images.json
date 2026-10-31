@@ -304,6 +304,110 @@
       "width": 480,
       "height": 360,
       "original": "https://i.ytimg.com/vi/jzMOB0H24S4/hqdefault.jpg"
+    },
+    "assets/img/1678727470306-copy-aqep0qb091sb5qee-03d544-1920.webp": {
+      "width": 1920,
+      "height": 854,
+      "original": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/Yan9WOlbvqczrXzV/1678727470306---copy-AQEp0QB091sB5qeE.JPG",
+      "srcset": [
+        {
+          "src": "assets/img/1678727470306-copy-aqep0qb091sb5qee-03d544-480.webp",
+          "width": 480
+        },
+        {
+          "src": "assets/img/1678727470306-copy-aqep0qb091sb5qee-03d544-960.webp",
+          "width": 960
+        },
+        {
+          "src": "assets/img/1678727470306-copy-aqep0qb091sb5qee-03d544-1440.webp",
+          "width": 1440
+        },
+        {
+          "src": "assets/img/1678727470306-copy-aqep0qb091sb5qee-03d544-1920.webp",
+          "width": 1920
+        }
+      ]
+    },
+    "assets/img/dsc2295-ykbr0xv9x8i2zz9b-b80550-1920.webp": {
+      "width": 1920,
+      "height": 1281,
+      "original": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/Yan9WOlbvqczrXzV/dsc2295-YKbr0xv9X8i2Zz9b.jpg",
+      "srcset": [
+        {
+          "src": "assets/img/dsc2295-ykbr0xv9x8i2zz9b-b80550-480.webp",
+          "width": 480
+        },
+        {
+          "src": "assets/img/dsc2295-ykbr0xv9x8i2zz9b-b80550-960.webp",
+          "width": 960
+        },
+        {
+          "src": "assets/img/dsc2295-ykbr0xv9x8i2zz9b-b80550-1440.webp",
+          "width": 1440
+        },
+        {
+          "src": "assets/img/dsc2295-ykbr0xv9x8i2zz9b-b80550-1920.webp",
+          "width": 1920
+        }
+      ]
+    },
+    "assets/img/dsc2458-m7vkyjzvjzfl8zj7-06f4e3-1224.webp": {
+      "width": 1224,
+      "height": 817,
+      "original": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1224/Yan9WOlbvqczrXzV/dsc2458-m7VKyjZVjzfl8Zj7.jpg",
+      "srcset": [
+        {
+          "src": "assets/img/dsc2458-m7vkyjzvjzfl8zj7-06f4e3-480.webp",
+          "width": 480
+        },
+        {
+          "src": "assets/img/dsc2458-m7vkyjzvjzfl8zj7-06f4e3-960.webp",
+          "width": 960
+        },
+        {
+          "src": "assets/img/dsc2458-m7vkyjzvjzfl8zj7-06f4e3-1224.webp",
+          "width": 1224
+        }
+      ]
+    },
+    "assets/img/197187411412-0f857b-512.jpg": {
+      "width": 512,
+      "height": 512,
+      "original": "https://is2-ssl.mzstatic.com/image/thumb/Music112/v4/fc/80/5a/fc805a90-2831-655f-01d6-aec789c7ed76/197187411412.jpg/512x512bb.jpg"
+    },
+    "assets/img/5059801477264-3097d9-512.jpg": {
+      "width": 512,
+      "height": 512,
+      "original": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/57/ba/d6/57bad6ef-649c-18f2-1a63-abce5cc74f65/5059801477264.jpg/512x512bb.jpg"
+    },
+    "assets/img/source-bacf43-512.jpg": {
+      "width": 512,
+      "height": 512,
+      "original": "https://is3-ssl.mzstatic.com/image/thumb/Music128/v4/82/c6/b4/82c6b4a4-1450-43ee-489a-6b54cc2a5962/source/512x512bb.jpg"
+    },
+    "assets/img/source-e71526-512.jpg": {
+      "width": 512,
+      "height": 512,
+      "original": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/4e/de/ef/4edeef0a-6bea-3538-0e4c-86a19568f56c/source/512x512bb.jpg"
+    },
+    "assets/img/nihirafinal-logo-3-yyv7bqb4jbio1lp0-3fe366-1200.jpg": {
+      "width": 1200,
+      "height": 630,
+      "original": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1200,h=630,fit=crop,f=jpeg/Yan9WOlbvqczrXzV/nihirafinal-logo-3-Yyv7Bqb4jbIo1LP0.jpg",
+      "srcset": [
+        {
+          "src": "assets/img/nihirafinal-logo-3-yyv7bqb4jbio1lp0-3fe366-480.jpg",
+          "width": 480
+        },
+        {
+          "src": "assets/img/nihirafinal-logo-3-yyv7bqb4jbio1lp0-3fe366-960.jpg",
+          "width": 960
+        },
+        {
+          "src": "assets/img/nihirafinal-logo-3-yyv7bqb4jbio1lp0-3fe366-1200.jpg",
+          "width": 1200
+        }
+      ]
     }
   }
 }

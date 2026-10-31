@@ -2,7 +2,7 @@
   "_help": "Concerts and live performances (past shows with videos). Fields: id (unique), title, date (YYYY-MM-DD, optional), year (optional), venue, city, country, description, image (optional photo URL), imageAlt, photos (optional list of {src, alt}), playlistUrl (optional YouTube playlist), videos (list of {videoId, title}; an empty title shows the YouTube title collected by the daily sync), source. Upcoming shows go in events.json instead.",
   "pageTitle": "Concerts",
   "intro": "",
-  "bannerImage": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/Yan9WOlbvqczrXzV/1678727470306---copy-AQEp0QB091sB5qeE.JPG",
+  "bannerImage": "assets/img/1678727470306-copy-aqep0qb091sb5qee-03d544-1920.webp",
   "bannerImageAlt": "Nihira Joshi-Deshpande performing live",
   "emptyText": "Concert videos will appear here soon.",
   "items": [
