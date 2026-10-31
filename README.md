@@ -82,6 +82,13 @@ Opening `index.html` by double-clicking does **not** work (browsers block loadin
 5. **Actions → Deploy site → Run workflow.** After 1–2 minutes the site is live at `https://<your-username>.github.io/<repository-name>/`.
 6. **Actions → YouTube sync → Run workflow** once. It fills "Latest videos", collects missing video titles, reads the Poetic Treasures playlist and copies thumbnails. Afterwards it runs every day, and the site republishes itself after each run.
 
+**Updating from Milestone 4 (site already online on nihiramusic.in):**
+1. Pull the latest version first (the automatic workflows commit every day), then copy **only the files listed
+   in `docs/CHANGELOG.md` under M5** over your copy (including the hidden `.github/workflows/` folder: one new file,
+   `localize-images.yml`), commit and push.
+2. **Actions → Localize images → Run workflow** once (section 2b). The site republishes itself afterwards.
+3. Work through `docs/M5-DOMAIN-CUTOVER.md`, section 3 (HTTPS, Search Console, share previews).
+
 **Updating from Milestone 3 (site already online):**
 1. Upload all files of the new ZIP over the old ones, including the hidden `.pages.yml` file and `.github/workflows/`
    (one new file: `validate-data.yml`), and the new folder `assets/img/uploads/`.
@@ -101,12 +108,19 @@ Opening `index.html` by double-clicking does **not** work (browsers block loadin
 2. Change **Settings → Pages → Source** from "Deploy from a branch" to **GitHub Actions**.
 3. Run **Actions → Deploy site**, then **Actions → YouTube sync**.
 
-Do **not** add a `CNAME` file yet; switching the real domain is Milestone 5.
+The custom domain `nihiramusic.in` is set in **Settings → Pages → Custom domain** (done in Milestone 5).
+The `CNAME` file in this folder only records it: GitHub ignores it when the site is deployed by a workflow, as here.
+Never delete the custom domain in the settings unless you want the site to leave nihiramusic.in.
 
 ## 2b. Copy the images off Hostinger (once, before the Hostinger plan ends)
 
-The photos still live on the old Hostinger site. Copy them into this website:
-1. On your computer, open a terminal in this folder (it needs internet) and run:
+The photos still live on the old Hostinger site. Copy them into this website. **Easiest (no computer setup):**
+on github.com open **Actions → Localize images → Run workflow**. It downloads the images, commits them, and the
+site republishes itself. Do it now: Home loads faster with local images. Check again before **2028-09-27**,
+when the Hostinger plan ends (auto-renew is off; never click Renew).
+
+**Alternative on your own computer:**
+1. Open a terminal in this folder (it needs internet) and run:
    ```
    python3 tools/localize_assets.py --dry-run   # shows what it will do
    python3 tools/localize_assets.py             # downloads and rewrites
@@ -115,6 +129,22 @@ The photos still live on the old Hostinger site. Copy them into this website:
    writes sizes to `data/images.json` and points the share image of every page at the local copy.
 3. Check the site locally (section 1), then upload the changed files: `assets/img/`, `data/`, and all `index.html` files.
 It prints a list of anything it could not download; just run it again later. Running it twice is safe.
+
+## 2c. Domain and accounts
+
+| What | Where | Important dates |
+|---|---|---|
+| Domain `nihiramusic.in` | **BigRock** (registrar) | **Expires 2027-02-28, NOT yet renewed.** Renew early (several years is fine) and switch on auto-renew. If it lapses, the website **and e-mail** stop. |
+| DNS (where the domain points) | **BigRock** (nameservers dns1–dns4.bigrock.in, since 2026-10-31) | Records: `docs/domain/dns-state-2026-10-31.md` |
+| E-mail (2 mailboxes) | **BigRock / MailHostBox** | Unchanged by the move. Improvements are planned later (M6). |
+| Website | **GitHub** repository `get2abhijit/nihiramusic-website`, GitHub Pages, deployed by GitHub Actions | Free; no end date |
+| Old website | **Hostinger** website builder | Prepaid until **2028-09-27**, auto-renew off: nothing to cancel, never click Renew. Run "Localize images" before then (2b). |
+
+- Calendar reminders for these dates: import `docs/domain/reminders.ics` into Google/Outlook/Apple Calendar.
+- Never delete the DNS records `MX`, `TXT` (SPF, DKIM `20240229._domainkey`, `_dmarc`, `google-site-verification`,
+  `_github-pages-challenge-get2abhijit`) or the `imap/pop/smtp/webmail` CNAMEs: e-mail, Google and GitHub need them.
+- Old addresses that should forward to a new page: add a line to `data/redirects.json` (explained in the file).
+- Rollback, HTTPS and the full cutover checklist: `docs/M5-DOMAIN-CUTOVER.md`.
 
 ## 3. Updating content
 
@@ -251,10 +281,13 @@ Set `"featured": true` on one release to pin it to the top.
   all data files (`tools/validate_data.py`). "Deploy site" runs the same check first and refuses to publish broken data.
 
 - **YouTube sync** (`.github/workflows/youtube-sync.yml`, daily): updates `data/youtube-latest.json` (Home "Latest videos" and video titles) and copies thumbnails to `assets/img/yt/`. It never changes your other data files and only saves when something changed.
-- **Deploy site** (`.github/workflows/pages.yml`): publishes the site after every change and after each YouTube sync. If the site doesn't update, open **Actions** and look for a red ✗; **Run workflow** on "Deploy site" retries.
+- **Deploy site** (`.github/workflows/pages.yml`): publishes the site after every change and after each YouTube sync, Calendar sync and Localize images run. It publishes only the website files (not `docs/`, `tools/` or this README). If the site doesn't update, open **Actions** and look for a red ✗; **Run workflow** on "Deploy site" retries.
 
 - **SEO files** (`.github/workflows/seo-build.yml`, after each data change and daily): rewrites `sitemap.xml`, `robots.txt`, the news RSS feed `news/feed.xml`, the subscribable calendar `events/calendar.ics`, the structured data (JSON-LD) in the page heads and the short no-JavaScript overview on Home. Script: `tools/build_seo.py`. Never edit those files by hand; change `data/` instead. "Deploy site" runs the same script before publishing, so the live site is right even if this workflow has not finished.
 - **Calendar sync** (`.github/workflows/calendar-sync.yml`, every 6 hours): copies events from a linked Google/Outlook calendar into `data/events-calendar.json`. Does nothing until you link one (section 5b).
+
+- **Localize images** (`.github/workflows/localize-images.yml`, only by hand): copies external images into `assets/img/` (section 2b).
+- **Forwarding pages**: `tools/build_seo.py` also turns every entry of `data/redirects.json` into a small page that forwards an old address. The 404 page forwards addresses with wrong upper/lower case or an `.html` ending by itself.
 
 Everything also works by hand: `python3 tools/build_seo.py` (add `--check` to only see what would change).
 
@@ -280,7 +313,7 @@ Optional, in `data/site.json` → `calendar`: `publicUrl` (link "Open the calend
 - Page titles and descriptions are in each page's `index.html` (`<title>` and `<meta name="description">`). The rest is automatic from `data/site.json`: `siteUrl` (canonical links, sitemap, feed), `ogImage` (share picture, 1200 × 630 px), `artistName` / `artistAlternateName` (structured data for Google).
 - Check the structured data: https://search.google.com/test/rich-results (enter a page address once the site runs on nihiramusic.in) or https://validator.schema.org (paste the page's source).
 - RSS feed for news readers: `news/feed.xml` (linked on the News page).
-- The sitemap is submitted to Google Search Console after the domain move (Milestone 5).
+- Google Search Console: submit `https://nihiramusic.in/sitemap.xml` once (steps in `docs/M5-DOMAIN-CUTOVER.md`, section 3). Afterwards Google re-reads it by itself. Check "Pages → Not found (404)" now and then; add old addresses it lists to `data/redirects.json`.
 
 ## 6. Privacy notes
 

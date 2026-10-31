@@ -1,0 +1,51 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//nihiramusic.in//domain reminders//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:nihira-domain-renew-1@nihiramusic.in
+DTSTAMP:20261031T120000Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:Renew nihiramusic.in at BigRock (expires 2027-02-28)
+DESCRIPTION:Domain nihiramusic.in expires on 2027-02-28. Renew it at BigRoc
+ k (several years at once is fine) and switch on auto-renew. Website AND e-
+ mail stop working if it lapses. See docs/domain/ in the website repository
+ .
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Renew nihiramusic.in at BigRock (expires 2027-02-28)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nihira-domain-renew-2@nihiramusic.in
+DTSTAMP:20261031T120000Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:LAST REMINDER: nihiramusic.in expires 2027-02-28
+DESCRIPTION:If the domain is not renewed yet\, renew it today at BigRock. W
+ ebsite and e-mail depend on it.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:LAST REMINDER: nihiramusic.in expires 2027-02-28
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:nihira-hostinger-end@nihiramusic.in
+DTSTAMP:20261031T120000Z
+DTSTART;VALUE=DATE:20280827
+DTEND;VALUE=DATE:20280828
+SUMMARY:Hostinger plan ends 2028-09-27: check images are copied
+DESCRIPTION:Before the Hostinger plan ends (2028-09-27): on GitHub run Acti
+ ons > Localize images once more (or tools/localize_assets.py) and check th
+ at no data file still mentions zyrosite.com. Auto-renew is already off: ne
+ ver click Renew.
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Hostinger plan ends 2028-09-27: check images are copied
+END:VALARM
+END:VEVENT
+END:VCALENDAR

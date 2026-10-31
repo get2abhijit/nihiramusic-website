@@ -4,7 +4,7 @@ import { loadJSON, renderLayout, showError, setImageManifest, setVideoTitles } f
 const PAGES = {
   home: './home.js', originals: './works.js', covers: './works.js', concerts: './concerts.js',
   poems: './poems.js', news: './news.js', events: './events.js', awards: './awards.js',
-  privacy: './legal.js', terms: './legal.js',
+  privacy: './legal.js', terms: './legal.js', notfound: './notfound.js',
 };
 
 const page = document.body.dataset.page;

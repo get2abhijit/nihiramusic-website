@@ -97,6 +97,8 @@ POEM = {
     "date": F("date"), "text": F("text"), "videoId": F("video"), "description": F("text"), "source": SOURCE,
 }
 
+REDIRECT = {"from": F("str", True), "to": F("path"), "source": SOURCE}
+
 PAGE_TOP = {"pageTitle": F("str"), "intro": F("text"), "emptyText": F("str"), "subtitle": F("str")}
 
 # file name -> (label for one entry, item fields, extra top-level fields)
@@ -110,6 +112,7 @@ LIST_FILES = {
     "poems.json": ("poem", POEM, {"introSource": F("source"), "youtubeUrl": F("url"), "source": SOURCE,
                                   "playlistId": F("playlist"), "playlistTitle": F("str"),
                                   "playlistSource": F("source")}),
+    "redirects.json": ("old address", REDIRECT, {}),
 }
 GENERATED = {"youtube-latest.json", "events-calendar.json", "images.json"}
 
@@ -522,6 +525,33 @@ def check_images_manifest(rep, rel, data, raw):
                 rep.add("warning", rel, where, f"smaller version \"{s['src']}\" is missing.")
 
 
+def check_redirects(rep, rel, data, raw):
+    """Extra rules for data/redirects.json: usable, unique old addresses that are not real pages."""
+    seen = {}
+    for i, item in enumerate(data.get("items") or []):
+        if not isinstance(item, dict) or not isinstance(item.get("from"), str):
+            continue
+        where = f"old address #{i + 1} (\"{item['from']}\")"
+        frm = item["from"].strip().split("#")[0].split("?")[0].strip("/")
+        line = json_line(raw, f'"{item["from"]}"')
+        if re.match(r"^https?://", frm, re.I):
+            rep.add("error", rel, where, "\"from\" must be the address WITHOUT the domain, e.g. \"home\" "
+                    "for https://nihiramusic.in/home.", line)
+            continue
+        if not frm or ".." in frm or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._~/-]*", frm):
+            rep.add("error", rel, where, "\"from\" may only contain letters, digits and - _ . ~ /", line)
+            continue
+        if frm.split("/")[0] in {"assets", "data", "tools", "docs"}:
+            rep.add("error", rel, where, f"\"{frm}\" points into a website folder; choose the old page address.", line)
+        if (ROOT / frm / "index.html").exists() and "generated:redirect-stub" not in \
+                (ROOT / frm / "index.html").read_text(encoding="utf-8", errors="ignore"):
+            rep.add("warning", rel, where, f"\"{frm}\" is a real page of this site; this entry is ignored.", line)
+        low = frm.lower()
+        if low in seen:
+            rep.add("error", rel, where, f"the same old address is already listed as entry #{seen[low] + 1}.", line)
+        seen.setdefault(low, i)
+
+
 def check_file(path, rep):
     rel = path.relative_to(ROOT).as_posix()
     name = path.name
@@ -530,6 +560,8 @@ def check_file(path, rep):
         return
     if name in LIST_FILES:
         check_list_file(rep, rel, name, data, raw)
+        if name == "redirects.json":
+            check_redirects(rep, rel, data, raw)
     elif name == "events-calendar.json":
         check_list_file(rep, rel, name, data, raw, generated=True)
     elif name == "site.json":

@@ -1,5 +1,12 @@
 # Changelog
 
+## M5 (2026-10-31): Domain cutover
+- DNS moved by the owner to BigRock (apex → GitHub, www → get2abhijit.github.io, e-mail records unchanged); verified against current GitHub docs and the old zone.
+- New: `CNAME` (nihiramusic.in; ignored by GitHub for Actions deployments, kept as record), `.github/workflows/localize-images.yml` ("Localize images", run by hand), `assets/js/notfound.js` (404 forwards wrong-case/.html and listed old addresses), `data/redirects.json` (old-address list, empty), `docs/M5-DOMAIN-CUTOVER.md` (parity table, checklist, rollback), `docs/domain/` (DNS state, Hostinger zone backup, reminders.ics).
+- Changed: `.github/workflows/pages.yml` (publishes only website files; also runs after "Localize images"), `tools/build_seo.py` (forwarding pages from redirects.json), `tools/validate_data.py` (checks redirects.json), `assets/js/main.js` (loads notfound.js on the 404 page), `README.md` (Domain and accounts, M5 update steps, 2b via Actions), `docs/ROADMAP.md`, `docs/CHANGELOG.md`.
+- Line endings normalised to LF in 6 files that had CRLF in the local copy (no content change).
+- siteUrl, canonical, Open Graph, sitemap and feed already pointed at https://nihiramusic.in/ since M1 (unchanged).
+
 ## M4 (2026-10-30): Editing without touching JSON
 - New `tools/validate_data.py` + workflow "Check content": checks all data files (JSON syntax with plain-English hints, required fields, YYYY-MM-DD dates, HH:MM times, unique ids, URLs, YouTube codes, local images exist, allowed status values; generated files by shape). "Deploy site" runs it first and never publishes broken data.
 - New `.pages.yml` (Pages CMS): forms for News, Events, Awards, Originals (with tracks), Covers, Concerts, Poetic Treasures, Home text; uploads to `assets/img/uploads/`; generated, settings and legal files excluded.

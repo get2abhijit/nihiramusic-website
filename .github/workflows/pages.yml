@@ -1,11 +1,14 @@
 # Publishes the site to GitHub Pages.
-# Runs on every change to the default branch (main or master), after each "YouTube sync" and
-# "Calendar sync", and by hand (Actions > Deploy site > Run workflow).
+# Runs on every change to the default branch (main or master), after each "YouTube sync",
+# "Calendar sync" and "Localize images", and by hand (Actions > Deploy site > Run workflow).
 # Before uploading it regenerates sitemap, RSS feed, calendar feed, structured data and the Home
 # <noscript> overview (tools/build_seo.py), so the live site is always up to date even before the
 # "SEO files" workflow has committed the same files to the repository.
 # It first checks the content files (tools/validate_data.py). If a file has an error, nothing is published and
 # the live site keeps its last good version; the run shows which file and entry to fix.
+# Only the website itself is published: docs/, tools/, README.md and .pages.yml stay in the repository.
+# Custom domain (M5): it is set in Settings > Pages > Custom domain. With this workflow GitHub ignores the
+# CNAME file (kept in the repository only as a record of the domain).
 # Needs: Settings > Pages > Build and deployment > Source = "GitHub Actions".
 name: Deploy site
 
@@ -14,7 +17,7 @@ on:
     branches: [main, master]
   workflow_dispatch:
   workflow_run:
-    workflows: ["YouTube sync", "Calendar sync"]
+    workflows: ["YouTube sync", "Calendar sync", "Localize images"]
     types: [completed]
 
 permissions:
@@ -39,9 +42,15 @@ jobs:
         run: python3 tools/validate_data.py
       - name: Regenerate SEO files (sitemap, feeds, structured data)
         run: python3 tools/build_seo.py
+      - name: Collect the website files (without docs, tools and notes)
+        run: |
+          mkdir _site
+          tar --exclude=./.git --exclude=./.github --exclude=./_site --exclude=./docs --exclude=./tools \
+            --exclude=./README.md --exclude=./.pages.yml -cf - . | tar -xf - -C _site
+          ls -A _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

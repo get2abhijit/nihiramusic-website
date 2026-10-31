@@ -1,0 +1,4 @@
+{
+  "_help": "Old web addresses that should forward to a page of this site (for example addresses from the old Hostinger site that Google Search Console reports as 'Not found'). One entry per old address. from = the old address without the domain, e.g. \"home\" for https://nihiramusic.in/home (case and a trailing / do not matter). to = where it should go: a folder of this site ending in / (\"covers/\"), \"\" for the home page, or a full https:// address. The 'Deploy site' workflow turns each entry into a small forwarding page; the 404 page also forwards these addresses. Not needed for the current page addresses (/covers, /concerts, ...): they already work, with or without a trailing /, and also in other upper/lower case. source = where you found the old address.",
+  "items": []
+}

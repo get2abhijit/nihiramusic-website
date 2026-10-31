@@ -9,6 +9,7 @@ Writes:
   */index.html, 404.html head tags: canonical, og:url, og:image, twitter:image, RSS link,
                          module preloads, hero preload, JSON-LD structured data
   index.html             static <noscript> list of latest news, upcoming events and videos
+  <old-path>/index.html  small forwarding pages for old addresses listed in data/redirects.json (M5)
 
 Only the parts between <!-- generated:… --> markers (and the four URL tags above) are touched.
 Files are only rewritten when their content changes. Python standard library only.
@@ -389,6 +390,91 @@ def head_block(page_id, root, base, site, ld, hero_img):
     return "\n".join(lines)
 
 
+# ---------- forwarding pages for old addresses (data/redirects.json) ----------
+STUB_MARK = "<!-- generated:redirect-stub -->"
+RESERVED = {"assets", "data", "tools", "docs", ".github", ".git", "_site"}
+
+
+def clean_from(value):
+    """'/home.html' or 'home/' -> 'home.html' / 'home'; None if the path is not usable."""
+    v = (value or "").strip().split("#")[0].split("?")[0].strip("/")
+    if not v or ".." in v or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._~/-]*", v):
+        return None
+    return v
+
+
+def stub_html(site, target_rel, target_abs):
+    name = esc(site.get("siteName") or "")
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+{STUB_MARK}
+<title>This page has moved | {name}</title>
+<link rel="canonical" href="{esc(target_abs)}">
+<meta http-equiv="refresh" content="0; url={esc(target_rel)}">
+<script>location.replace({json.dumps(target_rel)} + location.hash);</script>
+</head>
+<body>
+<p>This page has moved. <a href="{esc(target_rel)}">Continue to the new page</a>.</p>
+</body>
+</html>
+"""
+
+
+def build_redirects(site, base):
+    """One small page per old address in data/redirects.json. Real pages are never overwritten.
+    Forwarding pages whose entry was removed from the file are deleted again."""
+    wanted, seen = {}, set()
+    for r in items(load("redirects", {})):
+        frm = clean_from(r.get("from"))
+        if not frm or frm.split("/")[0] in RESERVED:
+            print(f"  skipped redirect {r.get('from')!r}: not a usable old address.")
+            continue
+        if frm.lower() in seen:
+            print(f"  skipped redirect {frm!r}: listed twice.")
+            continue
+        seen.add(frm.lower())
+        to = (r.get("to") or "").strip()
+        folder = ROOT / frm
+        if folder.suffix.lower() in (".html", ".htm"):
+            print(f"  skipped redirect {frm!r}: GitHub Pages cannot forward .html addresses from a folder; "
+                  "the 404 page handles them.")
+            continue
+        page = folder / "index.html"
+        if page.exists() and STUB_MARK not in page.read_text(encoding="utf-8"):
+            print(f"  skipped redirect {frm!r}: a real page already lives there.")
+            continue
+        if re.match(r"^https?://", to):
+            rel = absolute_url = to
+        else:
+            to = to.lstrip("./").lstrip("/")
+            depth = frm.count("/") + 1
+            rel = "../" * depth + to
+            absolute_url = base + to
+        wanted[page] = stub_html(site, rel, absolute_url)
+    for page, text in wanted.items():
+        write(page, text)
+    for page in ROOT.rglob("index.html"):
+        if ".git" in page.parts or page in wanted:
+            continue
+        try:
+            is_stub = STUB_MARK in page.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        if is_stub:
+            changed_files.append(page.relative_to(ROOT).as_posix() + " (removed)")
+            if not CHECK:
+                page.unlink()
+                folder = page.parent
+                while folder != ROOT:  # remove now-empty folders, e.g. old/press/ and old/
+                    try:
+                        folder.rmdir()
+                    except OSError:
+                        break
+                    folder = folder.parent
+
+
 def main():
     site = load("site", {}) or {}
     base = (site.get("siteUrl") or "").strip()
@@ -420,6 +506,7 @@ def main():
     write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {base}sitemap.xml\n")
     write(ROOT / "news" / "feed.xml", build_feed(site, base, news))
     write(ROOT / "events" / "calendar.ics", build_ics(site, base, events))
+    build_redirects(site, base)
 
     og_image = absolute(site.get("ogImage") or site.get("logo"), base)
     hero = (home or {}).get("hero", {}).get("image")
@@ -428,6 +515,8 @@ def main():
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8")
+        if STUB_MARK in text:  # forwarding pages are complete as written by build_redirects()
+            continue
         m = re.search(r'<body[^>]*data-page="([^"]+)"', text)
         page_id = m.group(1) if m else ""
         folder = PAGES.get(page_id, (None,))[0]

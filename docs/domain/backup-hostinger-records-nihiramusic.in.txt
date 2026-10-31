@@ -1,0 +1,21 @@
+; Zone file for nihiramusic.in
+; Generated on 2026-10-31 12:41:05 UTC
+
+$ORIGIN nihiramusic.in
+$TTL 3600
+
+@                              3600 IN SOA   ns1.dns-parking.com. dns.hostinger.com. 2026043003 10000 2400 604800 600
+20240229._domainkey            86400 IN TXT   "v=DKIM1; g=*; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCHwh60tmdXYuMDmqWQrodvNbBmCEj5UxoKeZlOlVEokT8sf0bYlODyjDDhbHESYNUyRzjxU/degqjR3B4aLWek5ZPjq27oNd4NVWMaoKE8z0K6OWpGLuvqC2YOiXGAo0VmQ/7YOxM5rMvA3M7N3FYSZf0l5GJcyuwS0nJyF2fX2wIDAQAB"
+@                              300 IN ALIAS nihiramusic.in.cdn.hstgr.net.
+@                              86400 IN MX    100 us2.mx1.mailhostbox.com
+                               86400 IN MX    100 us2.mx2.mailhostbox.com
+                               86400 IN MX    100 us2.mx3.mailhostbox.com
+@                              86400 IN NS    ns1.dns-parking.com.
+                               86400 IN NS    ns2.dns-parking.com.
+@                              86400 IN TXT   "v=spf1 redirect=_spf.mailhostbox.com"
+_dmarc                         3600 IN TXT   "v=DMARC1; p=none"
+imap                           86400 IN CNAME us2.imap.mailhostbox.com.
+pop                            86400 IN CNAME us2.pop.mailhostbox.com.
+smtp                           86400 IN CNAME us2.smtp.mailhostbox.com.
+webmail                        86400 IN CNAME us3.webmail.mailhostbox.com.
+www                            300 IN CNAME www.nihiramusic.in.cdn.hstgr.net.
