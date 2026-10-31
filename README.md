@@ -3,6 +3,63 @@
 This is the website "The Sound of (Nihira)Music" for Nihira Joshi. It is a plain static site: no build step, no database.
 **All text, songs, events, news and awards live in the `data/` folder.** You never need to touch the code to update content.
 
+## Editor's guide (one page)
+
+There are two ways to change the website. Both save a new version on GitHub; the site updates by itself
+1–3 minutes later. Every change is checked automatically first (see "If something goes wrong").
+
+### A. With forms: Pages CMS (recommended)
+
+**Set up once (5 minutes):**
+1. Go to https://app.pagescms.org and **Sign in with GitHub**.
+2. When asked, **install the Pages CMS GitHub App** and give it access to the repository `nihiramusic-website` only.
+3. Open the repository (branch `master`). The left menu shows: News, Events, Awards, Originals, Covers,
+   Concerts, Poetic Treasures, Home page text.
+4. Optional: to let someone without a GitHub account edit, invite them by e-mail (Pages CMS → Collaborators).
+
+**Everyday use:**
+- Open a section, e.g. **Events**. Entries are folded; click one to open it, or **Add an entry** at the end of the
+  list. Order does not matter: the website sorts by date.
+- Fill in the fields. Each field has a short explanation underneath. Things to know:
+  - **ID**: a unique short name with lowercase letters and dashes, e.g. `stuttgart-concert-2026`. Don't change it later.
+  - **Dates** come from the date picker. **Times** are typed like `19:30`. Pick the venue's **time zone**.
+  - **YouTube video code**: only the 11 characters after `v=` in the link, not the whole link.
+  - **Images**: click the image field and **upload** a photo (JPG/WebP, about 1600 px wide, under 500 KB).
+    It is stored in `assets/img/uploads/`. Always fill in the description below it.
+  - **Source**: the web address where the information is published. It is never shown; it keeps the site trustworthy.
+  - **Private note / Open question**: for yourself; never shown.
+- Click **Save**. Pages CMS saves the whole file as one change.
+- Upcoming shows go under **Events**; videos of past shows under **Concerts**.
+- Videos of the **Poetic Thursdays** playlist appear on Poetic Treasures by themselves. Add an entry only to give a
+  video a better title or a note. Poem **text** only for Nihira's own poems, never other poets' poems or song lyrics.
+
+**Not in Pages CMS on purpose:** menu and site settings (`data/site.json`), legal texts (`data/legal.json`, change
+only after legal advice), and everything written automatically (`data/youtube-latest.json`,
+`data/events-calendar.json`, `data/images.json`, `sitemap.xml`, `robots.txt`, `news/feed.xml`,
+`events/calendar.ics`, the generated blocks in the `index.html` files). Concerts in the linked Google calendar
+appear on the Events page automatically and are not listed in the Events form.
+
+**First time only, please check:** after your first save, open the repository on github.com → **Commits** → the
+newest commit "Update data/... (via Pages CMS)". It should show only the lines you changed (formatting changes
+of the file are fine). If private notes or sources disappeared, tell the developer.
+
+### B. Directly on github.com (for everything else)
+
+Open the repository → `data/` → the file → **pencil icon** → change → **Commit changes**. Rules are in section 3
+below; copy-paste templates in section 4. Each file starts with a `"_help"` note explaining its fields.
+
+### If something goes wrong
+
+- After each save, GitHub runs **Check content**. A green ✓ in **Actions** means all is well.
+- A red ✗ means a mistake was found. **The live website is not changed** (it keeps its last good version) until
+  it is fixed. Click the red run → **Check content** / **Deploy site** → read the message. It names the file, the
+  entry and what to do, for example:
+  `data/events.json: event #3 "Live in Stuttgart" (id: stuttgart-concert-2026): 'date' is "05.12.2026". Write dates as YYYY-MM-DD … "2026-12-05".`
+- Fix it (in Pages CMS or with the pencil on GitHub) and save again. The site then updates by itself.
+- Yellow "warnings" (e.g. an unknown field name, a missing source) don't stop the site; look at them when you can.
+- Undo a change: github.com → **Commits** → open the commit → **⋯ → Revert** (or ask the developer).
+- Check on your own computer: `python3 tools/validate_data.py`.
+
 ## 1. Look at the site on your own computer
 
 1. Install Python 3 (Mac/Linux usually have it; on Windows get it from python.org).
@@ -23,7 +80,16 @@ Opening `index.html` by double-clicking does **not** work (browsers block loadin
 3. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
 4. **Settings → Actions → General → Workflow permissions → Read and write permissions → Save.**
 5. **Actions → Deploy site → Run workflow.** After 1–2 minutes the site is live at `https://<your-username>.github.io/<repository-name>/`.
-6. **Actions → YouTube sync → Run workflow** once. It fills "Latest videos", collects missing video titles and copies thumbnails. Afterwards it runs every day, and the site republishes itself after each run.
+6. **Actions → YouTube sync → Run workflow** once. It fills "Latest videos", collects missing video titles, reads the Poetic Treasures playlist and copies thumbnails. Afterwards it runs every day, and the site republishes itself after each run.
+
+**Updating from Milestone 3 (site already online):**
+1. Upload all files of the new ZIP over the old ones, including the hidden `.pages.yml` file and `.github/workflows/`
+   (one new file: `validate-data.yml`), and the new folder `assets/img/uploads/`.
+2. **Then run Actions → YouTube sync and Actions → Calendar sync once.** The ZIP contains snapshots of the
+   automatically written files (`data/youtube-latest.json`, `data/images.json`, `data/events-calendar.json`);
+   uploading it can replace newer versions, and the two syncs bring them up to date again.
+   (This is why "Latest videos" was empty after the Milestone 3 upload.)
+3. Set up Pages CMS (Editor's guide, A).
 
 **Updating from Milestone 2 (site already online):**
 1. Upload all files of the new ZIP over the old ones (including `.github/workflows/`, which has two new files).
@@ -69,8 +135,9 @@ Rules that keep things working:
 
 ### Check before saving
 
-Copy the whole file into https://jsonlint.com and click **Validate JSON**. If it says "Valid JSON", you're safe.
-If the site shows *"This part of the page could not be loaded"*, the message names the file with the typo.
+You don't have to: every change is checked automatically and a broken file is never published (see
+"If something goes wrong" in the Editor's guide). To check while editing on GitHub, copy the file into
+https://jsonlint.com, or run `python3 tools/validate_data.py` on your computer.
 
 ## 4. Copy-paste templates
 
@@ -161,7 +228,7 @@ The `videoId` is the part after `v=` in a YouTube link (or after `youtu.be/`).
 ```
 Set `"featured": true` on one release to pin it to the top.
 
-**Poem** (`data/poems.json`). Only Nihira's own poems or recitations; never song lyrics.
+**Poem** (`data/poems.json`). Only Nihira's own poems as `text`; for other poets' poems add only the recitation `videoId`. Never song lyrics.
 ```json
 {
   "id": "poem-name",
@@ -179,6 +246,9 @@ Set `"featured": true` on one release to pin it to the top.
 **Menu item** (`data/site.json`, inside `"nav"`): `{ "id": "press", "label": "Press", "path": "press/" }`
 
 ## 5. What runs automatically
+
+- **Check content** (`.github/workflows/validate-data.yml`, after every change in `data/` or `assets/img/`): checks
+  all data files (`tools/validate_data.py`). "Deploy site" runs the same check first and refuses to publish broken data.
 
 - **YouTube sync** (`.github/workflows/youtube-sync.yml`, daily): updates `data/youtube-latest.json` (Home "Latest videos" and video titles) and copies thumbnails to `assets/img/yt/`. It never changes your other data files and only saves when something changed.
 - **Deploy site** (`.github/workflows/pages.yml`): publishes the site after every change and after each YouTube sync. If the site doesn't update, open **Actions** and look for a red ✗; **Run workflow** on "Deploy site" retries.

@@ -6,7 +6,9 @@
    Pages show it wherever you left a title empty. Your own data files are never changed.
 3. Collects the upload date of every videoId used in data/*.json into youtube-latest.json "dates"
    (a hint for filling in concert dates; never shown as the concert date).
-4. Downloads each needed thumbnail once to assets/img/yt/<videoId>.jpg, so visitors' browsers
+4. Reads every YouTube playlist named by a "playlistId" in data/*.json (e.g. Poetic Treasures) and stores its
+   videos in youtube-latest.json "playlists", so new videos of a series appear on the site by themselves.
+5. Downloads each needed thumbnail once to assets/img/yt/<videoId>.jpg, so visitors' browsers
    never contact YouTube before they press play.
 Files are only rewritten when something changed. Python standard library only.
     python3 tools/sync_youtube.py
@@ -32,7 +34,8 @@ NS = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/sche
 HELP = ("Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; "
         "changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used "
         "in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for "
-        "filling in concert dates; the concert itself may have been earlier).")
+        "filling in concert dates; the concert itself may have been earlier). playlists = videos of each playlist named by a "
+        "'playlistId' in data/*.json (Poetic Treasures).")
 
 
 def parse_feed(xml_bytes, limit=15):
@@ -71,6 +74,27 @@ def used_video_ids():
     return ids
 
 
+def playlist_ids():
+    """Every "playlistId" value in the data files (top level or inside entries)."""
+    ids = []
+
+    def walk(o):
+        if isinstance(o, dict):
+            pid = o.get("playlistId")
+            if isinstance(pid, str) and re.match(r"^[A-Za-z0-9_-]{12,}$", pid) and pid not in ids:
+                ids.append(pid)
+            for k, v in o.items():
+                if not k.startswith("_"):
+                    walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    for p in sorted(DATA.glob("*.json")):
+        if p.name not in ("youtube-latest.json", "images.json", "events-calendar.json"):
+            walk(load_json(p, {}))
+    return ids
+
+
 def oembed_title(video_id):
     u = "https://www.youtube.com/oembed?format=json&url=" + urllib.parse.quote(
         f"https://www.youtube.com/watch?v={video_id}", safe="")
@@ -101,7 +125,8 @@ def main():
     cid = (site.get("youtubeChannelId") or "").strip()
     old = load_json(OUT, {}) or {}
     out = {"_help": HELP, "channelId": cid, "updated": old.get("updated", ""),
-           "videos": old.get("videos", []), "titles": dict(old.get("titles", {})), "dates": dict(old.get("dates", {}))}
+           "videos": old.get("videos", []), "titles": dict(old.get("titles", {})), "dates": dict(old.get("dates", {})),
+           "playlists": {}}
     manifest = load_manifest()
     before_manifest = json.dumps(manifest, sort_keys=True)
 
@@ -117,7 +142,18 @@ def main():
     else:
         print("site.json has no youtubeChannelId; skipping latest videos.")
 
-    for v in out["videos"]:
+    old_pl = old.get("playlists", {}) if isinstance(old.get("playlists"), dict) else {}
+    for pid in playlist_ids():
+        try:
+            vids = parse_feed(fetch(f"https://www.youtube.com/feeds/videos.xml?playlist_id={pid}")[0], limit=50)
+            out["playlists"][pid] = vids if vids else old_pl.get(pid, [])
+            print(f"Playlist {pid}: {len(out['playlists'][pid])} videos.")
+        except Exception as exc:
+            print(f"Could not read playlist {pid}: {exc}")
+            out["playlists"][pid] = old_pl.get(pid, [])
+    playlist_videos = [v for lst in out["playlists"].values() for v in lst]
+
+    for v in out["videos"] + playlist_videos:
         out["titles"].setdefault(v["videoId"], v.get("title", ""))
     for vid in sorted(used_video_ids()):
         if not out["titles"].get(vid):
@@ -126,7 +162,7 @@ def main():
                 out["titles"][vid] = t
                 print(f"  title {vid} -> {t}")
 
-    for v in out["videos"]:
+    for v in out["videos"] + playlist_videos:
         if v.get("published"):
             out["dates"].setdefault(v["videoId"], v["published"])
     for vid in sorted(used_video_ids()):
@@ -136,16 +172,16 @@ def main():
                 out["dates"][vid] = d
                 print(f"  date {vid} -> {d}")
 
-    for vid in sorted(set(used_video_ids()) | {v["videoId"] for v in out["videos"]}):
+    for vid in sorted(set(used_video_ids()) | {v["videoId"] for v in out["videos"] + playlist_videos}):
         youtube_thumb(vid, manifest)
-    for v in out["videos"]:
+    for v in out["videos"] + playlist_videos:
         p = f"assets/img/yt/{v['videoId']}.jpg"
         if (ROOT / p).exists():
             v["localThumbnail"] = p
 
     out["titles"] = dict(sorted((k, v) for k, v in out["titles"].items() if v))
     out["dates"] = dict(sorted((k, v) for k, v in out["dates"].items() if v))
-    comparable = lambda d: json.dumps({k: d.get(k) for k in ("channelId", "videos", "titles", "dates")}, sort_keys=True)
+    comparable = lambda d: json.dumps({k: d.get(k) for k in ("channelId", "videos", "titles", "dates", "playlists")}, sort_keys=True)
     if comparable(out) != comparable(old):
         out["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         save_json(OUT, out)

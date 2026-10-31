@@ -375,12 +375,14 @@ def head_block(page_id, root, base, site, ld, hero_img):
              f'<link rel="modulepreload" href="{root}assets/js/core.js">']
     if page_id in PAGES:
         lines.append(f'<link rel="modulepreload" href="{root}assets/js/{PAGES[page_id][1]}">')
+    if page_id == "poems":  # Poetic Treasures reuses the video cards of works.js
+        lines.append(f'<link rel="modulepreload" href="{root}assets/js/works.js">')
     if hero_img:
         # Same srcset/sizes as the hero <img> (core.js img()), so the browser fetches the image only once.
         meta = ((load("images", {}) or {}).get("images") or {}).get(hero_img.lstrip("./"), {})
         srcset = ", ".join(f'{root}{v["src"]} {v["width"]}w' for v in meta.get("srcset", []) if v.get("src") and v.get("width"))
         extra = f' imagesrcset="{esc(srcset)}" imagesizes="100vw"' if len(meta.get("srcset", [])) > 1 else ""
-        href = hero_img if hero_img.startswith("http") else root + hero_img
+        href = hero_img if hero_img.startswith("http") else root + hero_img.lstrip("./").lstrip("/")
         lines.append(f'<link rel="preload" as="image" href="{esc(href)}"{extra} fetchpriority="high">')
     if ld:
         lines.append(ld_script(ld))

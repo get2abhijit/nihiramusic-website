@@ -4,6 +4,8 @@
 # Before uploading it regenerates sitemap, RSS feed, calendar feed, structured data and the Home
 # <noscript> overview (tools/build_seo.py), so the live site is always up to date even before the
 # "SEO files" workflow has committed the same files to the repository.
+# It first checks the content files (tools/validate_data.py). If a file has an error, nothing is published and
+# the live site keeps its last good version; the run shows which file and entry to fix.
 # Needs: Settings > Pages > Build and deployment > Source = "GitHub Actions".
 name: Deploy site
 
@@ -33,6 +35,8 @@ jobs:
     steps:
       # No "ref:" on purpose: GitHub checks out the branch that started the run (the default branch for the syncs).
       - uses: actions/checkout@v4
+      - name: Check the content files (stops here if a data file has an error)
+        run: python3 tools/validate_data.py
       - name: Regenerate SEO files (sitemap, feeds, structured data)
         run: python3 tools/build_seo.py
       - uses: actions/configure-pages@v5

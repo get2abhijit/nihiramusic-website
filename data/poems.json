@@ -1,12 +1,26 @@
 {
-  "_help": "Poetic Treasures. Only Nihira's own published poetry or her recitations. Fields per poem: id (unique), title, lang ('mr' Marathi, 'hi' Hindi, 'en' English), author, date (optional YYYY-MM-DD), text (use \\n for a new line, blank line \\n\\n between stanzas), videoId (optional recitation video), source. Never paste song lyrics or other people's copyrighted poems.",
+  "_help": "Poetic Treasures. Only Nihira's own published poetry or her recitations. playlistId = the YouTube playlist of the series (the code after 'list=' in the playlist link); the daily YouTube sync copies its videos into youtube-latest.json and the page shows them automatically. items = entries you add yourself (they appear first and can carry a note). Fields per item: id (unique), title, lang ('mr' Marathi, 'hi' Hindi, 'en' English), author (who wrote the poem), date (optional YYYY-MM-DD), description (optional short note), text (ONLY Nihira's own poems; use \\n for a new line, a blank line \\n\\n between stanzas), videoId (recitation video), source. Never paste song lyrics or other people's poems as text: link the recitation video instead.",
   "pageTitle": "Poetic Treasures",
   "subtitle": "Poetic Treasures: A Journey Through My Favorite Verses",
   "intro": "Poetry is something very close to Nihira's heart. Watch out for the series \"Poetic Treasures\" on Youtube, where Nihira will recite a few of her favorite poems in her soulful voice.",
   "introSource": "https://nihiramusic.in/poetic-treasures (meta description)",
   "youtubeUrl": "https://www.youtube.com/@Nihiramusic",
   "emptyText": "New recitations are on their way. Follow the series on YouTube.",
-  "items": [],
+  "items": [
+    {
+      "id": "pan-milind-joshi",
+      "title": "पण",
+      "lang": "mr",
+      "author": "Milind Joshi",
+      "date": "2024-03-21",
+      "videoId": "eT8txGBAZ9I",
+      "source": "https://www.youtube.com/watch?v=eT8txGBAZ9I",
+      "_note": "M4: from the Poetic Thursdays playlist. Video title: \"Poetic Thursdays! Penned by @milind.joshi.1, it is called ' पण '\" (author name read from that handle). Poem text not reproduced (not Nihira's own)."
+    }
+  ],
   "source": "https://nihiramusic.in/poetic-treasures",
-  "_todo": "The old page only shows its headings; no poems or videos could be read automatically. Add poems/recitation video IDs here."
+  "playlistId": "PLQ_rmkCpHU8o418EPqbPcQE5V5WsH8Mjj",
+  "playlistTitle": "Poetic Thursdays",
+  "playlistSource": "https://youtube.com/playlist?list=PLQ_rmkCpHU8o418EPqbPcQE5V5WsH8Mjj&si=v82DDiK4banncfMq",
+  "_todo": "The playlist has 12 videos (owner: Nihira Joshi); only one could be read automatically here. The other 11 appear automatically after the next YouTube sync; add an item only to give a video a better title or note."
 }

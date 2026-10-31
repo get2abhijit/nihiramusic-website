@@ -1,0 +1,31 @@
+# Checks every file in data/ after each change (also changes saved from Pages CMS).
+# If something is wrong, the run turns red and names the file, the entry and how to fix it:
+#   Actions > Check content > the red run > "Check the content files" (or the summary at the top).
+# "Deploy site" runs the same check first and does not publish while there is an error,
+# so the live website keeps its last good version.
+# Run it by hand: Actions > Check content > Run workflow. Locally: python3 tools/validate_data.py
+name: Check content
+
+on:
+  push:
+    paths:
+      - "data/**"
+      - "assets/img/**"
+      - "tools/validate_data.py"
+      - ".github/workflows/validate-data.yml"
+  pull_request:
+    paths:
+      - "data/**"
+      - "assets/img/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the content files
+        run: python3 tools/validate_data.py

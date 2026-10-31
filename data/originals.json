@@ -147,7 +147,10 @@
       "spotifyUrl": "https://open.spotify.com/track/14xSeh9oaEnI3tbEALeUCo",
       "soundcloudUrl": "https://soundcloud.com/nihirajoshideshpande/na-chedo-hamein",
       "source": "https://song.link/nachedohamein",
-      "_todo": "Release year unknown. artist.link uses a different YouTube video (hZ080Z1WN2Y); the old site uses Z49Tmzx5pzQ."
+      "_todo": "artist.link uses a different YouTube video (hZ080Z1WN2Y); the old site uses Z49Tmzx5pzQ.",
+      "date": "2018-06-03",
+      "year": 2018,
+      "_note": "M4: release date 2018-06-03 confirmed by the site owner."
     }
   ]
 }

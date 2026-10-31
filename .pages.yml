@@ -1,0 +1,457 @@
+# Pages CMS configuration (https://pagescms.org). Lets you edit the website's content with forms
+# instead of editing JSON. Sign in at https://app.pagescms.org with GitHub and open this repository.
+# Syntax checked against the Pages CMS docs (pagescms.org/docs/configuration, Oct 2026). If Pages CMS
+# reports a configuration error after an update of theirs, compare with that page.
+#
+# Deliberately NOT editable here (generated automatically, never edit by hand):
+#   data/youtube-latest.json, data/events-calendar.json, data/images.json, sitemap.xml, robots.txt,
+#   news/feed.xml, events/calendar.ics and the <!-- generated --> blocks in the index.html files.
+# Also not here: data/site.json (menu, links, settings) and data/legal.json (legal texts, verbatim; change
+# only after legal advice). Edit those on github.com (see README, "Editor's guide").
+#
+# Every save is a commit. "Check content" then checks the files; if something is wrong, "Deploy site"
+# does not publish and the live site keeps its last good version.
+
+media:
+  input: assets/img/uploads
+  output: assets/img/uploads
+  categories: [image]
+  extensions: [jpg, jpeg, png, webp, gif]
+  rename: safe
+
+settings:
+  content:
+    merge: true   # keep fields the forms don't show (_help, notes, sources) when saving
+
+components:
+  id:
+    type: string
+    label: ID
+    required: true
+    description: "Unique name for this entry: lowercase letters, digits and dashes, e.g. diwali-concert-2026. Never change it later (it is used in links)."
+    pattern:
+      regex: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      message: "Only lowercase letters, digits and single dashes, e.g. diwali-concert-2026"
+  source:
+    type: string
+    label: Source
+    description: "Where this information comes from (a web address). Not shown on the website."
+  note:
+    type: text
+    label: Private note
+    description: "Never shown on the website."
+  todo:
+    type: text
+    label: Open question (private)
+    description: "Never shown on the website."
+  videoId:
+    type: string
+    label: YouTube video code
+    description: "Only the 11 characters after v= in the YouTube link, e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ → dQw4w9WgXcQ"
+    pattern:
+      regex: "^([A-Za-z0-9_-]{11})?$"
+      message: "Only the 11-character code after v= (not the whole link)"
+  url:
+    type: string
+    pattern:
+      regex: "^(https?://\\S+)?$"
+      message: "A full web address starting with https://"
+  year:
+    type: number
+    label: Year
+    options:
+      min: 1950
+      max: 2100
+  date:
+    type: date
+    label: Date
+    default: ""
+    options:
+      format: yyyy-MM-dd
+  image:
+    type: image
+    label: Image
+    description: "Upload or pick a photo (stored in assets/img/uploads). JPG or WebP, max. about 1600 px wide."
+
+content:
+  # ---------------------------------------------------------------- News
+  - name: news
+    label: News
+    type: file
+    path: data/news.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: intro, label: Intro text (optional), type: text }
+      - { name: emptyText, label: Text when there is no news, type: string }
+      - name: items
+        label: News items (sorted by date automatically; add new ones anywhere)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{date}: {title}"
+        fields:
+          - { name: id, component: id }
+          - { name: date, component: date, required: true }
+          - { name: title, label: Title, type: string, required: true }
+          - { name: summary, label: Summary (1–2 sentences), type: text, required: true }
+          - name: body
+            label: Longer text (optional)
+            type: text
+            description: "Blank line = new paragraph. **bold**, *italic*, [link text](https://...) and lines starting with '- ' work."
+          - { name: image, component: image }
+          - { name: imageAlt, label: Image description (for blind visitors), type: string }
+          - { name: link, component: url, label: "'Read more' link (optional)" }
+          - { name: linkLabel, label: "Text of that link, e.g. Read the interview", type: string }
+          - { name: source, component: source }
+          - { name: _note, component: note }
+
+  # ---------------------------------------------------------------- Events
+  - name: events
+    label: Events
+    type: file
+    path: data/events.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: intro, label: Intro text (optional), type: text }
+      - { name: emptyText, label: Text when no events are announced, type: string }
+      - name: items
+        label: Events (move to "Past" automatically after the date). Events from the linked Google calendar are added automatically and are not listed here.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{date}: {title} ({city})"
+        fields:
+          - { name: id, component: id }
+          - { name: title, label: Title, type: string, required: true }
+          - { name: date, component: date, label: Date, required: true }
+          - { name: endDate, component: date, label: End date (only for multi-day events or shows ending after midnight) }
+          - name: startTime
+            label: Start time (24 h, HH:MM)
+            type: string
+            pattern: { regex: "^(([01][0-9]|2[0-3]):[0-5][0-9])?$", message: "Write it like 19:30" }
+          - name: endTime
+            label: End time (24 h, HH:MM)
+            type: string
+            pattern: { regex: "^(([01][0-9]|2[0-3]):[0-5][0-9])?$", message: "Write it like 21:30" }
+          - name: timezone
+            label: Time zone of the venue
+            type: select
+            description: "Needed so 'Add to calendar' shows the right hour."
+            options:
+              values:
+                - { name: Asia/Kolkata, label: "India (Asia/Kolkata)" }
+                - { name: Europe/Berlin, label: "Germany (Europe/Berlin)" }
+                - { name: Europe/London, label: "UK (Europe/London)" }
+                - { name: Europe/Paris, label: "France (Europe/Paris)" }
+                - { name: Europe/Amsterdam, label: "Netherlands (Europe/Amsterdam)" }
+                - { name: Europe/Zurich, label: "Switzerland (Europe/Zurich)" }
+                - { name: Europe/Vienna, label: "Austria (Europe/Vienna)" }
+                - { name: Europe/Madrid, label: "Spain (Europe/Madrid)" }
+                - { name: Asia/Dubai, label: "UAE (Asia/Dubai)" }
+                - { name: Asia/Singapore, label: "Singapore (Asia/Singapore)" }
+                - { name: America/New_York, label: "US East (America/New_York)" }
+                - { name: America/Chicago, label: "US Central (America/Chicago)" }
+                - { name: America/Los_Angeles, label: "US West (America/Los_Angeles)" }
+                - { name: America/Toronto, label: "Canada East (America/Toronto)" }
+                - { name: Australia/Sydney, label: "Australia (Australia/Sydney)" }
+          - { name: venue, label: Venue, type: string }
+          - { name: address, label: Address (optional), type: string }
+          - { name: city, label: City, type: string }
+          - { name: country, label: Country, type: string }
+          - name: status
+            label: Status
+            type: select
+            options:
+              values:
+                - { name: scheduled, label: Scheduled }
+                - { name: sold-out, label: Sold out }
+                - { name: cancelled, label: Cancelled }
+          - { name: ticketUrl, component: url, label: Ticket link (optional) }
+          - { name: description, label: Description, type: text }
+          - { name: image, component: image }
+          - { name: imageAlt, label: Image description, type: string }
+          - { name: source, component: source }
+          - { name: _note, component: note }
+
+  # ---------------------------------------------------------------- Awards
+  - name: awards
+    label: Awards
+    type: file
+    path: data/awards.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: intro, label: Intro text (optional), type: text }
+      - { name: emptyText, label: Text when the list is empty, type: string }
+      - name: items
+        label: Awards (grouped by year automatically)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year}: {award} ({status})"
+        fields:
+          - { name: id, component: id }
+          - { name: year, component: year }
+          - { name: award, label: Award name, type: string, required: true }
+          - { name: category, label: Category, type: string }
+          - { name: work, label: Song or album, type: string }
+          - name: status
+            label: Result
+            type: select
+            required: true
+            options:
+              values: [Won, Nominated, Finalist]
+          - { name: organisation, label: Organisation, type: string }
+          - { name: link, component: url, label: Proof / article link }
+          - { name: image, component: image }
+          - { name: imageAlt, label: Image description, type: string }
+          - { name: highlight, label: Show on the Home page, type: boolean }
+          - { name: source, component: source }
+          - { name: _sources, label: More sources, type: string, list: true, hidden: true }
+          - { name: _note, component: note }
+
+  # ---------------------------------------------------------------- Originals
+  - name: originals
+    label: Originals
+    type: file
+    path: data/originals.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: intro, label: Intro text (optional), type: text }
+      - { name: emptyText, label: Text when the list is empty, type: string }
+      - name: items
+        label: Releases (newest first automatically)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} ({year})"
+        fields:
+          - { name: id, component: id }
+          - { name: title, label: Title, type: string, required: true }
+          - name: type
+            label: Type
+            type: select
+            options:
+              values: [Single, EP, Album]
+          - { name: year, component: year }
+          - { name: date, component: date, label: Release date (optional) }
+          - { name: videoId, component: videoId }
+          - { name: image, component: image, label: Cover art (optional) }
+          - { name: imageAlt, label: Cover art description, type: string }
+          - { name: credits, label: Credits (one short line), type: string }
+          - name: description
+            label: Description
+            type: text
+            description: "New line = new paragraph. **bold** and [link text](https://...) work."
+          - { name: listenUrl, component: url, label: "'Listen now' link (song.link / album.link)" }
+          - { name: spotifyUrl, component: url, label: Spotify link }
+          - { name: soundcloudUrl, component: url, label: SoundCloud link }
+          - { name: deezerUrl, component: url, label: Deezer link }
+          - { name: featured, label: Pin to the top (use for one release only), type: boolean }
+          - name: tracks
+            label: Tracks (albums / EPs only)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - { name: title, label: Track title, type: string, required: true }
+              - { name: videoId, component: videoId }
+              - { name: listenUrl, component: url, label: "'Listen now' link" }
+              - { name: spotifyUrl, component: url, label: Spotify link }
+              - { name: soundcloudUrl, component: url, label: SoundCloud link }
+              - { name: deezerUrl, component: url, label: Deezer link }
+              - { name: _source, label: Source, type: string, hidden: true }
+              - { name: _note, label: Note, type: string, hidden: true }
+          - { name: source, component: source }
+          - { name: _sources, label: More sources, type: string, list: true, hidden: true }
+          - { name: _note, component: note }
+          - { name: _todo, component: todo }
+
+  # ---------------------------------------------------------------- Covers
+  - name: covers
+    label: Covers
+    type: file
+    path: data/covers.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: intro, label: Intro text (optional), type: text }
+      - { name: emptyText, label: Text when the list is empty, type: string }
+      - name: items
+        label: Cover songs
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} ({category})"
+        fields:
+          - { name: id, component: id }
+          - name: title
+            label: Song title
+            type: string
+            description: "Leave empty to show the video's YouTube title."
+          - name: category
+            label: Category (filter button)
+            type: string
+            description: "Use an existing one for the same group: Hindi Covers, Marathi Covers, Unplugged, More covers."
+          - { name: videoId, component: videoId, required: true }
+          - { name: year, component: year }
+          - { name: date, component: date, label: Date (optional) }
+          - { name: originalArtist, label: Original artist (optional), type: string }
+          - { name: credits, label: Credits (optional), type: string }
+          - { name: description, label: Description (optional, never lyrics), type: text }
+          - { name: spotifyUrl, component: url, label: Spotify link }
+          - { name: listenUrl, component: url, label: "'Listen now' link" }
+          - { name: featured, label: Pin to the top, type: boolean }
+          - { name: source, component: source }
+          - { name: _sources, label: More sources, type: string, list: true, hidden: true }
+          - { name: _note, component: note }
+          - { name: _todo, component: todo }
+
+  # ---------------------------------------------------------------- Concerts
+  - name: concerts
+    label: Concerts (past shows with videos)
+    type: file
+    path: data/concerts.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: intro, label: Intro text (optional), type: text }
+      - { name: bannerImage, component: image, label: Banner photo at the top }
+      - { name: bannerImageAlt, label: Banner photo description, type: string }
+      - { name: emptyText, label: Text when the list is empty, type: string }
+      - name: items
+        label: Concerts (upcoming shows go under Events)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} ({date}{year})"
+        fields:
+          - { name: id, component: id }
+          - { name: title, label: Title, type: string, required: true }
+          - { name: subtitle, label: Subtitle (optional), type: string }
+          - { name: date, component: date, label: Date (if known) }
+          - { name: year, component: year, label: Year (if the exact date is unknown) }
+          - { name: venue, label: Venue, type: string }
+          - { name: city, label: City, type: string }
+          - { name: country, label: Country, type: string }
+          - { name: description, label: Description, type: text }
+          - { name: image, component: image, label: Main photo (optional) }
+          - { name: imageAlt, label: Main photo description, type: string }
+          - name: photos
+            label: More photos
+            type: object
+            list: true
+            fields:
+              - { name: src, component: image, label: Photo, required: true }
+              - { name: alt, label: Description, type: string }
+          - { name: playlistUrl, component: url, label: YouTube playlist link (optional) }
+          - name: videos
+            label: Videos
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title} {videoId}"
+            fields:
+              - { name: videoId, component: videoId, required: true }
+              - { name: title, label: Title (empty = YouTube title), type: string }
+          - { name: source, component: source }
+          - { name: _sources, label: More sources, type: string, list: true, hidden: true }
+          - { name: _note, component: note }
+          - { name: _todo, component: todo }
+
+  # ---------------------------------------------------------------- Poetic Treasures
+  - name: poems
+    label: Poetic Treasures
+    type: file
+    path: data/poems.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: subtitle, label: Subtitle, type: string }
+      - { name: intro, label: Intro text, type: text }
+      - name: playlistId
+        label: YouTube playlist code of the series
+        type: string
+        description: "The part after list= in the playlist link. Its videos appear on the page automatically (daily sync)."
+      - { name: playlistTitle, label: Series title shown above the videos, type: string }
+      - { name: emptyText, label: Text when nothing is listed, type: string }
+      - name: items
+        label: Your own entries (optional; they override a playlist video with the same code)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - { name: id, component: id }
+          - { name: title, label: Title, type: string, required: true }
+          - name: lang
+            label: Language of the title / text
+            type: select
+            options:
+              values:
+                - { name: mr, label: Marathi }
+                - { name: hi, label: Hindi }
+                - { name: en, label: English }
+          - { name: author, label: Poet, type: string }
+          - { name: date, component: date, label: Date (optional) }
+          - { name: videoId, component: videoId, label: Recitation video code }
+          - { name: description, label: Short note (optional), type: text }
+          - name: text
+            label: Poem text (ONLY Nihira's own poems)
+            type: text
+            description: "Never paste other poets' poems or song lyrics; link the recitation video instead. Blank line = new stanza."
+          - { name: source, component: source }
+          - { name: _note, component: note }
+
+  # ---------------------------------------------------------------- Home
+  - name: home
+    label: Home page text
+    type: file
+    path: data/home.json
+    format: json
+    fields:
+      - name: hero
+        label: Top of the page
+        type: object
+        fields:
+          - { name: headline, label: Headline, type: string, required: true }
+          - { name: tagline, label: Tagline, type: string }
+          - { name: image, component: image, label: Large photo }
+          - { name: imageAlt, label: Photo description, type: string }
+          - { name: taglineSource, label: Tagline source, type: string, hidden: true }
+          - { name: source, label: Source, type: string, hidden: true }
+      - name: about
+        label: About
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: paragraphs, label: Paragraphs, type: text, list: true }
+          - { name: image, component: image, label: Photo }
+          - { name: imageAlt, label: Photo description, type: string }
+          - { name: source, label: Source, type: string, hidden: true }
+          - { name: _note, label: Note, type: text, hidden: true }
+      - name: contact
+        label: Bookings and contact
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+          - name: email
+            label: E-mail
+            type: string
+            pattern: { regex: "^[^@\\s]+@[^@\\s]+\\.[A-Za-z]{2,}$", message: "An e-mail address" }
+          - { name: instagram, component: url, label: Instagram link }
+          - { name: source, label: Source, type: string, hidden: true }

@@ -1,5 +1,12 @@
 # Changelog
 
+## M4 (2026-10-30): Editing without touching JSON
+- New `tools/validate_data.py` + workflow "Check content": checks all data files (JSON syntax with plain-English hints, required fields, YYYY-MM-DD dates, HH:MM times, unique ids, URLs, YouTube codes, local images exist, allowed status values; generated files by shape). "Deploy site" runs it first and never publishes broken data.
+- New `.pages.yml` (Pages CMS): forms for News, Events, Awards, Originals (with tracks), Covers, Concerts, Poetic Treasures, Home text; uploads to `assets/img/uploads/`; generated, settings and legal files excluded.
+- YouTube sync reads playlists named by `playlistId` (Poetic Treasures). Poetic Treasures shows recitation cards + "Full series on YouTube".
+- Content: bio "Based primarily in India" and verified IMA wording; award renamed to 18th Independent Music Awards (The IMAs), Best Adult Contemporary Song; Na Chedo Hamein 2018-06-03; news Jag Jaage and Aaye Abhi Toh; Poetic Thursdays playlist.
+- Restored `data/youtube-latest.json` and `data/images.json` (emptied by the M3 upload). README: Editor's guide.
+
 ## M3 (2026-10-30): SEO, structured data, feeds, performance
 - New `tools/build_seo.py`: sitemap.xml, robots.txt, news/feed.xml (RSS), events/calendar.ics, JSON-LD (MusicGroup + Person + WebSite on Home, MusicEvent on Events, MusicRecording/MusicAlbum on Originals), canonical/og:url/og:image from site.json, static no-JavaScript overview on Home, module + hero-image preloads.
 - New workflows: "SEO files" (on data change + daily) and "Calendar sync" (Google/Outlook .ics, every 6 h). "Deploy site" regenerates SEO files before publishing and also runs after "Calendar sync". YouTube sync also stores upload dates.

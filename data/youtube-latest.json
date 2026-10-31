@@ -1,7 +1,7 @@
 {
-  "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for filling in concert dates; the concert itself may have been earlier).",
+  "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty.",
   "channelId": "UC46dtN9KIZspJ8__89BeSXw",
-  "updated": "2026-10-30T10:49:39Z",
+  "updated": "2026-10-30T08:19:50Z",
   "videos": [
     {
       "videoId": "44MRWtoBeCg",
@@ -145,7 +145,6 @@
     "aR5HjBafe1U": "Saang Na re Mana | Piano | Vocals",
     "cIUE689lwIU": "The story behind the duet version of IMK!!!",
     "dBq27cvCIbY": "Trishna Samarpan Ki|  Live from LONDON|",
-    "e6K49l_6b08": "Trishna Bandhan Ki | Nihira Joshi |Mayukh Sarkar |Tejas Ranade",
     "fpP3as4NFY4": "Tajmahal me aa jana (Live at Khazana Festival)",
     "gMqcUxwB6uk": "Kisi Ranjish ko hawa do|  Live in London| Jagjit Singh| Chitra Singh | Fakir Sudarshan",
     "iGBytb6zsEk": "Trishna Antarman Ki | Nihira Joshi| Carlos Cano |  Hernán Milla | Apoorva Kulkarni",
@@ -158,22 +157,5 @@
     "v1fiI8H6CSQ": "Rock N Roll Medley| Live concert",
     "vAzuLtM1Ei8": "The experience of recording Shaan dada for Ishq Manayein Kya!!!",
     "x7prW7at-Mg": "Shaan dada talking about our forthcoming song: Ishq Manayein Kya!!!"
-  },
-  "dates": {
-    "04lq9P_EQwc": "2026-10-09",
-    "44MRWtoBeCg": "2026-10-28",
-    "BKrjHQREAxI": "2026-09-15",
-    "CcMquscablo": "2026-09-29",
-    "Cjozg33TXio": "2026-09-01",
-    "MJ_CNkdFe4Y": "2026-08-11",
-    "V9JQ6qCpOco": "2026-08-18",
-    "W827QZf9PyU": "2026-09-22",
-    "Y2Rgovheb44": "2026-07-28",
-    "_cYFg-9mYf8": "2026-08-25",
-    "cIUE689lwIU": "2026-10-14",
-    "fpP3as4NFY4": "2026-09-08",
-    "o9eWEdElfk0": "2026-07-24",
-    "vAzuLtM1Ei8": "2026-10-27",
-    "x7prW7at-Mg": "2026-10-06"
   }
 }
