@@ -1,7 +1,7 @@
 {
-  "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for filling in concert dates; the concert itself may have been earlier). playlists = videos of each playlist named by a 'playlistId' in data/*.json (Poetic Treasures).",
+  "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for filling in concert dates; the concert itself may have been earlier). playlists = videos of each playlist named by a 'playlistId' in data/*.json (Poetic Treasures, Originals, Playback and Covers sections).",
   "channelId": "UC46dtN9KIZspJ8__89BeSXw",
-  "updated": "2026-10-31T12:30:13Z",
+  "updated": "2026-11-01T14:44:52Z",
   "videos": [
     {
       "videoId": "44MRWtoBeCg",
@@ -110,33 +110,49 @@
     }
   ],
   "titles": {
+    "-BGYI-9OEyg": "Nakalat Vinale Jate Jaale - Full Song - Sanshaykallol - Ankush Chaudhari, Kshiti Jog",
     "04lq9P_EQwc": "Ishq Manayein Kya (Duet version)  Nihira Joshi | Shaan | Manoj Yadav| Tanmay Pawar|",
     "1nFsfdmOAxI": "That's how I wish to go| Nihira Joshi| Aahna Anaya| Poetic Thursdays",
     "3-wWQadVPw0": "Nirmohiya| Live at London| Original song",
+    "39VnOFFUYRE": "Avachita Parimalu | अवचिता परिमळू | आषाढी एकादशी Special | मराठी गाणी | Sant Dnyaneshwar Abhang",
     "3VGJ3PPako0": "Poetic Thursdays| One day in Spring|  Rabindranath Tagore",
     "3Yd4ipT-VBs": "Tujvin Sakhya Re | तुजवीण सख्या रे",
     "44MRWtoBeCg": "Sajna hai mujhe (Live )",
+    "4F3vRLPp59o": "Majha Hoshil Ka",
     "4dCfQbMUeGM": "Ye javali ghe javali | Nihira Joshi| Meena Mangeshkar",
     "630ZVz5XC98": "Laagi Karejwa Kataar - Nihira Joshi Deshpande and Vishwajeet Borwankar",
+    "8fIsEMfeyU4": "Saraswati Vandana (Live at Nehru Centre)",
+    "9nBJ5G4CZQA": "Trishna Antarman Ki | | Nihira Joshi | Album version",
+    "A45q8fwuS1Y": "Bhavani Dayani | Bhajan | Riyaz session",
     "ACYC6EXMP70": "Poetic Thursdays| Milind Joshi",
+    "AX6pRrfGRkE": "Path Ekaki | Kurukshetra Songs | Shweta Salve - Vaibhav Tattwavadi | Latest Marathi Song",
     "B-uKdwFca0U": "Trishna Spandan Ki |Nihira Joshi | Mayukh Sarkar |Shashi Sharma",
+    "B8v67REwVlk": "घे पाऊल पुढे जरा | GHE PAAUL PUDHE JARA | AAMHI SATPUTE | Fun Song | Sachin - Supriya | Ashok Saraf",
     "BKrjHQREAxI": "Tuch Shwas Moraya| Ganpati Bappa| New release",
     "CcMquscablo": "Ranjishi hi sahi (Nihira Joshi ft. Pulse Parindey)",
     "Cjozg33TXio": "Sajde (live) Ft. Pulse Parindey",
     "Csw3FB_5HNw": "Poetic Thursdays| We have not long to love|Tennessee Williams",
+    "F7wM7zNTn5c": "Baawra",
     "FBaxVScgS7E": "Ishq Manayein Kya| Swing version| Nihira Joshi| Manoj Yadav| Tanmay Pawar| Original",
     "GGOWse2CYOI": "Tumhe Ho Na Ho| Cover| Nihira Joshi| Vidushi Gupta",
     "GzuRFbqFsbo": "Poetic Thursdays| Rumi | Amrita Pritam",
+    "HkVbTV7Axi0": "Mora Saawan Sookh Gaya | Nihira Joshi | Abhay Nayampally | Manoj Yadav",
     "I29C7FmZ2UI": "Toote Chhaate|Nihira Joshi-Deshpande | Rhythm Shaw |Alok Ranjan Srivastava",
+    "IdA3wcKHUqI": "Kon Hotis Tu Kay Zalis Tu - कोण होतीस तू काय झालीस तू | Title Song with Lyrics | Star Pravah",
+    "JlQweA5Docg": "Bhijun Gela Vara with lyrics | भिजून गेला वारा | Kshitij Tare | Nihira Joshi | Irada Pakka",
     "Jxe2-Muf2bY": "Poetic Thursdays |'Sitambar|  Alok Ranjan Srivastava",
     "KSXkwZMxM2g": "Tumi | A Soulful Bengali Love Song | Nihira Joshi | Santanu Ghatak | Ashwin Srinivasan | Original",
     "KfyyHsikgjM": "Poetic Thursdays| Fear| Khalil Gibran",
     "L2wyFD153B0": "Julun Yeti Reshimgathi Full Title Track | जुळून येती रेशीमगाठी शीर्षकगीत",
+    "LOx00OpafQU": "Lyrical: Na Chedo Hamein | Full Song With Lyrics | Nihira Joshi  | Mithilesh Patankar",
     "MJ_CNkdFe4Y": "Ab ke saawan (live ) ft. Pulse Parindey | Shubha Mudgal",
     "NXSVoSZrCDU": "Trishna Antarman Ki| Live version| UK Concert",
+    "Nozw1ysKGlo": "Bhimrupi Maharudra Lyrics",
     "PO4egGXw30E": "Poetic Thursdays | Smita and I | Deepti Naval",
+    "QnY2Ilb0d5w": "Sandhyakalche shlok | Stotra | Parvacha",
     "RP1B-RYn4gw": "Trishna Samarpan Ki | Nihira Joshi|  Saurabh Bhalerao |Apoorva Kulkarni",
     "R_GP3uwr9H8": "Poetic Thursday|  Ramdhari Singh Dinkar",
+    "T-EGHcSXPV8": "Parvacha | Nihira Joshi | Shlok",
     "TsWZZBjAEnc": "Bhaya Ithale sampat nahi",
     "TxIo1Vp-lkQ": "Mai Mai Part 1 [Live Concert]",
     "V9JQ6qCpOco": "Na jane Kyun | Keys and Conversations| Nihira Joshi| Manan Mehta",
@@ -149,59 +165,451 @@
     "ZU15ojYRNig": "Poetic Thursdays | Hatasha se ek vyakti baith Gaya tha| Vinod Kumar 'Shukla'|",
     "ZaM9T6ftHzI": "Ishq Manayein Kya? Nihira ft. Orquesta Son Diamantes || Manoj Yadav || RMM Productions [Original]",
     "Zc9Lqpgp4HU": "Mai Mai -Part 2 [Live Concert]",
+    "_3PIYlQ4A70": "Chal Re Mana Jaau | Ata Thambaycha Naay | Nihira D, Gulraj S |Manoj |Om B, Parna,Bharat, Siddharth",
     "_R-iXCWgsK8": "Trishna EP | Jukebox | Nihira Joshi| Original music",
     "_cYFg-9mYf8": "Phir Dekhiye",
     "_o8WK8i-Ea0": "Aye Ri Pavan Revisited: Nihira Joshi-Deshpande feat. Abhishek Borkar [HD]",
     "aR5HjBafe1U": "Saang Na re Mana | Piano | Vocals",
+    "aVG7TYawWzs": "Shubham Karoti By Nihira Joshi",
     "c8-PhXey9v4": "Poetic Thursdays| Dust if you must |Rose Milligan",
     "cIUE689lwIU": "The story behind the duet version of IMK!!!",
     "dBq27cvCIbY": "Trishna Samarpan Ki|  Live from LONDON|",
     "e6K49l_6b08": "Trishna Bandhan Ki | Nihira Joshi |Mayukh Sarkar |Tejas Ranade",
     "eT8txGBAZ9I": "Poetic Thursdays!  Penned by @milind.joshi.1 , it is called ' पण '",
+    "fUISyuUsb9c": "Jag Jaage - Chirag Todi (ft. Nihira Joshi-Deshpande, Sreenath, Jonathan Edward, Rohan Prasanna)",
+    "fj2hNnuZgpA": "Lyrical: Sajde Song with Lyrics | Kill Dil | Ranveer Singh, Parineeti | Shankar-Ehsaan-Loy, Gulzar",
     "fpP3as4NFY4": "Tajmahal me aa jana (Live at Khazana Festival)",
     "gMqcUxwB6uk": "Kisi Ranjish ko hawa do|  Live in London| Jagjit Singh| Chitra Singh | Fakir Sudarshan",
+    "hG1XURXa5m4": "Mera Dil (Full Song) Film - Salaam-E-Ishq",
+    "hzw5M0IvDu4": "Sakalche Shlok By Nihira Joshi",
     "iGBytb6zsEk": "Trishna Antarman Ki | Nihira Joshi| Carlos Cano |  Hernán Milla | Apoorva Kulkarni",
+    "iv0Lvy3h5yc": "Ishq Vishq | Sai Tamhankar, Sanjay Narvekar, Resham Tipnis | Be Dune Saade Chaar | Comedy Movie",
+    "jBQ758Vy_l4": "Funkarichi Wadle | Video Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana",
     "jzMOB0H24S4": "Poetic Thursdays| Kahlil Gibran | Khalil Gibran | Children",
     "lYYRVCE-k9Y": "Kasamh Se Serial | Full Title Song | Nihira Joshi Deshpande | Hindi Serial Song",
+    "mn_5acd98l4": "Funkarichi Wadle (फुंकरीची वादळे) | Lyrical Video | What's Up Lagna | Vaibhav Tatwawaadi, Prarthana",
     "nuRMhdy0hV0": "Aaj Jane Ki Zid Na Karo | Nihira Joshi | Vidushi Gupta",
+    "o6_TB0n8pXQ": "Shree Ganpati Stotra | Nihira Joshi | Devotional | Ganeshotsav",
     "o9eWEdElfk0": "Mora saiyyan mose bole na | Cover song Fuzon | Nihira Joshi ft. PULSE PARINDEY",
     "oLQIvcD57pM": "Jahaan Mein Aisa Kaun Hai | Forgotten Gem | Asha Bhosle Cover | Hum Dono 1961 | Nihira & Saurabh",
+    "oLcfZiptkT0": "Navagraha Stotra | Nihira Joshi",
+    "oqCpc4qQnQQ": "Sang Na Re Mana Lyric Video | Swapnil Bandodkar | Nihira Joshi | Avadhoot Gupte",
+    "pRp38QCDN6s": "| Tujha Majha Breakup | Unplugged | Avdhoot Gupte | Nihira Joshi | @EkviraMusic",
     "qr3rR9tsHXE": "Dil-e-Nadaan by Mehdi Hassan Saab",
     "r7FUOmo7630": "Meri Jaan Mujhe Jaan Na Kaho [Live Concert]",
+    "v1LNazMcLUE": "Shankar Maharaj Aarati",
     "v1fiI8H6CSQ": "Rock N Roll Medley| Live concert",
     "vAzuLtM1Ei8": "The experience of recording Shaan dada for Ishq Manayein Kya!!!",
-    "x7prW7at-Mg": "Shaan dada talking about our forthcoming song: Ishq Manayein Kya!!!"
+    "wMMXzML-zS8": "Kalbhairavashtak Stotra",
+    "x7prW7at-Mg": "Shaan dada talking about our forthcoming song: Ishq Manayein Kya!!!",
+    "zGV4uN2tB4E": "Tu Jarashi | Lyrical Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana Behere",
+    "zXYDy1m2G50": "Chal Re Mana Jaau (From \"Ata Thambaycha Naay\")"
   },
   "dates": {
+    "-BGYI-9OEyg": "2013-03-22",
     "04lq9P_EQwc": "2026-10-09",
     "1nFsfdmOAxI": "2024-04-26",
+    "39VnOFFUYRE": "2025-07-06",
     "3VGJ3PPako0": "2024-06-06",
+    "3Yd4ipT-VBs": "2022-11-29",
     "44MRWtoBeCg": "2026-10-28",
+    "4F3vRLPp59o": "2019-02-15",
+    "8fIsEMfeyU4": "2026-05-19",
+    "9nBJ5G4CZQA": "2023-01-01",
+    "A45q8fwuS1Y": "2026-07-14",
     "ACYC6EXMP70": "2024-03-21",
+    "AX6pRrfGRkE": "2016-03-14",
+    "B-uKdwFca0U": "2022-11-13",
+    "B8v67REwVlk": "2017-01-21",
     "BKrjHQREAxI": "2026-09-15",
     "CcMquscablo": "2026-09-29",
     "Cjozg33TXio": "2026-09-01",
     "Csw3FB_5HNw": "2024-04-18",
+    "F7wM7zNTn5c": "2019-11-06",
+    "FBaxVScgS7E": "2024-06-16",
     "GzuRFbqFsbo": "2024-03-28",
+    "HkVbTV7Axi0": "2026-02-24",
+    "I29C7FmZ2UI": "2023-08-29",
+    "IdA3wcKHUqI": "2025-05-01",
+    "JlQweA5Docg": "2019-06-04",
     "Jxe2-Muf2bY": "2024-03-07",
+    "KSXkwZMxM2g": "2024-04-24",
     "KfyyHsikgjM": "2024-02-08",
+    "L2wyFD153B0": "2022-11-27",
+    "LOx00OpafQU": "2018-06-10",
     "MJ_CNkdFe4Y": "2026-08-11",
+    "Nozw1ysKGlo": "2025-11-28",
     "PO4egGXw30E": "2024-02-15",
+    "QnY2Ilb0d5w": "2026-03-17",
+    "RP1B-RYn4gw": "2022-12-24",
     "R_GP3uwr9H8": "2024-04-10",
+    "T-EGHcSXPV8": "2026-01-29",
     "V9JQ6qCpOco": "2026-08-18",
     "W827QZf9PyU": "2026-09-22",
     "Y2Rgovheb44": "2026-07-28",
+    "ZC90JEMIvpw": "2018-10-14",
     "ZU15ojYRNig": "2024-02-22",
+    "ZaM9T6ftHzI": "2021-01-28",
+    "_3PIYlQ4A70": "2025-04-29",
+    "_R-iXCWgsK8": "2023-01-13",
     "_cYFg-9mYf8": "2026-08-25",
+    "aVG7TYawWzs": "2025-12-05",
     "c8-PhXey9v4": "2024-04-04",
     "cIUE689lwIU": "2026-10-14",
+    "e6K49l_6b08": "2022-12-10",
+    "fUISyuUsb9c": "2024-03-24",
+    "fj2hNnuZgpA": "2014-11-11",
     "fpP3as4NFY4": "2026-09-08",
+    "hG1XURXa5m4": "2011-05-24",
+    "hzw5M0IvDu4": "2026-03-10",
+    "iv0Lvy3h5yc": "2016-03-11",
+    "jBQ758Vy_l4": "2018-02-23",
     "jzMOB0H24S4": "2024-03-14",
+    "lYYRVCE-k9Y": "2024-05-21",
+    "mn_5acd98l4": "2019-04-10",
+    "o6_TB0n8pXQ": "2025-08-26",
     "o9eWEdElfk0": "2026-07-24",
+    "oLcfZiptkT0": "2025-10-21",
+    "oqCpc4qQnQQ": "2021-06-25",
+    "pRp38QCDN6s": "2022-05-28",
+    "v1LNazMcLUE": "2026-06-11",
     "vAzuLtM1Ei8": "2026-10-27",
-    "x7prW7at-Mg": "2026-10-06"
+    "wMMXzML-zS8": "2025-11-12",
+    "x7prW7at-Mg": "2026-10-06",
+    "zGV4uN2tB4E": "2017-11-23",
+    "zXYDy1m2G50": "2025-04-29"
   },
   "playlists": {
+    "PLQ_rmkCpHU8rsUTAvaTwyn-8Rafjm7t3H": [
+      {
+        "videoId": "A45q8fwuS1Y",
+        "title": "Bhavani Dayani | Bhajan | Riyaz session",
+        "published": "2026-07-14",
+        "thumbnail": "https://i2.ytimg.com/vi/A45q8fwuS1Y/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/A45q8fwuS1Y.jpg"
+      },
+      {
+        "videoId": "v1LNazMcLUE",
+        "title": "Shankar Maharaj Aarati",
+        "published": "2026-06-11",
+        "thumbnail": "https://i3.ytimg.com/vi/v1LNazMcLUE/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/v1LNazMcLUE.jpg"
+      },
+      {
+        "videoId": "8fIsEMfeyU4",
+        "title": "Saraswati Vandana (Live at Nehru Centre)",
+        "published": "2026-05-19",
+        "thumbnail": "https://i1.ytimg.com/vi/8fIsEMfeyU4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/8fIsEMfeyU4.jpg"
+      },
+      {
+        "videoId": "QnY2Ilb0d5w",
+        "title": "Sandhyakalche shlok | Stotra | Parvacha",
+        "published": "2026-03-17",
+        "thumbnail": "https://i2.ytimg.com/vi/QnY2Ilb0d5w/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/QnY2Ilb0d5w.jpg"
+      },
+      {
+        "videoId": "hzw5M0IvDu4",
+        "title": "Sakalche Shlok By Nihira Joshi",
+        "published": "2026-03-10",
+        "thumbnail": "https://i1.ytimg.com/vi/hzw5M0IvDu4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/hzw5M0IvDu4.jpg"
+      },
+      {
+        "videoId": "T-EGHcSXPV8",
+        "title": "Parvacha | Nihira Joshi | Shlok",
+        "published": "2026-01-29",
+        "thumbnail": "https://i1.ytimg.com/vi/T-EGHcSXPV8/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/T-EGHcSXPV8.jpg"
+      },
+      {
+        "videoId": "aVG7TYawWzs",
+        "title": "Shubham Karoti By Nihira Joshi",
+        "published": "2025-12-05",
+        "thumbnail": "https://i2.ytimg.com/vi/aVG7TYawWzs/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/aVG7TYawWzs.jpg"
+      },
+      {
+        "videoId": "Nozw1ysKGlo",
+        "title": "Bhimrupi Maharudra Lyrics",
+        "published": "2025-11-28",
+        "thumbnail": "https://i3.ytimg.com/vi/Nozw1ysKGlo/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/Nozw1ysKGlo.jpg"
+      },
+      {
+        "videoId": "wMMXzML-zS8",
+        "title": "Kalbhairavashtak Stotra",
+        "published": "2025-11-12",
+        "thumbnail": "https://i4.ytimg.com/vi/wMMXzML-zS8/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/wMMXzML-zS8.jpg"
+      },
+      {
+        "videoId": "oLcfZiptkT0",
+        "title": "Navagraha Stotra | Nihira Joshi",
+        "published": "2025-10-21",
+        "thumbnail": "https://i4.ytimg.com/vi/oLcfZiptkT0/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/oLcfZiptkT0.jpg"
+      },
+      {
+        "videoId": "o6_TB0n8pXQ",
+        "title": "Shree Ganpati Stotra | Nihira Joshi | Devotional | Ganeshotsav",
+        "published": "2025-08-26",
+        "thumbnail": "https://i4.ytimg.com/vi/o6_TB0n8pXQ/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/o6_TB0n8pXQ.jpg"
+      },
+      {
+        "videoId": "39VnOFFUYRE",
+        "title": "Avachita Parimalu | अवचिता परिमळू | आषाढी एकादशी Special | मराठी गाणी | Sant Dnyaneshwar Abhang",
+        "published": "2025-07-06",
+        "thumbnail": "https://i4.ytimg.com/vi/39VnOFFUYRE/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/39VnOFFUYRE.jpg"
+      }
+    ],
+    "PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr": [
+      {
+        "videoId": "ZC90JEMIvpw",
+        "title": "Nirmohiya: Nihira ft. Rhythm Shaw|| Manoj Yadav [Nominated for 18th IMA Awards 2020]",
+        "published": "2018-10-14",
+        "thumbnail": "https://i3.ytimg.com/vi/ZC90JEMIvpw/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/ZC90JEMIvpw.jpg"
+      },
+      {
+        "videoId": "FBaxVScgS7E",
+        "title": "Ishq Manayein Kya| Swing version| Nihira Joshi| Manoj Yadav| Tanmay Pawar| Original",
+        "published": "2024-06-16",
+        "thumbnail": "https://i3.ytimg.com/vi/FBaxVScgS7E/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/FBaxVScgS7E.jpg"
+      },
+      {
+        "videoId": "_R-iXCWgsK8",
+        "title": "Trishna EP | Jukebox | Nihira Joshi| Original music",
+        "published": "2023-01-13",
+        "thumbnail": "https://i4.ytimg.com/vi/_R-iXCWgsK8/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/_R-iXCWgsK8.jpg"
+      },
+      {
+        "videoId": "KSXkwZMxM2g",
+        "title": "Tumi | A Soulful Bengali Love Song | Nihira Joshi | Santanu Ghatak | Ashwin Srinivasan | Original",
+        "published": "2024-04-24",
+        "thumbnail": "https://i4.ytimg.com/vi/KSXkwZMxM2g/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/KSXkwZMxM2g.jpg"
+      },
+      {
+        "videoId": "LOx00OpafQU",
+        "title": "Lyrical: Na Chedo Hamein | Full Song With Lyrics | Nihira Joshi  | Mithilesh Patankar",
+        "published": "2018-06-10",
+        "thumbnail": "https://i1.ytimg.com/vi/LOx00OpafQU/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/LOx00OpafQU.jpg"
+      },
+      {
+        "videoId": "I29C7FmZ2UI",
+        "title": "Toote Chhaate|Nihira Joshi-Deshpande | Rhythm Shaw |Alok Ranjan Srivastava",
+        "published": "2023-08-29",
+        "thumbnail": "https://i2.ytimg.com/vi/I29C7FmZ2UI/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/I29C7FmZ2UI.jpg"
+      },
+      {
+        "videoId": "ZaM9T6ftHzI",
+        "title": "Ishq Manayein Kya? Nihira ft. Orquesta Son Diamantes || Manoj Yadav || RMM Productions [Original]",
+        "published": "2021-01-28",
+        "thumbnail": "https://i3.ytimg.com/vi/ZaM9T6ftHzI/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/ZaM9T6ftHzI.jpg"
+      },
+      {
+        "videoId": "fUISyuUsb9c",
+        "title": "Jag Jaage - Chirag Todi (ft. Nihira Joshi-Deshpande, Sreenath, Jonathan Edward, Rohan Prasanna)",
+        "published": "2024-03-24",
+        "thumbnail": "https://i3.ytimg.com/vi/fUISyuUsb9c/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/fUISyuUsb9c.jpg"
+      },
+      {
+        "videoId": "9nBJ5G4CZQA",
+        "title": "Trishna Antarman Ki | | Nihira Joshi | Album version",
+        "published": "2023-01-01",
+        "thumbnail": "https://i2.ytimg.com/vi/9nBJ5G4CZQA/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/9nBJ5G4CZQA.jpg"
+      },
+      {
+        "videoId": "B-uKdwFca0U",
+        "title": "Trishna Spandan Ki |Nihira Joshi | Mayukh Sarkar |Shashi Sharma",
+        "published": "2022-11-13",
+        "thumbnail": "https://i3.ytimg.com/vi/B-uKdwFca0U/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/B-uKdwFca0U.jpg"
+      },
+      {
+        "videoId": "e6K49l_6b08",
+        "title": "Trishna Bandhan Ki | Nihira Joshi |Mayukh Sarkar |Tejas Ranade",
+        "published": "2022-12-10",
+        "thumbnail": "https://i2.ytimg.com/vi/e6K49l_6b08/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/e6K49l_6b08.jpg"
+      },
+      {
+        "videoId": "RP1B-RYn4gw",
+        "title": "Trishna Samarpan Ki | Nihira Joshi|  Saurabh Bhalerao |Apoorva Kulkarni",
+        "published": "2022-12-24",
+        "thumbnail": "https://i3.ytimg.com/vi/RP1B-RYn4gw/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/RP1B-RYn4gw.jpg"
+      },
+      {
+        "videoId": "HkVbTV7Axi0",
+        "title": "Mora Saawan Sookh Gaya | Nihira Joshi | Abhay Nayampally | Manoj Yadav",
+        "published": "2026-02-24",
+        "thumbnail": "https://i1.ytimg.com/vi/HkVbTV7Axi0/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/HkVbTV7Axi0.jpg"
+      },
+      {
+        "videoId": "04lq9P_EQwc",
+        "title": "Ishq Manayein Kya (Duet version)  Nihira Joshi | Shaan | Manoj Yadav| Tanmay Pawar|",
+        "published": "2026-10-09",
+        "thumbnail": "https://i1.ytimg.com/vi/04lq9P_EQwc/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/04lq9P_EQwc.jpg"
+      }
+    ],
+    "PLQ_rmkCpHU8oKqBdNyo3x5r0D5YvSLlo3": [
+      {
+        "videoId": "F7wM7zNTn5c",
+        "title": "Baawra",
+        "published": "2019-11-06",
+        "thumbnail": "https://i3.ytimg.com/vi/F7wM7zNTn5c/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/F7wM7zNTn5c.jpg"
+      },
+      {
+        "videoId": "hG1XURXa5m4",
+        "title": "Mera Dil (Full Song) Film - Salaam-E-Ishq",
+        "published": "2011-05-24",
+        "thumbnail": "https://i1.ytimg.com/vi/hG1XURXa5m4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/hG1XURXa5m4.jpg"
+      },
+      {
+        "videoId": "oqCpc4qQnQQ",
+        "title": "Sang Na Re Mana Lyric Video | Swapnil Bandodkar | Nihira Joshi | Avadhoot Gupte",
+        "published": "2021-06-25",
+        "thumbnail": "https://i4.ytimg.com/vi/oqCpc4qQnQQ/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/oqCpc4qQnQQ.jpg"
+      },
+      {
+        "videoId": "JlQweA5Docg",
+        "title": "Bhijun Gela Vara with lyrics | भिजून गेला वारा | Kshitij Tare | Nihira Joshi | Irada Pakka",
+        "published": "2019-06-04",
+        "thumbnail": "https://i3.ytimg.com/vi/JlQweA5Docg/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/JlQweA5Docg.jpg"
+      },
+      {
+        "videoId": "jBQ758Vy_l4",
+        "title": "Funkarichi Wadle | Video Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana",
+        "published": "2018-02-23",
+        "thumbnail": "https://i3.ytimg.com/vi/jBQ758Vy_l4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/jBQ758Vy_l4.jpg"
+      },
+      {
+        "videoId": "zGV4uN2tB4E",
+        "title": "Tu Jarashi | Lyrical Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana Behere",
+        "published": "2017-11-23",
+        "thumbnail": "https://i3.ytimg.com/vi/zGV4uN2tB4E/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/zGV4uN2tB4E.jpg"
+      },
+      {
+        "videoId": "AX6pRrfGRkE",
+        "title": "Path Ekaki | Kurukshetra Songs | Shweta Salve - Vaibhav Tattwavadi | Latest Marathi Song",
+        "published": "2016-03-14",
+        "thumbnail": "https://i2.ytimg.com/vi/AX6pRrfGRkE/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/AX6pRrfGRkE.jpg"
+      },
+      {
+        "videoId": "-BGYI-9OEyg",
+        "title": "Nakalat Vinale Jate Jaale - Full Song - Sanshaykallol - Ankush Chaudhari, Kshiti Jog",
+        "published": "2013-03-22",
+        "thumbnail": "https://i2.ytimg.com/vi/-BGYI-9OEyg/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/-BGYI-9OEyg.jpg"
+      },
+      {
+        "videoId": "4F3vRLPp59o",
+        "title": "Majha Hoshil Ka",
+        "published": "2019-02-15",
+        "thumbnail": "https://i1.ytimg.com/vi/4F3vRLPp59o/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/4F3vRLPp59o.jpg"
+      },
+      {
+        "videoId": "fj2hNnuZgpA",
+        "title": "Lyrical: Sajde Song with Lyrics | Kill Dil | Ranveer Singh, Parineeti | Shankar-Ehsaan-Loy, Gulzar",
+        "published": "2014-11-11",
+        "thumbnail": "https://i3.ytimg.com/vi/fj2hNnuZgpA/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/fj2hNnuZgpA.jpg"
+      },
+      {
+        "videoId": "mn_5acd98l4",
+        "title": "Funkarichi Wadle (फुंकरीची वादळे) | Lyrical Video | What's Up Lagna | Vaibhav Tatwawaadi, Prarthana",
+        "published": "2019-04-10",
+        "thumbnail": "https://i2.ytimg.com/vi/mn_5acd98l4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/mn_5acd98l4.jpg"
+      },
+      {
+        "videoId": "_3PIYlQ4A70",
+        "title": "Chal Re Mana Jaau | Ata Thambaycha Naay | Nihira D, Gulraj S |Manoj |Om B, Parna,Bharat, Siddharth",
+        "published": "2025-04-29",
+        "thumbnail": "https://i4.ytimg.com/vi/_3PIYlQ4A70/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/_3PIYlQ4A70.jpg"
+      },
+      {
+        "videoId": "zXYDy1m2G50",
+        "title": "Chal Re Mana Jaau (From \"Ata Thambaycha Naay\")",
+        "published": "2025-04-29",
+        "thumbnail": "https://i3.ytimg.com/vi/zXYDy1m2G50/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/zXYDy1m2G50.jpg"
+      },
+      {
+        "videoId": "B8v67REwVlk",
+        "title": "घे पाऊल पुढे जरा | GHE PAAUL PUDHE JARA | AAMHI SATPUTE | Fun Song | Sachin - Supriya | Ashok Saraf",
+        "published": "2017-01-21",
+        "thumbnail": "https://i3.ytimg.com/vi/B8v67REwVlk/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/B8v67REwVlk.jpg"
+      },
+      {
+        "videoId": "iv0Lvy3h5yc",
+        "title": "Ishq Vishq | Sai Tamhankar, Sanjay Narvekar, Resham Tipnis | Be Dune Saade Chaar | Comedy Movie",
+        "published": "2016-03-11",
+        "thumbnail": "https://i2.ytimg.com/vi/iv0Lvy3h5yc/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/iv0Lvy3h5yc.jpg"
+      }
+    ],
+    "PLQ_rmkCpHU8oNRg8gWFdU0BjUlruM-1Y-": [
+      {
+        "videoId": "L2wyFD153B0",
+        "title": "Julun Yeti Reshimgathi Full Title Track | जुळून येती रेशीमगाठी शीर्षकगीत",
+        "published": "2022-11-27",
+        "thumbnail": "https://i1.ytimg.com/vi/L2wyFD153B0/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/L2wyFD153B0.jpg"
+      },
+      {
+        "videoId": "3Yd4ipT-VBs",
+        "title": "Tujvin Sakhya Re | तुजवीण सख्या रे",
+        "published": "2022-11-29",
+        "thumbnail": "https://i4.ytimg.com/vi/3Yd4ipT-VBs/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/3Yd4ipT-VBs.jpg"
+      },
+      {
+        "videoId": "lYYRVCE-k9Y",
+        "title": "Kasamh Se Serial | Full Title Song | Nihira Joshi Deshpande | Hindi Serial Song",
+        "published": "2024-05-21",
+        "thumbnail": "https://i1.ytimg.com/vi/lYYRVCE-k9Y/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/lYYRVCE-k9Y.jpg"
+      },
+      {
+        "videoId": "IdA3wcKHUqI",
+        "title": "Kon Hotis Tu Kay Zalis Tu - कोण होतीस तू काय झालीस तू | Title Song with Lyrics | Star Pravah",
+        "published": "2025-05-01",
+        "thumbnail": "https://i2.ytimg.com/vi/IdA3wcKHUqI/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/IdA3wcKHUqI.jpg"
+      },
+      {
+        "videoId": "pRp38QCDN6s",
+        "title": "| Tujha Majha Breakup | Unplugged | Avdhoot Gupte | Nihira Joshi | @EkviraMusic",
+        "published": "2022-05-28",
+        "thumbnail": "https://i1.ytimg.com/vi/pRp38QCDN6s/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/pRp38QCDN6s.jpg"
+      }
+    ],
     "PLQ_rmkCpHU8o418EPqbPcQE5V5WsH8Mjj": [
       {
         "videoId": "1nFsfdmOAxI",
