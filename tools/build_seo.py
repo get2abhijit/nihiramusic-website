@@ -38,6 +38,7 @@ changed_files = []
 PAGES = {
     "home": ("", "home.js", None),
     "originals": ("original-compositions/", "works.js", "originals"),
+    "playback": ("playback/", "works.js", "playback"),
     "covers": ("covers/", "works.js", "covers"),
     "concerts": ("concerts/", "concerts.js", "concerts"),
     "poems": ("poetic-treasures/", "poems.js", "poems"),
@@ -365,8 +366,8 @@ def noscript_home(site, news, events, yt, today):
         parts += [f'<li><a href="https://www.youtube.com/watch?v={esc(v["videoId"])}">{esc(v.get("title") or "Video")}</a></li>'
                   for v in vids if v.get("videoId")]
         parts.append("</ul>")
-    parts.append('<p><a href="original-compositions/">Original compositions</a> | <a href="covers/">Covers</a> | '
-                 '<a href="concerts/">Concerts</a> | <a href="awards/">Awards</a> | '
+    parts.append('<p><a href="original-compositions/">Original compositions</a> | <a href="playback/">Playback</a> | <a href="covers/">Music</a> | '
+                 '<a href="concerts/">Performances</a> | <a href="events/">Events</a> | <a href="awards/">Recognition</a> | '
                  f'<a href="{esc(site.get("listenUrl") or "https://artist.link/nihira")}">Listen on all streaming services</a></p></div>')
     return "\n".join(parts)
 

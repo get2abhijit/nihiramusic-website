@@ -62,28 +62,45 @@ EVENT = {
     "status": F(("enum", ["scheduled", "cancelled", "sold-out"])), "ticketUrl": F("url"),
     "description": F("text"), "image": F("image"), "imageAlt": F("str"), "source": SOURCE,
 }
+PHOTO = {"src": F("image", True), "alt": F("str")}
+LINK = {"label": F("str", True), "url": F("url", True)}
 AWARD = {
-    "id": F("id", True), "year": F("year"), "award": F("str", True), "category": F("str"), "work": F("str"),
-    "status": F(("enum", ["Won", "Nominated", "Finalist"]), True), "organisation": F("str"), "link": F("url"),
-    "image": F("image"), "imageAlt": F("str"), "highlight": F("bool"), "source": SOURCE,
+    "id": F("id", True), "year": F("year"), "date": F("date"), "award": F("str", True), "category": F("str"),
+    "work": F("str"), "status": F(("enum", ["Won", "Nominated", "Finalist"]), True), "organisation": F("str"),
+    "description": F("text"), "images": F(("list", ("obj", PHOTO))), "links": F(("list", ("obj", LINK))),
+    "link": F("url"), "image": F("image"), "imageAlt": F("str"), "featured": F("bool"), "highlight": F("bool"),
+    "source": SOURCE,
 }
 COVER = {
-    "id": F("id", True), "title": F("str"), "category": F("str"), "year": F("year"), "date": F("date"),
+    "id": F("id", True), "title": F("str"), "section": F("str"), "category": F("str"), "language": F("str"), "year": F("year"), "date": F("date"),
     "videoId": F("video", True), "originalArtist": F("str"), "description": F("text"), "credits": F("str"),
     "spotifyUrl": F("url"), "listenUrl": F("url"), "image": F("image"), "imageAlt": F("str"),
-    "featured": F("bool"), "source": SOURCE,
+    "featured": F("bool"), "hidden": F("bool"), "source": SOURCE,
 }
 TRACK = {
     "title": F("str", True), "videoId": F("video"), "spotifyUrl": F("url"), "soundcloudUrl": F("url"),
     "deezerUrl": F("url"), "listenUrl": F("url"),
 }
 ORIGINAL = {
-    "id": F("id", True), "title": F("str", True), "type": F(("enum", ["Single", "EP", "Album"])),
+    "id": F("id", True), "title": F("str"), "type": F(("enum", ["Single", "EP", "Album"])),
     "year": F("year"), "date": F("date"), "videoId": F("video"), "image": F("image"), "imageAlt": F("str"),
     "credits": F("str"), "description": F("text"), "listenUrl": F("url"), "spotifyUrl": F("url"),
     "soundcloudUrl": F("url"), "deezerUrl": F("url"), "featured": F("bool"),
-    "tracks": F(("list", ("obj", TRACK))), "source": SOURCE,
+    "tracks": F(("list", ("obj", TRACK))), "hidden": F("bool"), "source": SOURCE,
 }
+PLAYBACK = {
+    "id": F("id", True), "section": F("str"), "title": F("str", True), "film": F("str"), "language": F("str"),
+    "year": F("year"), "date": F("date"), "videoId": F("video"), "matchTitle": F(("list", "str")), "image": F("image"),
+    "imageAlt": F("str"), "credits": F("str"), "description": F("text"), "award": F("str"), "awardId": F("id"),
+    "listenUrl": F("url"), "spotifyUrl": F("url"), "featured": F("bool"), "hidden": F("bool"), "source": SOURCE,
+}
+SECTION_DEF = {
+    "id": F("id", True), "label": F("str", True), "href": F("navpath"), "intro": F("text"), "emptyText": F("str"), "playlistId": F("playlist"),
+    "playlistSource": F("source"), "hideVideoIds": F(("list", "video")),
+}
+VIDEO_PAGE = {"sections": F(("list", ("obj", SECTION_DEF))), "allLabel": F("str"), "otherLabel": F("str"),
+              "playlistId": F("playlist"), "playlistSource": F("source"), "excludeTitlePattern": F("str"),
+              "hideVideoIds": F(("list", "video"))}
 CONCERT_VIDEO = {"videoId": F("video", True), "title": F("str")}
 PHOTO = {"src": F("image", True), "alt": F("str")}
 CONCERT = {
@@ -106,8 +123,9 @@ LIST_FILES = {
     "news.json": ("news item", NEWS, {"pageSize": F("int")}),
     "events.json": ("event", EVENT, {}),
     "awards.json": ("award", AWARD, {}),
-    "covers.json": ("cover", COVER, {}),
-    "originals.json": ("release", ORIGINAL, {}),
+    "covers.json": ("cover", COVER, VIDEO_PAGE),
+    "originals.json": ("release", ORIGINAL, VIDEO_PAGE),
+    "playback.json": ("playback song", PLAYBACK, VIDEO_PAGE),
     "concerts.json": ("concert", CONCERT, {"bannerImage": F("image"), "bannerImageAlt": F("str")}),
     "poems.json": ("poem", POEM, {"introSource": F("source"), "youtubeUrl": F("url"), "source": SOURCE,
                                   "playlistId": F("playlist"), "playlistTitle": F("str"),
@@ -121,7 +139,9 @@ SITE = {
     "artistAlternateName": F("str"), "siteUrl": F("url", True), "email": F("email"), "copyrightName": F("str"),
     "listenUrl": F("url"), "listenLabel": F("str"), "subscribeUrl": F("url"), "subscribeLabel": F("str"),
     "youtubeChannelId": F("str"), "logo": F("image"), "ogImage": F("image"), "ogImageAlt": F("str"),
-    "nav": F(("list", ("obj", {"id": F("id", True), "label": F("str", True), "path": F("path")})), True),
+    "nav": F(("list", ("obj", {"id": F("id", True), "label": F("str", True), "path": F("navpath"),
+                                "children": F(("list", ("obj", {"id": F("id"), "label": F("str", True),
+                                                                "path": F("navpath", True)})))})), True),
     "footerLinks": F(("list", ("obj", {"label": F("str", True), "path": F("path", True)}))),
     "social": F(("list", ("obj", {"name": F("str", True), "url": F("url", True),
                                   "icon": F(("enum", ["youtube", "instagram", "facebook", "x", "spotify",
@@ -294,6 +314,12 @@ def check_value(rep, file, where, key, spec, v, raw):
         elif v and not v.endswith("/"):
             warn(f'is "{v}"; folder paths should end with /, e.g. "{v}/".')
         return
+    if t == "navpath":  # like "path", but "covers/#ghazals" (a section of a page) is allowed
+        base = v.split("#")[0] if isinstance(v, str) else v
+        if isinstance(v, str) and "#" in v and not re.match(r"^[a-z0-9-]+$", v.split("#", 1)[1]):
+            err(f'is "{v}". After # use only lowercase letters, digits and dashes, e.g. "covers/#ghazals".')
+            return
+        return check_value(rep, file, where, key, "path", base, raw)
     if t == "video":
         if not isinstance(v, str) or not VIDEO_RE.match(v):
             m = re.search(r"(?:v=|youtu\.be/|/embed/|/shorts/|/live/)([A-Za-z0-9_-]{11})", str(v))
@@ -448,6 +474,13 @@ def check_list_file(rep, rel, name, data, raw, generated=False):
                     and item["endTime"] <= item["startTime"]):
                 rep.add("warning", rel, where, "'endTime' is not after 'startTime'. If the show ends after "
                         "midnight, also set 'endDate'.")
+        if fields is ORIGINAL and is_empty(item.get("title")) and is_empty(item.get("videoId")):
+            rep.add("error", rel, where, "needs a 'title' (or at least a 'videoId', then the YouTube title is shown).")
+        if fields in (COVER, PLAYBACK) and isinstance(data.get("sections"), list) and item.get("section"):
+            sids = [x.get("id") for x in data["sections"] if isinstance(x, dict)]
+            if item["section"] not in sids:
+                rep.add("warning", rel, where, f"'section' is \"{item['section']}\", which is not one of the sections "
+                        f"({', '.join(map(str, sids))}). It will be shown under 'More'.")
         if fields is POEM and not item.get("videoId") and not item.get("text"):
             rep.add("warning", rel, where, "has neither 'text' nor 'videoId'; nothing will be shown except the title.")
         if fields is ORIGINAL:
@@ -461,6 +494,16 @@ def check_list_file(rep, rel, name, data, raw, generated=False):
         if len(feat) > 1:
             rep.add("warning", rel, "", f"{len(feat)} releases have \"featured\": true ({', '.join(feat)}). "
                     "Only the first is shown large; usually keep one.")
+    secs = data.get("sections") if isinstance(data.get("sections"), list) else []
+    sids = [x.get("id") for x in secs if isinstance(x, dict)]
+    for d in {x for x in sids if x and sids.count(x) > 1}:
+        rep.add("error", rel, "sections", f"the section id \"{d}\" is used twice.")
+    if data.get("excludeTitlePattern"):
+        try:
+            re.compile(data["excludeTitlePattern"])
+        except re.error as exc:
+            rep.add("error", rel, "top of the file", f"'excludeTitlePattern' is not a valid pattern ({exc}). "
+                    "Use a simple word such as \"lyric\".")
     return list(ids)
 
 

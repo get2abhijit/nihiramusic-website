@@ -1,24 +1,62 @@
 {
-  "_help": "Cover songs. Fields: id (unique), title (song name; if empty, the YouTube title collected by the daily sync is shown), category (groups the filter buttons, e.g. Hindi Covers / Marathi Covers / Unplugged), year (optional number), date (optional YYYY-MM-DD), videoId, originalArtist (optional), description (optional), spotifyUrl, listenUrl, featured (true pins to top), source. Never add song lyrics. credits (optional short line).",
-  "pageTitle": "Cover Songs",
-  "intro": "",
+  "_help": "Cover songs. sections = the tabs on the page (id = the part after # in the address, e.g. covers/#ghazals; label = tab name; intro and emptyText optional; playlistId = a YouTube playlist for that section: its videos are added automatically every day by the YouTube sync; hideVideoIds = playlist videos NOT to show). A tab with no videos and no playlist is hidden until it has some. A tab with 'href' instead of videos is a link to another page (e.g. Poetic Treasures). To add a tab: add a section here and, if wanted, a menu line in site.json (covers/#<id>). items = covers you add yourself. Fields: id (unique), section (one of the section ids), title (song name; if empty, the YouTube title collected by the daily sync is shown), year (optional number), date (optional YYYY-MM-DD), videoId, originalArtist (optional), credits (optional short line), description (optional), spotifyUrl, listenUrl, featured (true pins to top), source. Never add song lyrics.",
+  "pageTitle": "Music",
+  "intro": "Cover versions, ghazals, devotional songs and unplugged sessions. Nihira's recitations are under Poetic Treasures.",
   "emptyText": "Cover songs will appear here soon.",
+  "allLabel": "All",
+  "sections": [
+    {
+      "id": "hindi",
+      "label": "Hindi",
+      "emptyText": "Hindi covers will appear here soon."
+    },
+    {
+      "id": "marathi",
+      "label": "Marathi",
+      "emptyText": "Marathi covers will appear here soon."
+    },
+    {
+      "id": "devotional",
+      "label": "Devotional",
+      "emptyText": "Devotional songs will appear here soon.",
+      "playlistId": "PLQ_rmkCpHU8rsUTAvaTwyn-8Rafjm7t3H",
+      "playlistSource": "https://www.youtube.com/playlist?list=PLQ_rmkCpHU8rsUTAvaTwyn-8Rafjm7t3H",
+      "_note": "Playlist code given by the owner 2026-11-01."
+    },
+    {
+      "id": "ghazals",
+      "label": "Ghazals",
+      "emptyText": "Ghazals will appear here soon."
+    },
+    {
+      "id": "unplugged",
+      "label": "Unplugged",
+      "emptyText": "Unplugged covers will appear here soon."
+    },
+    {
+      "id": "poetic-treasures",
+      "label": "Poetic Treasures",
+      "href": "poetic-treasures/",
+      "_note": "Link tab: opens the Poetic Treasures page."
+    }
+  ],
   "items": [
     {
       "id": "aaj-jane-ki-zid-na-karo",
       "title": "Aaj Jane Ki Zid Na Karo",
-      "category": "Hindi Covers",
+      "section": "ghazals",
       "videoId": "nuRMhdy0hV0",
       "source": "https://nihiramusic.in/covers",
       "credits": "With Vidushi Gupta",
       "_sources": [
         "https://www.youtube.com/watch?v=nuRMhdy0hV0"
-      ]
+      ],
+      "_note": "M6a: moved from Hindi Covers to Ghazals. Change 'section' if wanted."
     },
     {
       "id": "jahaan-me-aisa-kaun-hai",
       "title": "Jahaan Me Aisa Kaun Hai",
-      "category": "Hindi Covers",
+      "section": "hindi",
       "videoId": "oLQIvcD57pM",
       "source": "https://nihiramusic.in/covers",
       "_sources": [
@@ -28,7 +66,7 @@
     {
       "id": "cover-ggowse2cyoi",
       "title": "",
-      "category": "Hindi Covers",
+      "section": "hindi",
       "videoId": "GGOWse2CYOI",
       "source": "https://nihiramusic.in/covers",
       "_todo": "Title not shown on the old site."
@@ -36,7 +74,7 @@
     {
       "id": "aye-ri-pavan-revisited",
       "title": "Aye Ri Pavan Revisited",
-      "category": "Hindi Covers",
+      "section": "hindi",
       "videoId": "_o8WK8i-Ea0",
       "source": "https://nihiramusic.in/covers",
       "_sources": [
@@ -46,7 +84,7 @@
     {
       "id": "laagi-karejwa-kataar",
       "title": "Laagi Karejwa Kataar",
-      "category": "Hindi Covers",
+      "section": "hindi",
       "videoId": "630ZVz5XC98",
       "source": "https://nihiramusic.in/covers",
       "_sources": [
@@ -54,28 +92,9 @@
       ]
     },
     {
-      "id": "kasamh-se-title-song",
-      "title": "Kasamh Se (title song)",
-      "category": "Hindi Covers",
-      "videoId": "lYYRVCE-k9Y",
-      "source": "https://nihiramusic.in/covers",
-      "_sources": [
-        "https://www.youtube.com/watch?v=lYYRVCE-k9Y"
-      ],
-      "description": "The title song of the TV serial 'Kasamh Se', one of the title tracks Nihira sang during Sa Re Ga Ma Pa 2005-06."
-    },
-    {
-      "id": "cover-l2wyfd153b0",
-      "title": "",
-      "category": "Marathi Covers",
-      "videoId": "L2wyFD153B0",
-      "source": "https://nihiramusic.in/covers",
-      "_todo": "Title not shown on the old site."
-    },
-    {
       "id": "cover-3yd4ipt-vbs",
       "title": "",
-      "category": "Marathi Covers",
+      "section": "marathi",
       "videoId": "3Yd4ipT-VBs",
       "source": "https://nihiramusic.in/covers",
       "_todo": "Title not shown on the old site."
@@ -83,7 +102,7 @@
     {
       "id": "cover-ar5hjbafe1u",
       "title": "",
-      "category": "Unplugged",
+      "section": "unplugged",
       "videoId": "aR5HjBafe1U",
       "source": "https://nihiramusic.in/covers",
       "_todo": "Title not shown on the old site."
@@ -91,7 +110,7 @@
     {
       "id": "cover-tswzzbjaenc",
       "title": "",
-      "category": "Unplugged",
+      "section": "unplugged",
       "videoId": "TsWZZBjAEnc",
       "source": "https://nihiramusic.in/covers",
       "_todo": "Title not shown on the old site."
@@ -99,7 +118,7 @@
     {
       "id": "cover-4dcfqbmuegm",
       "title": "",
-      "category": "Unplugged",
+      "section": "unplugged",
       "videoId": "4dCfQbMUeGM",
       "source": "https://nihiramusic.in/covers",
       "_todo": "Title not shown on the old site."
@@ -108,10 +127,50 @@
       "id": "dil-e-nadaan",
       "title": "Dil-e-Nadaan",
       "originalArtist": "Mehdi Hassan",
-      "category": "More covers",
+      "section": "ghazals",
       "videoId": "qr3rR9tsHXE",
       "source": "https://artist.link/nihira",
-      "_todo": "Listed on artist.link but not on the old Covers page; confirm category."
+      "_todo": "M6a: moved from 'More covers' to Ghazals (a ghazal; YouTube title 'Dil-e-Nadaan by Mehdi Hassan Saab'). Change 'section' if wanted."
+    },
+    {
+      "id": "ranjish-hi-sahi-pulse-parindey",
+      "title": "Ranjish Hi Sahi",
+      "section": "ghazals",
+      "date": "2026-09-29",
+      "videoId": "CcMquscablo",
+      "credits": "ft. Pulse Parindey",
+      "source": "https://www.youtube.com/watch?v=CcMquscablo",
+      "_note": "From the channel feed (YouTube title 'Ranjishi hi sahi (Nihira Joshi ft. Pulse Parindey)', published 2026-09-29)."
+    },
+    {
+      "id": "nadiya-kinare-mora-gaon",
+      "title": "Nadiya Kinare Mora Gaon",
+      "section": "hindi",
+      "date": "2026-09-22",
+      "videoId": "W827QZf9PyU",
+      "source": "https://www.youtube.com/watch?v=W827QZf9PyU",
+      "_note": "From the channel feed (YouTube title 'Nadiya Kinare Mora Gaon (Cover)', published 2026-09-22). Section assumed; change if wanted."
+    },
+    {
+      "id": "mora-saiyyan-mose-bole-na",
+      "title": "Mora Saiyyan Mose Bole Na",
+      "section": "hindi",
+      "date": "2026-07-24",
+      "videoId": "o9eWEdElfk0",
+      "originalArtist": "Fuzon",
+      "credits": "ft. Pulse Parindey",
+      "source": "https://www.youtube.com/watch?v=o9eWEdElfk0",
+      "_note": "From the channel feed (YouTube title 'Mora saiyyan mose bole na | Cover song Fuzon | Nihira Joshi ft. PULSE PARINDEY', published 2026-07-24)."
+    },
+    {
+      "id": "tuch-shwas-moraya",
+      "title": "Tuch Shwas Moraya",
+      "section": "devotional",
+      "language": "Marathi",
+      "date": "2026-09-15",
+      "videoId": "BKrjHQREAxI",
+      "source": "https://www.youtube.com/watch?v=BKrjHQREAxI",
+      "_note": "Owner 2026-11-01: put under Devotional. YouTube title 'Tuch Shwas Moraya| Ganpati Bappa| New release', published 2026-09-15. Language assumed Marathi from the title."
     }
   ]
 }

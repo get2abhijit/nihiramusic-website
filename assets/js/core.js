@@ -240,6 +240,30 @@ function applyTheme(theme) {
   if (ok(theme.accentDark)) document.documentElement.style.setProperty('--theme-accent-dark', theme.accentDark.trim());
 }
 
+/** One menu entry. "children" (optional) become a sub-menu: a dropdown on wide screens, an indented list on phones. */
+function navItem(item, n, pageId) {
+  const kids = Array.isArray(item.children) ? item.children.filter((c) => c && c.label) : [];
+  const here = item.id === pageId || kids.some((c) => c.id && c.id === pageId && !String(c.path || '').includes('#'));
+  const top = h('a', { href: url(item.path), class: 'nav__link', ...(here ? { 'aria-current': 'page' } : {}) }, item.label);
+  if (!kids.length) return h('li', {}, top);
+  const subId = `nav-sub-${n}`;
+  const btn = h('button', { type: 'button', class: 'nav__sub-toggle', 'aria-expanded': 'false', 'aria-controls': subId,
+    'aria-label': `${item.label}: more pages` }, h('span', { class: 'nav__chev', 'aria-hidden': 'true' }));
+  const sub = h('ul', { class: 'nav__sub', id: subId }, kids.map((c) =>
+    h('li', {}, h('a', { href: url(c.path), ...(c.id && c.id === pageId && !String(c.path || '').includes('#') ? { 'aria-current': 'page' } : {}) }, c.label))));
+  const li = h('li', { class: 'nav__item--has-sub' }, top, btn, sub);
+  const set = (open) => { btn.setAttribute('aria-expanded', String(open)); li.classList.toggle('is-sub-open', open); };
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    li.parentElement?.querySelectorAll('.is-sub-open').forEach((o) => { if (o !== li) { o.classList.remove('is-sub-open'); o.querySelector('.nav__sub-toggle')?.setAttribute('aria-expanded', 'false'); } });
+    set(open);
+  });
+  li.addEventListener('keydown', (e) => { if (e.key === 'Escape' && li.classList.contains('is-sub-open')) { e.stopPropagation(); set(false); btn.focus(); } });
+  li.addEventListener('focusout', (e) => { if (!li.contains(e.relatedTarget)) set(false); });
+  document.addEventListener('click', (e) => { if (!li.contains(e.target)) set(false); });
+  return li;
+}
+
 export function renderLayout(site, pageId) {
   applyTheme(site.theme);
   const header = document.getElementById('site-header');
@@ -249,8 +273,7 @@ export function renderLayout(site, pageId) {
     const mobile = window.matchMedia('(max-width: 62rem)');
     const toggle = h('button', { type: 'button', class: 'nav-toggle', 'aria-expanded': 'false', 'aria-controls': panelId },
       h('span', { class: 'nav-toggle__bars', 'aria-hidden': 'true' }), h('span', { class: 'nav-toggle__label', text: 'Menu' }));
-    const list = h('ul', { class: 'nav__list' }, (site.nav || []).map((item) =>
-      h('li', {}, h('a', { href: url(item.path), ...(item.id === pageId ? { 'aria-current': 'page' } : {}) }, item.label))));
+    const list = h('ul', { class: 'nav__list' }, (site.nav || []).map((item, n) => navItem(item, n, pageId)));
     const panel = h('div', { id: panelId, class: 'nav__panel' }, list, socialList(site, 'social nav__social'));
     const outside = () => [document.getElementById('main'), document.getElementById('site-footer'), header.querySelector('.brand')];
     const setOpen = (open) => {

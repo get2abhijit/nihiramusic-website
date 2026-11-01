@@ -9,9 +9,16 @@
 | M3 SEO, structured data, feeds, performance | Done | 2026-10-30 |
 | M4 Editing without touching JSON (validation, Pages CMS) | Done | 2026-10-30 |
 | M5 Domain cutover (CNAME, DNS) | Done (DNS by owner; site side, docs, checklist by M5) | 2026-10-31 |
+| M6a Legal update + Playback/Music sections + Filmfare (roadmap deviation, owner request; revised same day after owner feedback) | Done | 2026-11-01 |
 | M6 Ongoing improvements (backlog) | **Next**: owner picks items | |
 
-Current milestone: M5 finished; post-cutover checklist in `docs/M5-DOMAIN-CUTOVER.md` (section 3) is with the owner.
+Current milestone: M6a finished (2026-11-01). Next: M6 (owner picks backlog items). M5 post-cutover checklist (`docs/M5-DOMAIN-CUTOVER.md`, section 3) still with the owner.
+
+Roadmap deviation (M6a, owner request): legal texts rewritten for Nihiramusic Entertainment LLP (review in
+`docs/legal/LEGAL-REVIEW-2026-11.md`); new Playback page (Films / Title tracks / Jingles); Covers split into
+tabs (Hindi / Marathi / Devotional / Ghazals / Unplugged); menu with sub-menus (Concerts + Events under "Live");
+YouTube playlists per page/tab fill pages automatically; Filmfare Awards Marathi 2026 win. This replaces the
+M6 backlog item "legal text update".
 
 ## Domain and accounts
 | What | Where | Status / dates |
@@ -28,13 +35,23 @@ Calendar sync workflow, subscribable `events/calendar.ics`). M4 must add `data/e
 validator (auto-generated file: validate shape only) and keep it out of the Pages CMS forms.
 
 ## Owner confirmations
+- M6a (2026-11-01): LLPIN ACL-3315; Devotional playlist PLQ_rmkCpHU8rsUTAvaTwyn-8Rafjm7t3H; Title tracks playlist PLQ_rmkCpHU8oNRg8gWFdU0BjUlruM-1Y-; Tuch Shwas Moraya under Devotional; jingles later; Filmfare trophy photo supplied. Menu: Events and Performances (= concerts/) separate pages; Originals under Playback; Poetic Treasures under Music (= renamed Covers); Awards renamed Recognition. HTTPS enforced.
 - M2: Clef Music Awards 2023, both wins (Best Artist Hindustani Classical, Album of the Year). State award: Maharashtra State, 2022, nomination for "Whats Up Lagna". Legal entity NihiraMusic Entertainment LLP; legal person Nihira Deshpande; screen name Nihira Joshi. Site title "The Sound of (Nihira)Music".
 - M4: Home bio "Based primarily in India" (was "Based in Germany"); Nirmohiya award = 18th Independent Music Awards (The IMAs), verified: Best Adult Contemporary Song nominee (nominees 2020-04-09, winners announced 2020-04-28); Na Chedo Hamein released 2018-06-03; Poetic Treasures = YouTube playlist "Poetic Thursdays" (PLQ_rmkCpHU8o418EPqbPcQE5V5WsH8Mjj); linked calendar works.
 - M3: London show 2023-04-22 at The Bhavan confirmed. Nirmohiya award wording "Independent Music Awards, USA". Rule 34 concert venue: Rule34, Goregaon, Mumbai. Structured data names: site "The Sound of (Nihira)Music", artist "Nihira Joshi" (alternateName "Nihira Joshi-Deshpande").
 
+## Open items after M6a (owner)
+- **Legal:** LLPIN ACL-3315 added (owner). Still: confirm "designated partners"; exact registered spelling of the LLP name; governing-law clause; optional lawyer check (see `docs/legal/LEGAL-REVIEW-2026-11.md`).
+- **Jingles:** coming later (owner); tab hidden until it has a playlist or entry; then add the menu line (README).
+- **HTTPS enforced** by the owner on 2026-11-01 (works).
+- **Confirm moves:** Julun Yeti Reshimgathi + Kasamh Se → Playback/Title tracks; Dil-e-Nadaan + Aaj Jane Ki Zid Na Karo → Ghazals; new covers Ranjish Hi Sahi, Nadiya Kinare Mora Gaon, Mora Saiyyan (sections assumed).
+- **Filmfare photos:** trophy photo added (owner); more photos optional (Pages CMS → Recognition → Photos); photo credit.
+- **Originals HkVbTV7Axi0, fUISyuUsb9c:** titles come from the YouTube sync; add own title/year/credits if wanted.
+- **Chal Re Mana Jaau video:** taken from the films playlist automatically if its YouTube title contains "chal re mana"; else set videoId.
+
 ## Open items after M5 (owner)
 - **Renew nihiramusic.in** before 2027-02-28 (not yet confirmed).
-- Enforce HTTPS once GitHub's DNS check passes (expected from 2026-11-02; fix steps in `docs/M5-DOMAIN-CUTOVER.md`).
+- ~~Enforce HTTPS~~ done by the owner 2026-11-01.
 - Run **Actions → Localize images** (hero, About, Concerts banner, logo/share image still on assets.zyrosite.com).
 - Search Console: find the existing property, verify, submit `sitemap.xml`.
 - Check Wayback Machine (`web.archive.org/web/*/nihiramusic.in/*`) for old addresses not in the parity table; add any to `data/redirects.json`. Not verifiable from the M5 tools.
@@ -52,13 +69,14 @@ validator (auto-generated file: validate shape only) and keep it out of the Page
 - Added in M4 as news (assumed yes; owner left the question blank): Planet Bollywood interviews "Jag Jaage" (2024-04-01) and "Aaye Abhi Toh" (2024-09-13). Remove in News if not wanted.
 
 ## Assumptions
+M6a: Devotional placed under Covers (owner's example); Playback items without videoId take the playlist video by title; playlist videos show no year (upload year ≠ release year) and sort by upload date; YouTube titles shortened before the first "|"; Originals skip playlist titles containing "lyric"; ceremony date 2026-08-02 as given by the owner (press lists from 2026-08-07).
 0. M4: Pages CMS saves with `settings.content.merge: true`; private fields (_note, _todo, _sources, _source) are declared in the forms (some hidden) so they survive a save. Owner to verify with the first CMS commit diff.
 1. Contact email contact@nihiramusic.in (privacy text also mentions nihiramusic@gmail.com).
 2. Accent colour chosen by hand (logo not machine-readable here); override via site.json `theme`.
 3. NMACC show (2025-03-09): end time 21:00 derived from the listed 1 h 30 min; venue name "The Cube, Nita Mukesh Ambani Cultural Centre" inferred from nmacc.com.
 4. Structured data uses MusicGroup (the artist, for Google's music features) with a Person as member; only *won* awards go into `award`.
 
-## Legal points flagged (text unchanged, verbatim)
+## Legal points flagged before M6a (resolved in M6a, kept for history)
 - Imprint cites § 5 TMG (now § 5 DDG) and § 10 Abs. 3 MDStV (now § 18 Abs. 2 MStV); Mumbai address while bio says Germany-based.
 - Privacy policy names "Nihira Joshi-Deshpande" as owner; confirmed entity is NihiraMusic Entertainment LLP. Mentions newsletter, forms, payments, cookies that don't exist; doesn't mention GitHub Pages hosting, click-to-load YouTube, or the calendar subscribe links.
 - Terms: template wording ("Do not continue to use Nihira Joshi-Deshpande"), comments and cookies sections.
@@ -100,6 +118,9 @@ validator (auto-generated file: validate shape only) and keep it out of the Page
 - Added in M5: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site, https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https, https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages, https://en.wikipedia.org/wiki/Nihira_Joshi (links www.nihiramusic.in)
 - Added in M4: https://youtube.com/playlist?list=PLQ_rmkCpHU8o418EPqbPcQE5V5WsH8Mjj, https://www.youtube.com/watch?v=eT8txGBAZ9I, https://dailyrindblog.com/?p=60520, https://planetbollywood.com/wp/?p=26667, https://planetbollywood.com/wp/?p=25194, https://pagescms.org/docs/configuration/
 
+## Source URLs added in M6a
+https://www.youtube.com/playlist?list=PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr (Nihira Joshi Originals), https://www.youtube.com/playlist?list=PLQ_rmkCpHU8oKqBdNyo3x5r0D5YvSLlo3 (Nihira film songs), https://www.youtube.com/watch?v=L2wyFD153B0&list=PLQ_rmkCpHU8oNRg8gWFdU0BjUlruM-1Y- (title tracks), https://www.youtube.com/watch?v=04lq9P_EQwc, https://www.youtube.com/watch?v=HkVbTV7Axi0, https://www.youtube.com/watch?v=fUISyuUsb9c, https://www.instagram.com/p/DbyEVJHIpLS/, https://www.facebook.com/photo/?fbid=1645617397564355&set=pb.100063483313221.-2207520000, https://www.facebook.com/photo.php?fbid=1636487558477339&set=pb.100063483313221.-2207520000&type=3, https://www.facebook.com/photo.php?fbid=1636487591810669&set=pb.100063483313221.-2207520000&type=3, https://en.wikipedia.org/wiki/Filmfare_Award_for_Best_Female_Playback_Singer_%E2%80%93_Marathi, https://planetbollywood.com/wp/news/filmfare-awards-marathi-2026-to-premiere-on-6th-september-at-930-pm-on-sony-marathi/, https://milliblog.com/?p=19354, legal sources in docs/legal/LEGAL-REVIEW-2026-11.md
+
 ## M6 backlog candidates
 Proposed first (owner picks): 1. performance round 2 (after HTTPS + local images: measure, then trim requests, fonts, hero), 2. press-kit / booking page, 3. e-mail hardening (SPF/DKIM/DMARC tightening, possible move to another mail provider; deferred from M5 by owner).
-Others: photo gallery, multilingual switch (EN/MR/HI), newsletter via external service, privacy-friendly analytics (only if asked), accessibility round 2, legal text update (with legal review).
+Others: photo gallery, multilingual switch (EN/MR/HI), newsletter via external service, privacy-friendly analytics (only if asked; needs a privacy-policy update first), accessibility round 2, separate addresses per tab (e.g. /covers/ghazals/) for search engines.

@@ -179,7 +179,7 @@ content:
 
   # ---------------------------------------------------------------- Awards
   - name: awards
-    label: Awards
+    label: Recognition (awards)
     type: file
     path: data/awards.json
     format: json
@@ -207,13 +207,34 @@ content:
             options:
               values: [Won, Nominated, Finalist]
           - { name: organisation, label: Organisation, type: string }
+          - { name: date, component: date, label: Ceremony date (optional) }
+          - name: description
+            label: Text (optional)
+            type: text
+            description: "A few sentences about the award. Blank line = new paragraph. **bold** and [link text](https://...) work."
+          - name: images
+            label: Photos (optional)
+            type: object
+            list: true
+            fields:
+              - { name: src, component: image, label: Photo, required: true }
+              - { name: alt, label: Photo description (for blind visitors), type: string }
+          - name: links
+            label: Extra buttons (optional, e.g. Instagram post)
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Button text, type: string, required: true }
+              - { name: url, component: url, label: Link, required: true }
           - { name: link, component: url, label: Proof / article link }
-          - { name: image, component: image }
-          - { name: imageAlt, label: Image description, type: string }
+          - { name: image, component: image, label: Small logo (optional) }
+          - { name: imageAlt, label: Logo description, type: string }
+          - { name: featured, label: Show large at the top of its year, type: boolean }
           - { name: highlight, label: Show on the Home page, type: boolean }
           - { name: source, component: source }
           - { name: _sources, label: More sources, type: string, list: true, hidden: true }
           - { name: _note, component: note }
+          - { name: _todo, component: todo }
 
   # ---------------------------------------------------------------- Originals
   - name: originals
@@ -225,6 +246,16 @@ content:
       - { name: pageTitle, label: Page title, type: string }
       - { name: intro, label: Intro text (optional), type: text }
       - { name: emptyText, label: Text when the list is empty, type: string }
+      - name: playlistId
+        label: YouTube playlist (code after list=)
+        type: string
+        description: "Videos of this playlist appear automatically after the daily YouTube sync."
+      - name: excludeTitlePattern
+        label: Skip playlist videos whose title contains
+        type: string
+        description: "Default: lyric (skips lyrical versions of songs already listed)."
+      - { name: hideVideoIds, label: Playlist videos to hide (11-character codes), type: string, list: true }
+      - { name: playlistSource, label: Playlist link, type: string, hidden: true }
       - name: items
         label: Releases (newest first automatically)
         type: object
@@ -234,7 +265,10 @@ content:
             summary: "{title} ({year})"
         fields:
           - { name: id, component: id }
-          - { name: title, label: Title, type: string, required: true }
+          - name: title
+            label: Title
+            type: string
+            description: "May stay empty if a YouTube video code is set: the YouTube title is shown."
           - name: type
             label: Type
             type: select
@@ -276,9 +310,71 @@ content:
           - { name: _note, component: note }
           - { name: _todo, component: todo }
 
+  # ---------------------------------------------------------------- Playback
+  - name: playback
+    label: Playback (films, title tracks, jingles)
+    type: file
+    path: data/playback.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: intro, label: Intro text (optional), type: text }
+      - { name: emptyText, label: Text when the page is empty, type: string }
+      - { name: excludeTitlePattern, label: Skip playlist videos whose title contains, type: string }
+      - name: sections
+        label: Tabs (playback/#id)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label} ({id})"
+        fields:
+          - { name: id, component: id, description: "Lowercase, e.g. films. Also the address: playback/#films." }
+          - { name: label, label: Tab name, type: string, required: true }
+          - { name: href, label: "Link to another page instead (e.g. poetic-treasures/); leave empty for a video tab", type: string }
+          - { name: intro, label: Intro text (optional), type: text }
+          - { name: emptyText, label: Text while the tab is empty, type: string }
+          - { name: playlistId, label: YouTube playlist (code after list=), type: string, description: "Its videos are added automatically every day." }
+          - { name: hideVideoIds, label: Playlist videos to hide (11-character codes), type: string, list: true }
+          - { name: playlistSource, label: Playlist link, type: string, hidden: true }
+          - { name: _note, component: note }
+          - { name: _todo, component: todo }
+      - name: items
+        label: Songs you describe yourself (optional; playlist videos appear anyway)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} ({section})"
+        fields:
+          - { name: id, component: id }
+          - { name: section, label: Tab, type: string, required: true, description: "films, title-tracks or jingles (or a tab id you added)." }
+          - { name: title, label: Song title, type: string, required: true }
+          - { name: film, label: Film or serial, type: string }
+          - { name: language, label: Language, type: string }
+          - { name: year, component: year }
+          - { name: date, component: date, label: Release date (optional) }
+          - name: videoId
+            component: videoId
+            description: "Leave empty to take the matching video from the tab's playlist automatically."
+          - { name: matchTitle, label: Words in the YouTube title (if the video is taken from the playlist), type: string, list: true }
+          - { name: credits, label: Credits (one short line), type: string }
+          - { name: description, label: Description (never lyrics), type: text }
+          - { name: award, label: Award line on the card, type: string }
+          - { name: awardId, label: ID of that award in Awards (makes it a link), type: string }
+          - { name: listenUrl, component: url, label: "'Listen now' link" }
+          - { name: spotifyUrl, component: url, label: Spotify link }
+          - { name: image, component: image, label: Picture (only if there is no video) }
+          - { name: imageAlt, label: Picture description, type: string }
+          - { name: featured, label: Show large at the top, type: boolean }
+          - { name: source, component: source }
+          - { name: _sources, label: More sources, type: string, list: true, hidden: true }
+          - { name: _note, component: note }
+          - { name: _todo, component: todo }
+
   # ---------------------------------------------------------------- Covers
   - name: covers
-    label: Covers
+    label: Music (cover songs)
     type: file
     path: data/covers.json
     format: json
@@ -286,23 +382,41 @@ content:
       - { name: pageTitle, label: Page title, type: string }
       - { name: intro, label: Intro text (optional), type: text }
       - { name: emptyText, label: Text when the list is empty, type: string }
+      - name: sections
+        label: Tabs (covers/#id)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label} ({id})"
+        fields:
+          - { name: id, component: id, description: "Lowercase, e.g. ghazals. Also the address: covers/#ghazals. Add a menu line in site.json for a new tab." }
+          - { name: label, label: Tab name, type: string, required: true }
+          - { name: href, label: "Link to another page instead (e.g. poetic-treasures/); leave empty for a video tab", type: string }
+          - { name: intro, label: Intro text (optional), type: text }
+          - { name: emptyText, label: Text while the tab is empty, type: string }
+          - { name: playlistId, label: YouTube playlist (code after list=), type: string, description: "Its videos are added automatically every day." }
+          - { name: hideVideoIds, label: Playlist videos to hide (11-character codes), type: string, list: true }
+          - { name: playlistSource, label: Playlist link, type: string, hidden: true }
+          - { name: _note, component: note }
+          - { name: _todo, component: todo }
       - name: items
         label: Cover songs
         type: object
         list:
           collapsible:
             collapsed: true
-            summary: "{title} ({category})"
+            summary: "{title} ({section})"
         fields:
           - { name: id, component: id }
           - name: title
             label: Song title
             type: string
             description: "Leave empty to show the video's YouTube title."
-          - name: category
-            label: Category (filter button)
+          - name: section
+            label: Tab
             type: string
-            description: "Use an existing one for the same group: Hindi Covers, Marathi Covers, Unplugged, More covers."
+            description: "One of the tab ids below in 'Tabs': hindi, marathi, devotional, ghazals, unplugged (or a new one you added)."
           - { name: videoId, component: videoId, required: true }
           - { name: year, component: year }
           - { name: date, component: date, label: Date (optional) }
@@ -319,7 +433,7 @@ content:
 
   # ---------------------------------------------------------------- Concerts
   - name: concerts
-    label: Concerts (past shows with videos)
+    label: Performances (past shows with videos)
     type: file
     path: data/concerts.json
     format: json

@@ -1,9 +1,50 @@
 {
-  "_help": "Awards, grouped by year automatically (newest first). Fields: id (unique), year (number; leave out if unknown), award (name of the award), category (optional), work (song/album), status ('Won', 'Nominated' or 'Finalist'), organisation, link (optional proof/article), image (optional), highlight (true = shown on Home), source.",
-  "pageTitle": "Awards",
+  "_help": "Awards, grouped by year automatically (newest first). Fields: id (unique, also the link awards/#id), year (number; leave out if unknown), date (optional YYYY-MM-DD of the ceremony), award (name of the award), category (optional), work (song/album), status ('Won', 'Nominated' or 'Finalist'), organisation, description (optional text; blank line = new paragraph; **bold** and [link](url) allowed), images (optional photos: list of {src, alt}; upload them to assets/img/uploads), links (optional extra buttons: list of {label, url}), link (optional proof/article, shown as 'Source'), image (optional small logo), featured (true = shown large at the top of its year), highlight (true = shown on Home), source.",
+  "pageTitle": "Recognition",
   "intro": "",
   "emptyText": "Awards and recognition will be listed here.",
   "items": [
+    {
+      "id": "filmfare-marathi-2026-chal-re-mana-jaau",
+      "year": 2026,
+      "date": "2026-08-02",
+      "award": "Filmfare Awards Marathi 2026",
+      "category": "Best Playback Singer (Female)",
+      "work": "Chal Re Mana Jaau, from the film Ata Thambaycha Naay!",
+      "status": "Won",
+      "organisation": "Filmfare",
+      "description": "Nihira won the Filmfare Award Marathi for Best Playback Singer (Female) for “Chal Re Mana Jaau” from the Marathi film *Ata Thambaycha Naay!*, directed by Shivraj Waichal. Gulraj Singh composed and produced the song and sings it with Nihira; the lyrics are by Manoj Yadav. The song marked her return to film playback singing.\nAta Thambaycha Naay! was the evening's biggest winner, including Best Film. The ceremony, held in Mumbai, premiered on Sony Marathi on 6 September 2026.",
+      "images": [
+        {
+          "src": "assets/img/uploads/filmfare-marathi-2026-trophy.jpg",
+          "alt": "Nihira's Filmfare Awards Marathi 2026 trophy, the black lady statuette, standing on a wooden table"
+        }
+      ],
+      "links": [
+        {
+          "label": "Photos on Instagram",
+          "url": "https://www.instagram.com/p/DbyEVJHIpLS/"
+        },
+        {
+          "label": "Photos on Facebook",
+          "url": "https://www.facebook.com/photo/?fbid=1645617397564355&set=pb.100063483313221.-2207520000"
+        }
+      ],
+      "link": "https://en.wikipedia.org/wiki/Filmfare_Award_for_Best_Female_Playback_Singer_%E2%80%93_Marathi",
+      "featured": true,
+      "highlight": true,
+      "source": "https://en.wikipedia.org/wiki/Filmfare_Award_for_Best_Female_Playback_Singer_%E2%80%93_Marathi",
+      "_sources": [
+        "https://planetbollywood.com/wp/?p=29584",
+        "https://planetbollywood.com/wp/news/filmfare-awards-marathi-2026-to-premiere-on-6th-september-at-930-pm-on-sony-marathi/",
+        "https://www.instagram.com/p/DbyEVJHIpLS/",
+        "https://www.facebook.com/photo/?fbid=1645617397564355&set=pb.100063483313221.-2207520000",
+        "https://www.facebook.com/photo.php?fbid=1636487558477339&set=pb.100063483313221.-2207520000&type=3",
+        "https://www.facebook.com/photo.php?fbid=1636487591810669&set=pb.100063483313221.-2207520000&type=3"
+      ],
+      "_note": "Win verified on Wikipedia (10th Filmfare Awards Marathi, category list) and in the Filmfare Awards Marathi 2026 telecast listing. Ceremony date 2026-08-02 as given by the owner (press winner lists appeared 2026-08-07). Instagram/Facebook could not be read automatically (blocked). Trophy photo supplied by the owner 2026-11-01.",
+      "_todo": "More photos (e.g. from the Instagram post / Facebook photos) can be added in Pages CMS → Recognition → this entry → Photos. Check photo credit."
+    },
     {
       "id": "clef-2023-hindustani-classical",
       "year": 2023,

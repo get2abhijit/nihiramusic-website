@@ -1,5 +1,5 @@
 {
-  "_help": "Global settings. siteName = website title shown in the header, browser tab and share previews (text in brackets is shown in the accent colour). artistName = how Nihira is named on the page. nav = main menu (one line per item; 'path' is relative to the site root, '' = home, always end folders with /). footerLinks = small links in the footer. social = icons in the footer and on Home; 'icon' must be one of: youtube, instagram, facebook, x, spotify, soundcloud, link. siteUrl = final public address (used for canonical/share links). theme.accent / theme.accentDark = optional accent colours (#RRGGBB) for light and dark mode; leave empty to keep the built-in colours. Images: run tools/localize_assets.py once to copy every external image into assets/img/. artistAlternateName = other name used in search-engine data (structured data). calendar.icsUrl = optional public iCal (.ics) address of a Google or Outlook calendar; its events are copied into the Events page every 6 hours (better: store it as the repository secret CALENDAR_ICS_URL, see README). calendar.publicUrl = optional link to that calendar's public web page. calendar.showSubscribe = show the 'Subscribe to all events' buttons on the Events page. After changing siteUrl or ogImage, the 'SEO files' workflow updates canonical links, share tags, sitemap and feed automatically.",
+  "_help": "Global settings. siteName = website title shown in the header, browser tab and share previews (text in brackets is shown in the accent colour). artistName = how Nihira is named on the page. nav = main menu (one line per item; 'path' is relative to the site root, '' = home, always end folders with /). An item may have 'children' (a sub-menu: same fields; 'covers/#ghazals' opens one section of a page). Keep the main menu to about 8 items so it fits on one line. footerLinks = small links in the footer. social = icons in the footer and on Home; 'icon' must be one of: youtube, instagram, facebook, x, spotify, soundcloud, link. siteUrl = final public address (used for canonical/share links). theme.accent / theme.accentDark = optional accent colours (#RRGGBB) for light and dark mode; leave empty to keep the built-in colours. Images: run tools/localize_assets.py once to copy every external image into assets/img/. artistAlternateName = other name used in search-engine data (structured data). calendar.icsUrl = optional public iCal (.ics) address of a Google or Outlook calendar; its events are copied into the Events page every 6 hours (better: store it as the repository secret CALENDAR_ICS_URL, see README). calendar.publicUrl = optional link to that calendar's public web page. calendar.showSubscribe = show the 'Subscribe to all events' buttons on the Events page. After changing siteUrl or ogImage, the 'SEO files' workflow updates canonical links, share tags, sitemap and feed automatically.",
   "siteName": "The Sound of (Nihira)Music",
   "siteNameSource": "https://artist.link/nihira",
   "shortName": "Nihira",
@@ -7,7 +7,7 @@
   "artistAlternateName": "Nihira Joshi-Deshpande",
   "siteUrl": "https://nihiramusic.in/",
   "email": "contact@nihiramusic.in",
-  "copyrightName": "NihiraMusic Entertainment LLP",
+  "copyrightName": "Nihiramusic Entertainment LLP",
   "listenUrl": "https://artist.link/nihira",
   "listenLabel": "Listen now",
   "subscribeUrl": "https://www.youtube.com/@nihiramusic?sub_confirmation=1",
@@ -23,29 +23,68 @@
       "path": ""
     },
     {
-      "id": "originals",
-      "label": "Originals",
-      "path": "original-compositions/"
+      "id": "playback",
+      "label": "Playback",
+      "path": "playback/",
+      "children": [
+        {
+          "id": "originals",
+          "label": "Originals",
+          "path": "original-compositions/"
+        },
+        {
+          "id": "playback-films",
+          "label": "Films",
+          "path": "playback/#films"
+        },
+        {
+          "id": "playback-title-tracks",
+          "label": "Title tracks",
+          "path": "playback/#title-tracks"
+        }
+      ]
     },
     {
       "id": "covers",
-      "label": "Covers",
-      "path": "covers/"
+      "label": "Music",
+      "path": "covers/",
+      "children": [
+        {
+          "id": "covers-hindi",
+          "label": "Hindi",
+          "path": "covers/#hindi"
+        },
+        {
+          "id": "covers-marathi",
+          "label": "Marathi",
+          "path": "covers/#marathi"
+        },
+        {
+          "id": "covers-devotional",
+          "label": "Devotional",
+          "path": "covers/#devotional"
+        },
+        {
+          "id": "covers-ghazals",
+          "label": "Ghazals",
+          "path": "covers/#ghazals"
+        },
+        {
+          "id": "covers-unplugged",
+          "label": "Unplugged",
+          "path": "covers/#unplugged"
+        },
+        {
+          "id": "poems",
+          "label": "Poetic Treasures",
+          "path": "poetic-treasures/"
+        }
+      ]
     },
     {
       "id": "concerts",
-      "label": "Concerts",
+      "label": "Performances",
       "path": "concerts/"
-    },
-    {
-      "id": "poems",
-      "label": "Poetic Treasures",
-      "path": "poetic-treasures/"
-    },
-    {
-      "id": "news",
-      "label": "News",
-      "path": "news/"
     },
     {
       "id": "events",
@@ -53,18 +92,23 @@
       "path": "events/"
     },
     {
+      "id": "news",
+      "label": "News",
+      "path": "news/"
+    },
+    {
       "id": "awards",
-      "label": "Awards",
+      "label": "Recognition",
       "path": "awards/"
     }
   ],
   "footerLinks": [
     {
-      "label": "Imprint",
+      "label": "Imprint & Privacy",
       "path": "privacy-policy/"
     },
     {
-      "label": "Terms & Conditions",
+      "label": "Terms of Use",
       "path": "terms-and-conditions/"
     }
   ],
@@ -112,7 +156,9 @@
   },
   "_notes": [
     "M2: site title changed from 'Nihira Joshi-Deshpande' at the owner's request; 'The Sound of (Nihira)Music' is the title Nihira already uses on artist.link/nihira.",
-    "Owner confirmed (M2): legal entity NihiraMusic Entertainment LLP, legal person Nihira Deshpande, screen name Nihira Joshi."
+    "Owner confirmed (M2): legal entity NihiraMusic Entertainment LLP, legal person Nihira Deshpande, screen name Nihira Joshi.",
+    "2026-11-01 (legal update): owner gave the legal entity as 'Nihiramusic Entertainment LLP' (designated partners Nihira Deshpande and Vrushali Joshi; content owner Nihira Deshpande, screen name Nihira Joshi). copyrightName follows that spelling.",
+    "2026-11-01 (owner): menu Home, Playback (Originals, Films, Title tracks), Music (covers tabs + Poetic Treasures), Performances (= concerts/), Events, News, Recognition (= awards/). Jingles join the Playback menu once they exist. Page addresses unchanged."
   ],
   "calendar": {
     "icsUrl": "https://calendar.google.com/calendar/ical/53d9e82a42ef937148a0ca3dbeb1bf76dc4a9395ab5a38dfb3f639c49aca373a%40group.calendar.google.com/public/basic.ics",

@@ -131,7 +131,7 @@ noscript p { max-width: 40rem; margin: 3rem auto; padding: 1rem var(--gutter); }
 .site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; }
 .brand { font-family: var(--serif); font-size: clamp(1.05rem, .95rem + .6vw, 1.3rem); color: var(--ink); text-decoration: none; white-space: nowrap; line-height: 1.1; }
 .brand__accent { color: var(--accent); font-style: italic; }
-.nav__list { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(.7rem, 1.4vw, 1.5rem); }
+.nav__list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: clamp(.7rem, 1.4vw, 1.5rem); }
 .nav__list a { color: var(--ink); text-decoration: none; font-size: .98rem; padding-block: .4rem; border-bottom: 2px solid transparent; transition: border-color .2s, color .2s; }
 .nav__list a:hover { border-color: var(--line); }
 .nav__list a[aria-current="page"] { border-color: var(--accent); }
@@ -157,6 +157,33 @@ noscript p { max-width: 40rem; margin: 3rem auto; padding: 1rem var(--gutter); }
   .is-open .nav-toggle__bars::after { transform: translateY(-6px) rotate(-45deg); }
 }
 @media (min-width: 62.01rem) { .nav .nav__social { display: none; } }
+
+/* Sub-menus (site.json nav "children"): dropdown on wide screens, indented list in the phone menu. */
+.nav__item--has-sub { position: relative; display: flex; align-items: center; gap: .1rem; }
+.nav__sub-toggle { display: inline-grid; place-items: center; width: 1.6rem; height: 1.9rem; padding: 0; border: 0; border-radius: 6px; background: none; color: var(--muted); cursor: pointer; }
+.nav__sub-toggle:hover { color: var(--accent); }
+.nav__chev { width: .42rem; height: .42rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .2s var(--ease); }
+.is-sub-open .nav__chev { transform: translateY(2px) rotate(-135deg); }
+.nav__sub { list-style: none; margin: 0; padding: 0; }
+@media (min-width: 62.01rem) {
+  .nav__sub { position: absolute; top: calc(100% + .55rem); left: -1rem; min-width: 12.5rem; padding: .5rem; z-index: 60;
+    background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 0 0 var(--radius-card) var(--radius-card); box-shadow: var(--shadow);
+    visibility: hidden; opacity: 0; transform: translateY(-.35rem); transition: opacity .18s var(--ease), transform .18s var(--ease), visibility 0s .18s; }
+  .nav__sub::before { content: ""; position: absolute; inset: -.8rem 0 auto; height: .8rem; } /* hover bridge */
+  .is-sub-open > .nav__sub, .nav__item--has-sub:focus-within > .nav__sub { visibility: visible; opacity: 1; transform: none; transition: opacity .18s var(--ease), transform .18s var(--ease); }
+  @media (hover: hover) and (pointer: fine) { .nav__item--has-sub:hover > .nav__sub { visibility: visible; opacity: 1; transform: none; transition: opacity .18s var(--ease), transform .18s var(--ease); } }
+  .nav__sub a { display: block; padding: .5rem .75rem; border: 0; border-radius: 6px; white-space: nowrap; font-size: .95rem; }
+  .nav__sub a:hover, .nav__sub a:focus-visible { background: var(--accent-soft); color: var(--ink); }
+  .nav__sub a[aria-current="page"] { color: var(--accent); }
+}
+@media (max-width: 62rem) {
+  .nav__item--has-sub { display: block; }
+  .nav__sub-toggle { display: none; }
+  .nav__sub { display: flex; flex-wrap: wrap; gap: .4rem .5rem; padding: .7rem 0 1rem; border-bottom: 1px solid var(--line); }
+  .nav__list .nav__item--has-sub > .nav__link { border-bottom: 0; padding-bottom: .2rem; }
+  .nav__list .nav__sub a { font: 500 .98rem/1 var(--sans); padding: .6em .95em; border: 1px solid var(--control-line); border-radius: 999px; }
+}
+
 
 /* ---------- Hero: the one bold moment (tanpura strings) ---------- */
 .hero { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: end; min-height: min(90vh, 56rem); background: var(--deep); color: var(--deep-ink); }
@@ -475,3 +502,39 @@ body[data-page="awards"] { --motif: url("data:image/svg+xml,%3Csvg xmlns='http:/
 /* M4: Poetic Treasures recitations (cards reuse .works / .work) */
 .recitations + .poems__texts { margin-top: var(--space); }
 .poems .works .work__title[lang="mr"], .poems .works .work__title[lang="hi"] { font-family: var(--serif); }
+
+
+/* ---------- Section tabs (Covers, Playback): one address per section, e.g. covers/#ghazals ---------- */
+.filters .subnav { flex: 1 1 auto; min-width: 0; }
+.subnav:focus { outline: none; }
+.subnav__list { list-style: none; margin: 0; padding: 0 0 .1rem; display: flex; gap: .5rem; overflow-x: auto; scrollbar-width: thin; }
+.subnav__link { display: inline-flex; align-items: baseline; gap: .45em; white-space: nowrap; text-decoration: none; color: var(--ink);
+  font: 500 .95rem/1 var(--sans); padding: .65em 1.05em; border-radius: 999px; border: 1px solid var(--control-line); background: var(--surface); transition: background-color .2s, color .2s, border-color .2s; }
+.subnav__link:hover { border-color: var(--accent); }
+.subnav__link[aria-current="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.subnav__count { font-size: .8em; opacity: .65; font-variant-numeric: tabular-nums; }
+.works-body > * + * { margin-top: clamp(3rem, 6vw, 4.5rem); }
+.works-section { scroll-margin-top: 6rem; }
+.works-section__head h2:focus { outline: none; }
+.works-section__intro { max-width: 46rem; margin: -1rem 0 2rem; color: var(--muted); }
+.work__film { margin: .1rem 0 .3rem; color: var(--muted); }
+.work__film cite { font-style: italic; font-family: var(--serif); color: var(--ink); }
+.work__award { margin: .6rem 0 0; font-size: .9rem; }
+.work__award, .work__award a { display: inline-flex; align-items: baseline; gap: .45em; color: var(--accent); text-decoration: none; }
+.work__award a:hover span:last-child { text-decoration: underline; text-underline-offset: .2em; }
+.work__placeholder { aspect-ratio: 4 / 3; display: grid; place-items: center; color: var(--accent);
+  background: radial-gradient(circle at 30% 25%, var(--accent-soft), transparent 70%), var(--surface); }
+.work__placeholder svg { width: 3rem; height: 3rem; opacity: .6; }
+
+/* ---------- Featured award (e.g. Filmfare 2026) ---------- */
+.award--featured { padding: 1.6rem; border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)); border-top: 3px solid var(--accent);
+  border-radius: var(--radius-card); background: linear-gradient(160deg, var(--accent-soft), transparent 55%), var(--surface); box-shadow: var(--shadow); }
+.award--featured .award__name { font-size: var(--step-2, 1.6rem); }
+.award__date { color: var(--muted); margin: .2rem 0 0; font-size: .95rem; }
+.award__desc { margin-top: 1rem; max-width: 44rem; }
+.award__gallery { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: .75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); }
+.award__gallery { align-items: start; }
+.award__gallery img { width: 100%; height: auto; max-height: 30rem; object-fit: contain; border-radius: 8px; background: var(--surface); }
+.award__links { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1rem; }
+.subnav__link--page { border-style: dashed; }
+.subnav__arrow { font-size: .85em; color: var(--accent); }

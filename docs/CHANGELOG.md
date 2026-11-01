@@ -1,5 +1,20 @@
 # Changelog
 
+## M6a revision (2026-11-01, owner feedback)
+- Menu: Home · Playback (Originals, Films, Title tracks) · Music (Hindi, Marathi, Devotional, Ghazals, Unplugged, Poetic Treasures) · Performances · Events · News · Recognition. Events and Performances are separate pages again; addresses unchanged (Music = covers/, Performances = concerts/, Recognition = awards/). Page titles and meta updated.
+- Tabs: link tabs (`href`) to other pages (Originals on Playback, Poetic Treasures on Music); empty tabs without a playlist are hidden (Jingles).
+- Content: Devotional playlist; Tuch Shwas Moraya under Devotional; LLPIN ACL-3315 in the imprint; Filmfare trophy photo (`assets/img/uploads/filmfare-marathi-2026-trophy.jpg`) on the Recognition page.
+- Changed: data/site.json, covers.json, playback.json, concerts.json, awards.json, legal.json, images.json; assets/js/works.js, home.js; assets/css/style.css; covers/, awards/, concerts/ index.html; tools/validate_data.py, build_seo.py; .pages.yml; README; ROADMAP; CHANGELOG.
+
+## M6a (2026-11-01): Legal update, Playback, Covers tabs, Filmfare award (roadmap deviation)
+- Legal: `data/legal.json` rewritten for Nihiramusic Entertainment LLP (imprint § 5 DDG / § 18 (2) MStV, privacy policy matching the real site, Terms of Use); old texts in `docs/legal/legal-texts-until-2026-11-01.json`; review `docs/legal/LEGAL-REVIEW-2026-11.md`; page titles/descriptions of privacy-policy/ and terms-and-conditions/; footer labels; © name.
+- New page `playback/` (Films / Title tracks / Jingles) + `data/playback.json`; Covers in tabs (Hindi / Marathi / Devotional / Ghazals / Unplugged) with `section` instead of `category`.
+- `assets/js/works.js`: tabs with own addresses (#id), YouTube playlists per page/tab merged automatically (dedupe, `hideVideoIds`, `excludeTitlePattern`), own entries can take their video from the playlist by title, featured cards without video, film/language/award badge.
+- Menu with sub-menus (`children` in site.json; dropdown on desktop, list on phones): Playback, Covers, Live (Events + Concerts). `notfound.js` forwards sub-menu pages.
+- Awards: text, photos, extra links, featured card, ceremony date (`assets/js/awards.js`); Home shows the compact version.
+- Content: Filmfare Awards Marathi 2026 (Best Playback Singer (Female), Chal Re Mana Jaau) in Awards, News, Playback; Ishq Manayein Kya? duet with Shaan (Originals + News); two requested originals; Originals playlist; three new covers; title tracks moved from Covers to Playback.
+- Tools: `validate_data.py` (playback.json, sections, nav children, new award fields, original title optional with videoId), `build_seo.py` (Playback page in sitemap/noscript), `sync_youtube.py` (keeps playlist videos that drop out of the 15-item feed), `.pages.yml` (Playback form, Covers tabs, Originals playlist fields, award photos/links/text), README.
+
 ## M5 (2026-10-31): Domain cutover
 - DNS moved by the owner to BigRock (apex → GitHub, www → get2abhijit.github.io, e-mail records unchanged); verified against current GitHub docs and the old zone.
 - New: `CNAME` (nihiramusic.in; ignored by GitHub for Actions deployments, kept as record), `.github/workflows/localize-images.yml` ("Localize images", run by hand), `assets/js/notfound.js` (404 forwards wrong-case/.html and listed old addresses), `data/redirects.json` (old-address list, empty), `docs/M5-DOMAIN-CUTOVER.md` (parity table, checklist, rollback), `docs/domain/` (DNS state, Hostinger zone backup, reminders.ics).

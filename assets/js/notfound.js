@@ -15,8 +15,9 @@ export default async function notFound({ site }) {
   if (!wanted) return;
 
   const targets = new Map();
-  for (const n of [...(site.nav || []), ...(site.footerLinks || [])]) {
-    if (n && n.path) targets.set(key(n.path), n.path);
+  const nav = (site.nav || []).flatMap((n) => [n, ...((n && n.children) || [])]);
+  for (const n of [...nav, ...(site.footerLinks || [])]) {
+    if (n && n.path && !n.path.includes('#')) targets.set(key(n.path), n.path);
   }
   const redirects = await loadJSON('redirects').catch(() => null);
   for (const r of (redirects && redirects.items) || []) {

@@ -72,9 +72,9 @@ export default async function ({ app, site }) {
     .sort((a, b) => String(b.year || 0).localeCompare(String(a.year || 0))).slice(0, n('awards', 3)) : [];
   if (on('awards') && aw.length) {
     app.append(h('section', { class: 'section section--ink', 'aria-label': S.awards.heading },
-      h('div', { class: 'wrap' }, sectionHead(S.awards.heading, 'awards/', 'All awards'),
+      h('div', { class: 'wrap' }, sectionHead(S.awards.heading, 'awards/', 'All recognition'),
         h('ul', { class: 'awards awards--row' }, aw.map((a) => {
-          const li = awardItem(a);
+          const li = awardItem(a, { full: false });
           if (a.year) li.prepend(h('p', { class: 'award__year', text: a.year }));
           return li;
         })))));

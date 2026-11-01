@@ -1,8 +1,12 @@
 {
-  "_help": "Original songs and albums. Newest first is automatic (by 'date' YYYY-MM-DD, else 'year'). Fields: id (unique, lowercase-with-dashes), title, type (Single / Album / EP), year (number, optional), date (optional), videoId (the part after v= in a YouTube link), image (optional cover art URL), imageAlt, credits (short line), description (text; **bold** and [link](url) allowed), listenUrl (song.link / album.link), spotifyUrl, soundcloudUrl, deezerUrl, featured (true pins it to the top), tracks (albums only: list of {title, videoId, spotifyUrl, soundcloudUrl, deezerUrl, listenUrl}), source (where the info came from). Leave a field out if you don't know it. Fields starting with _ are notes and never shown.",
+  "_help": "Original songs and albums. playlistId = the YouTube playlist 'Nihira Joshi Originals' (code after 'list='); its videos appear automatically after the daily YouTube sync, except videos whose YouTube title matches excludeTitlePattern (default 'lyric': lyrical versions of songs already listed) and the codes in hideVideoIds. Entries you add yourself (items) always win over the playlist. Newest first is automatic (by 'date' YYYY-MM-DD, else 'year'). Fields: id (unique, lowercase-with-dashes), title (may be empty if videoId is set: the YouTube title is shown), type (Single / Album / EP), year (number, optional), date (optional), videoId (the part after v= in a YouTube link), image (optional cover art URL), imageAlt, credits (short line), description (text; **bold** and [link](url) allowed), listenUrl (song.link / album.link), spotifyUrl, soundcloudUrl, deezerUrl, featured (true pins it to the top), tracks (albums only: list of {title, videoId, spotifyUrl, soundcloudUrl, deezerUrl, listenUrl}), source (where the info came from). Leave a field out if you don't know it. Fields starting with _ are notes and never shown.",
   "pageTitle": "Original Compositions",
   "intro": "",
   "emptyText": "New original music is on its way.",
+  "playlistId": "PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr",
+  "playlistSource": "https://www.youtube.com/playlist?list=PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr",
+  "excludeTitlePattern": "lyric",
+  "hideVideoIds": [],
   "items": [
     {
       "id": "trishna",
@@ -151,6 +155,30 @@
       "date": "2018-06-03",
       "year": 2018,
       "_note": "M4: release date 2018-06-03 confirmed by the site owner."
+    },
+    {
+      "id": "ishq-manayein-kya-duet",
+      "title": "Ishq Manayein Kya? (Duet version)",
+      "type": "Single",
+      "date": "2026-10-09",
+      "videoId": "04lq9P_EQwc",
+      "credits": "With Shaan, Manoj Yadav and Tanmay Pawar",
+      "source": "https://www.youtube.com/watch?v=04lq9P_EQwc&list=PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr&index=15",
+      "_note": "Title and date from the channel feed (YouTube title 'Ishq Manayein Kya (Duet version) Nihira Joshi | Shaan | Manoj Yadav| Tanmay Pawar|', published 2026-10-09). Roles of Manoj Yadav / Tanmay Pawar not stated there."
+    },
+    {
+      "id": "original-hkvbtv7axi0",
+      "title": "",
+      "videoId": "HkVbTV7Axi0",
+      "source": "https://www.youtube.com/watch?v=HkVbTV7Axi0&list=PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr&index=14",
+      "_todo": "Requested by the owner (playlist index 14). YouTube blocked automated reading here, so title/year are empty: the YouTube title is shown after the next YouTube sync. Add title, year, credits, listenUrl if wanted."
+    },
+    {
+      "id": "original-fuisyuusb9c",
+      "title": "",
+      "videoId": "fUISyuUsb9c",
+      "source": "https://www.youtube.com/watch?v=fUISyuUsb9c&list=PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr&index=9",
+      "_todo": "Requested by the owner (playlist index 9; listed twice in the request). Title/year as for original-hkvbtv7axi0."
     }
   ]
 }

@@ -1,0 +1,379 @@
+{
+  "_help": "Legal pages, copied VERBATIM from the old site. Do not rewrite without legal advice. Each page has 'blocks': type h2/h3 = heading, p = paragraph (**bold** allowed), ul = bullet list ('items'). 'lang': 'de' marks German text. '_review' lists points flagged for the owner to check; they are never shown on the site.",
+  "privacy": {
+    "title": "Privacy Policy",
+    "blocks": [
+      {
+        "type": "h2",
+        "text": "Introduction:"
+      },
+      {
+        "type": "p",
+        "text": "The website \"https://www.nihiramusic.in\" is owned by Nihira Joshi-Deshpande, which is a data controller of your personal data."
+      },
+      {
+        "type": "p",
+        "text": "We have adopted this Privacy Policy, which determines how we are processing the information collected by https://www.nihiramusic.in, which also provides the reasons why we must collect certain personal data about you. Therefore, you must read this Privacy Policy before using https://www.nihiramusic.in website."
+      },
+      {
+        "type": "p",
+        "text": "We take care of your personal data and undertake to guarantee its confidentiality and security."
+      },
+      {
+        "type": "h3",
+        "text": "Personal information we collect:"
+      },
+      {
+        "type": "p",
+        "text": "When you visit the https://www.nihiramusic.in, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the installed cookies on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products you view, what websites or search terms referred you to the Site, and how you interact with the Site. We refer to this automatically-collected information as “Device Information.” Moreover, we might collect the personal data you provide to us (including but not limited to Name, Surname, Address, payment information, etc.) during registration to be able to fulfill the agreement."
+      },
+      {
+        "type": "h3",
+        "text": "Why do we process your data?"
+      },
+      {
+        "type": "p",
+        "text": "Our top priority is customer data security, and, as such, we may process only minimal user data, only as much as it is absolutely necessary to maintain the website. Information collected automatically is used only to identify potential cases of abuse and establish statistical information regarding website usage. This statistical information is not otherwise aggregated in such a way that it would identify any particular user of the system."
+      },
+      {
+        "type": "p",
+        "text": "You can visit the website without telling us who you are or revealing any information, by which someone could identify you as a specific, identifiable individual. If, however, you wish to use some of the website’s features, or you wish to receive our newsletter or provide other details by filling a form, you may provide personal data to us, such as your email, first name, last name, city of residence, organization, telephone number. You can choose not to provide us with your personal data, but then you may not be able to take advantage of some of the website’s features. For example, you won’t be able to receive our Newsletter or contact us directly from the website. Users who are uncertain about what information is mandatory are welcome to contact us via nihiramusic@gmail.com."
+      },
+      {
+        "type": "h3",
+        "text": "Your rights:"
+      },
+      {
+        "type": "p",
+        "text": "If you are a European resident, you have the following rights related to your personal data:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "The right to be informed.",
+          "The right of access.",
+          "The right to rectification.",
+          "The right to erasure.",
+          "The right to restrict processing.",
+          "The right to data portability.",
+          "The right to object.",
+          "Rights in relation to automated decision-making and profiling."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "If you would like to exercise this right, please contact us through the contact information below."
+      },
+      {
+        "type": "p",
+        "text": "Additionally, if you are a European resident, we note that we are processing your information in order to fulfill contracts we might have with you (for example, if you make an order through the Site), or otherwise to pursue our legitimate business interests listed above. Additionally, please note that your information might be transferred outside of Europe, including Canada and the United States."
+      },
+      {
+        "type": "h3",
+        "text": "Links to other websites:"
+      },
+      {
+        "type": "p",
+        "text": "Our website may contain links to other websites that are not owned or controlled by us. Please be aware that we are not responsible for such other websites or third parties' privacy practices. We encourage you to be aware when you leave our website and read the privacy statements of each website that may collect personal information."
+      },
+      {
+        "type": "h3",
+        "text": "Information security:"
+      },
+      {
+        "type": "p",
+        "text": "We secure information you provide on computer servers in a controlled, secure environment, protected from unauthorized access, use, or disclosure. We keep reasonable administrative, technical, and physical safeguards to protect against unauthorized access, use, modification, and personal data disclosure in its control and custody. However, no data transmission over the Internet or wireless network can be guaranteed."
+      },
+      {
+        "type": "h3",
+        "text": "Legal disclosure:"
+      },
+      {
+        "type": "p",
+        "text": "We do not share your personal data with third parties except as required by law or to protect our rights. We will disclose any information we collect, use or receive if required or permitted by law, such as to comply with a subpoena or similar legal process, and when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request."
+      },
+      {
+        "type": "h3",
+        "text": "Contact information:"
+      },
+      {
+        "type": "p",
+        "text": "If you would like to contact us to understand more about this Policy or wish to contact us concerning any matter relating to individual rights and your Personal Information, you may send an email to contact@nihiramusic.in."
+      },
+      {
+        "type": "h2",
+        "text": "Impressum / Imprint:",
+        "id": "imprint"
+      },
+      {
+        "type": "h3",
+        "text": "Information according to § 5 TMG:"
+      },
+      {
+        "type": "p",
+        "text": "**Name**: Nihira Deshpande"
+      },
+      {
+        "type": "p",
+        "text": "**Address**: F/1, Udyan Vikas CHS, Tejpal Scheme Road No. 2, Vile Parle (East), Mumbai 400057"
+      },
+      {
+        "type": "p",
+        "text": "**E-Mail**: contact@nihiramusic.in"
+      },
+      {
+        "type": "p",
+        "text": "**Phone**: +91-8007771012"
+      },
+      {
+        "type": "p",
+        "text": "**Website**: https://www.nihiramusic.in"
+      },
+      {
+        "type": "p",
+        "text": "**Inhaltlich Verantwortlicher gemäß § 10 Absatz 3 MDStV**: Nihira Deshpande (Anschrift wie oben)"
+      },
+      {
+        "type": "h3",
+        "text": "Haftungshinweis",
+        "lang": "de"
+      },
+      {
+        "type": "p",
+        "lang": "de",
+        "text": "Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich."
+      },
+      {
+        "type": "p",
+        "lang": "de",
+        "text": "Keine Abmahnung ohne vorherigen Kontakt!"
+      },
+      {
+        "type": "p",
+        "lang": "de",
+        "text": "Sollte der Inhalt oder die Aufmachung dieser Seiten fremde Rechte Dritter oder gesetzliche Bestimmungen verletzen, so bitten wir um eine entsprechende Nachricht ohne Kostennote. Ich garantiere, dass die zu Recht beanstandeten Passagen unverzüglich entfernt werden, ohne dass von Ihrer Seite die Einschaltung eines Rechtsbeistandes erforderlich ist. Dennoch von Ihnen ohne vorherige Kontaktaufnahme ausgelöste Kosten werden wir vollumfänglich zurückweisen und gegebenenfalls Gegenklage wegen Verletzung vorgenannter Bestimmungen einreichen."
+      }
+    ],
+    "source": "https://nihiramusic.in/privacy-policy",
+    "_review": [
+      "Imprint cites '§ 5 TMG'. The TMG was replaced by the Digitale-Dienste-Gesetz (DDG) in May 2024; the current reference is § 5 DDG.",
+      "'§ 10 Absatz 3 MDStV' is obsolete (MDStV ended 2007; today § 18 Abs. 2 MStV).",
+      "Imprint address is in Mumbai while the bio says Nihira is based in Germany. A German imprint needs a current serviceable address.",
+      "Imprint name 'Nihira Deshpande' differs from the site name 'Nihira Joshi-Deshpande'.",
+      "Two contact emails are used: nihiramusic@gmail.com (privacy text) and contact@nihiramusic.in (imprint).",
+      "Policy mentions newsletter, forms, registration, payment, orders and cookies. The new site has none of these (no forms, no cookies, no analytics).",
+      "Policy refers to https://www.nihiramusic.in (with www).",
+      "Owner confirmed (M2): the legal entity is NihiraMusic Entertainment LLP, the legal person is Nihira Deshpande. The policy's first paragraph names 'Nihira Joshi-Deshpande' as owner/data controller; align it with the confirmed entity.",
+      "Policy does not mention: GitHub Pages hosting (server logs/IP) and YouTube embeds (loaded only after a click, via youtube-nocookie.com). Fonts are self-hosted since M2 (no Google request)."
+    ]
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Welcome to my website!"
+      },
+      {
+        "type": "p",
+        "text": "These terms and conditions outline the rules and regulations for the use of NihiraMusic Entertainment LLP's Website, located at https://nihiramusic.in."
+      },
+      {
+        "type": "p",
+        "text": "By accessing this website, we assume you accept these terms and conditions. Do not continue to use Nihira Joshi-Deshpande if you do not agree to take all of the terms and conditions stated on this page."
+      },
+      {
+        "type": "h3",
+        "text": "Cookies:"
+      },
+      {
+        "type": "p",
+        "text": "The website uses cookies to help personalize your online experience. By accessing Nihira Joshi-Deshpande, you agreed to use the required cookies."
+      },
+      {
+        "type": "p",
+        "text": "A cookie is a text file that is placed on your hard disk by a web page server. Cookies cannot be used to run programs or deliver viruses to your computer. Cookies are uniquely assigned to you and can only be read by a web server in the domain that issued the cookie to you."
+      },
+      {
+        "type": "p",
+        "text": "We may use cookies to collect, store, and track information for statistical or marketing purposes to operate our website. You have the ability to accept or decline optional Cookies. There are some required Cookies that are necessary for the operation of our website. These cookies do not require your consent as they always work. Please keep in mind that by accepting required Cookies, you also accept third-party Cookies, which might be used via third-party provided services if you use such services on our website, for example, a video display window provided by third parties and integrated into our website."
+      },
+      {
+        "type": "h3",
+        "text": "License:"
+      },
+      {
+        "type": "p",
+        "text": "Unless otherwise stated, NihiraMusic Entertainment LLP and/or its licensors own the intellectual property rights for all material on the website. All intellectual property rights are reserved. You may access this from the website for your own personal use subjected to restrictions set in these terms and conditions."
+      },
+      {
+        "type": "p",
+        "text": "You must not:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Copy or republish material from the website",
+          "Sell, rent, or sub-license material from the website",
+          "Reproduce, duplicate or copy material from the website",
+          "Redistribute content from the website"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "This Agreement shall begin on the date hereof."
+      },
+      {
+        "type": "p",
+        "text": "Parts of this website offer users an opportunity to post and exchange opinions and information in certain areas of the website. NihiraMusic Entertainment LLP does not filter, edit, publish or review Comments before their presence on the website. Comments do not reflect the views and opinions of NihiraMusic Entertainment LLP, its agents, and/or affiliates. Comments reflect the views and opinions of the person who posts their views and opinions. To the extent permitted by applicable laws, NihiraMusic Entertainment LLP shall not be liable for the Comments or any liability, damages, or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website."
+      },
+      {
+        "type": "p",
+        "text": "NihiraMusic Entertainment LLP reserves the right to monitor all Comments and remove any Comments that can be considered inappropriate, offensive, or causes breach of these Terms and Conditions."
+      },
+      {
+        "type": "p",
+        "text": "You warrant and represent that:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;",
+          "The Comments do not invade any intellectual property right, including without limitation copyright, patent, or trademark of any third party;",
+          "The Comments do not contain any defamatory, libelous, offensive, indecent, or otherwise unlawful material, which is an invasion of privacy.",
+          "The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "You hereby grant NihiraMusic Entertainment LLP a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats, or media."
+      },
+      {
+        "type": "h3",
+        "text": "Hyperlinking to our Content:"
+      },
+      {
+        "type": "p",
+        "text": "The following organizations may link to our Website without prior written approval:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Government agencies;",
+          "Search engines;",
+          "News organizations;",
+          "Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and",
+          "System-wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "These organizations may link to our home page, to publications, or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement, or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party's site."
+      },
+      {
+        "type": "p",
+        "text": "We may consider and approve other link requests from the following types of organizations:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Commonly-known consumer and/or business information sources;",
+          "Dot.com community sites;",
+          "Associations or other groups representing charities;",
+          "Online directory distributors;",
+          "Internet portals;",
+          "Accounting, law, and consulting firms; and",
+          "Educational institutions and trade associations."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of NihiraMusic Entertainment LLP; and (d) the link is in the context of general resource information."
+      },
+      {
+        "type": "p",
+        "text": "These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement, or approval of the linking party and its products or services; and (c) fits within the context of the linking party's site."
+      },
+      {
+        "type": "p",
+        "text": "If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to NihiraMusic Entertainment LLP. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response."
+      },
+      {
+        "type": "p",
+        "text": "Approved organizations may hyperlink to our Website as follows:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "By use of our corporate name; or",
+          "By use of the uniform resource locator being linked to; or",
+          "Using any other description of our Website being linked to that makes sense within the context and format of content on the linking party's site."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "No use of NihiraMusic Entertainment LLP's logo or other artwork will be allowed for linking absent a trademark license agreement."
+      },
+      {
+        "type": "h3",
+        "text": "Content Liability:"
+      },
+      {
+        "type": "p",
+        "text": "We shall not be held responsible for any content that appears on your Website. You agree to protect and defend us against all claims that are raised on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene, or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights."
+      },
+      {
+        "type": "h3",
+        "text": "Reservation of Rights:"
+      },
+      {
+        "type": "p",
+        "text": "We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amend these terms and conditions and its linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions."
+      },
+      {
+        "type": "h3",
+        "text": "Removal of links from our website:"
+      },
+      {
+        "type": "p",
+        "text": "If you find any link on our Website that is offensive for any reason, you are free to contact and inform us at any moment. We will consider requests to remove links, but we are not obligated to or so or to respond to you directly."
+      },
+      {
+        "type": "p",
+        "text": "We do not ensure that the information on this website is correct. We do not warrant its completeness or accuracy, nor do we promise to ensure that the website remains available or that the material on the website is kept up to date."
+      },
+      {
+        "type": "h3",
+        "text": "Disclaimer:"
+      },
+      {
+        "type": "p",
+        "text": "To the maximum extent permitted by applicable law, we exclude all representations, warranties, and conditions relating to our website and the use of this website. Nothing in this disclaimer will:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Limit or exclude our or your liability for death or personal injury;",
+          "Limit or exclude our or your liability for fraud or fraudulent misrepresentation;",
+          "Limit any of our or your liabilities in any way that is not permitted under applicable law; or",
+          "Exclude any of our or your liabilities that may not be excluded under applicable law."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort, and for breach of statutory duty."
+      },
+      {
+        "type": "p",
+        "text": "As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature."
+      }
+    ],
+    "source": "https://nihiramusic.in/terms-and-conditions",
+    "_review": [
+      "Owner confirmed (M2): NihiraMusic Entertainment LLP is correct. The text still says 'Do not continue to use Nihira Joshi-Deshpande' (template wording).",
+      "Mentions user comments/posting; the site has no comment function.",
+      "Cookie section is outdated: the new site sets no cookies (YouTube only after a click).",
+      "'paragraph 2 above' and similar wording come from a generic template."
+    ]
+  }
+}

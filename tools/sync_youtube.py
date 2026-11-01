@@ -6,8 +6,10 @@
    Pages show it wherever you left a title empty. Your own data files are never changed.
 3. Collects the upload date of every videoId used in data/*.json into youtube-latest.json "dates"
    (a hint for filling in concert dates; never shown as the concert date).
-4. Reads every YouTube playlist named by a "playlistId" in data/*.json (e.g. Poetic Treasures) and stores its
-   videos in youtube-latest.json "playlists", so new videos of a series appear on the site by themselves.
+4. Reads every YouTube playlist named by a "playlistId" in data/*.json (Poetic Treasures, Originals, and each
+   section of Playback and Covers) and stores its videos in youtube-latest.json "playlists", so new videos
+   appear on the site by themselves. Note: YouTube's playlist feed lists at most the 15 newest-added videos;
+   older ones that drop out of the feed stay listed here (they are kept from the previous run).
 5. Downloads each needed thumbnail once to assets/img/yt/<videoId>.jpg, so visitors' browsers
    never contact YouTube before they press play.
 Files are only rewritten when something changed. Python standard library only.
@@ -35,7 +37,7 @@ HELP = ("Written automatically by .github/workflows/youtube-sync.yml (tools/sync
         "changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used "
         "in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for "
         "filling in concert dates; the concert itself may have been earlier). playlists = videos of each playlist named by a "
-        "'playlistId' in data/*.json (Poetic Treasures).")
+        "'playlistId' in data/*.json (Poetic Treasures, Originals, Playback and Covers sections).")
 
 
 def parse_feed(xml_bytes, limit=15):
@@ -146,6 +148,9 @@ def main():
     for pid in playlist_ids():
         try:
             vids = parse_feed(fetch(f"https://www.youtube.com/feeds/videos.xml?playlist_id={pid}")[0], limit=50)
+            if vids:  # the feed shows at most 15 videos: keep earlier ones that are no longer in it
+                ids = {v["videoId"] for v in vids}
+                vids += [v for v in old_pl.get(pid, []) if v.get("videoId") not in ids]
             out["playlists"][pid] = vids if vids else old_pl.get(pid, [])
             print(f"Playlist {pid}: {len(out['playlists'][pid])} videos.")
         except Exception as exc:

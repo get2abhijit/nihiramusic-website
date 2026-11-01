@@ -13,8 +13,8 @@ There are two ways to change the website. Both save a new version on GitHub; the
 **Set up once (5 minutes):**
 1. Go to https://app.pagescms.org and **Sign in with GitHub**.
 2. When asked, **install the Pages CMS GitHub App** and give it access to the repository `nihiramusic-website` only.
-3. Open the repository (branch `master`). The left menu shows: News, Events, Awards, Originals, Covers,
-   Concerts, Poetic Treasures, Home page text.
+3. Open the repository (branch `master`). The left menu shows: News, Events, Recognition (awards), Originals, Playback,
+   Music (cover songs), Performances (concerts), Poetic Treasures, Home page text.
 4. Optional: to let someone without a GitHub account edit, invite them by e-mail (Pages CMS → Collaborators).
 
 **Everyday use:**
@@ -230,14 +230,62 @@ Paste inside the `"items": [ ... ]` list of the matching file. Remember the comm
 {
   "id": "song-name-cover",
   "title": "Song name",
-  "category": "Hindi Covers",
+  "section": "hindi",
   "year": 2026,
   "videoId": "abcDEF12345",
   "originalArtist": "Original singer",
   "source": "https://www.youtube.com/watch?v=abcDEF12345"
 }
 ```
-The `videoId` is the part after `v=` in a YouTube link (or after `youtu.be/`).
+The `videoId` is the part after `v=` in a YouTube link (or after `youtu.be/`). `section` is the tab:
+`hindi`, `marathi`, `devotional`, `ghazals` or `unplugged`.
+
+**Playback song** (`data/playback.json`)
+```json
+{
+  "id": "song-name",
+  "section": "films",
+  "title": "Song name",
+  "film": "Film name",
+  "language": "Marathi",
+  "year": 2026,
+  "videoId": "",
+  "matchTitle": ["song name"],
+  "credits": "Music: … · Lyrics: …",
+  "source": "https://…"
+}
+```
+`section`: `films`, `title-tracks` or `jingles`. Leave `videoId` empty if the song is in that tab's YouTube
+playlist: the page takes the video whose YouTube title contains the `matchTitle` words.
+
+### Tabs, playlists and hiding a video (Playback, Covers, Originals)
+- Website menu: Home · Playback (Originals, Films, Title tracks) · Music (Hindi, Marathi, Devotional, Ghazals,
+  Unplugged, Poetic Treasures) · Performances · Events · News · Recognition. Page addresses never changed:
+  Music = `covers/`, Performances = `concerts/`, Recognition = `awards/`.
+- A tab without videos and without a playlist stays hidden (e.g. Jingles) until you add one. When Jingles are
+  ready: add the playlistId in Playback → Tabs → Jingles, and the menu line
+  `{ "id": "playback-jingles", "label": "Jingles", "path": "playback/#jingles" }` under Playback in `site.json`.
+- A tab with `href` is a link to another page (Originals on Playback, Poetic Treasures on Music).
+- **Playback** and **Covers** have tabs (`sections` at the top of the file). Each tab has its own address,
+  e.g. `covers/#ghazals`, used by the sub-menu in `site.json`.
+- A tab (or Originals as a whole) can have a `playlistId`: the code after `list=` in a YouTube playlist link.
+  The daily **YouTube sync** copies that playlist; its videos appear automatically, newest first, with the
+  YouTube title shortened before the first `|`. Run **Actions → YouTube sync → Run workflow** to see a
+  change at once.
+- Your own entries (`items`) always win: a playlist video that is already listed is not shown twice.
+- **Hide a playlist video:** add its 11-character code to `hideVideoIds` (of the tab, or at the top of the file).
+- Originals skip playlist videos whose title contains `lyric` (`excludeTitlePattern`), so lyrical versions of
+  songs already listed don't appear twice.
+- **New tab:** add a section (`id`, `label`, optional `playlistId`) and, if it should be in the menu, one line
+  under `children` of Playback/Covers in `data/site.json`, e.g. `{ "id": "covers-folk", "label": "Folk", "path": "covers/#folk" }`.
+- YouTube's playlist feed only lists the 15 most recently added videos. Older videos stay on the site once
+  the sync has seen them; for a playlist with more than 15 videos, add the older ones as `items`.
+
+### Award photos (e.g. Filmfare 2026)
+1. Save the photos from Instagram/Facebook (only photos you may use; note the photographer).
+2. Pages CMS → **Awards** → the award → **Photos** → add each photo with a short description → Save.
+   (Without the CMS: upload them to `assets/img/uploads/` and list them under `"images"` as
+   `{ "src": "assets/img/uploads/photo.jpg", "alt": "Nihira receiving the award" }`.)
 
 **Original** (`data/originals.json`)
 ```json
@@ -315,7 +363,13 @@ Optional, in `data/site.json` → `calendar`: `publicUrl` (link "Open the calend
 - RSS feed for news readers: `news/feed.xml` (linked on the News page).
 - Google Search Console: submit `https://nihiramusic.in/sitemap.xml` once (steps in `docs/M5-DOMAIN-CUTOVER.md`, section 3). Afterwards Google re-reads it by itself. Check "Pages → Not found (404)" now and then; add old addresses it lists to `data/redirects.json`.
 
-## 6. Privacy notes
+## 6. Privacy notes and legal pages
+
+- The Imprint & Privacy Policy and the Terms of Use live in `data/legal.json` (updated 2026-11-01 for
+  Nihiramusic Entertainment LLP; previous texts in `docs/legal/`, review notes in
+  `docs/legal/LEGAL-REVIEW-2026-11.md`). Facts such as address or phone may be updated; change the wording
+  only after legal advice. If the website gets a newsletter, a form, analytics or a shop, the privacy policy
+  must be updated first.
 
 - No cookies, no analytics, no forms.
 - Fonts are stored in `assets/fonts/` (no request to Google).

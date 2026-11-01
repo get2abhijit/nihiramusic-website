@@ -1,0 +1,83 @@
+{
+  "_help": "Playback singing (films, TV title tracks, jingles). sections = the tabs on the page (id = the part after # in the address, e.g. playback/#films; label = tab name; intro = optional text; emptyText = shown while a section has nothing; playlistId = the YouTube playlist of that section: the code after 'list=' in the playlist link; the daily YouTube sync copies its videos here automatically, newest first; hideVideoIds = videos of that playlist you do NOT want shown; a tab without videos and without playlist stays hidden; a tab with 'href' is a link to another page, e.g. Originals). items = entries you add yourself; they appear before/among the playlist videos and can carry more detail. Item fields: id (unique), section (one of the section ids), title, film (film or serial name), language (optional), year, date (YYYY-MM-DD, optional), videoId (leave empty to take the matching video from the section's playlist automatically), matchTitle (optional: words that appear in that video's YouTube title, e.g. 'chal re mana'), credits (one short line), description, award (short award line shown on the card), awardId (id of the entry in awards.json, makes the award line a link), listenUrl, spotifyUrl, featured (true = shown large first), source. Never add song lyrics. Fields starting with _ are notes and never shown.",
+  "pageTitle": "Playback",
+  "intro": "Nihira's voice in films, television title tracks and jingles.",
+  "emptyText": "Playback songs will appear here soon.",
+  "allLabel": "All",
+  "excludeTitlePattern": "lyric",
+  "sections": [
+    {
+      "id": "originals",
+      "label": "Originals",
+      "href": "original-compositions/",
+      "_note": "Link tab: opens the Originals page."
+    },
+    {
+      "id": "films",
+      "label": "Films",
+      "playlistId": "PLQ_rmkCpHU8oKqBdNyo3x5r0D5YvSLlo3",
+      "emptyText": "Film songs will appear here soon.",
+      "playlistSource": "https://www.youtube.com/playlist?list=PLQ_rmkCpHU8oKqBdNyo3x5r0D5YvSLlo3",
+      "_note": "Playlist 'Nihira film songs' (owner Nihira Joshi, 15 videos on 2026-11-01)."
+    },
+    {
+      "id": "title-tracks",
+      "label": "Title tracks",
+      "playlistId": "PLQ_rmkCpHU8oNRg8gWFdU0BjUlruM-1Y-",
+      "emptyText": "Title tracks will appear here soon.",
+      "playlistSource": "https://www.youtube.com/watch?v=L2wyFD153B0&list=PLQ_rmkCpHU8oNRg8gWFdU0BjUlruM-1Y-"
+    },
+    {
+      "id": "jingles",
+      "label": "Jingles",
+      "emptyText": "Jingles will appear here soon.",
+      "_todo": "Owner 2026-11-01: jingles will come later. The tab stays hidden until it has a playlistId or an entry."
+    }
+  ],
+  "items": [
+    {
+      "id": "chal-re-mana-jaau",
+      "section": "films",
+      "title": "Chal Re Mana Jaau",
+      "film": "Ata Thambaycha Naay!",
+      "language": "Marathi",
+      "year": 2025,
+      "matchTitle": [
+        "chal re mana"
+      ],
+      "credits": "Music: Gulraj Singh · Lyrics: Manoj Yadav · Sung with Gulraj Singh",
+      "description": "The song that marked Nihira's return to film playback singing. It won her the Filmfare Award Marathi 2026 for Best Playback Singer (Female).",
+      "award": "Filmfare Awards Marathi 2026 · Best Playback Singer (Female)",
+      "awardId": "filmfare-marathi-2026-chal-re-mana-jaau",
+      "featured": true,
+      "source": "https://planetbollywood.com/wp/?p=29584",
+      "_sources": [
+        "https://en.wikipedia.org/wiki/Filmfare_Award_for_Best_Female_Playback_Singer_%E2%80%93_Marathi",
+        "https://milliblog.com/?p=19354"
+      ],
+      "_todo": "Video code not readable here (YouTube blocked automated reading). The page takes the video automatically from the 'Films' playlist once the YouTube sync has run (its YouTube title must contain 'chal re mana'); otherwise paste the 11-character code into videoId. Add listenUrl/spotifyUrl if wanted."
+    },
+    {
+      "id": "julun-yeti-reshimgathi-title-track",
+      "section": "title-tracks",
+      "title": "Julun Yeti Reshimgathi (title track)",
+      "language": "Marathi",
+      "videoId": "L2wyFD153B0",
+      "source": "https://www.youtube.com/watch?v=L2wyFD153B0&list=PLQ_rmkCpHU8oNRg8gWFdU0BjUlruM-1Y-",
+      "_note": "Moved from Covers (old site listed it under Marathi Covers). First video of the owner's title-tracks playlist. YouTube title: 'Julun Yeti Reshimgathi Full Title Track | जुळून येती रेशीमगाठी शीर्षकगीत'."
+    },
+    {
+      "id": "kasamh-se-title-song",
+      "section": "title-tracks",
+      "title": "Kasamh Se (title song)",
+      "language": "Hindi",
+      "videoId": "lYYRVCE-k9Y",
+      "description": "The title song of the TV serial 'Kasamh Se'.",
+      "source": "https://nihiramusic.in/covers",
+      "_sources": [
+        "https://www.youtube.com/watch?v=lYYRVCE-k9Y"
+      ],
+      "_todo": "Moved from Covers to Title tracks (YouTube title: 'Kasamh Se Serial | Full Title Song | Nihira Joshi Deshpande'). Owner to confirm it belongs to Playback; if not, move it back to covers.json."
+    }
+  ]
+}
