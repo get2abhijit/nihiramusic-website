@@ -19,7 +19,9 @@
       "startTime": "04:30",
       "endTime": "05:30",
       "timezone": "Asia/Kolkata",
+      "venue": "YMCA Hall, Navghar Manikpur, Manickpur, Vasai West, Vasai-Virar, Maharashtra 401202, India",
       "status": "scheduled",
+      "description": "Diwali Pahaat morning concert celebrating the spirit of the festival!!!",
       "source": "calendar"
     },
     {
@@ -29,7 +31,9 @@
       "startTime": "05:00",
       "endTime": "05:30",
       "timezone": "Asia/Kolkata",
+      "venue": "Shree Akkalkot Swami Samarth Maharaj Mandir - Gujarat, 8622+FW7, Sursagar Lake, Nayay Mandir, Raopura, Mandvi, Vadodara, Gujarat 390001, India",
       "status": "scheduled",
+      "description": "Celebrating Bhakti and divinity with the followers of Shri Swami Samarth in the Mandir",
       "source": "calendar"
     },
     {
