@@ -172,6 +172,13 @@ content:
                 - { name: cancelled, label: Cancelled }
           - { name: ticketUrl, component: url, label: Ticket link (optional) }
           - { name: description, label: Description, type: text }
+          - name: links
+            label: Buttons below the text (booking page, programme, ...)
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Button text, type: string, required: true }
+              - { name: url, component: url, label: Address, required: true }
           - { name: image, component: image }
           - { name: imageAlt, label: Image description, type: string }
           - { name: source, component: source }
@@ -231,6 +238,7 @@ content:
           - { name: imageAlt, label: Logo description, type: string }
           - { name: featured, label: Show large at the top of its year, type: boolean }
           - { name: highlight, label: Show on the Home page, type: boolean }
+          - { name: pressKit, label: "Show in the press kit (default: yes, if shown on Home)", type: boolean }
           - { name: source, component: source }
           - { name: _sources, label: More sources, type: string, list: true, hidden: true }
           - { name: _note, component: note }
@@ -569,3 +577,81 @@ content:
             pattern: { regex: "^[^@\\s]+@[^@\\s]+\\.[A-Za-z]{2,}$", message: "An e-mail address" }
           - { name: instagram, component: url, label: Instagram link }
           - { name: source, label: Source, type: string, hidden: true }
+
+  # ---------------------------------------------------------------- Press kit
+  - name: presskit
+    label: Press kit (press-kit/)
+    type: file
+    path: data/presskit.json
+    format: json
+    fields:
+      - { name: pageTitle, label: Page title, type: string }
+      - { name: intro, label: Intro text, type: text }
+      - name: bios
+        label: Bio versions (use 'About text' to follow the Home page automatically)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - { name: id, component: id }
+          - { name: label, label: Name of this version, type: string, required: true }
+          - name: fromAbout
+            label: Take the text from the Home About section
+            type: select
+            options:
+              values:
+                - { name: first, label: "First paragraph only (short)" }
+                - { name: all, label: "All paragraphs (full)" }
+          - { name: text, label: Own text (only if not taken from About), type: text }
+          - { name: source, component: source }
+      - { name: factsHeading, label: Heading for the facts, type: string }
+      - name: facts
+        label: Facts (only things you are sure of)
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string, required: true }
+          - { name: value, label: Value, type: string, required: true }
+      - { name: highlightsHeading, label: Heading for recognition, type: string }
+      - { name: photosHeading, label: Heading for photos, type: string }
+      - { name: photosNote, label: Usage note under the photos, type: text }
+      - name: photos
+        label: Photos and logo for press
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - { name: id, component: id }
+          - { name: label, label: Name (shown under the photo), type: string }
+          - { name: src, label: Image, type: image, required: true }
+          - { name: alt, label: Image description, type: string, required: true }
+          - { name: credit, label: Photo credit (photographer), type: string }
+          - { name: approved, label: Approved for press (only approved photos are shown), type: boolean }
+          - { name: source, component: source }
+      - name: downloads
+        label: Files to download (e.g. one-page PDF)
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Button text, type: string, required: true }
+          - { name: path, label: File path (e.g. assets/press/onesheet.pdf), type: string, required: true }
+          - { name: note, label: Note, type: string }
+      - name: booking
+        label: Booking contact
+        type: object
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: email, label: "E-mail (empty = the address in site.json)", type: string }
+      - name: links
+        label: Extra buttons in the contact section
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Button text, type: string, required: true }
+          - { name: url, component: url, label: Address, required: true }
+      - { name: _todo, component: todo }

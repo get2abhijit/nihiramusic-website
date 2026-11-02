@@ -538,3 +538,64 @@ body[data-page="awards"] { --motif: url("data:image/svg+xml,%3Csvg xmlns='http:/
 .award__links { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: 1rem; }
 .subnav__link--page { border-style: dashed; }
 .subnav__arrow { font-size: .85em; color: var(--accent); }
+
+/* ---------- M6b: awards with photos (photo to the right of the text) ---------- */
+.award--with-media { display: grid; gap: 1.5rem 2.5rem; grid-template-columns: minmax(0, 1fr); align-items: start; }
+.award__text { min-width: 0; }
+.award__media { min-width: 0; }
+.award--with-media .award__gallery { margin-top: 0; grid-template-columns: 1fr; justify-items: center; }
+.award--with-media .award__gallery img { width: 100%; max-width: 22rem; max-height: 32rem; margin-inline: auto; }
+@media (min-width: 56rem) {
+  .award--with-media { grid-template-columns: minmax(0, 1fr) minmax(14rem, 22rem); align-items: center; }
+  .award--with-media .award__desc { max-width: none; }
+  /* several photos: two columns so the block does not become very tall */
+  .award--with-media .award__gallery:has(li:nth-child(3)) { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- M6b: event text, link buttons ---------- */
+.event__desc :is(ul, ol) { margin: .5rem 0 1rem 1.2rem; padding: 0; }
+.event__desc li + li { margin-top: .25rem; }
+.event__links { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 1rem 0 0; padding: 0; }
+.event__links .btn { display: inline-flex; align-items: center; gap: .5em; }
+.event__links .btn .icon svg { width: 1.1em; height: 1.1em; }
+
+/* ---------- M6b: alignment of pictures and text ---------- */
+/* One rule for all pictures: they never overflow their column, keep their shape and share the same corner radius. */
+:where(main) img { max-width: 100%; height: auto; }
+.about__grid { align-items: center; }               /* About photo and text share one centre line */
+@media (min-width: 56rem) { .about__fig { position: relative; top: auto; } }
+.event__body, .news-item > *, .concert__head > * { min-width: 0; }
+.event { align-items: start; }                       /* date block and text start on the same line */
+.event__date { padding-top: .1rem; }
+.event__img { display: block; width: 100%; max-width: 36rem; height: auto; margin-inline: 0; }
+.news-item__img { display: block; max-width: 36rem; width: 100%; height: auto; }
+.news-item__date { padding-top: .5rem; line-height: 1.3; }
+.concert__img { display: block; width: 100%; height: auto; }
+.work__media, .work__body { min-width: 0; }
+.work__title { text-wrap: balance; }
+:where(.page-head__intro, .prose, .award__desc, .news-item__summary) { text-wrap: pretty; }
+
+/* ---------- M6b: press kit ---------- */
+.pk { display: grid; gap: clamp(2.5rem, 6vw, 4rem); }
+.pk__section > h2 { margin-bottom: 1rem; }
+.pk__bio { padding-block: 1.25rem; border-top: 1px solid var(--line); }
+.pk__bio:first-of-type { border-top: 0; }
+.pk__bio-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; margin-bottom: .5rem; }
+.pk__bio-head h3 { margin: 0; }
+.pk__facts { display: grid; grid-template-columns: max-content 1fr; gap: .4rem 1.5rem; margin: 0; }
+.pk__facts dt { color: var(--muted); } .pk__facts dd { margin: 0; }
+.pk__awards { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+.pk__awards li { display: grid; grid-template-columns: 6.5rem 1fr; gap: .75rem 1rem; align-items: baseline; padding-bottom: .9rem; border-bottom: 1px solid var(--line); }
+.pk__awards .badge { justify-self: start; }
+.pk__award-text cite { font-family: var(--serif); }
+.pk__photos { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); align-items: start; }
+.pk__photos figure { margin: 0; display: grid; gap: .6rem; }
+.pk__photos img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius-card); background: var(--surface); }
+.pk__photos li:last-child img[alt*="logo" i] { object-fit: contain; aspect-ratio: 1; padding: 1rem; }
+.pk__photos figcaption { display: grid; gap: .15rem; font-size: var(--step--1); }
+.pk__label { font-weight: 600; } .pk__credit { color: var(--muted); }
+.pk__files { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; }
+.pk__buttons { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+.pk__buttons .btn { display: inline-flex; align-items: center; gap: .5em; }
+.pk__buttons .btn .icon svg { width: 1.1em; height: 1.1em; }
+@media (max-width: 36rem) { .pk__awards li { grid-template-columns: 1fr; } }

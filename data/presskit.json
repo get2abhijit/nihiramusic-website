@@ -1,0 +1,83 @@
+{
+  "_help": "Press kit / booking page (press-kit/). bios = bio versions with a Copy button: either 'text' (your own words), or 'fromAbout': 'first' / 'all' to use the About text of the Home page automatically (so it never goes out of date). highlights = automatic: every award in awards.json with \"highlight\": true is listed (won first); set \"pressKit\": false on an award to leave it out. facts = optional short label/value lines (e.g. {\"label\": \"Languages\", \"value\": \"Hindi, Marathi, English\"}); only add facts you are sure of. photos = approved photos for press: src (image in assets/img/), alt (describes the photo), label, credit (photographer, shown next to the photo; leave empty if unknown), approved (true/false: only 'true' photos are shown). Visitors can download the photo from the page. downloads = optional files (e.g. a one-page PDF): label, path (e.g. assets/press/onesheet.pdf), note. booking = heading, text and the e-mail for requests (empty email = the address from site.json). links = extra buttons below the contact text.",
+  "pageTitle": "Press kit",
+  "intro": "Everything organisers, journalists and partners need in one place: bio, recognition, photos and how to get in touch.",
+  "bios": [
+    {
+      "id": "short",
+      "label": "Short bio",
+      "fromAbout": "first",
+      "source": "https://nihiramusic.in/"
+    },
+    {
+      "id": "full",
+      "label": "Full bio",
+      "fromAbout": "all",
+      "source": "https://nihiramusic.in/"
+    }
+  ],
+  "factsHeading": "At a glance",
+  "facts": [],
+  "highlightsHeading": "Recognition",
+  "photosHeading": "Photos and logo",
+  "photosNote": "Free to use for announcements and press about Nihira's music, with the credit shown. Please ask before any other use.",
+  "photos": [
+    {
+      "id": "portrait-hero",
+      "label": "Portrait (wide)",
+      "src": "assets/img/dsc2295-ykbr0xv9x8i2zz9b-b80550-1920.webp",
+      "alt": "Nihira Joshi",
+      "credit": "",
+      "approved": true,
+      "source": "https://nihiramusic.in/"
+    },
+    {
+      "id": "portrait-about",
+      "label": "Portrait (upright)",
+      "src": "assets/img/dsc2458-m7vkyjzvjzfl8zj7-06f4e3-1224.webp",
+      "alt": "Nihira Joshi, portrait",
+      "credit": "",
+      "approved": true,
+      "source": "https://nihiramusic.in/"
+    },
+    {
+      "id": "filmfare-trophy",
+      "label": "Filmfare Awards Marathi 2026 trophy",
+      "src": "assets/img/uploads/filmfare-marathi-2026-trophy.jpg",
+      "alt": "Nihira's Filmfare Awards Marathi 2026 trophy, the black lady statuette, standing on a wooden table",
+      "credit": "",
+      "approved": true,
+      "source": "https://www.instagram.com/p/DbyEVJHIpLS/"
+    },
+    {
+      "id": "logo",
+      "label": "Logo",
+      "src": "assets/img/nihirafinal-logo-3-yyv7bqb4jbio1lp0-3fe366-1200.jpg",
+      "alt": "The Sound of (Nihira)Music logo",
+      "credit": "",
+      "approved": true,
+      "source": "https://nihiramusic.in/"
+    }
+  ],
+  "downloads": [],
+  "booking": {
+    "heading": "Booking and press enquiries",
+    "text": "For concerts, collaborations, playback and interviews, please write with the date, place and kind of event. Nihira's team will reply as soon as possible.",
+    "email": ""
+  },
+  "links": [
+    {
+      "label": "Listen on all platforms",
+      "url": "https://artist.link/nihira"
+    },
+    {
+      "label": "YouTube channel",
+      "url": "https://www.youtube.com/@Nihiramusic"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/nihiramusic/"
+    }
+  ],
+  "_todo": "Owner: add credits (photographer) to each photo, confirm the photos are approved for press, optionally add facts and a one-page PDF under downloads. Booking text is a neutral draft: edit freely."
+}

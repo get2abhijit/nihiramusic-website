@@ -10,9 +10,10 @@
 | M4 Editing without touching JSON (validation, Pages CMS) | Done | 2026-10-30 |
 | M5 Domain cutover (CNAME, DNS) | Done (DNS by owner; site side, docs, checklist by M5) | 2026-10-31 |
 | M6a Legal update + Playback/Music sections + Filmfare (roadmap deviation, owner request; revised same day after owner feedback) | Done | 2026-11-01 |
-| M6 Ongoing improvements (backlog) | **Next**: owner picks items | |
+| M6b Press kit + calendar descriptions + award layout + alignment (backlog items 2, 4, 5, 6) | Done | 2026-11-02 |
+| M6c Ongoing improvements (backlog) | **Next**: owner picks items | |
 
-Current milestone: M6a finished (2026-11-01). Next: M6 (owner picks backlog items). M5 post-cutover checklist (`docs/M5-DOMAIN-CUTOVER.md`, section 3) still with the owner.
+Current milestone: M6b finished (2026-11-02). Next: M6c (owner picks backlog items; performance round 2 first, it needs live Lighthouse numbers). M5 post-cutover checklist (`docs/M5-DOMAIN-CUTOVER.md`, section 3) still with the owner.
 
 Roadmap deviation (M6a, owner request): legal texts rewritten for Nihiramusic Entertainment LLP (review in
 `docs/legal/LEGAL-REVIEW-2026-11.md`); new Playback page (Films / Title tracks / Jingles); Covers split into
@@ -39,6 +40,13 @@ validator (auto-generated file: validate shape only) and keep it out of the Page
 - M2: Clef Music Awards 2023, both wins (Best Artist Hindustani Classical, Album of the Year). State award: Maharashtra State, 2022, nomination for "Whats Up Lagna". Legal entity NihiraMusic Entertainment LLP; legal person Nihira Deshpande; screen name Nihira Joshi. Site title "The Sound of (Nihira)Music".
 - M4: Home bio "Based primarily in India" (was "Based in Germany"); Nirmohiya award = 18th Independent Music Awards (The IMAs), verified: Best Adult Contemporary Song nominee (nominees 2020-04-09, winners announced 2020-04-28); Na Chedo Hamein released 2018-06-03; Poetic Treasures = YouTube playlist "Poetic Thursdays" (PLQ_rmkCpHU8o418EPqbPcQE5V5WsH8Mjj); linked calendar works.
 - M3: London show 2023-04-22 at The Bhavan confirmed. Nirmohiya award wording "Independent Music Awards, USA". Rule 34 concert venue: Rule34, Goregaon, Mumbai. Structured data names: site "The Sound of (Nihira)Music", artist "Nihira Joshi" (alternateName "Nihira Joshi-Deshpande").
+
+## Open items after M6b (owner)
+- **Upload the ZIP, then run Actions → Calendar sync once** (existing events get formatting and buttons only after the next sync). Check one event whose calendar description has a booking link.
+- **Press kit**: add photo credits, confirm the three photos are approved for press, optional facts and a one-page PDF. The booking text is a neutral draft.
+- **Alignment (item 5)** was done from the code only: send screenshots (page, device, what is off) of anything still not right.
+- **Performance round 2 (item 1) not done**: needs Lighthouse numbers from the live site (README 5d). Also still: run Actions → Localize images (4 zyrosite images remain in `data/images.json` as originals).
+- Backlog left: EN/MR/HI switch, newsletter via external service, own addresses per tab (e.g. /covers/ghazals/), accessibility round 2.
 
 ## Open items after M6a (owner)
 - **Legal:** LLPIN ACL-3315 added (owner). Still: confirm "designated partners"; exact registered spelling of the LLP name; governing-law clause; optional lawyer check (see `docs/legal/LEGAL-REVIEW-2026-11.md`).
@@ -69,6 +77,7 @@ validator (auto-generated file: validate shape only) and keep it out of the Page
 - Added in M4 as news (assumed yes; owner left the question blank): Planet Bollywood interviews "Jag Jaage" (2024-04-01) and "Aaye Abhi Toh" (2024-09-13). Remove in News if not wanted.
 
 ## Assumptions
+M6b: calendar links with ticket-site names (bookmyshow, insider, paytm, eventbrite, townscript ...) are labelled "Book tickets", others with their own words or "More information (site)"; press-kit bios follow the Home About text (`fromAbout`); press-kit photos = the three public site photos plus the logo, `approved: true` pending owner confirmation; awards with `highlight` are listed in the press kit.
 M6a: Devotional placed under Covers (owner's example); Playback items without videoId take the playlist video by title; playlist videos show no year (upload year ≠ release year) and sort by upload date; YouTube titles shortened before the first "|"; Originals skip playlist titles containing "lyric"; ceremony date 2026-08-02 as given by the owner (press lists from 2026-08-07).
 0. M4: Pages CMS saves with `settings.content.merge: true`; private fields (_note, _todo, _sources, _source) are declared in the forms (some hidden) so they survive a save. Owner to verify with the first CMS commit diff.
 1. Contact email contact@nihiramusic.in (privacy text also mentions nihiramusic@gmail.com).

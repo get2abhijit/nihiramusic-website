@@ -104,6 +104,10 @@
   ],
   "footerLinks": [
     {
+      "label": "Press kit",
+      "path": "press-kit/"
+    },
+    {
       "label": "Imprint & Privacy",
       "path": "privacy-policy/"
     },

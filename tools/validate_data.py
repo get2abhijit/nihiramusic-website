@@ -55,20 +55,20 @@ NEWS = {
     "body": F("text"), "image": F("image"), "imageAlt": F("str"), "link": F("url"), "linkLabel": F("str"),
     "source": SOURCE,
 }
+LINK = {"label": F("str", True), "url": F("url", True)}
 EVENT = {
     "id": F("id", True), "title": F("str", True), "date": F("date", True), "endDate": F("date"),
     "startTime": F("time"), "endTime": F("time"), "timezone": F("tz"), "venue": F("str"), "address": F("str"),
     "city": F("str"), "country": F("str"),
     "status": F(("enum", ["scheduled", "cancelled", "sold-out"])), "ticketUrl": F("url"),
-    "description": F("text"), "image": F("image"), "imageAlt": F("str"), "source": SOURCE,
+    "description": F("text"), "links": F(("list", ("obj", LINK))), "image": F("image"), "imageAlt": F("str"), "source": SOURCE,
 }
 PHOTO = {"src": F("image", True), "alt": F("str")}
-LINK = {"label": F("str", True), "url": F("url", True)}
 AWARD = {
     "id": F("id", True), "year": F("year"), "date": F("date"), "award": F("str", True), "category": F("str"),
     "work": F("str"), "status": F(("enum", ["Won", "Nominated", "Finalist"]), True), "organisation": F("str"),
     "description": F("text"), "images": F(("list", ("obj", PHOTO))), "links": F(("list", ("obj", LINK))),
-    "link": F("url"), "image": F("image"), "imageAlt": F("str"), "featured": F("bool"), "highlight": F("bool"),
+    "link": F("url"), "image": F("image"), "imageAlt": F("str"), "featured": F("bool"), "highlight": F("bool"), "pressKit": F("bool"),
     "source": SOURCE,
 }
 COVER = {
@@ -159,6 +159,18 @@ HOME = {
     "sections": F(("obj", {k: F(SECTION) for k in ("releases", "videos", "awards", "news", "events")})),
     "contact": F(("obj", {"heading": F("str"), "text": F("text"), "email": F("email"), "instagram": F("url"),
                           "source": SOURCE})),
+}
+PRESSKIT = {
+    **PAGE_TOP,
+    "bios": F(("list", ("obj", {"id": F("id", True), "label": F("str", True), "text": F("text"),
+                                "fromAbout": F(("enum", ["first", "all"])), "source": SOURCE}))),
+    "factsHeading": F("str"), "facts": F(("list", ("obj", {"label": F("str", True), "value": F("str", True)}))),
+    "highlightsHeading": F("str"), "photosHeading": F("str"), "photosNote": F("text"),
+    "photos": F(("list", ("obj", {"id": F("id"), "label": F("str"), "src": F("image", True), "alt": F("str", True),
+                                  "credit": F("str"), "approved": F("bool"), "source": SOURCE}))),
+    "downloads": F(("list", ("obj", {"label": F("str", True), "path": F("path", True), "note": F("str")}))),
+    "booking": F(("obj", {"heading": F("str"), "text": F("text"), "email": F("email")})),
+    "links": F(("list", ("obj", LINK))),
 }
 LEGAL_BLOCK = {"type": F(("enum", ["h2", "h3", "p", "ul"]), True), "id": F("str"), "text": F("text"), "items": F(("list", "text")),
                "lang": F("str")}
@@ -611,6 +623,8 @@ def check_file(path, rep):
         check_site(rep, rel, data, raw)
     elif name == "home.json":
         check_object(rep, rel, "home page", HOME, data, raw)
+    elif name == "presskit.json":
+        check_object(rep, rel, "press kit", PRESSKIT, data, raw)
     elif name == "legal.json":
         check_object(rep, rel, "legal pages", LEGAL, data, raw)
     elif name == "youtube-latest.json":

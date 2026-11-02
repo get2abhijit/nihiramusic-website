@@ -323,6 +323,17 @@ Set `"featured": true` on one release to pin it to the top.
 
 **Menu item** (`data/site.json`, inside `"nav"`): `{ "id": "press", "label": "Press", "path": "press/" }`
 
+## 4b. Press kit and booking page (`press-kit/`)
+
+Edit **Press kit** in Pages CMS (or `data/presskit.json`).
+
+- **Bios** follow the About text on the Home page by themselves (`fromAbout`: `first` = short, `all` = full). Give a version its own `text` instead if you want different wording. Visitors get a *Copy text* button.
+- **Recognition** is automatic: every award with *Show on the Home page* ticked is listed (wins first). Untick *Show in the press kit* (`"pressKit": false`) on an award to leave it out.
+- **Photos**: only photos with `"approved": true` are shown, each with a download link and a credit line when `credit` is filled in. Upload new photos in Pages CMS (they go to `assets/img/uploads/`). Please add the photographer's name.
+- **Downloads** (optional): put a file such as a one-page PDF in `assets/press/` (create the folder on github.com) and list it with a label and path.
+- **Contact**: the e-mail is taken from `data/site.json` unless you type another one under *Booking contact*.
+The link is in the footer (*Press kit*). Add it to the main menu with one line in `data/site.json` if you wish.
+
 ## 5. What runs automatically
 
 - **Check content** (`.github/workflows/validate-data.yml`, after every change in `data/` or `assets/img/`): checks
@@ -351,7 +362,8 @@ Then concerts you put in that calendar appear on the website by themselves (Even
 3. On github.com: **Settings → Secrets and variables → Actions → New repository secret**. Name: `CALENDAR_ICS_URL`, value: the address. (A secret keeps the address out of the public files. Putting it in `data/site.json` → `calendar.icsUrl` also works.)
 4. **Actions → Calendar sync → Run workflow.** After it and "Deploy site" finish, the events are online.
 
-How calendar entries are read: the event title becomes the title, *Location* becomes the venue, the description is shown as text, a link in the event's URL field becomes the **Tickets** button, a cancelled event shows "Cancelled". Private events are skipped. A repeating event shows only its first date.
+How calendar entries are read: the event title becomes the title, *Location* becomes the venue, the description is shown **with its formatting** (paragraphs, line breaks, bold, italic, bullet lists), **links in the description (booking pages, programme, any https:// address) become buttons below the event's text** (the words of the link, or "Book tickets" for ticket sites), a link in the event's URL field becomes the **Tickets** button, a cancelled event shows "Cancelled". Private events are skipped. A repeating event shows only its first date. Tip for the calendar description: write a link as a real link or on its own line (`Tickets: https://...`); the lead-in word is dropped because the button already says it. After a ZIP upload run **Actions → Calendar sync** once so existing events get their formatting and buttons.
+On events typed into `events.json` you can add the same buttons yourself: `"links": [{"label": "Book tickets", "url": "https://..."}]`.
 Optional, in `data/site.json` → `calendar`: `publicUrl` (link "Open the calendar" on the Events page), `showSubscribe: false` hides the subscribe box.
 
 **Visitors can subscribe too:** the Events page has "Never miss a concert" buttons (Apple/Outlook, Google Calendar, copy address). They subscribe to `events/calendar.ics`, which contains every event on the website and refreshes in their calendar app automatically (Google refreshes it only every few hours).
@@ -362,6 +374,12 @@ Optional, in `data/site.json` → `calendar`: `publicUrl` (link "Open the calend
 - Check the structured data: https://search.google.com/test/rich-results (enter a page address once the site runs on nihiramusic.in) or https://validator.schema.org (paste the page's source).
 - RSS feed for news readers: `news/feed.xml` (linked on the News page).
 - Google Search Console: submit `https://nihiramusic.in/sitemap.xml` once (steps in `docs/M5-DOMAIN-CUTOVER.md`, section 3). Afterwards Google re-reads it by itself. Check "Pages → Not found (404)" now and then; add old addresses it lists to `data/redirects.json`.
+
+## 5d. Speed check (do this after every larger change)
+
+1. Open the live site in Chrome → right click → **Inspect** → **Lighthouse** → *Mobile* → **Analyze page load** (Home, Playback, Events).
+2. Aim for 90+ in all four scores. Write the numbers and the three biggest "Opportunities" down: they are the input for the performance round.
+3. First check **Actions → Localize images** has been run (no `assets.zyrosite.com` addresses left in `data/images.json`): the hero, About photo and logo then load from the same server.
 
 ## 6. Privacy notes and legal pages
 

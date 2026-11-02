@@ -17,6 +17,16 @@ const where = (e) => [e.venue, e.city, e.country].filter(Boolean).join(', ');
 
 export function isPast(e, today = todayISO()) { return (e.endDate || e.date) < today; }
 
+/** Buttons shown below an event's text: [{label, url}] from the event's "links" (booking pages, programme, ...). */
+export const eventLinks = (e) => (Array.isArray(e.links) ? e.links : []).filter((l) => l && /^https?:\/\//i.test(l.url || ''));
+/** Description as plain text (Markdown marks removed) plus the link addresses: for .ics files and Google Calendar. */
+export function plainDescription(e) {
+  const text = String(e.description || '').replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '$1 ($2)').replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1').replace(/^\s*[-*] /gm, '• ').trim();
+  const urls = [e.ticketUrl, ...eventLinks(e).map((l) => l.url)].filter(Boolean);
+  return [text, ...[...new Set(urls)].map((u) => (u === e.ticketUrl ? `Tickets: ${u}` : u))].filter(Boolean).join('\n\n');
+}
+
 /** events.json plus events copied from the linked Google/Outlook calendar (data/events-calendar.json, optional).
  *  events.json wins when both list the same show (same id, or same date and title). */
 export async function loadEvents() {
@@ -74,7 +84,7 @@ function icsText(e, siteUrl) {
   L.push(`SUMMARY:${esc(e.title)}`);
   const loc = [e.venue, e.address, e.city, e.country].filter(Boolean).join(', ');
   if (loc) L.push(`LOCATION:${esc(loc)}`);
-  if (e.description) L.push(`DESCRIPTION:${esc(e.description)}`);
+  if (plainDescription(e)) L.push(`DESCRIPTION:${esc(plainDescription(e))}`);
   const u = e.ticketUrl || (siteUrl ? `${siteUrl}events/#${e.id}` : '');
   if (u) L.push(`URL:${u}`);
   if (statusOf(e) === 'Cancelled') L.push('STATUS:CANCELLED');
@@ -87,7 +97,7 @@ function googleUrl(e) {
   let dates;
   if (e.startTime) { const end = endOf(e); dates = `${compact(e.date, e.startTime)}/${compact(end.date, end.time)}`; }
   else dates = `${compact(e.date)}/${compact(addDays(e.endDate || e.date, 1))}`;
-  const p = new URLSearchParams({ action: 'TEMPLATE', text: e.title || '', dates, details: e.description || '', location: [e.venue, e.address, e.city, e.country].filter(Boolean).join(', ') });
+  const p = new URLSearchParams({ action: 'TEMPLATE', text: e.title || '', dates, details: plainDescription(e), location: [e.venue, e.address, e.city, e.country].filter(Boolean).join(', ') });
   if (e.startTime && e.timezone) p.set('ctz', e.timezone);
   return `https://calendar.google.com/calendar/render?${p}`;
 }
@@ -102,6 +112,12 @@ export function eventCard(e, { site, past = false, headingLevel = 3 } = {}) {
     const a = h('a', { href: URL.createObjectURL(blob), download: `${e.id || 'event'}.ics` });
     document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
   });
+  const canBook = !past && !cancelled && st !== 'Sold out';
+  const buttons = [
+    e.ticketUrl && canBook ? link(e.ticketUrl, [icon('link'), h('span', { text: 'Tickets' })], { class: 'btn btn--small' }) : null,
+    ...eventLinks(e).filter((l) => l.url !== e.ticketUrl).map((l) =>
+      link(l.url, [icon('link'), h('span', { text: l.label || 'More information' })], { class: 'btn btn--small btn--ghost' })),
+  ].filter(Boolean);
   const time = e.startTime ? `${e.startTime}${e.endTime ? `–${e.endTime}` : ''}${e.timezone ? ` (${e.timezone.split('/').pop().replace(/_/g, ' ')} time)` : ''}` : '';
   return h('article', { class: `event${cancelled ? ' event--cancelled' : ''}${past ? ' event--past' : ''}`, id: e.id || null },
     h('p', { class: 'event__date', 'aria-hidden': 'true' },
@@ -114,9 +130,9 @@ export function eventCard(e, { site, past = false, headingLevel = 3 } = {}) {
         e.endDate ? ` to ${fmtDate(e.endDate)}` : '', time ? `, ${time}` : ''),
       where(e) ? h('p', { class: 'event__where', text: where(e) }) : null,
       e.image ? img(e.image, { alt: e.imageAlt || '', cls: 'event__img', sizes: '(min-width: 48rem) 60vw, 100vw' }) : null,
-      e.description ? h('div', { class: 'prose' }, md(e.description)) : null,
+      e.description ? h('div', { class: 'prose event__desc' }, md(e.description)) : null,
+      buttons.length ? h('ul', { class: 'event__links', role: 'list', 'aria-label': `Links for ${e.title}` }, buttons.map((b) => h('li', {}, b))) : null,
       !past ? h('p', { class: 'event__actions' },
-        e.ticketUrl && !cancelled && st !== 'Sold out' ? link(e.ticketUrl, 'Tickets', { class: 'btn btn--small' }) : null,
         !cancelled ? dl : null,
         !cancelled ? link(googleUrl(e), 'Add to Google Calendar') : null) : null));
 }

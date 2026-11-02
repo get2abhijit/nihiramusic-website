@@ -45,6 +45,7 @@ PAGES = {
     "news": ("news/", "news.js", "news"),
     "events": ("events/", "events.js", "events"),
     "awards": ("awards/", "awards.js", "awards"),
+    "presskit": ("press-kit/", "presskit.js", None),
     "privacy": ("privacy-policy/", "legal.js", None),
     "terms": ("terms-and-conditions/", "legal.js", None),
 }
@@ -59,6 +60,21 @@ def load(name, default=None):
         return default
     except json.JSONDecodeError as exc:
         sys.exit(f"data/{name}.json is not valid JSON (line {exc.lineno}): {exc.msg}. Fix it first (jsonlint.com).")
+
+
+def plain_text(md):
+    """Markdown subset (bold, italic, links, '- ' lists) -> plain text, for JSON-LD and calendar files."""
+    t = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r"\1 (\2)", md or "")
+    t = re.sub(r"\*\*([^*]+)\*\*", r"\1", t)
+    t = re.sub(r"\*([^*]+)\*", r"\1", t)
+    return re.sub(r"(?m)^\s*[-*] ", "\u2022 ", t).strip()
+
+
+def event_description(e):
+    """Plain description plus the booking/info links, as one text."""
+    urls = [u for u in [e.get("ticketUrl")] + [l.get("url") for l in (e.get("links") or []) if isinstance(l, dict)] if u]
+    parts = [plain_text(e.get("description"))] + [("Tickets: " if u == e.get("ticketUrl") else "") + u for u in dict.fromkeys(urls)]
+    return "\n\n".join(p for p in parts if p)
 
 
 def items(d):
@@ -228,7 +244,7 @@ def ld_events(site, base, events):
                          "address": {"@type": "PostalAddress", "streetAddress": e.get("address"),
                                      "addressLocality": e.get("city"), "addressCountry": e.get("country")}},
             "image": absolute(e.get("image"), base) or fallback_img,
-            "description": e.get("description"), "performer": artist_ref(site, base), "offers": offers,
+            "description": plain_text(e.get("description")) or None, "performer": artist_ref(site, base), "offers": offers,
         }))
     return {"@context": "https://schema.org", "@graph": graph} if graph else None
 
@@ -321,8 +337,8 @@ def build_ics(site, base, events):
         loc = ", ".join(filter(None, [e.get("venue"), e.get("address"), e.get("city"), e.get("country")]))
         if loc:
             L.append(f"LOCATION:{ics_escape(loc)}")
-        if e.get("description"):
-            L.append(f"DESCRIPTION:{ics_escape(e['description'])}")
+        if event_description(e):
+            L.append(f"DESCRIPTION:{ics_escape(event_description(e))}")
         L.append(f"URL:{e.get('ticketUrl') or base + 'events/#' + str(e.get('id', ''))}")
         if str(e.get("status", "")).lower() in ("cancelled", "canceled"):
             L.append("STATUS:CANCELLED")

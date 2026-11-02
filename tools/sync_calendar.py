@@ -10,6 +10,9 @@ Where the calendar address comes from (first one found):
   2. "calendar": {"icsUrl": "…"} in data/site.json
 No address -> nothing happens.
 
+Descriptions keep their formatting: paragraphs, line breaks, bold, italic and lists are converted to the small
+Markdown subset the website shows. Links (HTML links and plain https:// addresses) are taken out of the text
+and written to a "links" list ([{"label", "url"}]); the Events page shows them as buttons below the text.
 Rules: events marked private/confidential are skipped. Recurring events (RRULE) appear once, on their
 first date. Text in the location field becomes the venue. A link in the event's URL field becomes the
 ticket button. A cancelled event shows as "Cancelled". Events that ended more than 3 years ago are dropped.
@@ -17,12 +20,15 @@ Python standard library only.
     CALENDAR_ICS_URL="https://…/basic.ics" python3 tools/sync_calendar.py
 """
 import hashlib
+import html
 import json
 import os
 import re
 import sys
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
+from html.parser import HTMLParser
+from urllib.parse import parse_qs, unquote, urlparse
 from pathlib import Path
 
 try:
@@ -44,6 +50,127 @@ WINDOWS_TZ = {
     "Pacific Standard Time": "America/Los_Angeles", "Arabian Standard Time": "Asia/Dubai",
     "Singapore Standard Time": "Asia/Singapore", "AUS Eastern Standard Time": "Australia/Sydney",
 }
+
+
+# ---------------------------------------------------------------- descriptions (HTML / plain text -> Markdown + links)
+BOOKING_HINTS = ("bookmyshow", "insider.in", "ticket", "eventbrite", "townscript", "paytm", "district.in", "explara",
+                 "allevents", "meraevents", "skillboxes", "book", "register", "rsvp", "tix")
+URL_RE = re.compile(r"https?://[^\s<>\"')\]]+[^\s<>\"')\].,;:!?]")
+
+
+def clean_url(u):
+    """Unwrap Google redirect links (https://www.google.com/url?q=...)."""
+    u = html.unescape(u).strip()
+    p = urlparse(u)
+    if p.netloc.endswith("google.com") and p.path == "/url":
+        q = parse_qs(p.query).get("q") or parse_qs(p.query).get("url")
+        if q:
+            return unquote(q[0])
+    return u
+
+
+def link_label(url, text=""):
+    """Button text: the link's own words if they say something, else 'Book tickets' / 'More information'."""
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if text and not re.match(r"^(https?://|www\.)", text, re.I) and len(text) <= 60:
+        return text
+    low = url.lower()
+    if any(h in low for h in BOOKING_HINTS):
+        return "Book tickets"
+    host = urlparse(url).netloc.replace("www.", "")
+    return f"More information ({host})" if host else "More information"
+
+
+class DescParser(HTMLParser):
+    """Small HTML -> Markdown converter for calendar descriptions. Unknown tags are ignored, their text is kept.
+    A link is replaced by a marker (see describe()) and recorded in self.links."""
+
+    def __init__(self, links):
+        super().__init__(convert_charrefs=True)
+        self.out, self.links, self.href, self.anchor_text = [], links, None, []
+
+    def _w(self, t):
+        (self.anchor_text if self.href is not None else self.out).append(t)
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == "br":
+            self._w("\n")
+        elif tag in ("p", "div", "h1", "h2", "h3", "h4", "blockquote", "tr", "ul", "ol"):
+            self._w("\n\n")
+        elif tag == "li":
+            self._w("\n- ")
+        elif tag in ("b", "strong"):
+            self._w("**")
+        elif tag in ("i", "em"):
+            self._w("*")
+        elif tag == "a" and a.get("href"):
+            self.href, self.anchor_text = clean_url(a["href"]), []
+
+    def handle_endtag(self, tag):
+        if tag in ("p", "div", "h1", "h2", "h3", "h4", "blockquote", "tr", "ul", "ol"):
+            self._w("\n\n")
+        elif tag in ("b", "strong"):
+            self._w("**")
+        elif tag in ("i", "em"):
+            self._w("*")
+        elif tag == "a" and self.href is not None:
+            text = "".join(self.anchor_text).replace("**", "").replace("*", "")
+            href, self.href, self.anchor_text = self.href, None, []
+            if re.match(r"^https?://", href, re.I):
+                self.out.append(add_link(self.links, href, text))
+            else:
+                self.out.append(text)
+
+    def handle_data(self, data):
+        self._w(data)
+
+
+MARK = re.compile("\uE000(\\d+)\uE001")
+
+
+def add_link(links, url, text=""):
+    """Records the link, returns a marker standing in for it inside the text."""
+    text = re.sub(r"\s+", " ", text or "").strip()
+    words = "" if re.match(r"^(https?://|www\.)", text, re.I) else text
+    links.append({"label": link_label(url, text), "url": url, "_words": words})
+    return f"\uE000{len(links) - 1}\uE001"
+
+
+def describe(raw):
+    """-> (Markdown text without link addresses, [{label, url}] for the buttons)."""
+    raw = (raw or "").replace("\u00a0", " ")
+    links = []
+    if re.search(r"<\s*/?\s*[a-zA-Z][^>]*>", raw):
+        parser = DescParser(links)
+        parser.feed(raw)
+        parser.close()
+        text = "".join(parser.out)
+    else:
+        text = raw
+    text = URL_RE.sub(lambda m: add_link(links, m.group(0)), text)
+    lines = []
+    for line in text.split("\n"):
+        if MARK.search(line):
+            rest = MARK.sub("", line).replace("*", "").strip()
+            if len(rest.split()) <= 5 and (not rest or rest[-1] in ":-–|"):
+                continue  # a lead-in such as "Tickets:" that only introduced the link(s): the button says it
+            line = MARK.sub(lambda m: links[int(m.group(1))]["_words"], line)
+            line = re.sub(r"(?<=\S)  +", " ", line)
+        lines.append(line.rstrip())
+    text = "\n".join(lines)
+    text = re.sub(r"(?<!\*)\*\*\s*\*\*(?!\*)", "", text)  # empty bold pairs
+    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    seen, uniq = set(), []
+    for l in links:
+        if l["url"] not in seen:
+            seen.add(l["url"])
+            uniq.append({"label": l["label"], "url": l["url"]})
+    names = [l["label"] for l in uniq]
+    for l in uniq:  # two buttons with the same words: add the site name to tell them apart
+        if names.count(l["label"]) > 1:
+            l["label"] += " (" + urlparse(l["url"]).netloc.replace("www.", "") + ")"
+    return text, uniq
 
 
 def fetch(url):
@@ -154,9 +281,13 @@ def convert(ev, cal_tz):
     out["status"] = "cancelled" if get("STATUS").upper() == "CANCELLED" else "scheduled"
     if re.match(r"^https?://", get("URL")):
         out["ticketUrl"] = get("URL")
-    if get("DESCRIPTION"):
-        desc = re.sub(r"<br\s*/?>", "\n", get("DESCRIPTION"), flags=re.I)
-        out["description"] = re.sub(r"<[^>]+>", "", desc).strip()  # Google/Outlook may send HTML
+    text, links = describe(unescape(ev["DESCRIPTION"][1]) if "DESCRIPTION" in ev else "")
+    if text:
+        out["description"] = text
+    if out.get("ticketUrl"):
+        links = [l for l in links if l["url"] != out["ticketUrl"]]
+    if links:
+        out["links"] = links
     out["source"] = "calendar"
     return out
 

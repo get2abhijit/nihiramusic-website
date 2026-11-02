@@ -1,5 +1,14 @@
 # Changelog
 
+## M6b (2026-11-02): Press kit, calendar descriptions, award layout, alignment
+- **Events from the calendar keep their formatting.** `tools/sync_calendar.py`: HTML or plain-text descriptions become the website's Markdown subset (paragraphs, line breaks, bold, italic, lists). Links (HTML links, Google redirect links unwrapped, plain https:// addresses) are removed from the text and written to a new `links` list; a lead-in such as "Tickets:" is dropped. `assets/js/events.js` shows `links` as buttons below the text (together with the Tickets button), for list, calendar view and Home. "Add to calendar" (.ics, Google) now gets a clean plain-text description plus the link addresses. `events.json` events may carry `links` too.
+- **Awards**: photos sit to the right of the text on wide screens (below on phones) (`assets/js/awards.js`, `style.css`).
+- **Alignment**: one set of rules for pictures and text (About photo centred against its text, event/news/concert images never wider than their column, balanced headings, date column aligned with the title). Based on the code, not on screenshots: send screenshots of anything still off.
+- **Press kit** (`press-kit/`, `data/presskit.json`, `assets/js/presskit.js`): bios that follow the About text, copy buttons, automatic recognition list from awards, approved photos with download and credit, booking contact. Footer link "Press kit". In the sitemap.
+- Tools: `validate_data.py` (presskit.json, event `links`, award `pressKit`), `build_seo.py` (press-kit page; plain-text event descriptions in JSON-LD and `events/calendar.ics`, links appended). `.pages.yml`: event buttons, press kit form, award toggle.
+- Not done: Lighthouse/performance round (needs live measurement, see ROADMAP), language switch, newsletter, separate addresses per tab.
+- Changed: assets/js/awards.js, events.js, main.js, presskit.js (new); assets/css/style.css; data/site.json, presskit.json (new); press-kit/index.html (new); sitemap.xml; tools/sync_calendar.py, validate_data.py, build_seo.py; .pages.yml; README.md; docs/ROADMAP.md; docs/CHANGELOG.md.
+
 ## M6a revision (2026-11-01, owner feedback)
 - Menu: Home · Playback (Originals, Films, Title tracks) · Music (Hindi, Marathi, Devotional, Ghazals, Unplugged, Poetic Treasures) · Performances · Events · News · Recognition. Events and Performances are separate pages again; addresses unchanged (Music = covers/, Performances = concerts/, Recognition = awards/). Page titles and meta updated.
 - Tabs: link tabs (`href`) to other pages (Originals on Playback, Poetic Treasures on Music); empty tabs without a playlist are hidden (Jingles).

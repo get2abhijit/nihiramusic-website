@@ -9,14 +9,16 @@ function gallery(a) {
   const list = (Array.isArray(a.images) ? a.images : []).map((p) => (typeof p === 'string' ? { src: p } : p)).filter((p) => p && p.src);
   if (!list.length) return null;
   return h('ul', { class: 'award__gallery', role: 'list' }, list.map((p) =>
-    h('li', {}, img(p.src, { alt: p.alt || '', sizes: '(min-width: 56rem) 22rem, 90vw' }))));
+    h('li', {}, img(p.src, { alt: p.alt || '', sizes: '(min-width: 56rem) 20rem, 90vw' }))));
 }
 
 export function awardItem(a, { headingLevel = 3, full = true } = {}) {
   const st = statusLabel(a.status);
   const more = (Array.isArray(a.links) ? a.links : []).filter((l) => l && l.url);
   const featured = full && a.featured;
-  return h('li', { class: `award${featured ? ' award--featured' : ''}`, id: a.id || null },
+  const photos = full ? gallery(a) : null;
+  const small = !full || a.images?.length ? null : (a.image ? img(a.image, { alt: a.imageAlt || '', cls: 'award__img', sizes: '10rem' }) : null);
+  const text = h('div', { class: 'award__text' },
     h('p', { class: `badge badge--${st.toLowerCase()}`, text: st }),
     h(`h${headingLevel}`, { class: 'award__name' }, a.award || ''),
     a.category ? h('p', { class: 'award__cat', text: a.category }) : null,
@@ -24,11 +26,13 @@ export function awardItem(a, { headingLevel = 3, full = true } = {}) {
     a.organisation ? h('p', { class: 'award__org', text: a.organisation }) : null,
     full && a.date ? h('p', { class: 'award__date' }, h('time', { datetime: a.date }, fmtDate(a.date))) : null,
     full && a.description ? h('div', { class: 'award__desc prose' }, md(String(a.description).replace(/\n+/g, '\n\n'))) : null,
-    full ? gallery(a) : null,
-    !full || a.images?.length ? null : (a.image ? img(a.image, { alt: a.imageAlt || '', cls: 'award__img', sizes: '10rem' }) : null),
+    small,
     (a.link || (full && more.length)) ? h('p', { class: 'award__links' },
       a.link ? link(a.link, 'Source', { class: full && more.length ? 'pill' : null }) : null,
       full ? more.map((l) => link(l.url, l.label || 'More', { class: 'pill' })) : null) : null);
+  // Photos sit to the right of the text on wide screens (below it on phones); no photos = one column.
+  return h('li', { class: `award${featured ? ' award--featured' : ''}${photos ? ' award--with-media' : ''}`, id: a.id || null },
+    text, photos ? h('div', { class: 'award__media' }, photos) : null);
 }
 
 export default async function ({ app }) {
