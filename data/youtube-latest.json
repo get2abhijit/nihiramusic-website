@@ -1,8 +1,22 @@
 {
   "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for filling in concert dates; the concert itself may have been earlier). playlists = videos of each playlist named by a 'playlistId' in data/*.json (Poetic Treasures, Originals, Playback and Covers sections).",
   "channelId": "UC46dtN9KIZspJ8__89BeSXw",
-  "updated": "2026-11-01T14:44:52Z",
+  "updated": "2026-11-12T05:18:47Z",
   "videos": [
+    {
+      "videoId": "8KOw5kU3R_c",
+      "title": "Yaara sili sili (Live)",
+      "published": "2026-11-10",
+      "thumbnail": "https://i1.ytimg.com/vi/8KOw5kU3R_c/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/8KOw5kU3R_c.jpg"
+    },
+    {
+      "videoId": "EohW_xKSezs",
+      "title": "Ishq Manayein Kya| Live jam with Shaan da | Tanmay Pawar | Amit Gadgil",
+      "published": "2026-11-03",
+      "thumbnail": "https://i2.ytimg.com/vi/EohW_xKSezs/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/EohW_xKSezs.jpg"
+    },
     {
       "videoId": "44MRWtoBeCg",
       "title": "Sajna hai mujhe (Live )",
@@ -93,20 +107,6 @@
       "published": "2026-08-11",
       "thumbnail": "https://i2.ytimg.com/vi/MJ_CNkdFe4Y/hqdefault.jpg",
       "localThumbnail": "assets/img/yt/MJ_CNkdFe4Y.jpg"
-    },
-    {
-      "videoId": "Y2Rgovheb44",
-      "title": "Yun unki bazm me | live performance at Khazana festival | peenaz masani | Madhurani",
-      "published": "2026-07-28",
-      "thumbnail": "https://i2.ytimg.com/vi/Y2Rgovheb44/hqdefault.jpg",
-      "localThumbnail": "assets/img/yt/Y2Rgovheb44.jpg"
-    },
-    {
-      "videoId": "o9eWEdElfk0",
-      "title": "Mora saiyyan mose bole na | Cover song Fuzon | Nihira Joshi ft. PULSE PARINDEY",
-      "published": "2026-07-24",
-      "thumbnail": "https://i4.ytimg.com/vi/o9eWEdElfk0/hqdefault.jpg",
-      "localThumbnail": "assets/img/yt/o9eWEdElfk0.jpg"
     }
   ],
   "titles": {
@@ -121,6 +121,7 @@
     "4F3vRLPp59o": "Majha Hoshil Ka",
     "4dCfQbMUeGM": "Ye javali ghe javali | Nihira Joshi| Meena Mangeshkar",
     "630ZVz5XC98": "Laagi Karejwa Kataar - Nihira Joshi Deshpande and Vishwajeet Borwankar",
+    "8KOw5kU3R_c": "Yaara sili sili (Live)",
     "8fIsEMfeyU4": "Saraswati Vandana (Live at Nehru Centre)",
     "9nBJ5G4CZQA": "Trishna Antarman Ki | | Nihira Joshi | Album version",
     "A45q8fwuS1Y": "Bhavani Dayani | Bhajan | Riyaz session",
@@ -132,6 +133,7 @@
     "CcMquscablo": "Ranjishi hi sahi (Nihira Joshi ft. Pulse Parindey)",
     "Cjozg33TXio": "Sajde (live) Ft. Pulse Parindey",
     "Csw3FB_5HNw": "Poetic Thursdays| We have not long to love|Tennessee Williams",
+    "EohW_xKSezs": "Ishq Manayein Kya| Live jam with Shaan da | Tanmay Pawar | Amit Gadgil",
     "F7wM7zNTn5c": "Baawra",
     "FBaxVScgS7E": "Ishq Manayein Kya| Swing version| Nihira Joshi| Manoj Yadav| Tanmay Pawar| Original",
     "GGOWse2CYOI": "Tumhe Ho Na Ho| Cover| Nihira Joshi| Vidushi Gupta",
@@ -214,6 +216,7 @@
     "3Yd4ipT-VBs": "2022-11-29",
     "44MRWtoBeCg": "2026-10-28",
     "4F3vRLPp59o": "2019-02-15",
+    "8KOw5kU3R_c": "2026-11-10",
     "8fIsEMfeyU4": "2026-05-19",
     "9nBJ5G4CZQA": "2023-01-01",
     "A45q8fwuS1Y": "2026-07-14",
@@ -225,6 +228,7 @@
     "CcMquscablo": "2026-09-29",
     "Cjozg33TXio": "2026-09-01",
     "Csw3FB_5HNw": "2024-04-18",
+    "EohW_xKSezs": "2026-11-03",
     "F7wM7zNTn5c": "2019-11-06",
     "FBaxVScgS7E": "2024-06-16",
     "GzuRFbqFsbo": "2024-03-28",
