@@ -22,7 +22,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Read the linked calendar
         env:
           CALENDAR_ICS_URL: ${{ secrets.CALENDAR_ICS_URL }}

@@ -9,6 +9,10 @@
 # Only the website itself is published: docs/, tools/, README.md and .pages.yml stay in the repository.
 # Custom domain (M5): it is set in Settings > Pages > Custom domain. With this workflow GitHub ignores the
 # CNAME file (kept in the repository only as a record of the domain).
+# Two jobs on purpose (GitHub's recommended layout): "build" uploads the site, "deploy" publishes it.
+# In one job, deploy-pages sometimes asked for the upload a split second too early and failed with
+# 'No artifacts named "github-pages" were found' (Nov 2026). The deploy also retries once after 30 s.
+# A sync run that failed does not trigger a deploy.
 # Needs: Settings > Pages > Build and deployment > Source = "GitHub Actions".
 name: Deploy site
 
@@ -30,14 +34,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
+    # Skip when the sync that triggered this run failed (nothing new to publish).
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       # No "ref:" on purpose: GitHub checks out the branch that started the run (the default branch for the syncs).
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Check the content files (stops here if a data file has an error)
         run: python3 tools/validate_data.py
       - name: Regenerate SEO files (sitemap, feeds, structured data)
@@ -48,9 +51,25 @@ jobs:
           tar --exclude=./.git --exclude=./.github --exclude=./_site --exclude=./docs --exclude=./tools \
             --exclude=./README.md --exclude=./.pages.yml -cf - . | tar -xf - -C _site
           ls -A _site
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
+    steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - name: Wait 30 seconds before trying again
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+      - id: retry
+        name: Publish again (second attempt)
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v5
