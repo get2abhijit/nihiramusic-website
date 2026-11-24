@@ -1,8 +1,15 @@
 {
   "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for filling in concert dates; the concert itself may have been earlier). playlists = videos of each playlist named by a 'playlistId' in data/*.json (Poetic Treasures, Originals, Playback and Covers sections).",
   "channelId": "UC46dtN9KIZspJ8__89BeSXw",
-  "updated": "2026-11-17T05:19:05Z",
+  "updated": "2026-11-24T08:18:26Z",
   "videos": [
+    {
+      "videoId": "wXXZ9fYPawE",
+      "title": "Bheti laage jeeva (Live In Baroda)",
+      "published": "2026-11-24",
+      "thumbnail": "https://i4.ytimg.com/vi/wXXZ9fYPawE/hqdefault.jpg",
+      "localThumbnail": "assets/img/yt/wXXZ9fYPawE.jpg"
+    },
     {
       "videoId": "8KOw5kU3R_c",
       "title": "Yaara sili sili (Live)",
@@ -100,13 +107,6 @@
       "published": "2026-08-18",
       "thumbnail": "https://i3.ytimg.com/vi/V9JQ6qCpOco/hqdefault.jpg",
       "localThumbnail": "assets/img/yt/V9JQ6qCpOco.jpg"
-    },
-    {
-      "videoId": "MJ_CNkdFe4Y",
-      "title": "Ab ke saawan (live ) ft. Pulse Parindey | Shubha Mudgal",
-      "published": "2026-08-11",
-      "thumbnail": "https://i2.ytimg.com/vi/MJ_CNkdFe4Y/hqdefault.jpg",
-      "localThumbnail": "assets/img/yt/MJ_CNkdFe4Y.jpg"
     }
   ],
   "titles": {
@@ -118,8 +118,10 @@
     "3VGJ3PPako0": "Poetic Thursdays| One day in Spring|  Rabindranath Tagore",
     "3Yd4ipT-VBs": "Tujvin Sakhya Re | तुजवीण सख्या रे",
     "44MRWtoBeCg": "Sajna hai mujhe (Live )",
+    "4DtjofpZTDc": "Aapki Nazron Ne Samjha by Nihira Joshi Live HappyLucky Entertainment",
     "4F3vRLPp59o": "Majha Hoshil Ka",
     "4dCfQbMUeGM": "Ye javali ghe javali | Nihira Joshi| Meena Mangeshkar",
+    "4gw9pU-JNIo": "Na jaane kyun choti se baat",
     "630ZVz5XC98": "Laagi Karejwa Kataar - Nihira Joshi Deshpande and Vishwajeet Borwankar",
     "8KOw5kU3R_c": "Yaara sili sili (Live)",
     "8fIsEMfeyU4": "Saraswati Vandana (Live at Nehru Centre)",
@@ -134,12 +136,14 @@
     "Cjozg33TXio": "Sajde (live) Ft. Pulse Parindey",
     "Csw3FB_5HNw": "Poetic Thursdays| We have not long to love|Tennessee Williams",
     "EohW_xKSezs": "Ishq Manayein Kya| Live jam with Shaan da | Tanmay Pawar | Amit Gadgil",
+    "EqDsmYgw9sU": "LAG JAA GALE | Live performance from London | Nihira Joshi",
     "F7wM7zNTn5c": "Baawra",
     "FBaxVScgS7E": "Ishq Manayein Kya| Swing version| Nihira Joshi| Manoj Yadav| Tanmay Pawar| Original",
     "GGOWse2CYOI": "Tumhe Ho Na Ho| Cover| Nihira Joshi| Vidushi Gupta",
     "GzuRFbqFsbo": "Poetic Thursdays| Rumi | Amrita Pritam",
     "HkVbTV7Axi0": "Mora Saawan Sookh Gaya | Nihira Joshi | Abhay Nayampally | Manoj Yadav",
     "I29C7FmZ2UI": "Toote Chhaate|Nihira Joshi-Deshpande | Rhythm Shaw |Alok Ranjan Srivastava",
+    "IRlI2tG4VI4": "Nihira Joshi - Pyaar Hua Chupke Se",
     "IdA3wcKHUqI": "Kon Hotis Tu Kay Zalis Tu - कोण होतीस तू काय झालीस तू | Title Song with Lyrics | Star Pravah",
     "JlQweA5Docg": "Bhijun Gela Vara with lyrics | भिजून गेला वारा | Kshitij Tare | Nihira Joshi | Irada Pakka",
     "Jxe2-Muf2bY": "Poetic Thursdays |'Sitambar|  Alok Ranjan Srivastava",
@@ -148,13 +152,18 @@
     "L2wyFD153B0": "Julun Yeti Reshimgathi Full Title Track | जुळून येती रेशीमगाठी शीर्षकगीत",
     "LOx00OpafQU": "Lyrical: Na Chedo Hamein | Full Song With Lyrics | Nihira Joshi  | Mithilesh Patankar",
     "MJ_CNkdFe4Y": "Ab ke saawan (live ) ft. Pulse Parindey | Shubha Mudgal",
+    "MtVAJwlkQis": "Haal Kaisa hai janaab ka× Piya Piya Piya|Nihira Joshi |Live performance with Shaan | NMACC",
     "NXSVoSZrCDU": "Trishna Antarman Ki| Live version| UK Concert",
     "Nozw1ysKGlo": "Bhimrupi Maharudra Lyrics",
     "PO4egGXw30E": "Poetic Thursdays | Smita and I | Deepti Naval",
+    "PWKdaR5zkbU": "Pinga Ga Pori Pinga | Nihira Joshi",
+    "Qb8JchDsHrQ": "Khullam Khulla | O Saathi Chal | Shaan | Nihira Joshi| Live at NMACC",
     "QnY2Ilb0d5w": "Sandhyakalche shlok | Stotra | Parvacha",
     "RP1B-RYn4gw": "Trishna Samarpan Ki | Nihira Joshi|  Saurabh Bhalerao |Apoorva Kulkarni",
     "R_GP3uwr9H8": "Poetic Thursday|  Ramdhari Singh Dinkar",
+    "RgCgoQJkpQ8": "Silsila | Shaan | Nihira Joshi| Live at NMACC",
     "T-EGHcSXPV8": "Parvacha | Nihira Joshi | Shlok",
+    "T8_oGVA5_WI": "Nihira's Performance On Tere Bina | JJWS2",
     "TsWZZBjAEnc": "Bhaya Ithale sampat nahi",
     "TxIo1Vp-lkQ": "Mai Mai Part 1 [Live Concert]",
     "V9JQ6qCpOco": "Na jane Kyun | Keys and Conversations| Nihira Joshi| Manan Mehta",
@@ -168,6 +177,7 @@
     "ZaM9T6ftHzI": "Ishq Manayein Kya? Nihira ft. Orquesta Son Diamantes || Manoj Yadav || RMM Productions [Original]",
     "Zc9Lqpgp4HU": "Mai Mai -Part 2 [Live Concert]",
     "_3PIYlQ4A70": "Chal Re Mana Jaau | Ata Thambaycha Naay | Nihira D, Gulraj S |Manoj |Om B, Parna,Bharat, Siddharth",
+    "_MeSDYYsSjo": "Tu Jahan Chalega by Nihira Joshi Live HappyLucky Entertainment",
     "_R-iXCWgsK8": "Trishna EP | Jukebox | Nihira Joshi| Original music",
     "_cYFg-9mYf8": "Phir Dekhiye",
     "_o8WK8i-Ea0": "Aye Ri Pavan Revisited: Nihira Joshi-Deshpande feat. Abhishek Borkar [HD]",
@@ -189,6 +199,7 @@
     "jBQ758Vy_l4": "Funkarichi Wadle | Video Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana",
     "jzMOB0H24S4": "Poetic Thursdays| Kahlil Gibran | Khalil Gibran | Children",
     "lYYRVCE-k9Y": "Kasamh Se Serial | Full Title Song | Nihira Joshi Deshpande | Hindi Serial Song",
+    "mLDq-nVvoeI": "DIL SE | Interview Of Singer Composer Nihira Joshi Deshpande With Sheeba Lateef | News18 Urdu",
     "mn_5acd98l4": "Funkarichi Wadle (फुंकरीची वादळे) | Lyrical Video | What's Up Lagna | Vaibhav Tatwawaadi, Prarthana",
     "nuRMhdy0hV0": "Aaj Jane Ki Zid Na Karo | Nihira Joshi | Vidushi Gupta",
     "o6_TB0n8pXQ": "Shree Ganpati Stotra | Nihira Joshi | Devotional | Ganeshotsav",
@@ -203,6 +214,7 @@
     "v1fiI8H6CSQ": "Rock N Roll Medley| Live concert",
     "vAzuLtM1Ei8": "The experience of recording Shaan dada for Ishq Manayein Kya!!!",
     "wMMXzML-zS8": "Kalbhairavashtak Stotra",
+    "wXXZ9fYPawE": "Bheti laage jeeva (Live In Baroda)",
     "x7prW7at-Mg": "Shaan dada talking about our forthcoming song: Ishq Manayein Kya!!!",
     "zGV4uN2tB4E": "Tu Jarashi | Lyrical Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana Behere",
     "zXYDy1m2G50": "Chal Re Mana Jaau (From \"Ata Thambaycha Naay\")"
@@ -279,6 +291,7 @@
     "v1LNazMcLUE": "2026-06-11",
     "vAzuLtM1Ei8": "2026-10-27",
     "wMMXzML-zS8": "2025-11-12",
+    "wXXZ9fYPawE": "2026-11-24",
     "x7prW7at-Mg": "2026-10-06",
     "zGV4uN2tB4E": "2017-11-23",
     "zXYDy1m2G50": "2025-04-29"
