@@ -594,6 +594,7 @@ body[data-page="awards"] { --motif: url("data:image/svg+xml,%3Csvg xmlns='http:/
 .pk__photos li:last-child img[alt*="logo" i] { object-fit: contain; aspect-ratio: 1; padding: 1rem; }
 .pk__photos figcaption { display: grid; gap: .15rem; font-size: var(--step--1); }
 .pk__label { font-weight: 600; } .pk__credit { color: var(--muted); }
+.pk__media-desc { font-size: var(--step--1); margin-top: .35rem; }
 .pk__files { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; }
 .pk__buttons { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
 .pk__buttons .btn { display: inline-flex; align-items: center; gap: .5em; }

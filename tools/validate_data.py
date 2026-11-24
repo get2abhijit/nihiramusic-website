@@ -169,6 +169,9 @@ PRESSKIT = {
     "photos": F(("list", ("obj", {"id": F("id"), "label": F("str"), "src": F("image", True), "alt": F("str", True),
                                   "credit": F("str"), "approved": F("bool"), "source": SOURCE}))),
     "downloads": F(("list", ("obj", {"label": F("str", True), "path": F("path", True), "note": F("str")}))),
+    "mediaHeading": F("str"), "mediaNote": F("text"),
+    "media": F(("list", ("obj", {"id": F("id"), "videoId": F("video", True), "title": F("str"), "outlet": F("str"),
+                                 "date": F("date"), "description": F("text"), "source": SOURCE}))),
     "booking": F(("obj", {"heading": F("str"), "text": F("text"), "email": F("email")})),
     "links": F(("list", ("obj", LINK))),
 }
