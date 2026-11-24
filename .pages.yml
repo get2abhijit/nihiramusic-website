@@ -640,6 +640,24 @@ content:
           - { name: label, label: Button text, type: string, required: true }
           - { name: path, label: File path (e.g. assets/press/onesheet.pdf), type: string, required: true }
           - { name: note, label: Note, type: string }
+      - { name: mediaHeading, label: Heading for interviews, type: string }
+      - { name: mediaNote, label: Note under the interviews heading (optional), type: text }
+      - name: media
+        label: Interviews and media appearances (videos)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} {outlet} {videoId}"
+        fields:
+          - { name: id, component: id }
+          - { name: videoId, component: videoId, required: true }
+          - { name: title, label: Title (empty = YouTube title), type: string }
+          - { name: outlet, label: TV channel / show / magazine, type: string }
+          - { name: date, component: date, label: Date (if known) }
+          - { name: description, label: Short description (optional), type: text }
+          - { name: source, component: source }
+          - { name: _todo, component: todo }
       - name: booking
         label: Booking contact
         type: object

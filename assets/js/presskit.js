@@ -1,5 +1,6 @@
-// Press kit: bios (copy button), recognition (from awards.json), photos (download), booking contact.
-import { loadJSON, h, md, link, pageHead, icon, img, url, fmtDate } from './core.js';
+// Press kit: bios (copy button), recognition (from awards.json), interviews (videos), photos (download), booking contact.
+import { loadJSON, h, md, link, pageHead, icon, img, url, fmtDate, ytTitle, newestFirst } from './core.js';
+import { videoCard } from './concerts.js';
 import { statusLabel } from './awards.js';
 
 const optional = (name) => loadJSON(name).catch(() => null);
@@ -57,6 +58,22 @@ function highlights(data, awards) {
         ' ', link(`awards/#${a.id}`, 'Details', { class: 'pk__more' }))))));
 }
 
+function media(data) {
+  const list = newestFirst((Array.isArray(data.media) ? data.media : []).filter((m) => m && m.videoId), { pinFeatured: false });
+  if (!list.length) return null;
+  return h('section', { class: 'pk__section', id: 'interviews', 'aria-labelledby': 'pk-media' },
+    h('h2', { id: 'pk-media', text: data.mediaHeading || 'Interviews' }),
+    data.mediaNote ? h('p', { class: 'muted pk__note', text: data.mediaNote }) : null,
+    h('ul', { class: 'videos' }, list.map((m) => {
+      const title = m.title || ytTitle(m.videoId) || 'Interview';
+      const card = videoCard(m.videoId, title, { date: m.date });
+      const text = card.querySelector('.video__text');
+      if (m.outlet) text.insertBefore(h('p', { class: 'video__date', text: m.outlet }), text.children[1] || null);
+      if (m.description) text.append(h('div', { class: 'prose pk__media-desc' }, md(m.description)));
+      return card;
+    })));
+}
+
 function photos(data) {
   const list = (Array.isArray(data.photos) ? data.photos : []).filter((p) => p && p.src && p.approved === true);
   const files = (Array.isArray(data.downloads) ? data.downloads : []).filter((d) => d && d.path);
@@ -92,7 +109,7 @@ export default async function ({ app, site }) {
   app.append(pageHead(data.pageTitle || 'Press kit', data.intro));
   const wrap = h('div', { class: 'wrap section section--tight pk' });
   app.append(wrap);
-  const parts = [bios(data, home), facts(data), highlights(data, awards), photos(data), booking(data, site)].filter(Boolean);
+  const parts = [bios(data, home), facts(data), highlights(data, awards), media(data), photos(data), booking(data, site)].filter(Boolean);
   if (!parts.length) { wrap.append(h('div', { class: 'empty' }, h('p', { text: 'The press kit is being prepared.' }))); return; }
   wrap.append(...parts);
 }

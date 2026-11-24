@@ -11,9 +11,10 @@
 | M5 Domain cutover (CNAME, DNS) | Done (DNS by owner; site side, docs, checklist by M5) | 2026-10-31 |
 | M6a Legal update + Playback/Music sections + Filmfare (roadmap deviation, owner request; revised same day after owner feedback) | Done | 2026-11-01 |
 | M6b Press kit + calendar descriptions + award layout + alignment (backlog items 2, 4, 5, 6) | Done | 2026-11-02 |
-| M6c Ongoing improvements (backlog) | **Next**: owner picks items | |
+| M6c Performance archive + interviews (owner request, 2026-11-24) | Done | 2026-11-24 |
+| M6d Ongoing improvements (backlog) | **Next**: owner picks items | |
 
-Current milestone: M6b finished (2026-11-02). Next: M6c (owner picks backlog items; performance round 2 first, it needs live Lighthouse numbers). M5 post-cutover checklist (`docs/M5-DOMAIN-CUTOVER.md`, section 3) still with the owner.
+Current milestone: M6c finished (2026-11-24): 11 owner-supplied videos added (Performances: new groups "NMACC with Shaan" 2025, "JJWS", "From the archive"; one video added to "Live In London - 2023"; Press kit: new "Interviews" section with the TV interview). Next: M6d (owner picks backlog items; performance round 2 first, it needs live Lighthouse numbers). M5 post-cutover checklist (`docs/M5-DOMAIN-CUTOVER.md`, section 3) still with the owner.
 
 Roadmap deviation (M6a, owner request): legal texts rewritten for Nihiramusic Entertainment LLP (review in
 `docs/legal/LEGAL-REVIEW-2026-11.md`); new Playback page (Films / Title tracks / Jingles); Covers split into
@@ -64,6 +65,14 @@ validator (auto-generated file: validate shape only) and keep it out of the Page
 - Search Console: find the existing property, verify, submit `sitemap.xml`.
 - Check Wayback Machine (`web.archive.org/web/*/nihiramusic.in/*`) for old addresses not in the parity table; add any to `data/redirects.json`. Not verifiable from the M5 tools.
 - Live checks still open from M3/M4: 404 page on the live domain, Lighthouse, screen reader, schema validator, first Pages CMS commit diff.
+
+## Open items after M6c (owner)
+- YouTube (fetch tool and cloud browser) blocked automated reading, so the 11 new videos have no titles or dates in the data. The daily "YouTube sync" fills in the titles automatically (or run it by hand once).
+- JJWS: write out the event name; add year, venue, city.
+- NMACC with Shaan: exact date and show name (owner said October 2025).
+- London video EqDsmYgw9sU: confirm it belongs to the 2023 London visit; otherwise give it its own entry.
+- "From the archive" (5 videos): optionally split into dated shows or move film songs to Playback.
+- TV interview mLDq-nVvoeI: optionally add channel/show (outlet) and broadcast date.
 
 ## Open content gaps
 - **Rule 34 concert date**: not found on the web. Owner says it is in the YouTube video descriptions; add `"date"` in concerts.json. From M3 the YouTube sync also stores each video's upload date in `youtube-latest.json` → `dates` as a hint.
@@ -127,6 +136,9 @@ M6a: Devotional placed under Covers (owner's example); Playback items without vi
 - Added in M3: https://nmacc.com/performing-arts/songversations-with-nihira-joshi-deshpande, https://planetbollywood.com/wp/?p=29584
 - Added in M5: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site, https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https, https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages, https://en.wikipedia.org/wiki/Nihira_Joshi (links www.nihiramusic.in)
 - Added in M4: https://youtube.com/playlist?list=PLQ_rmkCpHU8o418EPqbPcQE5V5WsH8Mjj, https://www.youtube.com/watch?v=eT8txGBAZ9I, https://dailyrindblog.com/?p=60520, https://planetbollywood.com/wp/?p=26667, https://planetbollywood.com/wp/?p=25194, https://pagescms.org/docs/configuration/
+
+## Source URLs added in M6c (owner, 2026-11-24)
+https://www.youtube.com/watch?v=4gw9pU-JNIo, https://www.youtube.com/watch?v=IRlI2tG4VI4, https://www.youtube.com/watch?v=4DtjofpZTDc, https://www.youtube.com/watch?v=PWKdaR5zkbU, https://www.youtube.com/watch?v=_MeSDYYsSjo (archive); https://www.youtube.com/watch?v=EqDsmYgw9sU (London); https://www.youtube.com/watch?v=Qb8JchDsHrQ, https://www.youtube.com/watch?v=MtVAJwlkQis, https://www.youtube.com/watch?v=RgCgoQJkpQ8 (NMACC with Shaan, Oct 2025); https://www.youtube.com/watch?v=T8_oGVA5_WI (JJWS); https://www.youtube.com/watch?v=mLDq-nVvoeI (TV interview)
 
 ## Source URLs added in M6a
 https://www.youtube.com/playlist?list=PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr (Nihira Joshi Originals), https://www.youtube.com/playlist?list=PLQ_rmkCpHU8oKqBdNyo3x5r0D5YvSLlo3 (Nihira film songs), https://www.youtube.com/watch?v=L2wyFD153B0&list=PLQ_rmkCpHU8oNRg8gWFdU0BjUlruM-1Y- (title tracks), https://www.youtube.com/watch?v=04lq9P_EQwc, https://www.youtube.com/watch?v=HkVbTV7Axi0, https://www.youtube.com/watch?v=fUISyuUsb9c, https://www.instagram.com/p/DbyEVJHIpLS/, https://www.facebook.com/photo/?fbid=1645617397564355&set=pb.100063483313221.-2207520000, https://www.facebook.com/photo.php?fbid=1636487558477339&set=pb.100063483313221.-2207520000&type=3, https://www.facebook.com/photo.php?fbid=1636487591810669&set=pb.100063483313221.-2207520000&type=3, https://en.wikipedia.org/wiki/Filmfare_Award_for_Best_Female_Playback_Singer_%E2%80%93_Marathi, https://planetbollywood.com/wp/news/filmfare-awards-marathi-2026-to-premiere-on-6th-september-at-930-pm-on-sony-marathi/, https://milliblog.com/?p=19354, legal sources in docs/legal/LEGAL-REVIEW-2026-11.md

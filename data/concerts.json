@@ -68,10 +68,82 @@
         {
           "videoId": "NXSVoSZrCDU",
           "title": ""
+        },
+        {
+          "videoId": "EqDsmYgw9sU",
+          "title": ""
         }
       ],
       "source": "https://nihiramusic.in/concerts",
-      "_todo": "Venue/date not on the old site (possibly 'Musically Speaking' at The Bhavan, London; see events.json). Video titles unknown."
+      "_todo": "Venue/date not on the old site (possibly 'Musically Speaking' at The Bhavan, London; see events.json). Video titles unknown. Video EqDsmYgw9sU added by the owner (2026-11-24) under 'London'; check that it is from the same 2023 visit, otherwise move it to its own entry."
+    },
+    {
+      "id": "nmacc-with-shaan-2025",
+      "title": "NMACC with Shaan",
+      "subtitle": "On stage with Shaan, October 2025",
+      "year": 2025,
+      "venue": "Nita Mukesh Ambani Cultural Centre",
+      "city": "Mumbai",
+      "country": "India",
+      "videos": [
+        {
+          "videoId": "Qb8JchDsHrQ",
+          "title": ""
+        },
+        {
+          "videoId": "MtVAJwlkQis",
+          "title": ""
+        },
+        {
+          "videoId": "RgCgoQJkpQ8",
+          "title": ""
+        }
+      ],
+      "source": "https://www.youtube.com/watch?v=Qb8JchDsHrQ",
+      "_note": "Added from the owner's list (2026-11-24). Video titles are filled in automatically by the daily YouTube sync. Event name, partner and month as given by the owner ('NMACC with Shaan Da - Oct 2025').",
+      "_todo": "Exact date and show name not verified (add \"date\": \"YYYY-MM-DD\" and the show title as subtitle if wanted)."
+    },
+    {
+      "id": "jjws",
+      "title": "JJWS",
+      "videos": [
+        {
+          "videoId": "T8_oGVA5_WI",
+          "title": ""
+        }
+      ],
+      "source": "https://www.youtube.com/watch?v=T8_oGVA5_WI",
+      "_note": "Added from the owner's list (2026-11-24). Video titles are filled in automatically by the daily YouTube sync.",
+      "_todo": "Owner: write out the event name for 'JJWS' and add year/date, venue and city."
+    },
+    {
+      "id": "archive",
+      "title": "From the archive",
+      "subtitle": "Playback and stage performances from earlier years",
+      "videos": [
+        {
+          "videoId": "4gw9pU-JNIo",
+          "title": ""
+        },
+        {
+          "videoId": "IRlI2tG4VI4",
+          "title": ""
+        },
+        {
+          "videoId": "4DtjofpZTDc",
+          "title": ""
+        },
+        {
+          "videoId": "PWKdaR5zkbU",
+          "title": ""
+        },
+        {
+          "videoId": "_MeSDYYsSjo",
+          "title": ""
+        }
+      ],
+      "source": "https://www.youtube.com/watch?v=4gw9pU-JNIo",
+      "_note": "Added from the owner's list (2026-11-24). Video titles are filled in automatically by the daily YouTube sync. Owner's heading: 'Playback and performance archives from previous performances'. Undated, so shown at the end of the page."
     }
   ]
 }

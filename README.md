@@ -330,6 +330,10 @@ Edit **Press kit** in Pages CMS (or `data/presskit.json`).
 - **Bios** follow the About text on the Home page by themselves (`fromAbout`: `first` = short, `all` = full). Give a version its own `text` instead if you want different wording. Visitors get a *Copy text* button.
 - **Recognition** is automatic: every award with *Show on the Home page* ticked is listed (wins first). Untick *Show in the press kit* (`"pressKit": false`) on an award to leave it out.
 - **Photos**: only photos with `"approved": true` are shown, each with a download link and a credit line when `credit` is filled in. Upload new photos in Pages CMS (they go to `assets/img/uploads/`). Please add the photographer's name.
+- **Interviews** (videos of TV, radio or press interviews): add one entry per video under *Interviews and media appearances*. Only the YouTube code is needed; the title comes from YouTube automatically. Optional: `outlet` (channel or show), `date`, `description`. Newest first. Template:
+  ```json
+  { "id": "zee-marathi-interview-2026", "videoId": "XXXXXXXXXXX", "title": "", "outlet": "Zee Marathi", "date": "2026-05-01", "source": "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
+  ```
 - **Downloads** (optional): put a file such as a one-page PDF in `assets/press/` (create the folder on github.com) and list it with a label and path.
 - **Contact**: the e-mail is taken from `data/site.json` unless you type another one under *Booking contact*.
 The link is in the footer (*Press kit*). Add it to the main menu with one line in `data/site.json` if you wish.

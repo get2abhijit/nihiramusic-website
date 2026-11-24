@@ -1,5 +1,5 @@
 {
-  "_help": "Press kit / booking page (press-kit/). bios = bio versions with a Copy button: either 'text' (your own words), or 'fromAbout': 'first' / 'all' to use the About text of the Home page automatically (so it never goes out of date). highlights = automatic: every award in awards.json with \"highlight\": true is listed (won first); set \"pressKit\": false on an award to leave it out. facts = optional short label/value lines (e.g. {\"label\": \"Languages\", \"value\": \"Hindi, Marathi, English\"}); only add facts you are sure of. photos = approved photos for press: src (image in assets/img/), alt (describes the photo), label, credit (photographer, shown next to the photo; leave empty if unknown), approved (true/false: only 'true' photos are shown). Visitors can download the photo from the page. downloads = optional files (e.g. a one-page PDF): label, path (e.g. assets/press/onesheet.pdf), note. booking = heading, text and the e-mail for requests (empty email = the address from site.json). links = extra buttons below the contact text.",
+  "_help": "Press kit / booking page (press-kit/). bios = bio versions with a Copy button: either 'text' (your own words), or 'fromAbout': 'first' / 'all' to use the About text of the Home page automatically (so it never goes out of date). highlights = automatic: every award in awards.json with \"highlight\": true is listed (won first); set \"pressKit\": false on an award to leave it out. facts = optional short label/value lines (e.g. {\"label\": \"Languages\", \"value\": \"Hindi, Marathi, English\"}); only add facts you are sure of. photos = approved photos for press: src (image in assets/img/), alt (describes the photo), label, credit (photographer, shown next to the photo; leave empty if unknown), approved (true/false: only 'true' photos are shown). Visitors can download the photo from the page. downloads = optional files (e.g. a one-page PDF): label, path (e.g. assets/press/onesheet.pdf), note. booking = heading, text and the e-mail for requests (empty email = the address from site.json). links = extra buttons below the contact text. media = interviews and media appearances with a video (shown under the heading mediaHeading, with an optional note mediaNote): id, videoId (the 11-character YouTube code), title (empty = the YouTube title), outlet (TV channel, show or magazine), date (YYYY-MM-DD, optional), description (optional), source. Newest first.",
   "pageTitle": "Press kit",
   "intro": "Everything organisers, journalists and partners need in one place: bio, recognition, photos and how to get in touch.",
   "bios": [
@@ -60,6 +60,17 @@
     }
   ],
   "downloads": [],
+  "mediaHeading": "Interviews",
+  "mediaNote": "",
+  "media": [
+    {
+      "id": "tv-interview",
+      "videoId": "mLDq-nVvoeI",
+      "title": "",
+      "source": "https://www.youtube.com/watch?v=mLDq-nVvoeI",
+      "_todo": "TV interview added by the owner (2026-11-24). Title comes from YouTube automatically; optionally add the channel/show (outlet) and the broadcast date."
+    }
+  ],
   "booking": {
     "heading": "Booking and press enquiries",
     "text": "For concerts, collaborations, playback and interviews, please write with the date, place and kind of event. Nihira's team will reply as soon as possible.",
