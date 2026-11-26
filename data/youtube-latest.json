@@ -1,7 +1,7 @@
 {
   "_help": "Written automatically by .github/workflows/youtube-sync.yml (tools/sync_youtube.py). Do not edit by hand; changes are overwritten. videos = latest uploads (Home). titles = YouTube titles for every videoId used in data/*.json, shown wherever you left a title empty. dates = upload date of those videos (a hint for filling in concert dates; the concert itself may have been earlier). playlists = videos of each playlist named by a 'playlistId' in data/*.json (Poetic Treasures, Originals, Playback and Covers sections).",
   "channelId": "UC46dtN9KIZspJ8__89BeSXw",
-  "updated": "2026-11-24T08:18:26Z",
+  "updated": "2026-11-26T05:19:37Z",
   "videos": [
     {
       "videoId": "wXXZ9fYPawE",
@@ -188,6 +188,7 @@
     "dBq27cvCIbY": "Trishna Samarpan Ki|  Live from LONDON|",
     "e6K49l_6b08": "Trishna Bandhan Ki | Nihira Joshi |Mayukh Sarkar |Tejas Ranade",
     "eT8txGBAZ9I": "Poetic Thursdays!  Penned by @milind.joshi.1 , it is called ' पण '",
+    "fK-8R7VgnXo": "Naina - Jijai | Rinku Rajguru, Mayur More | Gulraj Singh and Nihira Joshi | Manoj | Trushant Ingle",
     "fUISyuUsb9c": "Jag Jaage - Chirag Todi (ft. Nihira Joshi-Deshpande, Sreenath, Jonathan Edward, Rohan Prasanna)",
     "fj2hNnuZgpA": "Lyrical: Sajde Song with Lyrics | Kill Dil | Ranveer Singh, Parineeti | Shankar-Ehsaan-Loy, Gulzar",
     "fpP3as4NFY4": "Tajmahal me aa jana (Live at Khazana Festival)",
@@ -273,6 +274,7 @@
     "c8-PhXey9v4": "2024-04-04",
     "cIUE689lwIU": "2026-10-14",
     "e6K49l_6b08": "2022-12-10",
+    "fK-8R7VgnXo": "2026-11-24",
     "fUISyuUsb9c": "2024-03-24",
     "fj2hNnuZgpA": "2014-11-11",
     "fpP3as4NFY4": "2026-09-08",
@@ -492,95 +494,18 @@
     ],
     "PLQ_rmkCpHU8oKqBdNyo3x5r0D5YvSLlo3": [
       {
-        "videoId": "F7wM7zNTn5c",
-        "title": "Baawra",
-        "published": "2019-11-06",
-        "thumbnail": "https://i3.ytimg.com/vi/F7wM7zNTn5c/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/F7wM7zNTn5c.jpg"
+        "videoId": "fK-8R7VgnXo",
+        "title": "Naina - Jijai | Rinku Rajguru, Mayur More | Gulraj Singh and Nihira Joshi | Manoj | Trushant Ingle",
+        "published": "2026-11-24",
+        "thumbnail": "https://i3.ytimg.com/vi/fK-8R7VgnXo/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/fK-8R7VgnXo.jpg"
       },
       {
-        "videoId": "hG1XURXa5m4",
-        "title": "Mera Dil (Full Song) Film - Salaam-E-Ishq",
-        "published": "2011-05-24",
-        "thumbnail": "https://i1.ytimg.com/vi/hG1XURXa5m4/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/hG1XURXa5m4.jpg"
-      },
-      {
-        "videoId": "oqCpc4qQnQQ",
-        "title": "Sang Na Re Mana Lyric Video | Swapnil Bandodkar | Nihira Joshi | Avadhoot Gupte",
-        "published": "2021-06-25",
-        "thumbnail": "https://i4.ytimg.com/vi/oqCpc4qQnQQ/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/oqCpc4qQnQQ.jpg"
-      },
-      {
-        "videoId": "JlQweA5Docg",
-        "title": "Bhijun Gela Vara with lyrics | भिजून गेला वारा | Kshitij Tare | Nihira Joshi | Irada Pakka",
-        "published": "2019-06-04",
-        "thumbnail": "https://i3.ytimg.com/vi/JlQweA5Docg/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/JlQweA5Docg.jpg"
-      },
-      {
-        "videoId": "jBQ758Vy_l4",
-        "title": "Funkarichi Wadle | Video Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana",
-        "published": "2018-02-23",
-        "thumbnail": "https://i3.ytimg.com/vi/jBQ758Vy_l4/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/jBQ758Vy_l4.jpg"
-      },
-      {
-        "videoId": "zGV4uN2tB4E",
-        "title": "Tu Jarashi | Lyrical Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana Behere",
-        "published": "2017-11-23",
-        "thumbnail": "https://i3.ytimg.com/vi/zGV4uN2tB4E/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/zGV4uN2tB4E.jpg"
-      },
-      {
-        "videoId": "AX6pRrfGRkE",
-        "title": "Path Ekaki | Kurukshetra Songs | Shweta Salve - Vaibhav Tattwavadi | Latest Marathi Song",
-        "published": "2016-03-14",
-        "thumbnail": "https://i2.ytimg.com/vi/AX6pRrfGRkE/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/AX6pRrfGRkE.jpg"
-      },
-      {
-        "videoId": "-BGYI-9OEyg",
-        "title": "Nakalat Vinale Jate Jaale - Full Song - Sanshaykallol - Ankush Chaudhari, Kshiti Jog",
-        "published": "2013-03-22",
-        "thumbnail": "https://i2.ytimg.com/vi/-BGYI-9OEyg/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/-BGYI-9OEyg.jpg"
-      },
-      {
-        "videoId": "4F3vRLPp59o",
-        "title": "Majha Hoshil Ka",
-        "published": "2019-02-15",
-        "thumbnail": "https://i1.ytimg.com/vi/4F3vRLPp59o/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/4F3vRLPp59o.jpg"
-      },
-      {
-        "videoId": "fj2hNnuZgpA",
-        "title": "Lyrical: Sajde Song with Lyrics | Kill Dil | Ranveer Singh, Parineeti | Shankar-Ehsaan-Loy, Gulzar",
-        "published": "2014-11-11",
-        "thumbnail": "https://i3.ytimg.com/vi/fj2hNnuZgpA/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/fj2hNnuZgpA.jpg"
-      },
-      {
-        "videoId": "mn_5acd98l4",
-        "title": "Funkarichi Wadle (फुंकरीची वादळे) | Lyrical Video | What's Up Lagna | Vaibhav Tatwawaadi, Prarthana",
-        "published": "2019-04-10",
-        "thumbnail": "https://i2.ytimg.com/vi/mn_5acd98l4/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/mn_5acd98l4.jpg"
-      },
-      {
-        "videoId": "_3PIYlQ4A70",
-        "title": "Chal Re Mana Jaau | Ata Thambaycha Naay | Nihira D, Gulraj S |Manoj |Om B, Parna,Bharat, Siddharth",
-        "published": "2025-04-29",
-        "thumbnail": "https://i4.ytimg.com/vi/_3PIYlQ4A70/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/_3PIYlQ4A70.jpg"
-      },
-      {
-        "videoId": "zXYDy1m2G50",
-        "title": "Chal Re Mana Jaau (From \"Ata Thambaycha Naay\")",
-        "published": "2025-04-29",
-        "thumbnail": "https://i3.ytimg.com/vi/zXYDy1m2G50/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/zXYDy1m2G50.jpg"
+        "videoId": "iv0Lvy3h5yc",
+        "title": "Ishq Vishq | Sai Tamhankar, Sanjay Narvekar, Resham Tipnis | Be Dune Saade Chaar | Comedy Movie",
+        "published": "2016-03-11",
+        "thumbnail": "https://i2.ytimg.com/vi/iv0Lvy3h5yc/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/iv0Lvy3h5yc.jpg"
       },
       {
         "videoId": "B8v67REwVlk",
@@ -590,11 +515,95 @@
         "localThumbnail": "assets/img/yt/B8v67REwVlk.jpg"
       },
       {
-        "videoId": "iv0Lvy3h5yc",
-        "title": "Ishq Vishq | Sai Tamhankar, Sanjay Narvekar, Resham Tipnis | Be Dune Saade Chaar | Comedy Movie",
-        "published": "2016-03-11",
-        "thumbnail": "https://i2.ytimg.com/vi/iv0Lvy3h5yc/hqdefault.jpg",
-        "localThumbnail": "assets/img/yt/iv0Lvy3h5yc.jpg"
+        "videoId": "zXYDy1m2G50",
+        "title": "Chal Re Mana Jaau (From \"Ata Thambaycha Naay\")",
+        "published": "2025-04-29",
+        "thumbnail": "https://i3.ytimg.com/vi/zXYDy1m2G50/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/zXYDy1m2G50.jpg"
+      },
+      {
+        "videoId": "_3PIYlQ4A70",
+        "title": "Chal Re Mana Jaau | Ata Thambaycha Naay | Nihira D, Gulraj S |Manoj |Om B, Parna,Bharat, Siddharth",
+        "published": "2025-04-29",
+        "thumbnail": "https://i4.ytimg.com/vi/_3PIYlQ4A70/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/_3PIYlQ4A70.jpg"
+      },
+      {
+        "videoId": "mn_5acd98l4",
+        "title": "Funkarichi Wadle (फुंकरीची वादळे) | Lyrical Video | What's Up Lagna | Vaibhav Tatwawaadi, Prarthana",
+        "published": "2019-04-10",
+        "thumbnail": "https://i2.ytimg.com/vi/mn_5acd98l4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/mn_5acd98l4.jpg"
+      },
+      {
+        "videoId": "fj2hNnuZgpA",
+        "title": "Lyrical: Sajde Song with Lyrics | Kill Dil | Ranveer Singh, Parineeti | Shankar-Ehsaan-Loy, Gulzar",
+        "published": "2014-11-11",
+        "thumbnail": "https://i3.ytimg.com/vi/fj2hNnuZgpA/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/fj2hNnuZgpA.jpg"
+      },
+      {
+        "videoId": "4F3vRLPp59o",
+        "title": "Majha Hoshil Ka",
+        "published": "2019-02-15",
+        "thumbnail": "https://i1.ytimg.com/vi/4F3vRLPp59o/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/4F3vRLPp59o.jpg"
+      },
+      {
+        "videoId": "-BGYI-9OEyg",
+        "title": "Nakalat Vinale Jate Jaale - Full Song - Sanshaykallol - Ankush Chaudhari, Kshiti Jog",
+        "published": "2013-03-22",
+        "thumbnail": "https://i2.ytimg.com/vi/-BGYI-9OEyg/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/-BGYI-9OEyg.jpg"
+      },
+      {
+        "videoId": "AX6pRrfGRkE",
+        "title": "Path Ekaki | Kurukshetra Songs | Shweta Salve - Vaibhav Tattwavadi | Latest Marathi Song",
+        "published": "2016-03-14",
+        "thumbnail": "https://i2.ytimg.com/vi/AX6pRrfGRkE/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/AX6pRrfGRkE.jpg"
+      },
+      {
+        "videoId": "zGV4uN2tB4E",
+        "title": "Tu Jarashi | Lyrical Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana Behere",
+        "published": "2017-11-23",
+        "thumbnail": "https://i3.ytimg.com/vi/zGV4uN2tB4E/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/zGV4uN2tB4E.jpg"
+      },
+      {
+        "videoId": "jBQ758Vy_l4",
+        "title": "Funkarichi Wadle | Video Song | What's Up Lagna | Nilesh Moharir | Vaibhav Tatwawaadi, Prarthana",
+        "published": "2018-02-23",
+        "thumbnail": "https://i3.ytimg.com/vi/jBQ758Vy_l4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/jBQ758Vy_l4.jpg"
+      },
+      {
+        "videoId": "JlQweA5Docg",
+        "title": "Bhijun Gela Vara with lyrics | भिजून गेला वारा | Kshitij Tare | Nihira Joshi | Irada Pakka",
+        "published": "2019-06-04",
+        "thumbnail": "https://i3.ytimg.com/vi/JlQweA5Docg/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/JlQweA5Docg.jpg"
+      },
+      {
+        "videoId": "oqCpc4qQnQQ",
+        "title": "Sang Na Re Mana Lyric Video | Swapnil Bandodkar | Nihira Joshi | Avadhoot Gupte",
+        "published": "2021-06-25",
+        "thumbnail": "https://i4.ytimg.com/vi/oqCpc4qQnQQ/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/oqCpc4qQnQQ.jpg"
+      },
+      {
+        "videoId": "hG1XURXa5m4",
+        "title": "Mera Dil (Full Song) Film - Salaam-E-Ishq",
+        "published": "2011-05-24",
+        "thumbnail": "https://i1.ytimg.com/vi/hG1XURXa5m4/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/hG1XURXa5m4.jpg"
+      },
+      {
+        "videoId": "F7wM7zNTn5c",
+        "title": "Baawra",
+        "published": "2019-11-06",
+        "thumbnail": "https://i3.ytimg.com/vi/F7wM7zNTn5c/hqdefault.jpg",
+        "localThumbnail": "assets/img/yt/F7wM7zNTn5c.jpg"
       }
     ],
     "PLQ_rmkCpHU8oNRg8gWFdU0BjUlruM-1Y-": [
