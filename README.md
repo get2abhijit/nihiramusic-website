@@ -300,11 +300,10 @@ playlist: the page takes the video whose YouTube title contains the `matchTitle`
   "description": "Optional text about the song.",
   "listenUrl": "https://song.link/...",
   "spotifyUrl": "https://open.spotify.com/track/...",
-  "featured": false,
   "source": "where this information came from"
 }
 ```
-Set `"featured": true` on one release to pin it to the top.
+The newest release (by `date`, else `year`, else the YouTube upload date) is shown large at the top automatically; there is nothing to pin.
 
 **Poem** (`data/poems.json`). Only Nihira's own poems as `text`; for other poets' poems add only the recitation `videoId`. Never song lyrics.
 ```json

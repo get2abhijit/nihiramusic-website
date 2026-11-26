@@ -296,7 +296,6 @@ content:
           - { name: spotifyUrl, component: url, label: Spotify link }
           - { name: soundcloudUrl, component: url, label: SoundCloud link }
           - { name: deezerUrl, component: url, label: Deezer link }
-          - { name: featured, label: Pin to the top (use for one release only), type: boolean }
           - name: tracks
             label: Tracks (albums / EPs only)
             type: object
@@ -374,7 +373,6 @@ content:
           - { name: spotifyUrl, component: url, label: Spotify link }
           - { name: image, component: image, label: Picture (only if there is no video) }
           - { name: imageAlt, label: Picture description, type: string }
-          - { name: featured, label: Show large at the top, type: boolean }
           - { name: source, component: source }
           - { name: _sources, label: More sources, type: string, list: true, hidden: true }
           - { name: _note, component: note }
@@ -433,7 +431,6 @@ content:
           - { name: description, label: Description (optional, never lyrics), type: text }
           - { name: spotifyUrl, component: url, label: Spotify link }
           - { name: listenUrl, component: url, label: "'Listen now' link" }
-          - { name: featured, label: Pin to the top, type: boolean }
           - { name: source, component: source }
           - { name: _sources, label: More sources, type: string, list: true, hidden: true }
           - { name: _note, component: note }

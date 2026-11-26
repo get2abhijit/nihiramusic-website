@@ -112,11 +112,9 @@ function sectionOf(item, sections) {
 }
 
 const sortKey = (i) => i.date || (i.year ? `${i.year}-00-00` : '') || i._sortDate || '';
+/** Newest first. No manual pinning: the first card of each section is its latest release and is shown large. */
 function newestFirst(list) {
-  return list.map((x, i) => [x, i]).sort((a, b) => {
-    if (!!b[0].featured !== !!a[0].featured) return b[0].featured ? 1 : -1;
-    return sortKey(b[0]).localeCompare(sortKey(a[0])) || a[1] - b[1];
-  }).map((x) => x[0]);
+  return list.map((x, i) => [x, i]).sort((a, b) => sortKey(b[0]).localeCompare(sortKey(a[0])) || a[1] - b[1]).map((x) => x[0]);
 }
 
 /**
@@ -236,7 +234,8 @@ export default async function ({ app, page }) {
     const head = s.id ? h('div', { class: 'section-head works-section__head' },
       h('h2', { id: headId, tabindex: '-1', text: s.label || s.id }),
       s.playlistId ? link(playlistUrl(s.playlistId), 'Playlist on YouTube', { class: 'pill' }) : null) : null;
-    const grid = h('div', { class: 'works' }, shown.map((i) => workCard(i)));
+    // The latest release of every section is always the large "featured" card (only while no year filter is set).
+    const grid = h('div', { class: 'works' }, shown.map((i, n) => workCard({ ...i, featured: n === 0 && state.year === 'all' && !!sortKey(i) })));
     if (!shown.length) grid.append(emptyState(s.items.length ? 'Nothing matches this filter.' : (s.emptyText || 'Coming soon.')));
     return { el: h('section', { class: 'works-section', id: s.id || null, 'aria-labelledby': s.id ? headId : null },
       head, s.intro && single ? h('div', { class: 'works-section__intro prose' }, md(s.intro)) : null, grid), count: shown.length };

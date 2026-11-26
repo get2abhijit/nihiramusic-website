@@ -506,9 +506,9 @@ def check_list_file(rep, rel, name, data, raw, generated=False):
                             rep.add("warning", rel, f"{where}, track #{j + 1}", f"unknown field '{key}'.")
     if fields is ORIGINAL:
         feat = [it.get("title", "?") for it in data["items"] if isinstance(it, dict) and it.get("featured") is True]
-        if len(feat) > 1:
-            rep.add("warning", rel, "", f"{len(feat)} releases have \"featured\": true ({', '.join(feat)}). "
-                    "Only the first is shown large; usually keep one.")
+        if feat:
+            rep.add("warning", rel, "", f"\"featured\": true on {', '.join(feat)} is ignored: the newest release "
+                    "is always shown large automatically. You can delete the line.")
     secs = data.get("sections") if isinstance(data.get("sections"), list) else []
     sids = [x.get("id") for x in secs if isinstance(x, dict)]
     for d in {x for x in sids if x and sids.count(x) > 1}:

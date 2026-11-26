@@ -47,7 +47,7 @@ export default async function ({ app, site }) {
   }
 
   // Latest releases
-  const rel = originals && Array.isArray(originals.items) ? newestFirst(originals.items).slice(0, n('releases', 3)) : [];
+  const rel = originals && Array.isArray(originals.items) ? newestFirst(originals.items, { pinFeatured: false }).slice(0, n('releases', 3)) : [];
   if (on('releases') && rel.length) {
     app.append(h('section', { class: 'section section--alt', 'aria-label': S.releases.heading },
       h('div', { class: 'wrap' }, sectionHead(S.releases.heading, 'original-compositions/', 'All originals'),
