@@ -32,12 +32,6 @@
       "id": "unplugged",
       "label": "Unplugged",
       "emptyText": "Unplugged covers will appear here soon."
-    },
-    {
-      "id": "poetic-treasures",
-      "label": "Poetic Treasures",
-      "href": "poetic-treasures/",
-      "_note": "Link tab: opens the Poetic Treasures page."
     }
   ],
   "items": [

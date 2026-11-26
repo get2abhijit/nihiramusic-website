@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-26: Featured = latest, shorter cards, simpler menu, Performances filters
+- **Featured is automatic** (Films, Title tracks, Originals, every Covers tab): the newest entry of a tab is the large card; manual `featured` pins are gone (a leftover one is ignored and flagged by `validate_data.py`).
+- **Small cards stay short**: name, film and award line only; year, credits and description show on the large card.
+- **Duplicates / unwanted videos**: second "Chal Re Mana Jaau" upload hidden (`hideVideoIds` in the Films tab); the live jam of "Ishq Manayein Kya" hidden in `originals.json`, so the Duet version is the featured original.
+- **Navigation**: header = pages only (Home, Music > Originals / Playback / Covers / Poetic Treasures, Performances, Events, News, Recognition). In-page tabs (All, Films, Title tracks, Hindi ...) only filter the current page; the "Originals" and "Poetic Treasures" link tabs were removed.
+- **Performances**: Show, Year and City selects (a select with fewer than two choices stays hidden), result count, "Show everything" button. Links such as `concerts/#jjws` still work.
+- Changed: assets/js/works.js, concerts.js; assets/css/style.css; data/site.json, playback.json, originals.json, covers.json; tools/validate_data.py; .pages.yml; README.md.
+
 ## M6b (2026-11-02): Press kit, calendar descriptions, award layout, alignment
 - **Events from the calendar keep their formatting.** `tools/sync_calendar.py`: HTML or plain-text descriptions become the website's Markdown subset (paragraphs, line breaks, bold, italic, lists). Links (HTML links, Google redirect links unwrapped, plain https:// addresses) are removed from the text and written to a new `links` list; a lead-in such as "Tickets:" is dropped. `assets/js/events.js` shows `links` as buttons below the text (together with the Tickets button), for list, calendar view and Home. "Add to calendar" (.ics, Google) now gets a clean plain-text description plus the link addresses. `events.json` events may carry `links` too.
 - **Awards**: photos sit to the right of the text on wide screens (below on phones) (`assets/js/awards.js`, `style.css`).

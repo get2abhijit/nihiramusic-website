@@ -7,18 +7,15 @@
   "excludeTitlePattern": "lyric",
   "sections": [
     {
-      "id": "originals",
-      "label": "Originals",
-      "href": "original-compositions/",
-      "_note": "Link tab: opens the Originals page."
-    },
-    {
       "id": "films",
       "label": "Films",
       "playlistId": "PLQ_rmkCpHU8oKqBdNyo3x5r0D5YvSLlo3",
       "emptyText": "Film songs will appear here soon.",
       "playlistSource": "https://www.youtube.com/playlist?list=PLQ_rmkCpHU8oKqBdNyo3x5r0D5YvSLlo3",
-      "_note": "Playlist 'Nihira film songs' (owner Nihira Joshi, 15 videos on 2026-11-01)."
+      "_note": "Playlist 'Nihira film songs' (owner Nihira Joshi, 15 videos on 2026-11-01).",
+      "hideVideoIds": [
+        "_3PIYlQ4A70"
+      ]
     },
     {
       "id": "title-tracks",

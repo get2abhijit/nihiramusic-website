@@ -23,9 +23,9 @@
       "path": ""
     },
     {
-      "id": "playback",
-      "label": "Playback",
-      "path": "playback/",
+      "id": "music",
+      "label": "Music",
+      "path": "original-compositions/",
       "children": [
         {
           "id": "originals",
@@ -33,46 +33,14 @@
           "path": "original-compositions/"
         },
         {
-          "id": "playback-films",
-          "label": "Films",
-          "path": "playback/#films"
+          "id": "playback",
+          "label": "Playback",
+          "path": "playback/"
         },
         {
-          "id": "playback-title-tracks",
-          "label": "Title tracks",
-          "path": "playback/#title-tracks"
-        }
-      ]
-    },
-    {
-      "id": "covers",
-      "label": "Music",
-      "path": "covers/",
-      "children": [
-        {
-          "id": "covers-hindi",
-          "label": "Hindi",
-          "path": "covers/#hindi"
-        },
-        {
-          "id": "covers-marathi",
-          "label": "Marathi",
-          "path": "covers/#marathi"
-        },
-        {
-          "id": "covers-devotional",
-          "label": "Devotional",
-          "path": "covers/#devotional"
-        },
-        {
-          "id": "covers-ghazals",
-          "label": "Ghazals",
-          "path": "covers/#ghazals"
-        },
-        {
-          "id": "covers-unplugged",
-          "label": "Unplugged",
-          "path": "covers/#unplugged"
+          "id": "covers",
+          "label": "Covers",
+          "path": "covers/"
         },
         {
           "id": "poems",

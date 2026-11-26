@@ -74,15 +74,18 @@ export function workCard(item, { compact = false } = {}) {
     : item.image ? img(item.image, { alt: item.imageAlt || '', cls: 'work__img', sizes: '(min-width: 62rem) 33vw, 100vw' })
       : h('div', { class: 'work__placeholder', 'aria-hidden': 'true' }, icon('listen'));
   const meta = [item.type, item.language, yearOf(item), item.category && !item.type ? item.category : null].filter(Boolean).join(', ');
+  // Small cards in the grid stay short and equally tall: name, film, award. The full details (year, credits,
+  // description) belong to the large featured card at the top.
+  const brief = !featured && !compact;
   const head = h('div', { class: 'work__head' },
     h('h3', { class: 'work__title', text: title }),
     item.film ? h('p', { class: 'work__film' }, 'From the film ', h('cite', { text: item.film })) : null,
-    meta ? h('p', { class: 'work__meta', text: meta }) : null,
+    meta && !brief ? h('p', { class: 'work__meta', text: meta }) : null,
     item.originalArtist ? h('p', { class: 'work__credits', text: `Originally by ${item.originalArtist}` }) : null,
-    item.credits ? h('p', { class: 'work__credits', text: item.credits }) : null,
+    item.credits && !brief ? h('p', { class: 'work__credits', text: item.credits }) : null,
     awardBadge(item));
   const foot = h('div', { class: 'work__foot' },
-    !compact && item.description ? h('div', { class: 'work__desc prose' }, md(paras(item.description))) : null,
+    featured && item.description ? h('div', { class: 'work__desc prose' }, md(paras(item.description))) : null,
     links(item));
 
   if (featured) {

@@ -6,7 +6,9 @@
   "playlistId": "PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr",
   "playlistSource": "https://www.youtube.com/playlist?list=PLQ_rmkCpHU8omXI3xmCsta60n-LsyHiQr",
   "excludeTitlePattern": "lyric",
-  "hideVideoIds": [],
+  "hideVideoIds": [
+    "EohW_xKSezs"
+  ],
   "items": [
     {
       "id": "trishna",
